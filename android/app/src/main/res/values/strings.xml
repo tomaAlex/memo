@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">memo</string>
+<string name="facebook_app_id">1190469701534720</string>
+<string name="fb_login_protocol_scheme">fb1190469701534720</string>
+<string name="facebook_client_token">340d6a8091299162b099391e79099e1e</string>
+
+
+</resources>

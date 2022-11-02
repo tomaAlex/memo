@@ -1,0 +1,28 @@
+// prettier-ignore
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "react-native",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+		"baseUrl": "./src/",
+    "paths": {
+      "constants": ["./constants/index.ts"],
+      "Firebase": ["./Firebase/index.ts"],
+      "types": ["./types/index.ts"],
+      "components": ["./components/index.ts"],
+      "hooks": ["./hooks/index.ts"],
+      "utils": ["./utils/index.ts"],
+    },
+		"noFallthroughCasesInSwitch": true
+  },
+  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
+}

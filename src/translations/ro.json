@@ -1,0 +1,116 @@
+{
+	"translation": {
+		"Screens": {
+			"Login": {
+				"title": "Logheaza-te"
+			},
+			"Signup": {
+				"title": "Inregistreaza-te",
+				"Forms": {
+					"Labels": {
+						"submit": "Trimite"
+					},
+					"Identification": {
+						"Labels": {
+							"firstName": "Prenume",
+							"lastName": "Nume",
+							"gender": "Gen",
+							"birthDate": "Data nasterii"
+						},
+						"Errors": {
+							"firstName": {
+								"tooLong": "Prenumele este prea lung",
+								"required": "Prenumele este obligatoriu"
+							},
+							"lastName": {
+								"tooLong": "Numele este prea lung",
+								"required": "Numele este obligatoriu"
+							},
+							"gender": {
+								"required": "Genul este obligatoriu"
+							},
+							"birthDate": {
+								"tooYoung": "Trebuie sa ai cel putin 18 ani",
+								"tooOld": "Nimeni nu e atat de batran aici",
+								"required": "Data nasterii este obligatorie"
+							}
+						}
+					},
+					"Details": {
+						"Labels": {
+							"job": "Titlul job-ului",
+							"school": "Numele scolii",
+							"description": "Descriere",
+							"location": {
+								"country": "Tara",
+								"state": "Stat",
+								"city": "Oras"
+							}
+						},
+						"Errors": {
+							"job": {
+								"tooLong": "Titlul job-ului este prea lung"
+							},
+							"school": {
+								"tooLong": "Numele scolii este prea lung"
+							},
+							"description": {
+								"tooLong": "Descrierea este prea lunga"
+							},
+							"location": {
+								"country": {
+									"required": "Tara este obligatorie"
+								},
+								"state": {
+									"required": "Statul este obligatoriu"
+								},
+								"city": {
+									"tooShort": "Numele orasului este prea scurt",
+									"tooLong": "Numele orasului este prea lung",
+									"required": "Orasul este obligatoriu"
+								}
+							}
+						}
+					},
+					"Embodiment": {
+						"Labels": {
+							"height": "Inaltime (cm)",
+							"orientation": "Orientare",
+							"photos": "Poze"
+						},
+						"Errors": {
+							"height": {
+								"tooShort": "Cea mai scunda persoana din lume a avut 54 cm",
+								"tooTall": "Cea mai inalta persoana din lume a avut 272 cm"
+							},
+							"orientation": {
+								"required": "Orientarea este obligatorie"
+							},
+							"photos": {
+								"required": "Pozele sunt obligatorii",
+								"tooMany": "Poti avea cel mult 9 poze"
+							}
+						}
+					}
+				}
+			},
+			"Seeder": {
+				"title": "Insemantator"
+			}
+		},
+		"Components": {
+			"Forms": {
+				"FormImagePicker": {
+					"FormImagePickerSlide": {
+						"delete": "Sterge"
+					},
+					"FormImagePickerSupplier": {
+						"remainingPicturesNotice_0": "Nu mai poti adauga poze",
+						"remainingPicturesNotice": "Mai poti adauga o poza",
+						"remainingPicturesNotice_plural": "Mai poti adauga {{count}} poze"
+					}
+				}
+			}
+		}
+	}
+}

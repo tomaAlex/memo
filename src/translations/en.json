@@ -1,0 +1,116 @@
+{
+	"translation": {
+		"Screens": {
+			"Login": {
+				"title": "Login"
+			},
+			"Signup": {
+				"title": "Sign Up",
+				"Forms": {
+					"Labels": {
+						"submit": "Submit"
+					},
+					"Identification": {
+						"Labels": {
+							"firstName": "First name",
+							"lastName": "Last name",
+							"gender": "Gender",
+							"birthDate": "Birthdate"
+						},
+						"Errors": {
+							"firstName": {
+								"tooLong": "First name is too long",
+								"required": "First name is required"
+							},
+							"lastName": {
+								"tooLong": "Last name is too long",
+								"required": "Last name is required"
+							},
+							"gender": {
+								"required": "Gender is required"
+							},
+							"birthDate": {
+								"tooYoung": "You must be at least 18 years old",
+								"tooOld": "Nobody is that old around here",
+								"required": "Birthdate is required"
+							}
+						}
+					},
+					"Details": {
+						"Labels": {
+							"job": "Job title",
+							"school": "School name",
+							"description": "Description",
+							"location": {
+								"country": "Country",
+								"state": "State",
+								"city": "City"
+							}
+						},
+						"Errors": {
+							"job": {
+								"tooLong": "Job title is too long"
+							},
+							"school": {
+								"tooLong": "School name is too long"
+							},
+							"description": {
+								"tooLong": "Description is too long"
+							},
+							"location": {
+								"country": {
+									"required": "Country is required"
+								},
+								"state": {
+									"required": "State is required"
+								},
+								"city": {
+									"tooShort": "City name is too short",
+									"tooLong": "City name is too long",
+									"required": "City is required"
+								}
+							}
+						}
+					},
+					"Embodiment": {
+						"Labels": {
+							"height": "Height (cm)",
+							"orientation": "Orientation",
+							"photos": "Photos"
+						},
+						"Errors": {
+							"height": {
+								"tooShort": "The shortest person in the world was 54cm tall",
+								"tooTall": "The tallest person in the world was 272cm tall"
+							},
+							"orientation": {
+								"required": "Orientation is required"
+							},
+							"photos": {
+								"required": "Photos are required",
+								"tooMany": "You can have at most 9 photos"
+							}
+						}
+					}
+				}
+			},
+			"Seeder": {
+				"title": "Seeder"
+			}
+		},
+		"Components": {
+			"Forms": {
+				"FormImagePicker": {
+					"FormImagePickerSlide": {
+						"delete": "Delete"
+					},
+					"FormImagePickerSupplier": {
+						"remainingPicturesNotice_0": "You cannot add any more pictures",
+						"remainingPicturesNotice": "You can add one more picture",
+						"remainingPicturesNotice_plural": "You can add {{count}} more pictures"
+					}
+				}
+			}
+		}
+	}
+}
