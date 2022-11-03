@@ -11,7 +11,8 @@ import FormChoicePicker, { FormChoicePickerItem } from "components/forms/FormCho
 import { convertChoicesToFormChoicePickerData } from "utils/index";
 import { useTranslation } from "react-i18next";
 import FormImagePicker from "components/forms/FormImagePicker";
-import { createUserObject, auth } from "Firebase/index";
+import { createUserObject } from "Firebase/index";
+import auth from "@react-native-firebase/auth";
 import assembleUser from "./utils/assembleUser";
 
 const Embodiment = ({
@@ -35,7 +36,7 @@ const Embodiment = ({
 					}}
 					onSubmit={async (embodiment: EmbodimentForm) => {
 						const userToSignUp = assembleUser(identification, details, embodiment);
-						await createUserObject(userToSignUp, auth.currentUser?.uid);
+						await createUserObject(userToSignUp, auth().currentUser?.uid as string);
 						navigation.navigate(ScreenNames.Main);
 					}}
 				>

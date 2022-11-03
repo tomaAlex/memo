@@ -11,16 +11,11 @@ GoogleSignin.configure({
 
 export const signInWithGoogle: SignInMethod = async () => {
 	try {
-		console.log("signInWithGoogle");
 		await GoogleSignin.hasPlayServices();
-		console.log("hasPlayServices");
 		const userInfo: User = await GoogleSignin.signIn();
 
-		console.log("userInfo", userInfo);
 		const googleCredential = auth.GoogleAuthProvider.credential(userInfo.idToken);
-		console.log("googleCredential", googleCredential);
 		const userCredential = await auth().signInWithCredential(googleCredential);
-		console.log("userCredential", userCredential);
 
 		return userCredential;
 	} catch (error: any) {

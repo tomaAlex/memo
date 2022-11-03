@@ -2,7 +2,7 @@ import React from "react";
 import { Keyboard, TouchableWithoutFeedback, View } from "react-native";
 import connector from "../../../redux/connector";
 import "../../../translations/i18.config";
-import { Gender, ScreenNames, ScreenProps } from "types/index";
+import { Gender, IdentificationForm, ScreenNames, ScreenProps } from "types/index";
 import { Formik } from "formik";
 import FormTextInput from "components/forms/FormTextInput";
 import FormChoicePicker, { FormChoicePickerItem } from "components/forms/FormChoicePicker";
@@ -23,7 +23,9 @@ const Identification = ({ navigation }: ScreenProps<ScreenNames.Identification>)
 				<Formik
 					validationSchema={identificationSchema}
 					initialValues={{ firstName: "", lastName: "", gender: "", birthDate: "" }}
-					onSubmit={(identification) => navigation.navigate("Details", { identification })}
+					onSubmit={(identification) =>
+						navigation.navigate("Details", { identification: identification as unknown as IdentificationForm })
+					}
 				>
 					<View style={{ width: "80%" }}>
 						<FormTextInput isMandatory field="firstName" placeholder="John">

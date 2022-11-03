@@ -8,7 +8,9 @@ const handleSignIn = (
 ) => {
 	return async () => {
 		const userCredentials = await fetchUserCredentials();
+		console.log("userCredentials", userCredentials);
 		const isUserSignedUp = await checkUserObjectExists(userCredentials.user.uid);
+		console.log("isUserSignedUp", isUserSignedUp);
 		const nextScreen = isUserSignedUp ? ScreenNames.Main : ScreenNames.Identification;
 		navigation.navigate(nextScreen);
 	};
