@@ -1,7 +1,6 @@
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "../firebaseConfig";
+import firestore from "@react-native-firebase/firestore";
 
 export const checkUserObjectExists = async (uid: string) => {
-	const possibleUserData = await getDoc(doc(db, "users", uid));
-	return possibleUserData.exists();
+	const possibleUserData = await firestore().collection("Users").doc(uid).get();
+	return possibleUserData.exists;
 };

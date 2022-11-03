@@ -1,22 +1,26 @@
 import { GoogleSignin, statusCodes } from "@react-native-google-signin/google-signin";
 import { User } from "@react-native-google-signin/google-signin/lib/typescript/src/types";
-import { GoogleAuthProvider, signInWithCredential } from "firebase/auth";
 import Config from "react-native-config";
 import { SignInMethod } from "types";
-import { auth } from "../../firebaseConfig";
+import auth from "@react-native-firebase/auth";
 
 GoogleSignin.configure({
 	webClientId: Config.GOOGLE_SIGN_IN_WEB_CLIENT_ID,
-	iosClientId: Config.GOOGLE_SIGN_IN_IOS_CLIENT_ID,
+	// iosClientId: Config.GOOGLE_SIGN_IN_IOS_CLIENT_ID,
 });
 
 export const signInWithGoogle: SignInMethod = async () => {
 	try {
+		console.log("signInWithGoogle");
 		await GoogleSignin.hasPlayServices();
+		console.log("hasPlayServices");
 		const userInfo: User = await GoogleSignin.signIn();
 
-		const googleCredential = GoogleAuthProvider.credential(userInfo.idToken);
-		const userCredential = await signInWithCredential(auth, googleCredential);
+		console.log("userInfo", userInfo);
+		const googleCredential = auth.GoogleAuthProvider.credential(userInfo.idToken);
+		console.log("googleCredential", googleCredential);
+		const userCredential = await auth().signInWithCredential(googleCredential);
+		console.log("userCredential", userCredential);
 
 		return userCredential;
 	} catch (error: any) {
