@@ -20,6 +20,7 @@ export const signInWithGoogle: SignInMethod = async () => {
 
 		return userCredential;
 	} catch (error: any) {
+		console.error(JSON.stringify(error));
 		switch (error.code) {
 			case statusCodes.SIGN_IN_CANCELLED:
 				// user cancelled the login flow

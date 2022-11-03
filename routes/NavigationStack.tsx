@@ -4,7 +4,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { ScreenNames, NavigationStackTypes } from "types/index";
 import { getAllRequiredPermissions } from "utils/index";
 import Login from "screens/Login";
-import Seeder from "screens/Seeder";
 import Identification from "screens/Signup/Identification";
 import Details from "screens/Signup/Details";
 import Embodiment from "screens/Signup/Embodiment";
@@ -21,7 +20,6 @@ export default class Navigator extends React.Component {
 			<NavigationContainer>
 				<Stack.Navigator initialRouteName={ScreenNames.Login} screenOptions={{ headerShown: false }}>
 					<Stack.Screen name={ScreenNames.Login} component={Login} />
-					<Stack.Screen name={ScreenNames.Seeder} component={Seeder} />
 					<Stack.Screen name={ScreenNames.Identification} component={Identification} />
 					<Stack.Screen name={ScreenNames.Details} component={Details} />
 					<Stack.Screen name={ScreenNames.Embodiment} component={Embodiment} />

@@ -26,7 +26,6 @@ export type EmbodimentForm = {
 
 export interface NavigationStackTypes extends NavigationStackTypesStructure {
 	[ScreenNames.Login]: undefined;
-	[ScreenNames.Seeder]: { title: string };
 	[ScreenNames.Identification]: undefined;
 	[ScreenNames.Details]: {
 		identification: IdentificationForm;

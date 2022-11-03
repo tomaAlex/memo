@@ -10,7 +10,7 @@ import { LoginButton } from "react-native-fbsdk-next";
 import handleSignIn from "./utils/handleSignIn";
 
 const Login = ({ navigation }: ScreenProps<ScreenNames.Login>) => {
-	const [t] = useTranslation("translation", { keyPrefix: "Screens.Seeder" });
+	const [t] = useTranslation("translation", { keyPrefix: "Screens.Login" });
 
 	return (
 		<SafeAreaView style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
