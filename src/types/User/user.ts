@@ -15,3 +15,7 @@ export interface User {
 	orientation: Orientation;
 	photos: string[];
 }
+
+export interface IdentifiedUser extends User {
+	id: string;
+}

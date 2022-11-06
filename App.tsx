@@ -1,14 +1,19 @@
-import React from 'react';
-import {Provider} from 'react-redux';
-import Navigator from './routes/NavigationStack';
-import store from './src/redux/store';
+import React, { useEffect } from "react";
+import { Provider } from "react-redux";
+import Navigator from "./routes/NavigationStack";
+import store from "./src/redux/store";
+import { getAllRequiredPermissions } from "utils/index";
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <Navigator />
-      </Provider>
-    );
-  }
-}
+const App: React.FunctionComponent = () => {
+	useEffect(() => {
+		getAllRequiredPermissions();
+	}, []);
+
+	return (
+		<Provider store={store}>
+			<Navigator />
+		</Provider>
+	);
+};
+
+export default App;

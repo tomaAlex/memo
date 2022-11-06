@@ -1,13 +1,11 @@
-import {User} from '../../User';
-import {GeneralAction} from './general';
+import { User } from "../../User";
+import { GeneralAction } from "./general";
 
 export enum UserActions {
-  UPDATE = 'UPDATE_USER',
-  LOGIN = 'LOGIN',
-  LOGOUT = 'LOGOUT',
+	UPDATE = "UPDATE_USER",
 }
 
 export interface UserAction<T = User> extends GeneralAction {
-  type: UserActions;
-  payload: T;
+	type: UserActions;
+	payload: T;
 }

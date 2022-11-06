@@ -7,15 +7,14 @@ import { ScreenNames, ScreenProps } from "types/index";
 import { GoogleSigninButton } from "@react-native-google-signin/google-signin";
 import { signInWithGoogle, signInWithFacebook } from "Firebase/index";
 import { LoginButton } from "react-native-fbsdk-next";
-import handleSignIn from "./utils/handleSignIn";
 
 const Login = ({ navigation }: ScreenProps<ScreenNames.Login>) => {
 	const [t] = useTranslation("translation", { keyPrefix: "Screens.Login" });
 
 	return (
 		<SafeAreaView style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-			<GoogleSigninButton size={1} onPress={handleSignIn(signInWithGoogle, navigation)} />
-			<TouchableOpacity onPress={handleSignIn(signInWithFacebook, navigation)}>
+			<GoogleSigninButton size={1} onPress={signInWithGoogle} />
+			<TouchableOpacity onPress={signInWithFacebook}>
 				<LoginButton
 					style={{ width: 304, height: 36 }}
 					onLogoutFinished={() => console.log("logged out")}

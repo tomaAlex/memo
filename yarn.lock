@@ -1401,6 +1401,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-16.4.1.tgz#6fcf4a87edfb730b4bbce1c4a2d1b5d39fcc6dd9"
   integrity sha512-va12bIhMnv/r6SsV+ZS8uQThfXqBicTYlb1fiUhUAvLkO59mcRM3i+dRrWApxLusFg3sO+dgeNaVV428Ny6u3Q==
 
+"@react-native-firebase/functions@^16.4.2":
+  version "16.4.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/functions/-/functions-16.4.2.tgz#9460ea1775cec2e15bd37120419326b3a717fa7a"
+  integrity sha512-2Qs83LxlXzH7QRx6DQMR1TsO2FHYmrpA9eM25HjjixogDWPBv4/c4vVn23a+vAN0S6yIf7DUqSqVDwOjVSVl+Q==
+
 "@react-native-google-signin/google-signin@^8.0.0":
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/@react-native-google-signin/google-signin/-/google-signin-8.0.0.tgz#f8202c121b4df185eb165dc58b35544c643af25f"
@@ -6297,10 +6302,10 @@ react-native-config@^1.4.11:
   resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-1.4.11.tgz#f9ea08a8dffbe3fd4f2187d80d2594756526dee8"
   integrity sha512-PdBFnfR3pljUNrJu4B2wiJ9TbAiz1J1WcG5KP8AFBqZi8ve5MV/CTCDnANaGrqhOxkBDJV73D/SrMENHe7TKBg==
 
-react-native-deck-swiper@^2.0.10:
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/react-native-deck-swiper/-/react-native-deck-swiper-2.0.10.tgz#0e3d5d2c8143d548e8879b6e2b9fb11ad0f1a00d"
-  integrity sha512-4dDrmLyOEwrFyZ1f1Oii37LBw2J8ycTFYGsM1324Z4N/UWb8wfCuvQ6SRRtonTJq5Qwfoe6Jsj4dD7MUj6ldgA==
+react-native-deck-swiper@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/react-native-deck-swiper/-/react-native-deck-swiper-2.0.11.tgz#c7a564d72d5f5a28f268bb3cb0da7b8b4ecfb14f"
+  integrity sha512-qXxycuQO+Qn8Z301EGWdHsjYMRgXASAdjSAKTwExNds9T5BeYin1ApOHiWMhHRJr2nayzpWarsgYnQ33pwYYYg==
   dependencies:
     prop-types "15.5.10"
 

@@ -5,7 +5,7 @@ import { Gender, MainScreenNames, Orientation, ScreenProps, User } from "types/i
 import connector from "../../../redux/connector";
 import FeedUserCard from "./FeedUserCard";
 
-const Feed = ({ navigation }: ScreenProps<MainScreenNames.Feed>) => {
+const Feed = ({ navigation, user }: ScreenProps<MainScreenNames.Feed>) => {
 	const recommendations: User[] = [
 		{
 			firstName: "John",
