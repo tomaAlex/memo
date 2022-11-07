@@ -1,13 +1,18 @@
+import { useProfileDisliker, useProfileLiker } from "hooks/useFirebaseUtilities";
 import React from "react";
 import { Alert, SafeAreaView } from "react-native";
 import Swiper from "react-native-deck-swiper";
-import { Gender, MainScreenNames, Orientation, ScreenProps, User } from "types/index";
+import { Gender, MainScreenNames, Orientation, ScreenProps, IdentifiedUser } from "types/index";
 import connector from "../../../redux/connector";
 import FeedUserCard from "./FeedUserCard";
 
 const Feed = ({ navigation, user }: ScreenProps<MainScreenNames.Feed>) => {
-	const recommendations: User[] = [
+	const likeProfile = useProfileLiker();
+	const dislikeProfile = useProfileDisliker();
+
+	const recommendations: IdentifiedUser[] = [
 		{
+			id: "1",
 			firstName: "John",
 			lastName: "Doe",
 			birthDate: new Date("1990-01-01"),
@@ -28,6 +33,7 @@ const Feed = ({ navigation, user }: ScreenProps<MainScreenNames.Feed>) => {
 			orientation: Orientation.BI,
 		},
 		{
+			id: "2",
 			firstName: "Olivia",
 			lastName: "Doe",
 			birthDate: new Date("2001-11-04"),
@@ -47,6 +53,7 @@ const Feed = ({ navigation, user }: ScreenProps<MainScreenNames.Feed>) => {
 			orientation: Orientation.HETERO,
 		},
 		{
+			id: "3",
 			firstName: "Jane",
 			lastName: "Doe",
 			birthDate: new Date("2000-10-09"),
@@ -70,24 +77,23 @@ const Feed = ({ navigation, user }: ScreenProps<MainScreenNames.Feed>) => {
 
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: "#F5FCFF" }}>
-			<Swiper<User>
+			<Swiper<IdentifiedUser>
 				cards={recommendations}
 				renderCard={(userToDisplay) => <FeedUserCard {...{ userToDisplay }} />}
 				onSwipedRight={(userIndex) => {
 					const likedUser = recommendations[userIndex];
+					likeProfile(likedUser.id);
 					Alert.alert("Liked", `${likedUser.firstName}`);
 				}}
 				onSwipedLeft={(userIndex) => {
 					const dislikedUser = recommendations[userIndex];
+					dislikeProfile(dislikedUser.id);
 					Alert.alert("Disliked", `${dislikedUser.firstName}`);
-				}}
-				onSwipedTop={(userIndex) => {
-					const superLikedUser = recommendations[userIndex];
-					Alert.alert("Super Liked", `${superLikedUser.firstName}`);
 				}}
 				onSwipedAll={() => {
 					Alert.alert("Fetching more recommendations!");
 				}}
+				verticalSwipe={false}
 				cardIndex={0}
 				stackSize={1}
 			/>
