@@ -1,4 +1,8 @@
-import * as functions from "firebase-functions";
+// import * as functions from "firebase-functions";
+import * as admin from "firebase-admin";
+export * from "./getRecommendations";
+
+admin.initializeApp();
 
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
