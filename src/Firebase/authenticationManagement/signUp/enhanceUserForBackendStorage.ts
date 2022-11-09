@@ -5,5 +5,6 @@ export const enhanceUserForBackendStorage = (user: User) => {
 		...user,
 		likes: [] as string[],
 		dislikes: [] as string[],
+		matches: [] as string[],
 	};
 };

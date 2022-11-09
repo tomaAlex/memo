@@ -1,7 +1,7 @@
 import React from "react";
 import { useSignupEmbodimentFormValidationRules } from "hooks/index";
 import connector from "redux/connector";
-import { EmbodimentForm, Orientation, ScreenNames, ScreenProps, User } from "types/index";
+import { EmbodimentForm, Orientation, ScreenNames, ScreenProps } from "types/index";
 import { Keyboard, TouchableWithoutFeedback, View } from "react-native";
 import { Formik } from "formik";
 import FormSubmitButton from "components/forms/FormSubmitButton";

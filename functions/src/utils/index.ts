@@ -1,3 +1,4 @@
+export * from "./checkWhetherFieldHasChanged";
 export * from "./enforceAuthentication";
 export * from "./getAuthenticatedUser";
 export * from "./getAuthenticatedUserData";

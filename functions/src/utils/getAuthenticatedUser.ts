@@ -5,5 +5,5 @@ import { enforceAuthentication } from "./enforceAuthentication";
 export const getAuthenticatedUser = (context: functions.https.CallableContext) => {
 	enforceAuthentication(context);
 	const { uid } = context.auth as NonNullable<typeof context.auth>;
-	return firestore().collection("users").doc(uid);
+	return firestore().collection("users").doc(uid) as firestore.DocumentReference<User>;
 };
