@@ -19,8 +19,12 @@ type User = {
 	matches: string[];
 };
 
+type IdentifiedUser = User & {
+	id: string;
+};
+
 type MatchMessage = {
-	sender: string;
+	author: string;
 	timestamp: firestore.Timestamp;
 };
 
@@ -28,4 +32,10 @@ type Match = {
 	matchedUsers: string[];
 	messages: MatchMessage[];
 	timestamp: firestore.Timestamp;
+};
+
+type MatchPreview = {
+	id: string;
+	matchedUsers: IdentifiedUser[];
+	lastMessage: MatchMessage | null;
 };

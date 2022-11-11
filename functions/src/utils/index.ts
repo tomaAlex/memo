@@ -1,3 +1,4 @@
+export * from "./assertUserHasMatch";
 export * from "./checkWhetherFieldHasChanged";
 export * from "./checkWhetherFieldsHaveChanged";
 export * from "./enforceAuthentication";
