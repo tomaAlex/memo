@@ -10,10 +10,7 @@ export const sendMessage = functions.https.onCall(async (data, context) => {
 	const authenticatedIdentifiedUserData = await getAuthenticatedUserData(context);
 	assertUserHasMatch(matchId, authenticatedIdentifiedUserData);
 
-	const matchDocumentReference = (await firestore()
-		.collection("matches")
-		.doc(matchId)) as firestore.DocumentReference<Match>;
-
+	const matchDocumentReference = firestore().collection("matches").doc(matchId) as firestore.DocumentReference<Match>;
 	const matchData = (await matchDocumentReference.get()).data() as Match;
 	const messageToBeCreated = buildMessage(authenticatedIdentifiedUserData.id, content);
 	const newMessages = [...matchData.messages, messageToBeCreated];
