@@ -25,6 +25,7 @@ type IdentifiedUser = User & {
 
 type MatchMessage = {
 	author: string;
+	content: string;
 	timestamp: firestore.Timestamp;
 };
 
