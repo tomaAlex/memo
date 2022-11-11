@@ -20,6 +20,7 @@ module.exports = {
 	},
 	ignorePatterns: [
 		"/lib/**/*", // Ignore built files.
+		"babel.config.js", // Ignore babel config.
 	],
 	plugins: ["@typescript-eslint", "import", "prettier"],
 	rules: {

@@ -21,11 +21,11 @@ type User = {
 
 type MatchMessage = {
 	sender: string;
-	timestamp: string;
+	timestamp: firestore.Timestamp;
 };
 
 type Match = {
 	matchedUsers: string[];
 	messages: MatchMessage[];
-	timestamp: string;
+	timestamp: firestore.Timestamp;
 };

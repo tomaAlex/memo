@@ -5,5 +5,8 @@ export const checkWhetherFieldHasChanged = <DocumentStructure extends firestore.
 	afterChangeFileData: DocumentStructure,
 	fieldToCheck: keyof DocumentStructure
 ) => {
-	return beforeChangeFileData[fieldToCheck] !== afterChangeFileData[fieldToCheck];
+	const beforeChangeFileFieldValue = JSON.stringify(beforeChangeFileData[fieldToCheck]);
+	const afterChangeFileFieldValue = JSON.stringify(afterChangeFileData[fieldToCheck]);
+	const areFieldsTheSame = beforeChangeFileFieldValue == afterChangeFileFieldValue;
+	return !areFieldsTheSame;
 };
