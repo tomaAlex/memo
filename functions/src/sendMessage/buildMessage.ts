@@ -1,3 +1,9 @@
-const buildMatchMessage = () => {};
+import { firestore } from "firebase-admin";
 
-export default buildMatchMessage;
+const buildMessage = (author: string, content: string): MatchMessage => ({
+	author,
+	content,
+	timestamp: firestore.Timestamp.now(),
+});
+
+export default buildMessage;
