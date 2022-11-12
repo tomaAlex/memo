@@ -1,13 +1,14 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { ScreenNames, NavigationStackTypes, ReduxProps } from "types/index";
+import { ScreenNames, NavigationStackTypes } from "types/index";
 import Observer from "screens/Observer";
 import Login from "screens/Login";
 import Identification from "screens/Signup/Identification";
 import Details from "screens/Signup/Details";
 import Embodiment from "screens/Signup/Embodiment";
 import Main from "screens/Main";
+import MatchChat from "screens/MatchChat";
 
 const Stack = createStackNavigator<NavigationStackTypes>();
 
@@ -21,6 +22,7 @@ const Navigator = () => {
 				<Stack.Screen name={ScreenNames.Details} component={Details} />
 				<Stack.Screen name={ScreenNames.Embodiment} component={Embodiment} />
 				<Stack.Screen name={ScreenNames.Main} component={Main} />
+				<Stack.Screen name={ScreenNames.MatchChat} component={MatchChat} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

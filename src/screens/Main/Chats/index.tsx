@@ -5,7 +5,7 @@ import connector from "../../../redux/connector";
 import MatchPreviewRow from "./MatchPreviewRow";
 import fetchMatchPreviews from "./utils/fetchMatchPreviews";
 
-const Chats = ({ navigation, user }: ScreenProps<MainScreenNames.Chats>) => {
+const Chats = ({ user, navigation }: ScreenProps<MainScreenNames.Chats>) => {
 	const [matchPreviews, setMatchPreviews] = useState([] as MatchPreview[]);
 	const [areMatchPreviewsLoading, setAreMatchPreviewsLoading] = useState(true);
 	const matchIds = user.matches;
@@ -30,7 +30,7 @@ const Chats = ({ navigation, user }: ScreenProps<MainScreenNames.Chats>) => {
 
 	return (
 		<SafeAreaView>
-			<FlatList data={matchPreviews} renderItem={({ item }) => <MatchPreviewRow {...item} />} />
+			<FlatList data={matchPreviews} renderItem={({ item }) => <MatchPreviewRow {...{ ...item, navigation }} />} />
 		</SafeAreaView>
 	);
 };

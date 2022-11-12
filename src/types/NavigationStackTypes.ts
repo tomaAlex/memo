@@ -1,5 +1,5 @@
 import { MainScreenNames, ScreenNames } from "./ScreenNames";
-import { User } from "./User";
+import { IdentifiedUser, User } from "./User";
 
 type NavigationStackTypesStructure = { [key in string]: any };
 type NavigationTabTypesStructure = { [key in string]: any };
@@ -36,6 +36,10 @@ export interface NavigationStackTypes extends NavigationStackTypesStructure {
 		details: DetailsForm;
 	};
 	[ScreenNames.Main]: undefined;
+	[ScreenNames.MatchChat]: {
+		matchId: string;
+		matchedUsers: IdentifiedUser[];
+	};
 }
 
 export interface MainNavigationTabTypes extends NavigationTabTypesStructure {
