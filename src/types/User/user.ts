@@ -14,6 +14,9 @@ export interface User {
 	height?: number;
 	orientation: Orientation;
 	photos: string[];
+	likes: string[];
+	dislikes: string[];
+	matches: string[];
 }
 
 export interface IdentifiedUser extends User {

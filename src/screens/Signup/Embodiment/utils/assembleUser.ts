@@ -5,6 +5,9 @@ const assembleUser = (identification: IdentificationForm, details: DetailsForm, 
 		...identification,
 		...details,
 		...embodiment,
+		likes: [] as string[],
+		dislikes: [] as string[],
+		matches: [] as string[],
 	};
 };
 

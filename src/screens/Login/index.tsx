@@ -15,10 +15,7 @@ const Login = ({ navigation }: ScreenProps<ScreenNames.Login>) => {
 		<SafeAreaView style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
 			<GoogleSigninButton size={1} onPress={signInWithGoogle} />
 			<TouchableOpacity onPress={signInWithFacebook}>
-				<LoginButton
-					style={{ width: 304, height: 36 }}
-					onLogoutFinished={() => console.log("logged out")}
-				></LoginButton>
+				<LoginButton style={{ width: 304, height: 36 }} onLogoutFinished={() => console.log("logged out")} />
 			</TouchableOpacity>
 		</SafeAreaView>
 	);
