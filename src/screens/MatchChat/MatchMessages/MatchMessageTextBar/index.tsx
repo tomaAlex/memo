@@ -2,7 +2,7 @@ import FormSubmitButton from "components/forms/FormSubmitButton";
 import FormTextInput from "components/forms/FormTextInput";
 import { Formik } from "formik";
 import { useMatchMessageTextBarFormValidationRules } from "hooks";
-import React from "react";
+import React, { useState } from "react";
 import { View } from "react-native";
 
 type TProps = {
@@ -11,6 +11,7 @@ type TProps = {
 
 const MatchMessageTextBar = ({ sendMessage }: TProps) => {
 	const matchMessageTextBarSchema = useMatchMessageTextBarFormValidationRules();
+	const [isMessageSending, setIsMessageSending] = useState(false);
 
 	return (
 		<Formik
@@ -19,13 +20,16 @@ const MatchMessageTextBar = ({ sendMessage }: TProps) => {
 				messageText: "",
 			}}
 			onSubmit={async ({ messageText }, formikProps) => {
+				setIsMessageSending(true);
 				await sendMessage(messageText);
+				setIsMessageSending(false);
 				formikProps.resetForm();
 			}}
 		>
 			<View style={{ display: "flex", flexDirection: "row" }}>
 				<View style={{ flex: 1 }}>
 					<FormTextInput
+						editable={!isMessageSending}
 						field="messageText"
 						placeholder="Type message..."
 						style={{ width: "100%", backgroundColor: "white" }}
