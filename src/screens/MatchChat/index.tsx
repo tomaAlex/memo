@@ -1,4 +1,3 @@
-import { Formik } from "formik";
 import { useMatchMessages } from "hooks/index";
 import React from "react";
 import { Image, KeyboardAvoidingView, SafeAreaView, Text, View } from "react-native";
@@ -11,13 +10,12 @@ const MatchChat = ({
 	route: {
 		params: { matchId, matchedUsers },
 	},
-	user,
+	updateMatchPreviewLastMessage,
 }: ScreenProps<ScreenNames.MatchChat>) => {
 	const matchedUser = matchedUsers[0];
 	const { firstName, lastName } = matchedUser;
 	const matchedUserName = `${firstName} ${lastName}`;
-	// const matchReference = firebase.firestore().collection("matches").doc(matchId);
-	const [messages, sendNewMessage] = useMatchMessages(matchId);
+	const [messages, sendNewMessage] = useMatchMessages(matchId, updateMatchPreviewLastMessage);
 
 	return (
 		<SafeAreaView>

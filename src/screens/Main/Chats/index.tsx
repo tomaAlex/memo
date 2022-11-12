@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Text, SafeAreaView, FlatList } from "react-native";
-import { MainScreenNames, MatchPreview, ScreenProps } from "types/index";
+import { MainScreenNames, ScreenProps } from "types/index";
 import connector from "../../../redux/connector";
 import MatchPreviewRow from "./MatchPreviewRow";
 import fetchMatchPreviews from "./utils/fetchMatchPreviews";
 
-const Chats = ({ user, navigation }: ScreenProps<MainScreenNames.Chats>) => {
-	const [matchPreviews, setMatchPreviews] = useState([] as MatchPreview[]);
+const Chats = ({ user, matchPreviews, updateAllMatchPreviews, navigation }: ScreenProps<MainScreenNames.Chats>) => {
 	const [areMatchPreviewsLoading, setAreMatchPreviewsLoading] = useState(true);
 	const matchIds = user.matches;
 
-	const loadMatchPreviews = async () => {
+	const loadMatchPreviews = useCallback(async () => {
 		const userMatchPreviews = await fetchMatchPreviews();
-		setMatchPreviews(userMatchPreviews);
+		updateAllMatchPreviews(userMatchPreviews);
 		setAreMatchPreviewsLoading(false);
-	};
+	}, [updateAllMatchPreviews]);
 
 	useEffect(() => {
 		loadMatchPreviews();
-	}, [matchIds]);
+	}, [matchIds, loadMatchPreviews]);
 
 	if (areMatchPreviewsLoading) {
 		return <Text>Loading...</Text>;
