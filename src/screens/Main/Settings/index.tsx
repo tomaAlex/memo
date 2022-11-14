@@ -13,6 +13,9 @@ const Settings = ({
 	user: { firstName, lastName, gender, birthDate, job, school, description, location, height, orientation, photos },
 }: ScreenProps<MainScreenNames.Settings>) => {
 	const userUpdateSchema = useUserUpdateFormValidationRules();
+	const locationCountry = location?.country;
+	const locationState = location?.state;
+	const locationCity = location?.city;
 
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: "#F5FCFF" }}>
@@ -28,7 +31,9 @@ const Settings = ({
 							job,
 							school,
 							description,
-							location,
+							locationCountry,
+							locationState,
+							locationCity,
 							height,
 							orientation,
 							photos,
