@@ -45,4 +45,5 @@ export interface NavigationStackTypes extends NavigationStackTypesStructure {
 export interface MainNavigationTabTypes extends NavigationTabTypesStructure {
 	[MainScreenNames.Feed]: undefined;
 	[MainScreenNames.Chats]: undefined;
+	[MainScreenNames.Settings]: undefined;
 }

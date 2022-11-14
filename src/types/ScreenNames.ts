@@ -11,4 +11,5 @@ export enum ScreenNames {
 export enum MainScreenNames {
 	Feed = "Feed",
 	Chats = "Chats",
+	Settings = "Settings",
 }

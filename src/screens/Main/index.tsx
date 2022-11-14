@@ -4,6 +4,7 @@ import { MainNavigationTabTypes, MainScreenNames, ScreenNames, ScreenProps } fro
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Feed from "./Feed";
 import Chats from "./Chats";
+import Settings from "./Settings";
 import getMainNavbarIcon from "./utils/getMainNavbarIcon";
 
 const MainTab = createBottomTabNavigator<MainNavigationTabTypes>();
@@ -21,6 +22,7 @@ const Main = ({}: ScreenProps<ScreenNames.Main>) => {
 		>
 			<MainTab.Screen name={MainScreenNames.Feed} component={Feed} />
 			<MainTab.Screen name={MainScreenNames.Chats} component={Chats} />
+			<MainTab.Screen name={MainScreenNames.Settings} component={Settings} />
 		</MainTab.Navigator>
 	);
 };
