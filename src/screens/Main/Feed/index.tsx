@@ -1,13 +1,22 @@
-import { useProfileDisliker, useProfileLiker } from "hooks/useFirebaseUtilities";
+import { useProfileDisliker, useProfileLiker, useSnapshot } from "hooks/useFirebaseUtilities";
 import React, { useEffect, useState } from "react";
 import { Alert, SafeAreaView, Text } from "react-native";
 import Swiper from "react-native-deck-swiper";
-import { MainScreenNames, ScreenProps, IdentifiedUser } from "types/index";
+import { MainScreenNames, ScreenProps, IdentifiedUser, User } from "types/index";
 import connector from "../../../redux/connector";
 import FeedUserCard from "./FeedUserCard";
 import fetchRecommendations from "./utils/fetchRecommendations";
 
-const Feed = ({ navigation, user }: ScreenProps<MainScreenNames.Feed>) => {
+const Feed = ({ navigation, user, updateUser }: ScreenProps<MainScreenNames.Feed>) => {
+	const [userData] = useSnapshot<User>("users", user.id);
+	useEffect(() => {
+		if (!userData) {
+			return;
+		}
+		// keep user state in redux updated with the latest data state
+		updateUser(userData);
+	}, [userData, updateUser]);
+
 	const likeProfile = useProfileLiker();
 	const dislikeProfile = useProfileDisliker();
 

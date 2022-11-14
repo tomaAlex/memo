@@ -1,21 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Keyboard, SafeAreaView, ScrollView, TouchableWithoutFeedback, View } from "react-native";
 import { useUserUpdateFormValidationRules } from "hooks/index";
-import { MainScreenNames, ScreenProps } from "types/index";
+import { MainScreenNames, ScreenProps, User } from "types/index";
 import connector from "../../../redux/connector";
 import { Formik } from "formik";
 import FormSubmitButton from "components/forms/FormSubmitButton";
 import UpdateIdentificationForm from "./UpdateIdentificationForm";
 import UpdateDetailsForm from "./UpdateDetailsForm";
 import UpdateEmbodimentForm from "./UpdateEmbodimentForm";
+import { updateUser as firebaseUpdateUser } from "Firebase/index";
+import store from "redux/store";
 
 const Settings = ({
-	user: { firstName, lastName, gender, birthDate, job, school, description, location, height, orientation, photos },
+	user: { firstName, lastName, gender, birthDate, job, school, description, location, height, orientation, photos, id },
 }: ScreenProps<MainScreenNames.Settings>) => {
 	const userUpdateSchema = useUserUpdateFormValidationRules();
 	const locationCountry = location?.country;
 	const locationState = location?.state;
 	const locationCity = location?.city;
+	const [isUserUpdating, setIsUserUpdating] = useState(false);
 
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: "#F5FCFF" }}>
@@ -38,8 +41,10 @@ const Settings = ({
 							orientation,
 							photos,
 						}}
-						onSubmit={(userUpdate) => {
-							console.log(userUpdate);
+						onSubmit={async (userUpdate) => {
+							setIsUserUpdating(true);
+							await firebaseUpdateUser(store.getState().user, userUpdate as unknown as User, id);
+							setIsUserUpdating(false);
 						}}
 					>
 						<ScrollView style={{ width: "80%" }}>
@@ -47,7 +52,7 @@ const Settings = ({
 							<UpdateDetailsForm />
 							<UpdateEmbodimentForm />
 							<View style={{ marginTop: 50 }}>
-								<FormSubmitButton />
+								<FormSubmitButton disabled={isUserUpdating} />
 							</View>
 						</ScrollView>
 					</Formik>

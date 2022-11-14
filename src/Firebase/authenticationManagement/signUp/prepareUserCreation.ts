@@ -1,5 +1,5 @@
 import { User } from "types/index";
-import uploadUserImages from "./uploadUserImages";
+import { uploadUserImages } from "../../contentManagement";
 
 const prepareUserCreation = async (unpreparedForCreationUser: User, uid: string): Promise<void> => {
 	const uploadedUserImages = await uploadUserImages(unpreparedForCreationUser.photos, uid);
