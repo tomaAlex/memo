@@ -23,16 +23,28 @@ type IdentifiedUser = User & {
 	id: string;
 };
 
-type MatchMessage = {
-	author: string;
-	content: string;
+type LivedDocument = {
+	expiresAt: firestore.Timestamp;
+};
+
+type TimestampedElement = {
 	timestamp: firestore.Timestamp;
 };
 
-type Match = {
+type TimeManagedDocument = TimestampedElement & LivedDocument;
+
+type MatchMessage = TimestampedElement & {
+	author: string;
+	content: string;
+};
+
+type DocumentClearancePayload = {
+	documentToClearPath: string;
+};
+
+type Match = TimeManagedDocument & {
 	matchedUsers: string[];
 	messages: MatchMessage[];
-	timestamp: firestore.Timestamp;
 };
 
 type MatchPreview = {
