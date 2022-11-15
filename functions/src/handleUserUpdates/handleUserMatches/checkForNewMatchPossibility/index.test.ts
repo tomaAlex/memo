@@ -11,6 +11,10 @@ describe("checkForNewMatchPossibility", () => {
 		likes: ["1", "2", "3"],
 		dislikes: [],
 		matches: [],
+		coordinates: {
+			latitude: 0,
+			longitude: 0,
+		},
 	};
 
 	it("should return true if the likes field has changed", () => {
