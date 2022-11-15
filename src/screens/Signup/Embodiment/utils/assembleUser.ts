@@ -1,6 +1,12 @@
+import { getLocation } from "utils/index";
 import { DetailsForm, EmbodimentForm, IdentificationForm, User } from "types/index";
 
-const assembleUser = (identification: IdentificationForm, details: DetailsForm, embodiment: EmbodimentForm): User => {
+const assembleUser = async (
+	identification: IdentificationForm,
+	details: DetailsForm,
+	embodiment: EmbodimentForm
+): Promise<User> => {
+	const coordinates = await getLocation();
 	return {
 		...identification,
 		...details,
@@ -8,6 +14,7 @@ const assembleUser = (identification: IdentificationForm, details: DetailsForm, 
 		likes: [] as string[],
 		dislikes: [] as string[],
 		matches: [] as string[],
+		coordinates,
 	};
 };
 

@@ -35,9 +35,10 @@ const Embodiment = ({
 						photos: [] as string[],
 					}}
 					onSubmit={async (embodiment: EmbodimentForm) => {
-						const userToSignUp = assembleUser(identification, details, embodiment);
-						await createUserObject(userToSignUp, auth().currentUser?.uid as string);
-						navigation.navigate(ScreenNames.Main);
+						const userToSignUp = await assembleUser(identification, details, embodiment);
+						const createdUserId = auth().currentUser?.uid as string;
+						await createUserObject(userToSignUp, createdUserId);
+						navigation.navigate(ScreenNames.Main, { uid: createdUserId });
 					}}
 				>
 					<View style={{ width: "80%" }}>

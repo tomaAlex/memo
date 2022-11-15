@@ -7,8 +7,14 @@ import connector from "../../../redux/connector";
 import FeedUserCard from "./FeedUserCard";
 import fetchRecommendations from "./utils/fetchRecommendations";
 
-const Feed = ({ navigation, user, updateUser }: ScreenProps<MainScreenNames.Feed>) => {
-	const [userData] = useSnapshot<User>("users", user.id);
+const Feed = ({
+	user,
+	updateUser,
+	route: {
+		params: { uid },
+	},
+}: ScreenProps<MainScreenNames.Feed>) => {
+	const [userData] = useSnapshot<User>("users", uid ? uid : user.id);
 	useEffect(() => {
 		if (!userData) {
 			return;

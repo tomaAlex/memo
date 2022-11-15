@@ -1,3 +1,8 @@
+type Coordinates = {
+	latitude: number;
+	longitude: number;
+};
+
 type User = {
 	firstName: string;
 	lastName: string;
@@ -17,6 +22,7 @@ type User = {
 	likes: string[];
 	dislikes: string[];
 	matches: string[];
+	coordinates: Coordinates;
 };
 
 type IdentifiedUser = User & {

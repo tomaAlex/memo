@@ -1,3 +1,4 @@
+import { Coordinates } from "./coordinates";
 import { Gender } from "./gender";
 import { Location } from "./location";
 import { Orientation } from "./orientation";
@@ -17,6 +18,7 @@ export interface User {
 	likes: string[];
 	dislikes: string[];
 	matches: string[];
+	coordinates: Coordinates;
 }
 
 export interface IdentifiedUser extends User {

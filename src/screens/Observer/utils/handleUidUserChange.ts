@@ -14,7 +14,7 @@ const handleUidUserChange = async (
 		return;
 	}
 	updateUser({ ...possibleUserData, id: changedUserUid });
-	navigation.replace(ScreenNames.Main);
+	navigation.replace(ScreenNames.Main, {});
 };
 
 export default handleUidUserChange;

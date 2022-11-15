@@ -9,7 +9,11 @@ import getMainNavbarIcon from "./utils/getMainNavbarIcon";
 
 const MainTab = createBottomTabNavigator<MainNavigationTabTypes>();
 
-const Main = ({}: ScreenProps<ScreenNames.Main>) => {
+const Main = ({
+	route: {
+		params: { uid },
+	},
+}: ScreenProps<ScreenNames.Main>) => {
 	return (
 		<MainTab.Navigator
 			screenOptions={({ route }) => ({
@@ -20,7 +24,7 @@ const Main = ({}: ScreenProps<ScreenNames.Main>) => {
 				tabBarShowLabel: false,
 			})}
 		>
-			<MainTab.Screen name={MainScreenNames.Feed} component={Feed} />
+			<MainTab.Screen name={MainScreenNames.Feed} initialParams={{ uid }} component={Feed} />
 			<MainTab.Screen name={MainScreenNames.Chats} component={Chats} />
 			<MainTab.Screen name={MainScreenNames.Settings} component={Settings} />
 		</MainTab.Navigator>

@@ -35,7 +35,9 @@ export interface NavigationStackTypes extends NavigationStackTypesStructure {
 		identification: IdentificationForm;
 		details: DetailsForm;
 	};
-	[ScreenNames.Main]: undefined;
+	[ScreenNames.Main]: {
+		uid?: string;
+	};
 	[ScreenNames.MatchChat]: {
 		matchId: string;
 		matchedUsers: IdentifiedUser[];
@@ -43,7 +45,7 @@ export interface NavigationStackTypes extends NavigationStackTypesStructure {
 }
 
 export interface MainNavigationTabTypes extends NavigationTabTypesStructure {
-	[MainScreenNames.Feed]: undefined;
+	[MainScreenNames.Feed]: { uid?: string };
 	[MainScreenNames.Chats]: undefined;
 	[MainScreenNames.Settings]: undefined;
 }
