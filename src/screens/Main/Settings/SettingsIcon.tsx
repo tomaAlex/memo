@@ -1,12 +1,10 @@
 import React from "react";
-import { Text } from "react-native";
 import { BottomTabNavigationOptions } from "@react-navigation/bottom-tabs";
-import { MainScreenNames } from "types/index";
+import MainScreenIcon from "../MainScreenIcon";
+import { UserIcon } from "icons/index";
 
-const SettingsIcon: BottomTabNavigationOptions["tabBarIcon"] = ({ focused, color, size }) => {
-	const expandedSize = size * 1.1;
-	const fontSize = focused ? expandedSize : size;
-	return <Text style={{ color, fontSize }}>{MainScreenNames.Settings}</Text>;
+const SettingsIcon: BottomTabNavigationOptions["tabBarIcon"] = ({ focused, color }) => {
+	return <MainScreenIcon {...{ focused, color, ScreenIcon: UserIcon }} />;
 };
 
 export default SettingsIcon;

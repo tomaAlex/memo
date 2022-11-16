@@ -18,8 +18,9 @@ const Main = ({
 		<MainTab.Navigator
 			screenOptions={({ route }) => ({
 				tabBarIcon: getMainNavbarIcon(route.name as MainScreenNames),
+				tabBarStyle: { height: 70 },
 				headerShown: false,
-				tabBarActiveTintColor: "tomato",
+				tabBarActiveTintColor: "#F10065",
 				tabBarInactiveTintColor: "gray",
 				tabBarShowLabel: false,
 			})}

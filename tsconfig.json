@@ -21,6 +21,7 @@
       "components": ["./components/index.ts"],
       "hooks": ["./hooks/index.ts"],
       "utils": ["./utils/index.ts"],
+      "icons": ["./icons/index.ts"],
     },
 		"noFallthroughCasesInSwitch": true
   },
