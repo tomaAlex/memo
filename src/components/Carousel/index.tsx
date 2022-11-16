@@ -25,10 +25,10 @@ const Carousel = ({ children, ...viewProps }: TProps) => {
 					alignContent: "center",
 				}}
 			>
-				<View style={{ width: "50%", height: "100%" }}>
+				<View style={{ width: "20%", height: "100%" }}>
 					{currentSlide > 0 && <CarouselNavigationButton navigate={() => setCurrentSlide(currentSlide - 1)} />}
 				</View>
-				<View style={{ width: "50%", height: "100%" }}>
+				<View style={{ width: "20%", height: "100%" }}>
 					{currentSlide < totalSlides - 1 && (
 						<CarouselNavigationButton navigate={() => setCurrentSlide(currentSlide + 1)} />
 					)}
