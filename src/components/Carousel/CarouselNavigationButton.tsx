@@ -6,7 +6,7 @@ type TProps = {
 };
 
 const CarouselNavigationButton = ({ navigate }: TProps) => {
-	return <TouchableOpacity style={{ flex: 1, backgroundColor: "blue" }} onPress={navigate} />;
+	return <TouchableOpacity style={{ flex: 1 }} onPress={navigate} />;
 };
 
 export default React.memo(CarouselNavigationButton) as unknown as typeof CarouselNavigationButton;

@@ -19,17 +19,16 @@ const Carousel = ({ children, ...viewProps }: TProps) => {
 				style={{
 					position: "absolute",
 					width: "100%",
-					height: "12%",
-					marginTop: "45%",
+					height: "100%",
 					flexDirection: "row",
 					justifyContent: "space-between",
 					alignContent: "center",
 				}}
 			>
-				<View style={{ width: "12%", marginLeft: 5 }}>
+				<View style={{ width: "50%", height: "100%" }}>
 					{currentSlide > 0 && <CarouselNavigationButton navigate={() => setCurrentSlide(currentSlide - 1)} />}
 				</View>
-				<View style={{ width: "12%", marginRight: 5 }}>
+				<View style={{ width: "50%", height: "100%" }}>
 					{currentSlide < totalSlides - 1 && (
 						<CarouselNavigationButton navigate={() => setCurrentSlide(currentSlide + 1)} />
 					)}
