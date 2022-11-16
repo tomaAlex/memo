@@ -93,6 +93,13 @@
 						}
 					}
 				}
+			},
+			"Main": {
+				"Feed": {
+					"Details": {
+						"years": "ani"
+					}
+				}
 			}
 		},
 		"Components": {

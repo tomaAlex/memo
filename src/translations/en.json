@@ -93,6 +93,13 @@
 						}
 					}
 				}
+			},
+			"Main": {
+				"Feed": {
+					"Details": {
+						"years": "years"
+					}
+				}
 			}
 		},
 		"Components": {

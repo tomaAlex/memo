@@ -1,3 +1,4 @@
+export * from "./getDistanceBetweenCoordinates";
 export * from "./convertChoicesToFormChoicePickerData";
 export * from "./forwardDate";
 export * from "./getAllRequiredPermissions";

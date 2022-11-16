@@ -1,5 +1,5 @@
 import { useProfileDisliker, useProfileLiker, useSnapshot } from "hooks/useFirebaseUtilities";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Alert, SafeAreaView, Text } from "react-native";
 import Swiper from "react-native-deck-swiper";
 import { MainScreenNames, ScreenProps, IdentifiedUser, User } from "types/index";
@@ -37,6 +37,8 @@ const Feed = ({
 	};
 
 	useEffect(loadDependencies, []);
+
+	const swiperReference = useRef<Swiper<IdentifiedUser>>(null);
 
 	// const recommendations: IdentifiedUser[] = [
 	// 	{
@@ -109,8 +111,10 @@ const Feed = ({
 				<Text>fetching recommendations...</Text>
 			) : (
 				<Swiper<IdentifiedUser>
+					ref={swiperReference}
+					backgroundColor="white"
 					cards={recommendations}
-					renderCard={(userToDisplay) => <FeedUserCard {...{ userToDisplay }} />}
+					renderCard={(userToDisplay) => <FeedUserCard {...{ userToDisplay, swiperReference }} />}
 					onSwipedRight={(userIndex) => {
 						const likedUser = recommendations[userIndex];
 						likeProfile(likedUser.id);

@@ -13,7 +13,7 @@ type TProps = {
 const MainScreenIcon = ({ focused, color, ScreenIcon }: TProps) => {
 	return (
 		<View>
-			{ScreenIcon({ width: 25, height: 25 })}
+			{ScreenIcon({ width: 25, height: 25, color: color, fill: color })}
 			{focused && (
 				<CircleIcon style={styles.circleContainer} width={10} height={10} color={color} stroke={color} fill={color} />
 			)}

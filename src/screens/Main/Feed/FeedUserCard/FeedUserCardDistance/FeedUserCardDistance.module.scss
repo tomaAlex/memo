@@ -1,0 +1,23 @@
+.distanceContainer {
+	position: absolute;
+	z-index: 5;
+	display: flex;
+	flex-direction: row;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	align-items: center;
+	background-color: #d9d9d950;
+	border-radius: 80px;
+	left: 15px;
+	top: 15px;
+
+	&__icon {
+		margin-right: 8px;
+	}
+
+	&__caption {
+		color: white;
+		font-family: monospace;
+	}
+}
