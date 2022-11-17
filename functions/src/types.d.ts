@@ -53,7 +53,7 @@ type Match = TimeManagedDocument & {
 	messages: MatchMessage[];
 };
 
-type MatchPreview = {
+type MatchPreview = TimestampedElement & {
 	id: string;
 	matchedUsers: IdentifiedUser[];
 	lastMessage: MatchMessage | null;

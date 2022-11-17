@@ -1,0 +1,12 @@
+.container {
+	background-color: white;
+	flex: 1;
+
+	&__list {
+		padding: 20px;
+
+		&__separator {
+			height: 10px;
+		}
+	}
+}
