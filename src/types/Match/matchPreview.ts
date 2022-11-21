@@ -1,8 +1,8 @@
 import { IdentifiedUser } from "../User";
 import { MatchMessage } from "./matchMessage";
-import { TimestampedElement } from "../Firebase";
+import { TimeManagedDocument } from "../Firebase";
 
-export type MatchPreview = TimestampedElement<false> & {
+export type MatchPreview = TimeManagedDocument<false> & {
 	id: string;
 	matchedUsers: IdentifiedUser[];
 	lastMessage: MatchMessage<false> | null;

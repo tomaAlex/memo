@@ -1,3 +1,4 @@
+import { getTimestampFromJSON } from "Firebase";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import { MainScreenNames, MatchPreview, ScreenNames, ScreenProps } from "types/index";
@@ -9,17 +10,23 @@ type TProps = MatchPreview & {
 	navigation: ScreenProps<MainScreenNames.Chats>["navigation"];
 };
 
-const MatchPreviewRow = ({ id, matchedUsers, lastMessage, timestamp, navigation }: TProps) => {
+const MatchPreviewRow = ({ id, matchedUsers, lastMessage, timestamp, expiresAt, navigation }: TProps) => {
 	const matchedUser = matchedUsers[0];
+	const matchTimestamp = getTimestampFromJSON(timestamp);
 
 	const openChat = () => {
-		navigation.navigate(ScreenNames.MatchChat, { matchId: id, matchedUsers });
+		navigation.navigate(ScreenNames.MatchChat, {
+			matchId: id,
+			matchedUsers,
+			matchTimestamp,
+			expiresAt: getTimestampFromJSON(expiresAt),
+		});
 	};
 
 	return (
 		<TouchableOpacity style={styles.container} onPress={openChat}>
 			<MatchPreviewRowUserPreview {...{ matchedUser }} />
-			<MatchPreviewRowMessagePreview {...{ matchedUser, lastMessage, matchTimestamp: timestamp }} />
+			<MatchPreviewRowMessagePreview {...{ matchedUser, lastMessage, matchTimestamp }} />
 		</TouchableOpacity>
 	);
 };

@@ -1,3 +1,4 @@
+import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
 import { MainScreenNames, ScreenNames } from "./ScreenNames";
 import { IdentifiedUser, User } from "./User";
 
@@ -41,6 +42,8 @@ export interface NavigationStackTypes extends NavigationStackTypesStructure {
 	[ScreenNames.MatchChat]: {
 		matchId: string;
 		matchedUsers: IdentifiedUser[];
+		matchTimestamp: FirebaseFirestoreTypes.Timestamp;
+		expiresAt: FirebaseFirestoreTypes.Timestamp;
 	};
 }
 

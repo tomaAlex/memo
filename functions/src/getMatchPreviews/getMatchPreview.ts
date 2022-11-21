@@ -15,6 +15,7 @@ const getMatchPreview = async (matchId: string, requestingUser: IdentifiedUser):
 		matchedUsers: exclusivelyMatchedIdentifiedUsers,
 		lastMessage,
 		timestamp: matchData.timestamp,
+		expiresAt: matchData.expiresAt,
 	};
 };
 
