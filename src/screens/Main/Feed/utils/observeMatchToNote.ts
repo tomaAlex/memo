@@ -6,14 +6,19 @@ const observeMatchToNote = (
 	matchPreviews: MatchPreview[],
 	setMatchToNote: Dispatch<SetStateAction<MatchPreview | null>>
 ) => {
-	console.log("observeMatchToNote", previousMatchPreviewsAmount, matchPreviews.length);
 	const currentMatchPreviewsAmount = matchPreviews.length;
-	const shouldUpdateMatchToNote = previousMatchPreviewsAmount.current + 1 === currentMatchPreviewsAmount;
+	const cachedPreviousMatchPreviewsAmount = previousMatchPreviewsAmount.current;
 	previousMatchPreviewsAmount.current = currentMatchPreviewsAmount;
-	if (!shouldUpdateMatchToNote) {
+	const possibleMatchToNote = matchPreviews[matchPreviews.length - 1];
+	const increasedOneMatch = currentMatchPreviewsAmount - cachedPreviousMatchPreviewsAmount === 1;
+	if (!increasedOneMatch) {
 		return;
 	}
-	setMatchToNote(matchPreviews[matchPreviews.length - 1]);
+	const hasMatchBeenNoted = possibleMatchToNote.lastMessage !== null;
+	if (hasMatchBeenNoted) {
+		return;
+	}
+	setMatchToNote(possibleMatchToNote);
 };
 
 export default observeMatchToNote;
