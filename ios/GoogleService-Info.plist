@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>43185714016-k8shvha8l4ur47b9b73ls0et51cibprb.apps.googleusercontent.com</string>
+	<string>946825905593-sgqr83jvrs4vtrjtk9m3c75iqcijbdco.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.43185714016-k8shvha8l4ur47b9b73ls0et51cibprb</string>
+	<string>com.googleusercontent.apps.946825905593-sgqr83jvrs4vtrjtk9m3c75iqcijbdco</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>43185714016-7g8u1dlen8khrvmck5sg04ncm21klclf.apps.googleusercontent.com</string>
+	<string>946825905593-88detm98k7n4vmrffontqn27q3pd5i4m.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyC3Ntm183qroto9jF9xPtFrx96k1RS3bpU</string>
+	<string>AIzaSyAiaPR9nRtTmRVykRL9hr9RmHXi7Zdcuqw</string>
 	<key>GCM_SENDER_ID</key>
-	<string>43185714016</string>
+	<string>946825905593</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.memo.memo</string>
 	<key>PROJECT_ID</key>
-	<string>memo-8805d</string>
+	<string>memo-bffec</string>
 	<key>STORAGE_BUCKET</key>
-	<string>memo-8805d.appspot.com</string>
+	<string>memo-bffec.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +31,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:43185714016:ios:56d751fde47eb83504e405</string>
+	<string>1:946825905593:ios:0b9c62770b3cae1517e268</string>
+	<key>DATABASE_URL</key>
+	<string>https://memo-bffec-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>
