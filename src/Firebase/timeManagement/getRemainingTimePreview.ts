@@ -1,12 +1,12 @@
 import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
+import { getRemainingMillisecondsTime } from "./getRemainingMillisecondsTime";
 
 const getPreviewedTimeNumber = (timeNumberToPreview: number): string => {
 	return timeNumberToPreview < 10 ? `0${timeNumberToPreview}` : `${timeNumberToPreview}`;
 };
 
 export const getRemainingTimePreview = (deadlineTimestamp: FirebaseFirestoreTypes.Timestamp): string => {
-	const deadlineTime = deadlineTimestamp.toDate().getTime();
-	const remainingMilliseconds = deadlineTime - Date.now();
+	const remainingMilliseconds = getRemainingMillisecondsTime(deadlineTimestamp);
 	const remainingSeconds = Math.floor(remainingMilliseconds / 1000);
 	const secondsInHour = 60 * 60;
 	const remainingHours = Math.floor(remainingSeconds / secondsInHour);

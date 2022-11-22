@@ -96,6 +96,10 @@
 			},
 			"Main": {
 				"Feed": {
+					"MatchedNote": {
+						"matchedTitle": "YOU MATCHED",
+						"startConversation": "Start a conversation"
+					},
 					"Details": {
 						"years": "years"
 					}

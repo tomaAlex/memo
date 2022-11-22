@@ -24,7 +24,7 @@ const FeedUserCardDistance = ({ likedUserLocation }: TProps) => {
 				stroke={"#D9D9D9"}
 				color={"#D9D9D9"}
 			/>
-			<Text style={styles.distanceContainer__caption}>{distanceBetweenSelfAndLikedUser} km</Text>
+			<Text style={styles.distanceContainer__caption}>{distanceBetweenSelfAndLikedUser.toFixed(2)} km</Text>
 		</TouchableOpacity>
 	);
 };

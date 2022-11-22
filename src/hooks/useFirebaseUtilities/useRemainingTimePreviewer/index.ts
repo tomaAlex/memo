@@ -1,9 +1,25 @@
 import { useCallback, useEffect, useState } from "react";
 import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
-import { getRemainingTimePreview } from "Firebase/index";
+import { getRemainingMillisecondsTime, getRemainingTimePreview } from "Firebase/index";
 
-export const useRemainingTimePreviewer = (deadlineTimestamp: FirebaseFirestoreTypes.Timestamp) => {
+export const useRemainingTimePreviewer = (
+	deadlineTimestamp: FirebaseFirestoreTypes.Timestamp,
+	expiredCallback?: () => void
+) => {
 	const [remainingTime, setRemainingTime] = useState(getRemainingTimePreview(deadlineTimestamp));
+	const callbackToCallWhenExpired = expiredCallback ?? (() => {});
+	const expiredCallbackScheduledExecution = setTimeout(
+		callbackToCallWhenExpired,
+		getRemainingMillisecondsTime(deadlineTimestamp)
+	);
+
+	const cancelExpiredCallbackScheduledExecution = () => {
+		clearTimeout(expiredCallbackScheduledExecution);
+	};
+
+	useEffect(() => {
+		return cancelExpiredCallbackScheduledExecution;
+	}, [cancelExpiredCallbackScheduledExecution]);
 
 	const updateRemainingTime = () => {
 		setRemainingTime(getRemainingTimePreview(deadlineTimestamp));
