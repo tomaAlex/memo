@@ -1,43 +1,33 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { Image, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
-import { MainScreenNames, MatchPreview, ScreenProps } from "types/index";
-import styles from "./MatchedNote.module.scss";
-import getChatNavigator from "./utils/getChatNavigator";
+import React, { useEffect, useRef, useState } from "react";
+import { Modal } from "react-native";
+import { ReduxProps, MatchPreview, ScreenProps, MainScreenNames } from "types/index";
+import MatchedNoteContent from "./MatchedNoteContent";
+import observeMatchToNote from "./utils/observeMatchToNote";
 
 type TProps = {
-	matchPreviewToNote: MatchPreview;
-	closeMatchedNote: () => void;
+	matchPreviews: ReduxProps["matchPreviews"];
 	navigation: ScreenProps<MainScreenNames.Feed>["navigation"];
 };
 
-const MatchedNote = ({ matchPreviewToNote, closeMatchedNote, navigation }: TProps) => {
-	const [t] = useTranslation("translation", { keyPrefix: "Screens.Main.Feed.MatchedNote" });
+const MatchedNote = ({ matchPreviews, navigation }: TProps) => {
+	const previousMatchPreviewsAmount = useRef(matchPreviews.length);
+	const currentMatchPreviewsAmount = matchPreviews.length;
+	const [natchToNote, setMatchToNote] = useState<MatchPreview | null>(null);
+	const clearMatchToNote = () => setMatchToNote(null);
 
-	const autoClosingSecondsTimeout = 5;
-	setTimeout(closeMatchedNote, autoClosingSecondsTimeout * 1000);
-	const { photos } = matchPreviewToNote.matchedUsers[0];
+    useEffect(
+		() => observeMatchToNote(previousMatchPreviewsAmount, matchPreviews, setMatchToNote),
+		[currentMatchPreviewsAmount]
+	);
 
 	return (
-		<TouchableWithoutFeedback onPress={closeMatchedNote}>
-			<View style={styles.container}>
-				<View style={styles.container__profilePreview}>
-					<Image style={styles.container__profilePreview__image} source={{ uri: photos[0] }} />
-					<View style={styles.container__profilePreview__image__overlay} />
-				</View>
-				<View style={styles.container__controlsPreview}>
-					<Text style={styles.container__controlsPreview__title}>{t("matchedTitle")}</Text>
-					<TouchableOpacity
-						style={styles.container__controlsPreview__startConversationButton}
-						onPress={getChatNavigator(navigation, matchPreviewToNote, closeMatchedNote)}
-					>
-						<Text style={styles.container__controlsPreview__startConversationButton__caption}>
-							{t("startConversation")}
-						</Text>
-					</TouchableOpacity>
-				</View>
-			</View>
-		</TouchableWithoutFeedback>
+		<Modal visible={natchToNote !== null} animationType="slide" onRequestClose={clearMatchToNote}>
+			<MatchedNoteContent
+				matchPreviewToNote={natchToNote as MatchPreview}
+				closeMatchedNote={clearMatchToNote}
+				navigation={navigation}
+			/>
+		</Modal>
 	);
 };
 

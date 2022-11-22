@@ -1,13 +1,12 @@
 import { useMatchPreviewLoader, useProfileDisliker, useProfileLiker, useSnapshot } from "hooks/index";
 import React, { useEffect, useRef, useState } from "react";
-import { SafeAreaView, Text, Modal } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 import Swiper from "react-native-deck-swiper";
-import { MainScreenNames, ScreenProps, IdentifiedUser, User, MatchPreview } from "types/index";
+import { MainScreenNames, ScreenProps, IdentifiedUser, User } from "types/index";
 import connector from "../../../redux/connector";
 import FeedUserCard from "./FeedUserCard";
 import MatchedNote from "./MatchedNote";
 import fetchRecommendations from "./utils/fetchRecommendations";
-import observeMatchToNote from "./utils/observeMatchToNote";
 
 const Feed = ({
 	user,
@@ -20,16 +19,7 @@ const Feed = ({
 	navigation,
 }: ScreenProps<MainScreenNames.Feed>) => {
 	const [userData] = useSnapshot<User>("users", uid ? uid : user.id);
-	const previousMatchPreviewsAmount = useRef(matchPreviews.length);
-	const currentMatchPreviewsAmount = matchPreviews.length;
-	const [natchToNote, setMatchToNote] = useState<MatchPreview | null>(null);
-	const clearMatchToNote = () => setMatchToNote(null);
 	useMatchPreviewLoader(user, updateAllMatchPreviews);
-
-	useEffect(
-		() => observeMatchToNote(previousMatchPreviewsAmount, matchPreviews, setMatchToNote),
-		[currentMatchPreviewsAmount]
-	);
 
 	useEffect(() => {
 		if (!userData) {
@@ -58,13 +48,7 @@ const Feed = ({
 
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: "#F5FCFF" }}>
-			<Modal visible={natchToNote !== null} animationType="slide" onRequestClose={clearMatchToNote}>
-				<MatchedNote
-					matchPreviewToNote={natchToNote as MatchPreview}
-					closeMatchedNote={clearMatchToNote}
-					navigation={navigation}
-				/>
-			</Modal>
+			<MatchedNote {...{ matchPreviews, navigation }} />
 			{areDependenciesLoading ? (
 				<Text>fetching recommendations...</Text>
 			) : (
