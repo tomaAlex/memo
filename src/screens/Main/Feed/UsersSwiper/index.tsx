@@ -6,9 +6,10 @@ import { useProfileDisliker, useProfileLiker } from "hooks/index";
 
 type TProps = {
 	recommendations: IdentifiedUser[];
+	markFeedExhausted: () => void;
 };
 
-const UsersSwiper = ({ recommendations }: TProps) => {
+const UsersSwiper = ({ recommendations, markFeedExhausted }: TProps) => {
 	const swiperReference = useRef<Swiper<IdentifiedUser>>(null);
 
 	const likeProfile = useProfileLiker();
@@ -28,9 +29,7 @@ const UsersSwiper = ({ recommendations }: TProps) => {
 				const dislikedUser = recommendations[userIndex];
 				dislikeProfile(dislikedUser.id);
 			}}
-			// onSwipedAll={() => {
-			// 	Alert.alert("Fetching more recommendations!");
-			// }}
+			onSwipedAll={markFeedExhausted}
 			verticalSwipe={false}
 			cardIndex={0}
 			stackSize={1}

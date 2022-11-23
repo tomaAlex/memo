@@ -1,8 +1,9 @@
 import { useMatchPreviewLoader, useSnapshot } from "hooks/index";
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView } from "react-native";
 import { MainScreenNames, ScreenProps, IdentifiedUser, User } from "types/index";
 import connector from "../../../redux/connector";
+import EnoughMatchesNote from "./EnoughMatchesNote";
 import MatchedNote from "./MatchedNote";
 import UsersSwiper from "./UsersSwiper";
 import fetchRecommendations from "./utils/fetchRecommendations";
@@ -29,8 +30,8 @@ const Feed = ({
 	}, [userData, updateUser]);
 
 	const [recommendations, setRecommendations] = useState([] as IdentifiedUser[]);
-	const areRecommendationsLoading = recommendations.length === 0;
-	const areDependenciesLoading = areRecommendationsLoading;
+	const hasEnoughMatches = recommendations.length === 0;
+	const [exhaustedFeed, setExhaustedFeed] = useState(false);
 
 	const loadDependencies = () => {
 		fetchRecommendations().then((userRecommendations) => {
@@ -41,9 +42,13 @@ const Feed = ({
 	useEffect(loadDependencies, []);
 
 	return (
-		<SafeAreaView style={{ flex: 1, backgroundColor: "#F5FCFF" }}>
+		<SafeAreaView style={{ flex: 1, backgroundColor: "#F5FCFF", alignItems: "center" }}>
 			<MatchedNote {...{ matchPreviews, navigation }} />
-			{areDependenciesLoading ? <Text>fetching recommendations...</Text> : <UsersSwiper {...{ recommendations }} />}
+			{hasEnoughMatches || exhaustedFeed ? (
+				<EnoughMatchesNote />
+			) : (
+				<UsersSwiper {...{ recommendations, markFeedExhausted: () => setExhaustedFeed(true) }} />
+			)}
 		</SafeAreaView>
 	);
 };

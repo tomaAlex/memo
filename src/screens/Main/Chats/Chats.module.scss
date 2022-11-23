@@ -2,6 +2,11 @@
 	background-color: white;
 	flex: 1;
 
+	&__note {
+		align-self: center;
+		top: 50%;
+	}
+
 	&__list {
 		padding: 20px;
 

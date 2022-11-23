@@ -8,17 +8,12 @@ import styles from "./Chats.module.scss";
 
 const Chats = ({ user, matchPreviews, updateAllMatchPreviews, navigation }: ScreenProps<MainScreenNames.Chats>) => {
 	const areMatchPreviewsLoading = useMatchPreviewLoader(user, updateAllMatchPreviews);
-
-	if (areMatchPreviewsLoading) {
-		return <Text>Loading...</Text>;
-	}
-
-	if (matchPreviews.length === 0) {
-		return <Text>No matches yet!</Text>;
-	}
+	const hasNoMatches = !areMatchPreviewsLoading && matchPreviews.length === 0;
 
 	return (
 		<SafeAreaView style={styles.container}>
+			{areMatchPreviewsLoading && <Text style={styles.container__note}>⌛...</Text>}
+			{hasNoMatches && <Text style={styles.container__note}>It's time to send more likes 💘</Text>}
 			<FlatList
 				data={matchPreviews}
 				style={styles.container__list}
