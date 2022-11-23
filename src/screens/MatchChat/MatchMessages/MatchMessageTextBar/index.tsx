@@ -2,6 +2,7 @@ import FormSubmitButton from "components/forms/FormSubmitButton";
 import FormTextInput from "components/forms/FormTextInput";
 import { Formik } from "formik";
 import { useMatchMessageTextBarFormValidationRules } from "hooks";
+import { SendArrow } from "icons/index";
 import React, { useState } from "react";
 import { View } from "react-native";
 
@@ -35,7 +36,9 @@ const MatchMessageTextBar = ({ sendMessage }: TProps) => {
 						style={{ width: "100%", backgroundColor: "white" }}
 					/>
 				</View>
-				<FormSubmitButton />
+				<FormSubmitButton style={{ marginLeft: 10, marginRight: 10 }}>
+					<SendArrow width={25} height={25} fill={"#0047FE"} />
+				</FormSubmitButton>
 			</View>
 		</Formik>
 	);
