@@ -5,6 +5,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
 import generatePicture from "../utils/generatePicture";
 import FormImagePickerSupplierOption from "./FormImagePickerSupplierOption";
+import styles from "./FormImagePickerSupplier.module.scss";
 
 type TProps<D> = {
 	field: keyof D;
@@ -39,10 +40,8 @@ function FormImagePickerSupplier<D>({ field, picturesLimit }: TProps<D>) {
 	};
 
 	return (
-		<TouchableOpacity style={{ flex: 1, margin: 5, backgroundColor: "gray" }} onPress={bringUpRBSheet}>
-			<Text style={{ alignSelf: "center", marginTop: "50%", fontSize: 11, fontWeight: "bold", color: "white" }}>
-				{t("remainingPicturesNotice", { count: remainingPictures })}
-			</Text>
+		<TouchableOpacity style={styles.container} onPress={bringUpRBSheet}>
+			<Text style={styles.container__caption}>{t("remainingPicturesNotice", { count: remainingPictures })}</Text>
 			{/* https://github.com/nysamnang/react-native-raw-bottom-sheet/issues/148 */}
 			{/* @ts-ignore */}
 			<RBSheet
@@ -52,20 +51,10 @@ function FormImagePickerSupplier<D>({ field, picturesLimit }: TProps<D>) {
 				closeOnPressMask
 				keyboardAvoidingViewEnabled
 				customStyles={{
-					container: {
-						borderTopLeftRadius: 20,
-						borderTopRightRadius: 20,
-					},
+					container: styles.container__picker,
 				}}
 			>
-				<View
-					style={{
-						display: "flex",
-						flexDirection: "row",
-						justifyContent: "space-around",
-						flex: 1,
-					}}
-				>
+				<View style={styles.container__picker__container}>
 					<FormImagePickerSupplierOption field={field} caption={"Camera"} fetchImage={fetchCameraImage} />
 					<FormImagePickerSupplierOption field={field} caption={"Gallery"} fetchImage={fetchGalleryImage} />
 				</View>

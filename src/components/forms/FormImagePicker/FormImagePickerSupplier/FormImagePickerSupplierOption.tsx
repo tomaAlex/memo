@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormikContext } from "formik";
 import { Text, TouchableOpacity } from "react-native";
+import styles from "./FormImagePickerSupplier.module.scss";
 
 type TProps<D> = {
 	field: keyof D;
@@ -23,8 +24,8 @@ function FormImagePickerSupplierOption<D>({ field, caption, fetchImage }: TProps
 	};
 
 	return (
-		<TouchableOpacity style={{ alignSelf: "center" }} onPress={fetchAndSaveImage}>
-			<Text style={{ fontSize: 20 }}>{caption}</Text>
+		<TouchableOpacity style={styles.container__picker__container__option} onPress={fetchAndSaveImage}>
+			<Text style={styles.container__picker__container__option__caption}>{caption}</Text>
 		</TouchableOpacity>
 	);
 }

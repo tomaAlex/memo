@@ -109,9 +109,6 @@
 		"Components": {
 			"Forms": {
 				"FormImagePicker": {
-					"FormImagePickerSlide": {
-						"delete": "Delete"
-					},
 					"FormImagePickerSupplier": {
 						"remainingPicturesNotice_0": "You cannot add any more pictures",
 						"remainingPicturesNotice": "You can add one more picture",

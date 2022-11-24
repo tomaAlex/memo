@@ -109,9 +109,6 @@
 		"Components": {
 			"Forms": {
 				"FormImagePicker": {
-					"FormImagePickerSlide": {
-						"delete": "Sterge"
-					},
 					"FormImagePickerSupplier": {
 						"remainingPicturesNotice_0": "Nu mai poti adauga poze",
 						"remainingPicturesNotice": "Mai poti adauga o poza",

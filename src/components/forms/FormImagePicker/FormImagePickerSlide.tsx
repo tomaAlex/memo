@@ -1,7 +1,8 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
-import { Image, ImageSourcePropType, Text, TouchableOpacity, View } from "react-native";
+import { Image, ImageSourcePropType, TouchableOpacity, View } from "react-native";
 import getImageSourceFromUriSource from "./utils/getImageSourceFromBase64Source";
+import { BinIcon } from "icons/index";
+import styles from "./FormImagePicker.module.scss";
 
 type TProps<IsImageUri extends boolean> = {
 	isImageUri: IsImageUri;
@@ -10,15 +11,15 @@ type TProps<IsImageUri extends boolean> = {
 };
 
 function FormImagePickerSlide<IsImageUri extends boolean>({ isImageUri, imageSource, onRemove }: TProps<IsImageUri>) {
-	const [translateLabels] = useTranslation("translation", {
-		keyPrefix: "Components.Forms.FormImagePicker.FormImagePickerSlide",
-	});
 	const image = (isImageUri ? getImageSourceFromUriSource(imageSource as string) : imageSource) as ImageSourcePropType;
 	return (
-		<View style={{ flex: 1 }}>
-			<Image style={{ flex: 1 }} source={image} />
-			<TouchableOpacity onPress={onRemove} style={{ backgroundColor: "red" }}>
-				<Text>{translateLabels("delete")}</Text>
+		<View style={styles.container__picker__carouselContainer__carousel__imageSlide}>
+			<Image style={styles.container__picker__carouselContainer__carousel__imageSlide__image} source={image} />
+			<TouchableOpacity
+				onPress={onRemove}
+				style={styles.container__picker__carouselContainer__carousel__imageSlide__bin}
+			>
+				<BinIcon width={30} height={30} />
 			</TouchableOpacity>
 		</View>
 	);
