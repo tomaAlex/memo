@@ -6,7 +6,7 @@ type Coordinates = {
 type User = {
 	firstName: string;
 	lastName: string;
-	gender: string;
+	gender: "MALE" | "FEMALE" | "OTHER";
 	birthDate: string;
 	job?: string;
 	school?: string;
@@ -17,7 +17,7 @@ type User = {
 		country: string;
 	};
 	height?: number;
-	orientation: string;
+	orientation: "HETERO" | "HOMO" | "BI";
 	photos: string[];
 	likes: string[];
 	dislikes: string[];

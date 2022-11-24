@@ -1,3 +1,4 @@
+import { MAXIMUM_MATCHES } from "constants/index";
 import { useMatchPreviewLoader, useSnapshot } from "hooks/index";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native";
@@ -30,7 +31,8 @@ const Feed = ({
 	}, [userData, updateUser]);
 
 	const [recommendations, setRecommendations] = useState([] as IdentifiedUser[]);
-	const hasEnoughMatches = recommendations.length === 0;
+	const hasMaximumMatches = matchPreviews.length >= MAXIMUM_MATCHES;
+	const hasEnoughMatches = recommendations.length === 0 || hasMaximumMatches;
 	const [exhaustedFeed, setExhaustedFeed] = useState(false);
 
 	const loadDependencies = () => {
