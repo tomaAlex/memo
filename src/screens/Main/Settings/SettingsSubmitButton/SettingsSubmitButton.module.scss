@@ -1,0 +1,13 @@
+.container {
+	background-color: #ec4474;
+	align-self: center;
+	align-items: center;
+	padding: 10px;
+	border-radius: 10px;
+    margin: 10px;
+
+	&__caption {
+		color: white;
+		font-size: 15px;
+	}
+}

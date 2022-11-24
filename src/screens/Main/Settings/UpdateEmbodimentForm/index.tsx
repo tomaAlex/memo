@@ -15,6 +15,11 @@ const UpdateEmbodimentForm = () => {
 
 	return (
 		<>
+			<View style={{ height: 300 }}>
+				<FormImagePicker field={"photos"}>
+					<FormFieldLabel label={translateLabels("photos")} />
+				</FormImagePicker>
+			</View>
 			<FormTextInput field="height" placeholder="181" keyboardType="numeric">
 				<FormFieldLabel label={translateLabels("height")} />
 			</FormTextInput>
@@ -26,11 +31,6 @@ const UpdateEmbodimentForm = () => {
 			>
 				<FormFieldLabel label={translateLabels("orientation")} />
 			</FormChoicePicker>
-			<View style={{ height: 300 }}>
-				<FormImagePicker field={"photos"}>
-					<FormFieldLabel label={translateLabels("photos")} />
-				</FormImagePicker>
-			</View>
 		</>
 	);
 };

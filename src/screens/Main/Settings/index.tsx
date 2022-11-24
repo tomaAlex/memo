@@ -4,12 +4,13 @@ import { useUserUpdateFormValidationRules } from "hooks/index";
 import { MainScreenNames, ScreenProps, User } from "types/index";
 import connector from "../../../redux/connector";
 import { Formik } from "formik";
-import FormSubmitButton from "components/forms/FormSubmitButton";
 import UpdateIdentificationForm from "./UpdateIdentificationForm";
 import UpdateDetailsForm from "./UpdateDetailsForm";
 import UpdateEmbodimentForm from "./UpdateEmbodimentForm";
 import { updateUser as firebaseUpdateUser } from "Firebase/index";
 import store from "redux/store";
+import styles from "./Settings.module.scss";
+import SettingsSubmitButton from "./SettingsSubmitButton";
 
 const Settings = ({
 	user: { firstName, lastName, gender, birthDate, job, school, description, location, height, orientation, photos, id },
@@ -21,9 +22,9 @@ const Settings = ({
 	const [isUserUpdating, setIsUserUpdating] = useState(false);
 
 	return (
-		<SafeAreaView style={{ flex: 1, backgroundColor: "#F5FCFF" }}>
+		<SafeAreaView style={styles.container}>
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-				<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+				<View style={styles.container__formContainer}>
 					<Formik
 						validationSchema={userUpdateSchema}
 						initialValues={{
@@ -47,13 +48,11 @@ const Settings = ({
 							setIsUserUpdating(false);
 						}}
 					>
-						<ScrollView style={{ width: "80%" }}>
+						<ScrollView style={styles.container__formContainer__form}>
+							<UpdateEmbodimentForm />
 							<UpdateIdentificationForm />
 							<UpdateDetailsForm />
-							<UpdateEmbodimentForm />
-							<View style={{ marginTop: 50 }}>
-								<FormSubmitButton disabled={isUserUpdating} />
-							</View>
+							<SettingsSubmitButton {...{ isUserUpdating }} />
 						</ScrollView>
 					</Formik>
 				</View>
