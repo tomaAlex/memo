@@ -1,0 +1,39 @@
+.container {
+	display: flex;
+	margin-bottom: 5px;
+
+	&__label {
+		flex-direction: row;
+		align-self: flex-start;
+
+		&__mandatoryNote {
+			margin-right: 10px;
+		}
+	}
+
+    &__picker {
+		flex: 1;
+        display: flex;
+
+		&__modal {
+            width: 85%;
+            align-self: center;
+
+            &__text {
+                color: #1E1E1E;
+                padding: 10px;
+                padding-left: 20px;
+            }
+
+            &__date {
+                width: 100%;
+                align-self: center;
+            }
+		}
+
+		&__error {
+            margin-top: 5px;
+			align-self: center;
+		}
+	}
+}

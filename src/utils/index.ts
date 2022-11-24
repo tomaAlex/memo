@@ -5,6 +5,7 @@ export * from "./forwardDate";
 export * from "./getAllRequiredPermissions";
 export * from "./getEnumValues";
 export * from "./getFilteredChoices";
+export * from "./getFormattedDateString";
 export * from "./getHoursAndMinutesPreview";
 export * from "./getLocation";
 export * from "./getMobileOS";
