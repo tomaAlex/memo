@@ -7,6 +7,7 @@ import { Orientation } from "types/index";
 import { View } from "react-native";
 import FormImagePicker from "components/forms/FormImagePicker";
 import { useTranslation } from "react-i18next";
+import styles from "./UpdateEmbodimentForm.module.scss";
 
 const UpdateEmbodimentForm = () => {
 	const [translateLabels] = useTranslation("translation", {
@@ -15,7 +16,7 @@ const UpdateEmbodimentForm = () => {
 
 	return (
 		<>
-			<View style={{ height: 300 }}>
+			<View style={styles.imagePickerContainer}>
 				<FormImagePicker field={"photos"}>
 					<FormFieldLabel label={translateLabels("photos")} />
 				</FormImagePicker>
