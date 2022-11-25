@@ -8,6 +8,7 @@ import EnoughMatchesNote from "./EnoughMatchesNote";
 import MatchedNote from "./MatchedNote";
 import UsersSwiper from "./UsersSwiper";
 import fetchRecommendations from "./utils/fetchRecommendations";
+import styles from "./Feed.module.scss";
 
 const Feed = ({
 	user,
@@ -44,7 +45,7 @@ const Feed = ({
 	useEffect(loadDependencies, []);
 
 	return (
-		<SafeAreaView style={{ flex: 1, backgroundColor: "#F5FCFF", alignItems: "center" }}>
+		<SafeAreaView style={styles.container}>
 			<MatchedNote {...{ matchPreviews, navigation }} />
 			{hasEnoughMatches || exhaustedFeed ? (
 				<EnoughMatchesNote />

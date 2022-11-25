@@ -102,7 +102,13 @@
 					},
 					"Details": {
 						"years": "ani"
+					},
+					"EnoughMatchesNote": {
+						"caption": "Este vremea sa te focusezi pe match-urile tale curente"
 					}
+				},
+				"Chats": {
+					"noMatchesNote": "E vremea sa mai trimiti like-uri"
 				}
 			}
 		},

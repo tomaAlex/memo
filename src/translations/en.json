@@ -102,7 +102,13 @@
 					},
 					"Details": {
 						"years": "years"
+					},
+					"EnoughMatchesNote": {
+						"caption": "It is time you focus on your current matches"
 					}
+				},
+				"Chats": {
+					"noMatchesNote": "It's time to send more likes"
 				}
 			}
 		},
