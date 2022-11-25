@@ -4,6 +4,8 @@ import auth from "@react-native-firebase/auth";
 import { ScreenNames, ScreenProps } from "types/index";
 import handleUserChange from "./utils/handleUserChange";
 import handleLocationCollection from "./utils/handleLocationCollection";
+import firebase from "@react-native-firebase/app";
+import FirebaseAppCheck from "@react-native-firebase/app-check";
 
 /**
  * A fake screen that is used to watch around for global updates.
@@ -20,7 +22,11 @@ const Observer = ({ navigation, updateUser }: ScreenProps<ScreenNames.Observer>)
 
 	useEffect(() => {
 		setObserving();
-		navigation.replace(ScreenNames.Login);
+		FirebaseAppCheck(firebase.app())
+			.activate("ignored", true)
+			.then(() => {
+				navigation.replace(ScreenNames.Login);
+			});
 	}, [navigation, setObserving]);
 
 	return null;
