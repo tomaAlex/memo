@@ -7,7 +7,7 @@ import styles from "./MatchMessagePreview.module.scss";
 import { getTimestampPreview } from "Firebase/index";
 
 const MatchMessagePreview = ({ author, content, timestamp }: MatchMessage) => {
-	const isAuthorCurrentUser = author === store.getState().user.id;
+	const isAuthorCurrentUser = author === "memo" ?? author === store.getState().user.id;
 	const timestampPreview = getTimestampPreview(timestamp);
 
 	return (
