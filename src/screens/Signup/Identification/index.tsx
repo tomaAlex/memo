@@ -8,8 +8,8 @@ import FormTextInput from "components/forms/FormTextInput";
 import FormChoicePicker, { FormChoicePickerItem } from "components/forms/FormChoicePicker";
 import FormDatePicker from "components/forms/FormDatePicker";
 import { useSignupIdentificationFormValidationRules } from "hooks/index";
-import FormFieldLabel from "components/forms/FormFieldLabel";
 import FormSubmitButton from "components/forms/FormSubmitButton";
+import FormFieldLabel from "components/forms/FormFieldLabel";
 import { convertChoicesToFormChoicePickerData } from "utils/index";
 import { useTranslation } from "react-i18next";
 

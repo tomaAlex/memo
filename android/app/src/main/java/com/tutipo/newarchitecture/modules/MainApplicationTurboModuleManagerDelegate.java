@@ -1,4 +1,4 @@
-package com.memo.newarchitecture.modules;
+package com.obsid.memo.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

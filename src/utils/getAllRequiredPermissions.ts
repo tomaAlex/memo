@@ -6,7 +6,7 @@ import { handlePermissions } from "./handlePermissions";
 export const getAllRequiredPermissions = (): Promise<void> => {
 	const mobileOS = getMobileOS();
 	const { COARSE_LOCATION, CAMERA, PHOTOS } = Permissions;
-	const requiredUnifiedPermissions = [COARSE_LOCATION, CAMERA, PHOTOS];
+	const requiredUnifiedPermissions = [CAMERA, PHOTOS, COARSE_LOCATION];
 	const requiredPermissions = requiredUnifiedPermissions.map((unifiedPermission) => unifiedPermission[mobileOS]).flat();
 	return new Promise<void>((resolve, reject) => {
 		handlePermissions(requiredPermissions as Permission[])

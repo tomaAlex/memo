@@ -33,10 +33,10 @@ const MatchMessageTextBar = ({ sendMessage }: TProps) => {
 						editable={!isMessageSending}
 						field="messageText"
 						placeholder="Type message..."
-						style={{ width: "100%", backgroundColor: "white" }}
+						style={{ width: "100%", backgroundColor: "white", color: "#1e1e1e" }}
 					/>
 				</View>
-				<FormSubmitButton style={{ marginLeft: 10, marginRight: 10 }}>
+				<FormSubmitButton style={{ marginLeft: 10, marginRight: 10, alignSelf: "center" }}>
 					<SendArrow width={25} height={25} fill={"#0047FE"} />
 				</FormSubmitButton>
 			</View>

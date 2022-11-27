@@ -25,7 +25,7 @@ const MatchPreviewRowMessagePreview = ({ matchedUser, lastMessage, matchTimestam
 		<>
 			<View style={styles.container__lastMessagePreviewContainer}>
 				<Text style={styles.container__lastMessagePreviewContainer__name}>{matchedUserName}</Text>
-				<Text style={styles.container__lastMessagePreviewContainer__name__message}>{trimmedMessagePreview}</Text>
+				<Text style={styles.container__lastMessagePreviewContainer__message}>{trimmedMessagePreview}</Text>
 			</View>
 			<Text style={styles.container__timePreview}>{timestampPreview}</Text>
 		</>

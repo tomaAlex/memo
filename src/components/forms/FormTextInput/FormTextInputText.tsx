@@ -18,6 +18,7 @@ function FormTextInputText<D>({ field, ...textInputProps }: TProps<D>) {
 				onChangeText={handleChange(field)}
 				onBlur={handleBlur(field as string)}
 				value={values[field] as string}
+				placeholderTextColor={"#9fa19f"}
 				{...textInputProps}
 			/>
 			<View style={styles.container__input__error}>

@@ -1,4 +1,4 @@
-package com.memo;
+package com.obsid.memo;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
