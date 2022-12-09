@@ -1,0 +1,11 @@
+.header {
+    width: 100%;
+    justify-content: space-around;
+
+    &__title {
+        text-align: center;
+        font-size: 50px;
+        color: #ec4474;
+        font-weight: bold;
+    }
+}

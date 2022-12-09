@@ -2,7 +2,7 @@ import React from "react";
 import { useSignupEmbodimentFormValidationRules } from "hooks/index";
 import connector from "redux/connector";
 import { EmbodimentForm, Orientation, ScreenNames, ScreenProps } from "types/index";
-import { Keyboard, TouchableWithoutFeedback, View } from "react-native";
+import { Keyboard, TouchableWithoutFeedback, View, SafeAreaView, ScrollView } from "react-native";
 import { Formik } from "formik";
 import FormSubmitButton from "components/forms/FormSubmitButton";
 import FormTextInput from "components/forms/FormTextInput";
@@ -11,22 +11,26 @@ import FormChoicePicker, { FormChoicePickerItem } from "components/forms/FormCho
 import { convertChoicesToFormChoicePickerData } from "utils/index";
 import { useTranslation } from "react-i18next";
 import FormImagePicker from "components/forms/FormImagePicker";
-import { createUserObject } from "Firebase/index";
 import auth from "@react-native-firebase/auth";
 import assembleUser from "./utils/assembleUser";
+import storeUser from "./utils/storeUser";
+import AppHeaderText from "components/Header/AppHeaderText";
+import styles from "./Embodiment.module.scss";
 
 const Embodiment = ({
 	navigation,
 	route: {
 		params: { identification, details },
 	},
+	updateUser,
 }: ScreenProps<ScreenNames.Embodiment>) => {
 	const [translateLabels] = useTranslation("translation", { keyPrefix: "Screens.Signup.Forms.Embodiment.Labels" });
 	const embodimentSchema = useSignupEmbodimentFormValidationRules();
 
 	return (
 		<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-			<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+			<SafeAreaView style={styles.container}>
+				<AppHeaderText />
 				<Formik
 					validationSchema={embodimentSchema}
 					initialValues={{
@@ -37,11 +41,15 @@ const Embodiment = ({
 					onSubmit={async (embodiment: EmbodimentForm) => {
 						const userToSignUp = await assembleUser(identification, details, embodiment);
 						const createdUserId = auth().currentUser?.uid as string;
-						await createUserObject(userToSignUp, createdUserId);
-						navigation.navigate(ScreenNames.Main, { uid: createdUserId });
+						await storeUser(userToSignUp, createdUserId, updateUser);
+						navigation.replace(ScreenNames.Main, { uid: createdUserId });
 					}}
 				>
-					<View style={{ width: "80%" }}>
+					<ScrollView
+						style={styles.container__form__dimensions}
+						contentContainerStyle={{ marginTop: "9%", paddingBottom: "60%" }}
+						showsVerticalScrollIndicator={false}
+					>
 						<FormTextInput field="height" placeholder="181" keyboardType="numeric">
 							<FormFieldLabel label={translateLabels("height")} />
 						</FormTextInput>
@@ -53,17 +61,17 @@ const Embodiment = ({
 						>
 							<FormFieldLabel label={translateLabels("orientation")} />
 						</FormChoicePicker>
-						<View style={{ height: "50%" }}>
+						<View style={styles.container__images}>
 							<FormImagePicker field={"photos"}>
 								<FormFieldLabel label={translateLabels("photos")} />
 							</FormImagePicker>
 						</View>
-						<View style={{ marginTop: 50 }}>
+						<View style={styles.container__button}>
 							<FormSubmitButton />
 						</View>
-					</View>
+					</ScrollView>
 				</Formik>
-			</View>
+			</SafeAreaView>
 		</TouchableWithoutFeedback>
 	);
 };
