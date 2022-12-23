@@ -21,7 +21,12 @@ const Login = ({}: ScreenProps<ScreenNames.Login>) => {
 			<View style={styles.container__header}>
 				<Text style={styles.container__header__title}>{t("title")}</Text>
 				<View style={styles.container__header__abstract}>
-					<MatchMessagePreview author="memo" content={`${t("abstract")} 🙂`} timestamp={firestore.Timestamp.now()} />
+					<MatchMessagePreview
+						seenBy={[]}
+						author="memo"
+						content={`${t("abstract")} 🙂`}
+						timestamp={firestore.Timestamp.now()}
+					/>
 				</View>
 			</View>
 			<GoogleSigninButton style={styles.container__signinButton} size={1} onPress={signInWithGoogle} />

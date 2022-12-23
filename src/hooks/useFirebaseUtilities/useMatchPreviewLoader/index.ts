@@ -19,5 +19,5 @@ export const useMatchPreviewLoader = (
 		loadMatchPreviews();
 	}, [matchIds, loadMatchPreviews]);
 
-    return areMatchPreviewsLoading;
+	return areMatchPreviewsLoading;
 };

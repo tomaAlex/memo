@@ -19,6 +19,7 @@ export interface User {
 	dislikes: string[];
 	matches: string[];
 	coordinates: Coordinates;
+	tokens: string[];
 }
 
 export interface IdentifiedUser extends User {

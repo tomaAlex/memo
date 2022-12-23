@@ -11,6 +11,7 @@ const createMatch = (
 		messages: [],
 		timestamp: currentTimestamp,
 		expiresAt: firestore.Timestamp.fromDate(new Date(currentTimestamp.toMillis() + MATCH_TTL_MILLISECONDS)),
+		seenBy: [],
 	};
 	return firestore().collection("matches").add(matchToCreate) as Promise<firestore.DocumentReference<Match>>;
 };

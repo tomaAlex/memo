@@ -15,6 +15,7 @@ const assembleUser = async (
 		dislikes: [] as string[],
 		matches: [] as string[],
 		coordinates,
+		tokens: [] as string[],
 	};
 };
 

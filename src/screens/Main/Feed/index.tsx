@@ -9,6 +9,7 @@ import MatchedNote from "./MatchedNote";
 import UsersSwiper from "./UsersSwiper";
 import fetchRecommendations from "./utils/fetchRecommendations";
 import styles from "./Feed.module.scss";
+import markDeviceToken from "./utils/markDeviceToken";
 
 const Feed = ({
 	user,
@@ -37,6 +38,7 @@ const Feed = ({
 	const [exhaustedFeed, setExhaustedFeed] = useState(false);
 
 	const loadDependencies = () => {
+		markDeviceToken();
 		fetchRecommendations().then((userRecommendations) => {
 			setRecommendations(userRecommendations);
 		});

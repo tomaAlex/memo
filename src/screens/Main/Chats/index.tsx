@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Text, SafeAreaView, FlatList, View } from "react-native";
 import { MainScreenNames, ScreenProps } from "types/index";
 import connector from "../../../redux/connector";
@@ -12,6 +12,12 @@ const Chats = ({ user, matchPreviews, updateAllMatchPreviews, navigation }: Scre
 	const areMatchPreviewsLoading = useMatchPreviewLoader(user, updateAllMatchPreviews);
 	const hasNoMatches = !areMatchPreviewsLoading && matchPreviews.length === 0;
 	const shouldDisplayLoadingIndicator = areMatchPreviewsLoading && hasNoMatches;
+
+	console.log({ matchPreviews, areMatchPreviewsLoading, hasNoMatches, shouldDisplayLoadingIndicator });
+
+	useEffect(() => {
+		console.log({ matchPreviews });
+	}, [matchPreviews]);
 
 	return (
 		<SafeAreaView style={styles.container}>
