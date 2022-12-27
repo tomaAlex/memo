@@ -1,0 +1,16 @@
+.container {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    &__form {
+        &__dimensions {
+            width: 85%;
+        }
+    }
+    &__images {
+        height: 50%;
+    }
+    &__button {
+        margin-top: 65;
+    }
+}

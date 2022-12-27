@@ -3,24 +3,19 @@ import { useFormikContext } from "formik";
 import { useTranslation } from "react-i18next";
 import { StyleProp, Text, TouchableOpacity, TouchableOpacityProps, ViewStyle } from "react-native";
 import { cx } from "utils/index";
+import styles from "./FormSubmitButton.module.scss";
 
 function FormSubmitButton<D>({ children, ...touchableOpacityProps }: TouchableOpacityProps) {
 	const [t] = useTranslation();
 	const { handleSubmit } = useFormikContext<D>();
-	const possibleStyle = {
-		alignSelf: "center",
-		backgroundColor: "#C5C5C5",
-		padding: 10,
-		borderRadius: 10,
-	} as StyleProp<ViewStyle>;
 	const hasChildren = !!children;
 	return (
 		<TouchableOpacity
-			style={cx([possibleStyle, !hasChildren]) as StyleProp<ViewStyle>}
+			style={cx([styles.container, !hasChildren]) as StyleProp<ViewStyle>}
 			onPress={handleSubmit}
 			{...touchableOpacityProps}
 		>
-			{children ? children : <Text>{t("Screens.Signup.Forms.Labels.submit")}</Text>}
+			{children ? children : <Text style={styles.container__text}>{t("Screens.Signup.Forms.Labels.submit")}</Text>}
 		</TouchableOpacity>
 	);
 }

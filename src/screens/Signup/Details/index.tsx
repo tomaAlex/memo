@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Keyboard, TouchableWithoutFeedback, View } from "react-native";
+import { Keyboard, TouchableWithoutFeedback, View, ScrollView, SafeAreaView, Dimensions } from "react-native";
 import connector from "../../../redux/connector";
 import { ScreenNames, ScreenProps } from "types/index";
 import { Formik } from "formik";
@@ -11,6 +11,8 @@ import CountryChoicePicker from "./CountryChoicePicker";
 import StateAndCityFields from "./StateAndCityFields";
 import getSubmissionHandler from "./utils/getSubmissionHandler";
 import { useTranslation } from "react-i18next";
+import AppHeaderText from "components/Header/AppHeaderText";
+import styles from "./Details.module.scss";
 
 const Details = ({
 	navigation,
@@ -21,10 +23,10 @@ const Details = ({
 	const [translateLabels] = useTranslation("translation", { keyPrefix: "Screens.Signup.Forms.Details.Labels" });
 	const detailsSchema = useSignupDetailsFormValidationRules();
 	const [selectedCountryCode, setSelectedCountryCode] = useState<string>();
-
 	return (
 		<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-			<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+			<SafeAreaView style={styles.container}>
+				<AppHeaderText />
 				<Formik
 					validationSchema={detailsSchema}
 					initialValues={{
@@ -37,7 +39,11 @@ const Details = ({
 					}}
 					onSubmit={getSubmissionHandler(navigation, identification)}
 				>
-					<View style={{ width: "80%" }}>
+					<ScrollView
+						style={styles.container__form__dimensions}
+						contentContainerStyle={{ marginTop: "18%", paddingBottom: "20%" }}
+						showsVerticalScrollIndicator={false}
+					>
 						<FormTextInput field="job" placeholder="Graphic Designer">
 							<FormFieldLabel label={translateLabels("job")} />
 						</FormTextInput>
@@ -49,12 +55,12 @@ const Details = ({
 						</FormTextInput>
 						<CountryChoicePicker {...{ selectedCountryCode, setSelectedCountryCode }} />
 						{selectedCountryCode && <StateAndCityFields selectedCountryCode={selectedCountryCode} />}
-						<View style={{ marginTop: 50 }}>
+						<View style={styles.container__button}>
 							<FormSubmitButton />
 						</View>
-					</View>
+					</ScrollView>
 				</Formik>
-			</View>
+			</SafeAreaView>
 		</TouchableWithoutFeedback>
 	);
 };

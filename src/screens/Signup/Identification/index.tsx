@@ -1,5 +1,5 @@
 import React from "react";
-import { Keyboard, TouchableWithoutFeedback, View } from "react-native";
+import { Keyboard, TouchableWithoutFeedback, View, ScrollView, SafeAreaView } from "react-native";
 import connector from "../../../redux/connector";
 import "../../../translations/i18.config";
 import { Gender, IdentificationForm, ScreenNames, ScreenProps } from "types/index";
@@ -7,11 +7,13 @@ import { Formik } from "formik";
 import FormTextInput from "components/forms/FormTextInput";
 import FormChoicePicker, { FormChoicePickerItem } from "components/forms/FormChoicePicker";
 import FormDatePicker from "components/forms/FormDatePicker";
+import AppHeaderText from "components/Header/AppHeaderText";
 import { useSignupIdentificationFormValidationRules } from "hooks/index";
 import FormSubmitButton from "components/forms/FormSubmitButton";
 import FormFieldLabel from "components/forms/FormFieldLabel";
 import { convertChoicesToFormChoicePickerData } from "utils/index";
 import { useTranslation } from "react-i18next";
+import styles from "./Identification.module.scss";
 
 const Identification = ({ navigation }: ScreenProps<ScreenNames.Identification>) => {
 	const [translateLabels] = useTranslation("translation", { keyPrefix: "Screens.Signup.Forms.Identification.Labels" });
@@ -19,7 +21,8 @@ const Identification = ({ navigation }: ScreenProps<ScreenNames.Identification>)
 
 	return (
 		<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-			<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+			<SafeAreaView style={styles.container}>
+				<AppHeaderText />
 				<Formik
 					validationSchema={identificationSchema}
 					initialValues={{ firstName: "", lastName: "", gender: "", birthDate: "" }}
@@ -27,7 +30,11 @@ const Identification = ({ navigation }: ScreenProps<ScreenNames.Identification>)
 						navigation.navigate("Details", { identification: identification as unknown as IdentificationForm })
 					}
 				>
-					<View style={{ width: "80%" }}>
+					<ScrollView
+						style={styles.container__form__dimensions}
+						contentContainerStyle={{ marginTop: "15%", paddingBottom: "20%" }}
+						showsVerticalScrollIndicator={false}
+					>
 						<FormTextInput isMandatory field="firstName" placeholder="John">
 							<FormFieldLabel label={translateLabels("firstName")} />
 						</FormTextInput>
@@ -45,12 +52,12 @@ const Identification = ({ navigation }: ScreenProps<ScreenNames.Identification>)
 						<FormDatePicker isMandatory field="birthDate">
 							<FormFieldLabel label={translateLabels("birthDate")} />
 						</FormDatePicker>
-						<View style={{ marginTop: 50 }}>
+						<View style={styles.container__button}>
 							<FormSubmitButton />
 						</View>
-					</View>
+					</ScrollView>
 				</Formik>
-			</View>
+			</SafeAreaView>
 		</TouchableWithoutFeedback>
 	);
 };
