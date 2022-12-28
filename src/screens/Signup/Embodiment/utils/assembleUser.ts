@@ -16,6 +16,7 @@ const assembleUser = async (
 		matches: [] as string[],
 		coordinates,
 		tokens: [] as string[],
+		hasInstantMatchingOn: true,
 	};
 };
 

@@ -9,6 +9,9 @@ const matchUsers = async (
 	secondMatchedUser: firestore.DocumentReference<User>
 ) => {
 	const createdMatch = await createMatch(firstMatchedUser, secondMatchedUser);
+	if (!createdMatch) {
+		return;
+	}
 	await notifyMatchers([firstMatchedUser.id, secondMatchedUser.id]);
 	await scheduleMatchDeletion(createdMatch);
 	await markUsersMatch(firstMatchedUser, secondMatchedUser, createdMatch.id);

@@ -1,21 +1,30 @@
 import React from "react";
 import { ExitIcon } from "icons/index";
-import Swiper from "react-native-deck-swiper";
-import { IdentifiedUser } from "types/index";
 import { TouchableOpacity } from "react-native";
 import styles from "./SwipeControls.module.scss";
+import Swiper from "react-native-deck-swiper";
+import { IdentifiedUser } from "types/index";
+import { cx } from "utils/index";
 
 type TProps = {
 	swiperReference: React.RefObject<Swiper<IdentifiedUser>>;
+	isSwiperBlocked: boolean;
 };
 
-const SwipeLeftButton = ({ swiperReference }: TProps) => {
+const SwipeLeftButton = ({ swiperReference, isSwiperBlocked }: TProps) => {
 	const dislike = () => {
 		swiperReference.current?.swipeLeft();
 	};
 
 	return (
-		<TouchableOpacity style={styles.swipingControlsContainer__swipeLeftContainer} onPress={dislike}>
+		<TouchableOpacity
+			disabled={isSwiperBlocked}
+			style={cx(
+				[styles.swipingControlsContainer__swipeLeftContainer, !isSwiperBlocked],
+				[styles.swipingControlsContainer__swipeLeftContainer__disabled, isSwiperBlocked]
+			)}
+			onPress={dislike}
+		>
 			<ExitIcon
 				width={15}
 				height={15}

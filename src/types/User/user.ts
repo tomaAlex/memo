@@ -20,6 +20,8 @@ export interface User {
 	matches: string[];
 	coordinates: Coordinates;
 	tokens: string[];
+	hasInstantMatchingOn: boolean;
+	stripeId?: string;
 }
 
 export interface IdentifiedUser extends User {

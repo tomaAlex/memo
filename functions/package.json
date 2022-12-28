@@ -17,8 +17,10 @@
   "main": "lib/index.js",
   "dependencies": {
     "@google-cloud/tasks": "^3.0.5",
-    "firebase-admin": "^10.0.2",
-    "firebase-functions": "^3.18.0"
+    "dotenv": "^16.0.3",
+    "firebase-admin": "^11.4.1",
+    "firebase-functions": "^4.1.1",
+    "stripe": "^11.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",

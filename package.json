@@ -25,6 +25,7 @@
     "@react-navigation/native": "^6.0.12",
     "@react-navigation/native-stack": "^6.9.1",
     "@react-navigation/stack": "^6.2.3",
+    "@stripe/stripe-react-native": "^0.22.1",
     "country-state-list": "^1.0.1",
     "formik": "^2.2.9",
     "i18next": "^21.9.1",

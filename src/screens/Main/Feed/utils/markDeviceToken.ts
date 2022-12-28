@@ -4,12 +4,9 @@ import firestore from "@react-native-firebase/firestore";
 
 const markDeviceToken = async (): Promise<void> => {
 	await messaging().registerDeviceForRemoteMessages();
-	console.log("before taking token");
 	const deviceToken = await messaging().getToken();
-	console.log({ deviceToken });
 	const { user } = store.getState();
 	const savedTokens = user.tokens;
-	console.log({ savedTokens });
 	const isDeviceTokenSaved = savedTokens.includes(deviceToken);
 	if (isDeviceTokenSaved) {
 		return;

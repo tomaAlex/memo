@@ -24,6 +24,8 @@ type User = {
 	matches: string[];
 	coordinates: Coordinates;
 	tokens: string[];
+	hasInstantMatchingOn: boolean;
+	stripeId?: string;
 };
 
 type IdentifiedUser = User & {
@@ -65,4 +67,12 @@ type MatchPreview = TimeManagedDocument & {
 	matchedUsers: IdentifiedUser[];
 	lastMessage: MatchMessage | null;
 	notifications: number;
+};
+
+type CardPreview = {
+	id: string;
+	brand: string;
+	last4: string;
+	expiryMonth: number;
+	expiryYear: number;
 };

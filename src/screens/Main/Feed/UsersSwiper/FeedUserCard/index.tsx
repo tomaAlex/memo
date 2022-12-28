@@ -12,10 +12,11 @@ import SwipeControls from "./SwipeControls";
 type TProps = {
 	userToDisplay: IdentifiedUser;
 	swiperReference: React.RefObject<Swiper<IdentifiedUser>>;
+	isSwiperBlocked: boolean;
 };
 
-const FeedUserCard = ({ userToDisplay, swiperReference }: TProps) => {
-	const { photos } = userToDisplay;
+const FeedUserCard = ({ userToDisplay, swiperReference, isSwiperBlocked }: TProps) => {
+	const { photos, hasInstantMatchingOn } = userToDisplay;
 	return (
 		<View style={styles.userCardContainer}>
 			<View style={styles.userCardContainer__userCard}>
@@ -32,7 +33,7 @@ const FeedUserCard = ({ userToDisplay, swiperReference }: TProps) => {
 				<FeedUserCardDescription userToDisplay={userToDisplay} />
 			</View>
 			<FeedUserCardShadow />
-			<SwipeControls swiperReference={swiperReference} />
+			<SwipeControls {...{ swiperReference, hasInstantMatchingOn, isSwiperBlocked }} />
 		</View>
 	);
 };

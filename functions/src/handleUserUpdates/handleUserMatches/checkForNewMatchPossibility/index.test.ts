@@ -16,6 +16,7 @@ describe("checkForNewMatchPossibility", () => {
 			longitude: 0,
 		},
 		tokens: [],
+		hasInstantMatchingOn: true,
 	};
 
 	it("should return true if the likes field has changed", () => {

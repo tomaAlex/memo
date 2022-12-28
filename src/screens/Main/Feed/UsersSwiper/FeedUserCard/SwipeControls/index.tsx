@@ -5,16 +5,20 @@ import { IdentifiedUser } from "types/index";
 import styles from "./SwipeControls.module.scss";
 import SwipeLeftButton from "./SwipeLeftButton";
 import SwipeRightButton from "./SwipeRightButton";
+import SwipeTopButton from "./SwipeTopButton";
 
 type TProps = {
 	swiperReference: React.RefObject<Swiper<IdentifiedUser>>;
+	hasInstantMatchingOn: boolean;
+	isSwiperBlocked: boolean;
 };
 
-const SwipeControls = ({ swiperReference }: TProps) => {
+const SwipeControls = ({ swiperReference, hasInstantMatchingOn, isSwiperBlocked }: TProps) => {
 	return (
 		<View style={styles.swipingControlsContainer}>
-			<SwipeLeftButton swiperReference={swiperReference} />
-			<SwipeRightButton swiperReference={swiperReference} />
+			<SwipeLeftButton {...{ swiperReference, isSwiperBlocked }} />
+			<SwipeTopButton {...{ swiperReference, isSwiperBlocked, hasInstantMatchingOn }} />
+			<SwipeRightButton {...{ swiperReference, isSwiperBlocked }} />
 		</View>
 	);
 };
