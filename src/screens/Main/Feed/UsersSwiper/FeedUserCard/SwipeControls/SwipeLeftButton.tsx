@@ -1,17 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ExitIcon } from "icons/index";
 import { TouchableOpacity } from "react-native";
 import styles from "./SwipeControls.module.scss";
-import Swiper from "react-native-deck-swiper";
-import { IdentifiedUser } from "types/index";
 import { cx } from "utils/index";
+import UsersSwiperContext from "../../UsersSwiperContext";
 
-type TProps = {
-	swiperReference: React.RefObject<Swiper<IdentifiedUser>>;
-	isSwiperBlocked: boolean;
-};
+const SwipeLeftButton = () => {
+	const { swiperReference, isSwiperBlocked } = useContext(UsersSwiperContext);
 
-const SwipeLeftButton = ({ swiperReference, isSwiperBlocked }: TProps) => {
 	const dislike = () => {
 		swiperReference.current?.swipeLeft();
 	};

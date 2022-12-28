@@ -1,7 +1,6 @@
 import Carousel from "components/Carousel";
 import React from "react";
 import { Image, View } from "react-native";
-import Swiper from "react-native-deck-swiper";
 import { IdentifiedUser } from "types/index";
 import styles from "./FeedUserCard.module.scss";
 import FeedUserCardDescription from "./FeedUserCardDescription";
@@ -11,11 +10,9 @@ import SwipeControls from "./SwipeControls";
 
 type TProps = {
 	userToDisplay: IdentifiedUser;
-	swiperReference: React.RefObject<Swiper<IdentifiedUser>>;
-	isSwiperBlocked: boolean;
 };
 
-const FeedUserCard = ({ userToDisplay, swiperReference, isSwiperBlocked }: TProps) => {
+const FeedUserCard = ({ userToDisplay }: TProps) => {
 	const { photos, hasInstantMatchingOn } = userToDisplay;
 	return (
 		<View style={styles.userCardContainer}>
@@ -33,7 +30,7 @@ const FeedUserCard = ({ userToDisplay, swiperReference, isSwiperBlocked }: TProp
 				<FeedUserCardDescription userToDisplay={userToDisplay} />
 			</View>
 			<FeedUserCardShadow />
-			<SwipeControls {...{ swiperReference, hasInstantMatchingOn, isSwiperBlocked }} />
+			<SwipeControls {...{ hasInstantMatchingOn }} />
 		</View>
 	);
 };

@@ -6,6 +6,7 @@ import { useProfileDisliker, useProfileLiker } from "hooks/index";
 import getVerticalState from "./utils/getVerticalState";
 import RBSheet from "react-native-raw-bottom-sheet";
 import PaymentSheet from "./PaymentSheet";
+import UsersSwiperContext from "./UsersSwiperContext";
 
 type TProps = {
 	recommendations: IdentifiedUser[];
@@ -23,12 +24,14 @@ const UsersSwiper = ({ recommendations, markFeedExhausted }: TProps) => {
 	const dislikeProfile = useProfileDisliker();
 
 	return (
-		<>
+		<UsersSwiperContext.Provider
+			value={{ swiperReference, isSwiperBlocked, setIsSwiperBlocked, userToInstantlyMatchId }}
+		>
 			<Swiper<IdentifiedUser>
 				ref={swiperReference}
 				backgroundColor="white"
 				cards={recommendations}
-				renderCard={(userToDisplay) => <FeedUserCard {...{ userToDisplay, swiperReference, isSwiperBlocked }} />}
+				renderCard={(userToDisplay) => <FeedUserCard {...{ userToDisplay }} />}
 				onSwiped={(userIndex) => {
 					setCurrentlyDisplayedUserIndex(userIndex + 1);
 				}}
@@ -50,8 +53,8 @@ const UsersSwiper = ({ recommendations, markFeedExhausted }: TProps) => {
 				cardIndex={0}
 				stackSize={1}
 			/>
-			<PaymentSheet {...{ refRBSheet, userToInstantlyMatchId, swiperReference, setIsSwiperBlocked }} />
-		</>
+			<PaymentSheet {...{ refRBSheet }} />
+		</UsersSwiperContext.Provider>
 	);
 };
 

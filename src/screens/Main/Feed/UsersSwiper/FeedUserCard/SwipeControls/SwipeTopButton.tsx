@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StarIcon } from "icons/index";
 import { TouchableOpacity } from "react-native";
 import styles from "./SwipeControls.module.scss";
-import Swiper from "react-native-deck-swiper";
-import { IdentifiedUser } from "types/index";
 import { cx } from "utils/index";
+import UsersSwiperContext from "../../UsersSwiperContext";
 
 type TProps = {
-	swiperReference: React.RefObject<Swiper<IdentifiedUser>>;
 	hasInstantMatchingOn: boolean;
-	isSwiperBlocked: boolean;
 };
 
-const SwipeTopButton = ({ swiperReference, hasInstantMatchingOn, isSwiperBlocked }: TProps) => {
+const SwipeTopButton = ({ hasInstantMatchingOn }: TProps) => {
+	const { swiperReference, isSwiperBlocked } = useContext(UsersSwiperContext);
+
 	const instantlyMatch = () => {
 		swiperReference.current?.swipeTop();
 	};

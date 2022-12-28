@@ -13,17 +13,14 @@ const handleInstantMatchPayment = async (
 	swiperReference: React.RefObject<Swiper<IdentifiedUser>>,
 	setWasBottomSheetPrematurelyClosed: (wasBottomSheetPrematurelyClosed: boolean) => void
 ): Promise<void> => {
+	setWasBottomSheetPrematurelyClosed(false);
 	const wasInstantMatchSuccessful = await payInstantMatch(userToInstantlyMatchId, cardId);
-	console.log({ wasInstantMatchSuccessful });
 	const unlockSwiperAndCloseRBsheet = mixUnlockSwiperAndCloseRBsheetMethod(refRBSheet, setIsSwiperBlocked);
 	if (wasInstantMatchSuccessful) {
 		unlockSwiperAndCloseRBsheet();
 		return;
 	}
-	swiperReference.current?.swipeBack(() => {
-		setWasBottomSheetPrematurelyClosed(false);
-		unlockSwiperAndCloseRBsheet();
-	});
+	swiperReference.current?.swipeBack(unlockSwiperAndCloseRBsheet);
 };
 
 export default handleInstantMatchPayment;

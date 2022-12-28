@@ -1,28 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Text, TouchableOpacity } from "react-native";
-import Swiper from "react-native-deck-swiper";
 import RBSheet from "react-native-raw-bottom-sheet";
-import { CardPreview, IdentifiedUser } from "types/index";
+import { CardPreview } from "types/index";
+import UsersSwiperContext from "../../UsersSwiperContext";
 import handleInstantMatchPayment from "./utils/handleInstantMatchPayment";
 
 type TProps = CardPreview & {
 	refRBSheet: React.RefObject<RBSheet>;
-	userToInstantlyMatchId: string;
-	setIsSwiperBlocked: (isSwiperBlocked: boolean) => void;
-	swiperReference: React.RefObject<Swiper<IdentifiedUser>>;
 	setWasBottomSheetPrematurelyClosed: (wasBottomSheetPrematurelyClosed: boolean) => void;
 };
 
-const PaymentOptionPreview = ({
-	id,
-	brand,
-	last4,
-	refRBSheet,
-	userToInstantlyMatchId,
-	setIsSwiperBlocked,
-	swiperReference,
-	setWasBottomSheetPrematurelyClosed,
-}: TProps) => {
+const PaymentOptionPreview = ({ id, brand, last4, refRBSheet, setWasBottomSheetPrematurelyClosed }: TProps) => {
+	const { swiperReference, setIsSwiperBlocked, userToInstantlyMatchId } = useContext(UsersSwiperContext);
+
 	const fireInstantMatchPaymentRoutine = () => {
 		handleInstantMatchPayment(
 			userToInstantlyMatchId,
