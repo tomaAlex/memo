@@ -1,0 +1,31 @@
+.container {
+	display: flex;
+	margin-bottom: 5px;
+
+	&__label {
+		flex-direction: row;
+		align-self: flex-start;
+
+		&__mandatoryNote {
+			margin-right: 10px;
+		}
+	}
+
+	&__switcher {
+		width: 85%;
+		align-self: center;
+
+		&__control {
+			text-align: left;
+			padding-left: 15px;
+			color: #1e1e1e;
+			border-color: #0000004d;
+			border-bottom-width: 1px;
+		}
+
+		&__error {
+            margin-top: 5px;
+			align-self: center;
+		}
+	}
+}

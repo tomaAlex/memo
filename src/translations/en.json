@@ -111,6 +111,11 @@
 				},
 				"Chats": {
 					"noMatchesNote": "It's time to send more likes"
+				},
+				"Settings": {
+					"Labels": {
+						"hasInstantMatchingOn": "Allow instant matches"
+					}
 				}
 			}
 		},

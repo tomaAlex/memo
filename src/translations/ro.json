@@ -111,6 +111,11 @@
 				},
 				"Chats": {
 					"noMatchesNote": "E vremea sa mai trimiti like-uri"
+				},
+				"Settings": {
+					"Labels": {
+						"hasInstantMatchingOn": "Permite match-uri instante"
+					}
 				}
 			}
 		},

@@ -11,15 +11,33 @@ import { updateUser as firebaseUpdateUser } from "Firebase/index";
 import store from "redux/store";
 import styles from "./Settings.module.scss";
 import SettingsSubmitButton from "./SettingsSubmitButton";
+import FormSwitchInput from "components/forms/FormSwitchInput";
+import FormFieldLabel from "components/forms/FormFieldLabel";
+import { useTranslation } from "react-i18next";
 
 const Settings = ({
-	user: { firstName, lastName, gender, birthDate, job, school, description, location, height, orientation, photos, id },
+	user: {
+		firstName,
+		lastName,
+		gender,
+		birthDate,
+		job,
+		school,
+		description,
+		location,
+		height,
+		orientation,
+		photos,
+		id,
+		hasInstantMatchingOn,
+	},
 }: ScreenProps<MainScreenNames.Settings>) => {
 	const userUpdateSchema = useUserUpdateFormValidationRules();
 	const locationCountry = location?.country;
 	const locationState = location?.state;
 	const locationCity = location?.city;
 	const [isUserUpdating, setIsUserUpdating] = useState(false);
+	const [translateLabels] = useTranslation("translation", { keyPrefix: "Screens.Main.Settings.Labels" });
 
 	return (
 		<SafeAreaView style={styles.container}>
@@ -41,6 +59,7 @@ const Settings = ({
 							height,
 							orientation,
 							photos,
+							hasInstantMatchingOn,
 						}}
 						onSubmit={async (userUpdate) => {
 							setIsUserUpdating(true);
@@ -52,6 +71,9 @@ const Settings = ({
 							<UpdateEmbodimentForm />
 							<UpdateIdentificationForm />
 							<UpdateDetailsForm />
+							<FormSwitchInput isMandatory field="hasInstantMatchingOn">
+								<FormFieldLabel label={translateLabels("hasInstantMatchingOn")} />
+							</FormSwitchInput>
 							<SettingsSubmitButton {...{ isUserUpdating }} />
 						</ScrollView>
 					</Formik>
