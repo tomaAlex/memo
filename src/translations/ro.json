@@ -115,6 +115,32 @@
 				"Settings": {
 					"Labels": {
 						"hasInstantMatchingOn": "Permite match-uri instante"
+					},
+					"CashOutSupplierForm": {
+						"Labels": {
+							"bankAccountNumber": "Numarul contului",
+							"bankAccountCountry": "Tara",
+							"bankRoutingNumber": "Cod bancar",
+							"currency": "Moneda"
+						},
+						"Errors": {
+							"bankAccountNumber": {
+								"tooShort": "Numarul contului este prea scurt",
+								"tooLong": "Numarul contului este prea lung",
+								"required": "Numarul contului este obligatoriu"
+							},
+							"bankAccountCountry": {
+								"required": "Tara este obligatorie"
+							},
+							"bankRoutingNumber": {
+								"tooShort": "Codul bancar este prea scurt",
+								"tooLong": "Codul bancar este prea lung",
+								"required": "Codul bancar este obligatoriu"
+							},
+							"currency": {
+								"required": "Moneda este obligatorie"
+							}
+						}
 					}
 				}
 			}

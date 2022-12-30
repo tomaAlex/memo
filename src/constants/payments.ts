@@ -1,0 +1,1 @@
+export const MINIMUM_PENCE_BALANCE_TO_CASH_OUT = 1000;

@@ -76,3 +76,10 @@ type CardPreview = {
 	expiryMonth: number;
 	expiryYear: number;
 };
+
+type BankPreview = {
+	id: string;
+	country: string;
+	last4: string;
+	routingNumber?: string;
+};

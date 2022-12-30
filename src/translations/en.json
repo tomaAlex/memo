@@ -115,6 +115,32 @@
 				"Settings": {
 					"Labels": {
 						"hasInstantMatchingOn": "Allow instant matches"
+					},
+					"CashOutSupplierForm": {
+						"Labels": {
+							"bankAccountNumber": "Account number",
+							"bankAccountCountry": "Country",
+							"bankRoutingNumber": "Routing number",
+							"currency": "Currency"
+						},
+						"Errors": {
+							"bankAccountNumber": {
+								"tooShort": "Account number is too short",
+								"tooLong": "Account number is too long",
+								"required": "Account number is required"
+							},
+							"bankAccountCountry": {
+								"required": "Country is required"
+							},
+							"bankRoutingNumber": {
+								"tooShort": "Routing number is too short",
+								"tooLong": "Routing number is too long",
+								"required": "Routing number is required"
+							},
+							"currency": {
+								"required": "Currency is required"
+							}
+						}
 					}
 				}
 			}

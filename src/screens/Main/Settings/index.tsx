@@ -14,6 +14,7 @@ import SettingsSubmitButton from "./SettingsSubmitButton";
 import FormSwitchInput from "components/forms/FormSwitchInput";
 import FormFieldLabel from "components/forms/FormFieldLabel";
 import { useTranslation } from "react-i18next";
+import CashOutButton from "./CashOutButton";
 
 const Settings = ({
 	user: {
@@ -74,6 +75,7 @@ const Settings = ({
 							<FormSwitchInput isMandatory field="hasInstantMatchingOn">
 								<FormFieldLabel label={translateLabels("hasInstantMatchingOn")} />
 							</FormSwitchInput>
+							<CashOutButton {...{ hasInstantMatchingOn }} />
 							<SettingsSubmitButton {...{ isUserUpdating }} />
 						</ScrollView>
 					</Formik>
