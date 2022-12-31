@@ -1,0 +1,30 @@
+.container {
+	height: 50%;
+	width: 90%;
+	margin-top: 50%;
+	align-self: center;
+
+	&__cardField {
+		flex: 1;
+	}
+
+	&__submitContainer {
+		flex: 1;
+
+        &__loading {
+            align-self: center;
+        }
+
+		&__submit {
+			align-self: center;
+			background-color: #f10065;
+			padding: 10px;
+			border-radius: 10px;
+
+			&__caption {
+				color: #fff;
+				font-weight: bold;
+			}
+		}
+	}
+}
