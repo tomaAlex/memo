@@ -107,6 +107,13 @@
 					},
 					"EnoughMatchesNote": {
 						"caption": "Este vremea sa te focusezi pe match-urile tale curente"
+					},
+					"UsersSwiper": {
+						"PaymentSheet": {
+							"PaymentSupplierButton": {
+								"addCard": "Adauga card nou"
+							}
+						}
 					}
 				},
 				"Chats": {

@@ -1,3 +1,4 @@
+import Loading from "components/Loading";
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import { FlatList } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
@@ -17,6 +18,7 @@ const PaymentSheet = ({ refRBSheet }: TProps) => {
 	const { setIsSwiperBlocked, swiperReference } = useContext(UsersSwiperContext);
 
 	const [cardPreviews, setCardPreviews] = useState<CardPreview[]>([]);
+	const [loadingCards, setLoadingCards] = useState(true);
 	const [shouldFetchCards, setShouldFetchCards] = useState(true);
 	const [wasBottomSheetPrematurelyClosed, setWasBottomSheetPrematurelyClosed] = useState(true);
 
@@ -25,7 +27,9 @@ const PaymentSheet = ({ refRBSheet }: TProps) => {
 			return;
 		}
 		setShouldFetchCards(false);
+		setLoadingCards(true);
 		const fetchedCardPreviews = await fetchCardPreviews();
+		setLoadingCards(false);
 		setCardPreviews(fetchedCardPreviews);
 	}, [shouldFetchCards]);
 
@@ -47,11 +51,19 @@ const PaymentSheet = ({ refRBSheet }: TProps) => {
 				setIsSwiperBlocked(true);
 				setWasBottomSheetPrematurelyClosed(true);
 			}}
+			customStyles={{
+				container: styles.container,
+				draggableIcon: styles.container__draggableIcon,
+			}}
 		>
 			<FlatList
-				style={styles.container__picker__container}
+				contentContainerStyle={styles.container__picker}
 				data={cardPreviews}
-				ListHeaderComponent={() => <PaymentSupplierButton {...{ setShouldFetchCards }} />}
+				numColumns={3}
+				keyExtractor={(item) => item.id}
+				ListHeaderComponent={() => {
+					return loadingCards ? <Loading /> : <PaymentSupplierButton {...{ setShouldFetchCards }} />;
+				}}
 				renderItem={({ item }) => (
 					<PaymentOptionPreview
 						{...{

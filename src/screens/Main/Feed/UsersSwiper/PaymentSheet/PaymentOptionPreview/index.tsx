@@ -1,16 +1,26 @@
 import React, { useContext } from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { ImageBackground, Text, TouchableOpacity, View } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
 import { CardPreview } from "types/index";
 import UsersSwiperContext from "../../UsersSwiperContext";
 import handleInstantMatchPayment from "./utils/handleInstantMatchPayment";
+import styles from "./PaymentOptionPreview.module.scss";
+import formatExpiryDate from "./utils/formatExpiryDate";
 
 type TProps = CardPreview & {
 	refRBSheet: React.RefObject<RBSheet>;
 	setWasBottomSheetPrematurelyClosed: (wasBottomSheetPrematurelyClosed: boolean) => void;
 };
 
-const PaymentOptionPreview = ({ id, brand, last4, refRBSheet, setWasBottomSheetPrematurelyClosed }: TProps) => {
+const PaymentOptionPreview = ({
+	id,
+	brand,
+	expiryYear,
+	expiryMonth,
+	last4,
+	refRBSheet,
+	setWasBottomSheetPrematurelyClosed,
+}: TProps) => {
 	const { swiperReference, setIsSwiperBlocked, userToInstantlyMatchId } = useContext(UsersSwiperContext);
 
 	const fireInstantMatchPaymentRoutine = () => {
@@ -26,9 +36,13 @@ const PaymentOptionPreview = ({ id, brand, last4, refRBSheet, setWasBottomSheetP
 
 	return (
 		<TouchableOpacity onPress={fireInstantMatchPaymentRoutine}>
-			<Text>
-				{id}, {brand}, {last4}
-			</Text>
+			<ImageBackground source={require("./background.png")} style={styles.container} borderRadius={10}>
+				<Text style={styles.container__number}>{`.... .... .... ${last4}`}</Text>
+				<View style={styles.container__brandAndExpiry}>
+					<Text style={styles.container__brandAndExpiry__type}>{brand}</Text>
+					<Text style={styles.container__brandAndExpiry__expiry}>{formatExpiryDate(expiryMonth, expiryYear)}</Text>
+				</View>
+			</ImageBackground>
 		</TouchableOpacity>
 	);
 };

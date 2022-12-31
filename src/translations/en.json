@@ -107,6 +107,13 @@
 					},
 					"EnoughMatchesNote": {
 						"caption": "It is time you focus on your current matches"
+					},
+					"UsersSwiper": {
+						"PaymentSheet": {
+							"PaymentSupplierButton": {
+								"addCard": "Add new card"
+							}
+						}
 					}
 				},
 				"Chats": {

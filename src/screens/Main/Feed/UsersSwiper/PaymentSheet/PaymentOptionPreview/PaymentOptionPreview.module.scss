@@ -1,0 +1,32 @@
+.container {
+	height: 50px;
+	width: 100px;
+	margin-top: 2%;
+	align-self: center;
+    justify-content: space-around;
+    margin: 5px;
+
+	&__number {
+		font-size: 11px;
+        font-weight: bold;
+		color: white;
+		align-self: center;
+	}
+
+	&__brandAndExpiry {
+		flex-direction: row;
+		justify-content: space-around;
+
+		&__type {
+            font-weight: bold;
+			color: white;
+			font-size: 10px;
+		}
+
+		&__expiry {
+            font-weight: bold;
+			font-size: 10px;
+			color: white;
+		}
+	}
+}

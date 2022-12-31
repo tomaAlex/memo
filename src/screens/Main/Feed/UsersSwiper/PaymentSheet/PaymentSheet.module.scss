@@ -1,3 +1,15 @@
 .container {
-	//
+	background-color: #eaeaea;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+
+	&__draggableIcon {
+		background-color: #f10065;
+	}
+
+	&__picker {
+		padding-left: 10px;
+		padding-right: 10px;
+		align-items: center;
+	}
 }
