@@ -148,6 +148,47 @@
 								"required": "Moneda este obligatorie"
 							}
 						}
+					},
+					"CashOutActivationForm": {
+						"Notes": {
+							"FullServiceAgreement": {
+								"beforeConnectedAccountAgreement": "Serviciile de procesare a plăților pentru utilizatorii memo sunt furnizate de Stripe și sunt supuse",
+								"connectedAccountAgreement": "acordului contului conectat Stripe",
+								"beforeStripeToS": "care include",
+								"stripeToS": "termenii serviciului de utilizare Stripe",
+								"afterStripeToS": "(în ansamblu, „Acordul privind serviciile Stripe”). Prin acceptarea acestor termeni sau continuarea activității ca utilizator pe memo, sunteți de acord să fiți legat de Acordul privind serviciile Stripe, așa cum poate fi modificat de Stripe de la o dată la alta. Drept condiție pentru activarea serviciilor de procesare a plăților prin Stripe, sunteți de acord să furnizați informații exacte și complete despre dvs. și despre afacerea dvs. și autorizați memo să le partajeze și informațiile privind tranzacțiile legate de utilizarea serviciilor de procesare a plăților furnizate de Stripe"
+							},
+							"RecipientServiceAgreement": {
+								"beforeStripeRecipientAgreement": "memo utilizează Stripe pentru a face plăți utilizatorilor.",
+								"stripeRecipientAgreement": "Acordul privind beneficiarii Stripe",
+								"afterStripeRecipientAgreement": "se aplică primirii plăților de la memo. Pentru a primi plăți de la memo, trebuie să îi furnizați lui memo informații exacte și complete despre dvs. și despre afacerea dvs., și îi autorizați lui memo să vă partajeze și informațiile privind tranzacțiile legate de plățile dvs. cu Stripe"
+							},
+							"MCC": {
+								"beforeMCCReference": "Codul de categorie de comerciant (MCC) este un cod de patru cifre care descrie tipul de afacere pe care o desfășurați. Puteți găsi MCC-ul dvs. pe declarația bancară sau căutând tipul de afacere",
+								"MCCReference": "aici"
+							}
+						},
+						"Labels": {
+							"businessMcc": "Cod de Categorie de Comercian (MCC)",
+							"businessWebsite": "Website",
+							"termsAndConditions": "Sunt de acord cu termenii si conditiile"
+						},
+						"Errors": {
+							"businessMcc": {
+								"tooShort": "MCC este prea scurt",
+								"tooLong": "MCC este prea lung",
+								"required": "MCC este obligatoriu"
+							},
+							"businessWebsite": {
+								"tooShort": "Website-ul este prea scurt",
+								"tooLong": "Website-ul este prea lung",
+								"required": "Website-ul este obligatoriu"
+							},
+							"termsAndConditions": {
+								"required": "Trebuie sa accepti termenii si conditiile"
+							},
+							"general": "Website sau MCC invalid"
+						}
 					}
 				}
 			}

@@ -13,7 +13,9 @@ export * from "./markSeen";
 export * from "./payInstantMatch";
 export * from "./sendMessage";
 export * from "./getRecommendations";
+export * from "./decideWhetherUserCanCashOut";
 export * from "./getBalance";
+export * from "./verifyConnectAccount";
 
 dotenv.config();
 admin.initializeApp();

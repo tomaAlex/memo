@@ -148,6 +148,47 @@
 								"required": "Currency is required"
 							}
 						}
+					},
+					"CashOutActivationForm": {
+						"Notes": {
+							"FullServiceAgreement": {
+								"beforeConnectedAccountAgreement": "Payment processing services for users on memo are provided by Stripe and are subject to the",
+								"connectedAccountAgreement": "Stripe Connected Account Agreement",
+								"beforeStripeToS": "which includes the",
+								"stripeToS": "Stripe Terms of Service",
+								"afterStripeToS": "(collectively, the “Stripe Services Agreement”). By agreeing to these terms or continuing to operate as a user on memo, you agree to be bound by the Stripe Services Agreement, as the same may be modified by Stripe from time to time. As a condition of memo enabling payment processing services through Stripe, you agree to provide memo accurate and complete information about you and your business, and you authorize memo to share it and transaction information related to your use of the payment processing services provided by Stripe"
+							},
+							"RecipientServiceAgreement": {
+								"beforeStripeRecipientAgreement": "memo uses Stripe to make payouts to users. The",
+								"stripeRecipientAgreement": "Stripe Recipient Agreement",
+								"afterStripeRecipientAgreement": "applies to your receipt of such Payouts. To receive payouts from memo, you must provide memo accurate and complete information about you and your business, and you authorize memo to share it and transaction information related to your payout with Stripe"
+							},
+							"MCC": {
+								"beforeMCCReference": "The Merchant Category Code (MCC) is a four-digit code that describes the type of business you are operating. You can find your MCC on your bank statement or by searching for your business type",
+								"MCCReference": "here"
+							}
+						},
+						"Labels": {
+							"businessMcc": "Merchant Category Code (MCC)",
+							"businessWebsite": "Website",
+							"termsAndConditions": "I agree to the terms and conditions"
+						},
+						"Errors": {
+							"businessMcc": {
+								"tooShort": "MCC is too short",
+								"tooLong": "MCC is too long",
+								"required": "MCC is required"
+							},
+							"businessWebsite": {
+								"tooShort": "Website is too short",
+								"tooLong": "Website is too long",
+								"required": "Website is required"
+							},
+							"termsAndConditions": {
+								"required": "You must accept the terms and conditions"
+							},
+							"general": "Invalid Website or MCC"
+						}
 					}
 				}
 			}
