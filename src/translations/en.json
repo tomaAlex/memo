@@ -169,11 +169,53 @@
 							}
 						},
 						"Labels": {
+							"businessType": "Business type",
+							"businessName": "Business name",
+							"homeAddressLine1": "Home Address line 1",
+							"homeAddressLine2": "Home Address line 2",
+							"homeAddressCountry": "Home Country",
+							"homeAddressState": "Home State",
+							"homeAddressCity": "Home City",
+							"homeAddressPostalCode": "Home Postal Code",
 							"businessMcc": "Merchant Category Code (MCC)",
 							"businessWebsite": "Website",
+							"personalPhone": "Personal Phone Number",
+							"businessPhone": "Business Phone Number",
 							"termsAndConditions": "I agree to the terms and conditions"
 						},
 						"Errors": {
+							"businessType": {
+								"required": "Business type is required"
+							},
+							"businessName": {
+								"tooShort": "Business name is too short",
+								"tooLong": "Business name is too long",
+								"required": "Business name is required"
+							},
+							"homeAddressLine1": {
+								"tooShort": "Home Address line 1 is too short",
+								"tooLong": "Home Address line 1 is too long",
+								"required": "Home Address line 1 is required"
+							},
+							"homeAddressLine2": {
+								"tooShort": "Home Address line 2 is too short",
+								"tooLong": "Home Address line 2 is too long"
+							},
+							"homeAddressCountry": {
+								"required": "Home Country is required"
+							},
+							"homeAddressState": {
+								"required": "Home State is required"
+							},
+							"homeAddressCity": {
+								"tooLong": "Home City is too long",
+								"required": "Home City is required"
+							},
+							"homeAddressPostalCode": {
+								"tooShort": "Home Postal Code is too short",
+								"tooLong": "Home Postal Code is too long",
+								"required": "Home Postal Code is required"
+							},
 							"businessMcc": {
 								"tooShort": "MCC is too short",
 								"tooLong": "MCC is too long",
@@ -184,10 +226,18 @@
 								"tooLong": "Website is too long",
 								"required": "Website is required"
 							},
+							"personalPhone": {
+								"validFormat": "Personal Phone Number is not valid",
+								"required": "Personal Phone Number is required"
+							},
+							"businessPhone": {
+								"validFormat": "Business Phone Number is not valid",
+								"required": "Business Phone Number is required"
+							},
 							"termsAndConditions": {
 								"required": "You must accept the terms and conditions"
 							},
-							"general": "Invalid Website or MCC"
+							"general": "Something went wrong"
 						}
 					}
 				}

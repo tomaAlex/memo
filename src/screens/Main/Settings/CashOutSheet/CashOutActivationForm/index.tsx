@@ -11,6 +11,9 @@ import FormSwitchInput from "components/forms/FormSwitchInput";
 import CashOutActivationFormTermNotes from "./CashOutActivationFormTermNotes";
 import CashOutActivationFormMCCNotes from "./CashOutActivationFormMCCNotes";
 import CashOutActivationFormSubmitButton from "./CashOutActivationFormSubmitButton";
+import BusinessTypePicker from "./BusinessTypePicker";
+import HomeAddressInputs from "./HomeAddressInputs";
+import { AddressParam, BusinessType } from "types/index";
 
 type TProps = {
 	setIsActivated: (isActivated: boolean) => void;
@@ -19,6 +22,7 @@ type TProps = {
 const CashOutActivationForm = ({ setIsActivated }: TProps) => {
 	const cashOutActivationValidationSchema = useCashOutActivationFormValidationRules();
 	const [isActivating, setIsActivating] = useState(false);
+	const [isBusinessNameRequired, setIsBusinessNameRequired] = useState(false);
 	const [translateLabels] = useTranslation("translation", {
 		keyPrefix: "Screens.Main.Settings.CashOutActivationForm.Labels",
 	});
@@ -33,14 +37,58 @@ const CashOutActivationForm = ({ setIsActivated }: TProps) => {
 					<Formik
 						validationSchema={cashOutActivationValidationSchema}
 						initialValues={{
+							businessType: "individual" as BusinessType,
+							businessName: undefined as string | undefined,
+							homeAddressLine1: "",
+							homeAddressLine2: undefined as string | undefined,
+							homeAddressCountry: undefined as unknown as string,
+							homeAddressState: undefined as unknown as string,
+							homeAddressCity: "",
+							homeAddressPostalCode: "",
 							businessMcc: "",
 							businessWebsite: "",
+							personalPhone: "",
+							businessPhone: "",
 							termsAndConditions: false,
 						}}
-						onSubmit={async ({ businessMcc, businessWebsite, termsAndConditions }, { setErrors }) => {
+						onSubmit={async (
+							{
+								businessType,
+								businessName,
+								homeAddressLine1,
+								homeAddressLine2,
+								homeAddressCountry,
+								homeAddressState,
+								homeAddressCity,
+								homeAddressPostalCode,
+								businessMcc,
+								businessWebsite,
+								personalPhone,
+								businessPhone,
+								termsAndConditions,
+							},
+							{ setErrors }
+						) => {
 							setIsActivating(true);
 							try {
-								await activateAccount(businessMcc, businessWebsite, termsAndConditions);
+								const homeAddress: AddressParam = {
+									line1: homeAddressLine1,
+									line2: homeAddressLine2,
+									country: homeAddressCountry,
+									state: homeAddressState,
+									city: homeAddressCity,
+									postal_code: homeAddressPostalCode,
+								};
+								await activateAccount(
+									businessType,
+									businessName,
+									homeAddress,
+									businessMcc,
+									businessWebsite,
+									personalPhone,
+									businessPhone,
+									termsAndConditions
+								);
 								setIsActivated(true);
 							} catch (error) {
 								setErrors({ termsAndConditions: translateErrors("general") });
@@ -49,6 +97,19 @@ const CashOutActivationForm = ({ setIsActivated }: TProps) => {
 						}}
 					>
 						<ScrollView style={styles.container__formContainer__form}>
+							<BusinessTypePicker {...{ setIsBusinessNameRequired }} />
+							{isBusinessNameRequired && (
+								<FormTextInput isMandatory={isBusinessNameRequired} field="businessName">
+									<FormFieldLabel label={translateLabels("businessName")} />
+								</FormTextInput>
+							)}
+							<HomeAddressInputs />
+							<FormTextInput isMandatory field="personalPhone">
+								<FormFieldLabel label={translateLabels("personalPhone")} />
+							</FormTextInput>
+							<FormTextInput isMandatory field="businessPhone">
+								<FormFieldLabel label={translateLabels("businessPhone")} />
+							</FormTextInput>
 							<CashOutActivationFormMCCNotes />
 							<FormTextInput isMandatory field="businessMcc">
 								<FormFieldLabel label={translateLabels("businessMcc")} />

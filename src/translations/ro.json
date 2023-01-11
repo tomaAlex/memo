@@ -169,11 +169,53 @@
 							}
 						},
 						"Labels": {
+							"businessType": "Tipul afacerii",
+							"businessName": "Numele afacerii",
+							"homeAddressLine1": "Adresa de acasa linia 1",
+							"homeAddressLine2": "Adresa de acasa linia 2",
+							"homeAddressCountry": "Tara de acasa",
+							"homeAddressState": "Statul de acasa",
+							"homeAddressCity": "Orasul de acasa",
+							"homeAddressPostalCode": "Codul Postal de acasa",
 							"businessMcc": "Cod de Categorie de Comercian (MCC)",
 							"businessWebsite": "Website",
+							"personalPhone": "Numar de telefon personal",
+							"businessPhone": "Numar de telefon al afacerii",
 							"termsAndConditions": "Sunt de acord cu termenii si conditiile"
 						},
 						"Errors": {
+							"businessType": {
+								"required": "Tipul afacerii este obligatoriu"
+							},
+							"businessName": {
+								"tooShort": "Numele afacerii este prea scurt",
+								"tooLong": "Numele afacerii este prea lung",
+								"required": "Numele afacerii este obligatoriu"
+							},
+							"homeAddressLine1": {
+								"tooShort": "Linia 1 pentru adresa de acasa este prea scurta",
+								"tooLong": "Linia 1 pentru adresa de acasa este prea lunga",
+								"required": "Linia 1 pentru adresa de acasa este obligatorie"
+							},
+							"homeAddressLine2": {
+								"tooShort": "Linia 2 pentru adresa de acasa este prea scurta",
+								"tooLong": "Linia 2 pentru adresa de acasa este prea lunga"
+							},
+							"homeAddressCountry": {
+								"required": "Tara de acasa este obligatorie"
+							},
+							"homeAddressState": {
+								"required": "Statul de acasa este obligatoriu"
+							},
+							"homeAddressCity": {
+								"tooLong": "Orasul de acasa este prea lung",
+								"required": "Orasul de acasa este obligatoriu"
+							},
+							"homeAddressPostalCode": {
+								"tooShort": "Codul postal de acasa este prea scurt",
+								"tooLong": "Codul postal de acasa este prea lung",
+								"required": "Codul postal de acasa este obligatoriu"
+							},
 							"businessMcc": {
 								"tooShort": "MCC este prea scurt",
 								"tooLong": "MCC este prea lung",
@@ -184,10 +226,18 @@
 								"tooLong": "Website-ul este prea lung",
 								"required": "Website-ul este obligatoriu"
 							},
+							"personalPhone": {
+								"validFormat": "Numarul de telefon personal nu este valid",
+								"required": "Numarul de telefon personal este obligatoriu"
+							},
+							"businessPhone": {
+								"validFormat": "Numarul de telefon al afacerii nu este valid",
+								"required": "Numarul de telefon al afacerii este obligatoriu"
+							},
 							"termsAndConditions": {
 								"required": "Trebuie sa accepti termenii si conditiile"
 							},
-							"general": "Website sau MCC invalid"
+							"general": "Ceva a mers gresit"
 						}
 					}
 				}
