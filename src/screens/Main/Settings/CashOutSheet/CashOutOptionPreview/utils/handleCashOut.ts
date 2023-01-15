@@ -5,13 +5,18 @@ import RBSheet from "react-native-raw-bottom-sheet";
 const handleCashOut = async (
 	bankId: string,
 	refRBSheet: React.RefObject<RBSheet>,
-	setShouldFetchBalance: (shouldFetchBalance: boolean) => void
+	setShouldFetchBalance: (shouldFetchBalance: boolean) => void,
+	setIsCashingOut: (isCashingOut: boolean) => void
 ): Promise<void> => {
-	const wasCashOutSuccessful = await cashOut(bankId);
-	console.log({ wasCashOutSuccessful });
-	if (wasCashOutSuccessful) {
+	setIsCashingOut(true);
+	try {
+		await cashOut(bankId);
+		// cash out was successful
 		setShouldFetchBalance(true);
+	} catch (error) {
+		// cash out was unsuccessful, something went wrong
 	}
+	setIsCashingOut(false);
 	refRBSheet.current?.close();
 };
 

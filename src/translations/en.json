@@ -123,6 +123,13 @@
 					"Labels": {
 						"hasInstantMatchingOn": "Allow instant matches"
 					},
+					"CashOutButton": {
+						"Caption": {
+							"instantMatchingIsOff": "Turn on Instant Matching to cash out",
+							"insufficientBalance": "Cash out when you get £{{count}} more",
+							"cashOut": "Cash out £{{count}} now"
+						}
+					},
 					"CashOutSupplierForm": {
 						"Labels": {
 							"bankAccountNumber": "Account number",

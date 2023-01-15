@@ -7,11 +7,20 @@ import handleCashOut from "./utils/handleCashOut";
 type TProps = BankPreview & {
 	refRBSheet: React.RefObject<RBSheet>;
 	setShouldFetchBalance: (shouldFetchBalance: boolean) => void;
+	setIsCashingOut: (isCashingOut: boolean) => void;
 };
 
-const CashOutOptionPreview = ({ id, country, last4, routingNumber, refRBSheet, setShouldFetchBalance }: TProps) => {
+const CashOutOptionPreview = ({
+	id,
+	country,
+	last4,
+	routingNumber,
+	refRBSheet,
+	setShouldFetchBalance,
+	setIsCashingOut,
+}: TProps) => {
 	const fireCashingOutRoutine = () => {
-		handleCashOut(id, refRBSheet, setShouldFetchBalance);
+		handleCashOut(id, refRBSheet, setShouldFetchBalance, setIsCashingOut);
 	};
 
 	return (

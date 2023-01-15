@@ -123,6 +123,13 @@
 					"Labels": {
 						"hasInstantMatchingOn": "Permite match-uri instante"
 					},
+					"CashOutButton": {
+						"Caption": {
+							"instantMatchingIsOff": "Activeaza match-urile instante pentru a retrage fonduri",
+							"insufficientBalance": "Retrage fonduri cand mai obtii inca £{{count}}",
+							"cashOut": "Retrage £{{count}} acum"
+						}
+					},
 					"CashOutSupplierForm": {
 						"Labels": {
 							"bankAccountNumber": "Numarul contului",

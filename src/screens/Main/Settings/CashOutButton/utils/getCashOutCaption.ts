@@ -1,14 +1,16 @@
 import { MINIMUM_PENCE_BALANCE_TO_CASH_OUT } from "constants/index";
+import { TFunction } from "i18next";
 
-const getCashOutCaption = (hasInstantMatchingOn: boolean, balance: number) => {
+const getCashOutCaption = (hasInstantMatchingOn: boolean, balance: number, t: TFunction) => {
+	const captionPrefix = "Caption";
 	if (!hasInstantMatchingOn) {
-		return "Turn on Instant Matching to cash out";
+		return t(`${captionPrefix}.instantMatchingIsOff`);
 	}
 	const leftBalanceUntilMinimum = MINIMUM_PENCE_BALANCE_TO_CASH_OUT - balance;
 	if (leftBalanceUntilMinimum > 0) {
-		return `Cash out when you get £${leftBalanceUntilMinimum / 100} more`;
+		return t(`${captionPrefix}.insufficientBalance`, { count: leftBalanceUntilMinimum / 100 });
 	}
-	return `Cash out £${balance / 100} now`;
+	return t(`${captionPrefix}.cashOut`, { count: balance / 100 });
 };
 
 export default getCashOutCaption;

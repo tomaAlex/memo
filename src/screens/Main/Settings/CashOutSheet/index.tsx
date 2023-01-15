@@ -19,7 +19,9 @@ const CashOutSheet = ({ refRBSheet, setShouldFetchBalance }: TProps) => {
 	const [bankPreviews, setBankPreviews] = useState<BankPreview[]>([]);
 	const [shouldFetchBankAccounts, setShouldFetchBankAccounts] = useState(true);
 	const [isCheckingActivation, setIsCheckingActivation] = useState(true);
+	const [isCashingOut, setIsCashingOut] = useState(false);
 	const [isActivated, setIsActivated] = useState(false);
+	const isLoading = isCheckingActivation || isCashingOut;
 
 	const handleActivationChecking = async () => {
 		setIsCheckingActivation(true);
@@ -52,13 +54,13 @@ const CashOutSheet = ({ refRBSheet, setShouldFetchBalance }: TProps) => {
 			closeOnPressMask
 			keyboardAvoidingViewEnabled
 		>
-			{isCheckingActivation && (
+			{isLoading && (
 				<View style={styles.container__loading}>
 					<Loading />
 				</View>
 			)}
-			{!isCheckingActivation && !isActivated && <CashOutActivationForm {...{ setIsActivated }} />}
-			{!isCheckingActivation && isActivated && (
+			{!isLoading && !isActivated && <CashOutActivationForm {...{ setIsActivated }} />}
+			{!isLoading && isActivated && (
 				<FlatList
 					style={styles.container__picker__container}
 					data={bankPreviews}
@@ -69,6 +71,7 @@ const CashOutSheet = ({ refRBSheet, setShouldFetchBalance }: TProps) => {
 								...item,
 								refRBSheet,
 								setShouldFetchBalance,
+								setIsCashingOut,
 							}}
 						/>
 					)}
