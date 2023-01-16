@@ -1,5 +1,7 @@
 import HeartIcon from "./heart.svg";
 import MessageIcon from "./message.svg";
+import ReadMessage from "./read-message.svg";
+import NotificationBubble from "./notification-bubble.svg";
 import UserIcon from "./user.svg";
 import CircleIcon from "./circle.svg";
 import ExitIcon from "./exit.svg";
@@ -8,4 +10,16 @@ import SendArrow from "./send-arrow.svg";
 import BinIcon from "./bin.svg";
 import StarIcon from "./star.svg";
 
-export { HeartIcon, MessageIcon, UserIcon, CircleIcon, ExitIcon, LocationPlane, SendArrow, BinIcon, StarIcon };
+export {
+	HeartIcon,
+	MessageIcon,
+	ReadMessage,
+	NotificationBubble,
+	UserIcon,
+	CircleIcon,
+	ExitIcon,
+	LocationPlane,
+	SendArrow,
+	BinIcon,
+	StarIcon,
+};

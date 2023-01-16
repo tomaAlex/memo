@@ -26,6 +26,7 @@ const Login = ({}: ScreenProps<ScreenNames.Login>) => {
 						author="memo"
 						content={`${t("abstract")} 🙂`}
 						timestamp={firestore.Timestamp.now()}
+						matchedUsers={[]}
 					/>
 				</View>
 			</View>

@@ -5,8 +5,15 @@ import { Text, TouchableOpacity, View } from "react-native";
 import { MatchMessage } from "types/index";
 import styles from "./MatchMessagePreview.module.scss";
 import { getTimestampPreview } from "Firebase/index";
+import isMessageSeen from "utils/getSeenByIndicator";
+import { IdentifiedUser } from "types/index";
+import { ReadMessage } from "icons";
 
-const MatchMessagePreview = ({ author, content, timestamp }: MatchMessage) => {
+type TProps = {
+	matchedUsers: IdentifiedUser[];
+} & MatchMessage;
+
+const MatchMessagePreview = ({ author, content, timestamp, seenBy, matchedUsers }: TProps) => {
 	const isAuthorCurrentUser = author === "memo" || author === store.getState().user.id;
 	const timestampPreview = getTimestampPreview(timestamp);
 
@@ -28,15 +35,20 @@ const MatchMessagePreview = ({ author, content, timestamp }: MatchMessage) => {
 					{content}
 				</Text>
 			</TouchableOpacity>
-			<Text
-				style={cx(
-					styles.timestamp,
-					[styles.self__timestamp, isAuthorCurrentUser],
-					[styles.other__timestamp, !isAuthorCurrentUser]
+			<View style={styles.metadata}>
+				<Text
+					style={cx(
+						styles.metadata__timestamp,
+						[styles.self__timestamp, isAuthorCurrentUser],
+						[styles.other__timestamp, !isAuthorCurrentUser]
+					)}
+				>
+					{timestampPreview}
+				</Text>
+				{isAuthorCurrentUser && isMessageSeen(matchedUsers, seenBy) && (
+					<ReadMessage height={8} style={styles.metadata__read} />
 				)}
-			>
-				{timestampPreview}
-			</Text>
+			</View>
 		</View>
 	);
 };

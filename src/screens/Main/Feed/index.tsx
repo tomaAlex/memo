@@ -11,6 +11,7 @@ import fetchRecommendations from "./utils/fetchRecommendations";
 import styles from "./Feed.module.scss";
 import markDeviceToken from "./utils/markDeviceToken";
 import Loading from "components/Loading";
+import FeedLoading from "Loading/FeedLoading";
 
 const Feed = ({
 	user,
@@ -55,7 +56,7 @@ const Feed = ({
 	if (loadingRecommendations || recommendations.length === 0) {
 		return (
 			<View style={styles.loadingContainer}>
-				<Loading fontSize={50} />
+				<FeedLoading heigth={350} width={350} />
 			</View>
 		);
 	}

@@ -31,7 +31,6 @@ const reducer: ReducerType = (state = null, action): MatchPreview[] => {
 				};
 				return updatedMatchPreview;
 			});
-
 		default:
 			return state;
 	}

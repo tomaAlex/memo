@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: #f2f2f2;
+    border-radius: 30px;
+    margin-right: 4%;
+    margin-left: 4%;
+    margin-bottom: 4%;
+    &__messageBar {
+        flex: 1;
+        justify-content: center;
+        border-radius: 25px;
+
+        &__textInputIOS {
+            width: 100%;
+            color: #1e1e1e;
+            padding: 5px;
+        }
+
+        &__textInputAndroid {
+            width: 100%;
+            color: #1e1e1e;
+            padding: 2px;
+        }
+
+        &__inputContainer {
+            margin-bottom: 0px;
+            justify-content: center;
+        }
+
+    }
+
+    &__submitButton {
+        margin-left: 10px;
+        margin-right: 10px;
+        align-self: center;
+    }
+}

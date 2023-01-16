@@ -4,11 +4,14 @@ import { Formik } from "formik";
 import { useMatchMessageTextBarFormValidationRules } from "hooks";
 import { SendArrow } from "icons/index";
 import React, { useState } from "react";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
+import styles from "./MatchMessageTextBar.module.scss";
 
 type TProps = {
 	sendMessage: (message: string) => Promise<void>;
 };
+
+const isMessageEmpty = (message: string) => message === "";
 
 const MatchMessageTextBar = ({ sendMessage }: TProps) => {
 	const matchMessageTextBarSchema = useMatchMessageTextBarFormValidationRules();
@@ -22,24 +25,35 @@ const MatchMessageTextBar = ({ sendMessage }: TProps) => {
 			}}
 			onSubmit={async ({ messageText }, formikProps) => {
 				setIsMessageSending(true);
-				await sendMessage(messageText);
-				setIsMessageSending(false);
+				sendMessage(messageText);
 				formikProps.resetForm();
+				setIsMessageSending(false);
 			}}
 		>
-			<View style={{ display: "flex", flexDirection: "row" }}>
-				<View style={{ flex: 1 }}>
-					<FormTextInput
-						editable={!isMessageSending}
-						field="messageText"
-						placeholder="Type message..."
-						style={{ width: "100%", backgroundColor: "white", color: "#1e1e1e" }}
-					/>
+			{({ values }) => (
+				<View style={styles.container}>
+					<View style={styles.container__messageBar}>
+						<FormTextInput
+							editable={!isMessageSending}
+							field="messageText"
+							placeholder="Type message..."
+							style={
+								Platform.OS === "ios"
+									? styles.container__messageBar__textInputIOS
+									: styles.container__messageBar__textInputAndroid
+							}
+							multiline={true}
+							containerStyle={styles.container__messageBar__inputContainer}
+						/>
+					</View>
+					<FormSubmitButton
+						style={styles.container__submitButton}
+						disabled={isMessageEmpty(values.messageText) ? true : false}
+					>
+						<SendArrow width={25} height={25} fill={"#0047FE"} opacity={isMessageEmpty(values.messageText) ? 0.5 : 1} />
+					</FormSubmitButton>
 				</View>
-				<FormSubmitButton style={{ marginLeft: 10, marginRight: 10, alignSelf: "center" }}>
-					<SendArrow width={25} height={25} fill={"#0047FE"} />
-				</FormSubmitButton>
-			</View>
+			)}
 		</Formik>
 	);
 };

@@ -6,7 +6,7 @@ import MatchPreviewRow from "./MatchPreviewRow";
 import { useMatchPreviewLoader } from "hooks/index";
 import { useTranslation } from "react-i18next";
 import styles from "./Chats.module.scss";
-import Loading from "components/Loading";
+import ChatLoading from "Loading/ChatLoading";
 
 const Chats = ({ user, matchPreviews, updateAllMatchPreviews, navigation }: ScreenProps<MainScreenNames.Chats>) => {
 	const [t] = useTranslation("translation", { keyPrefix: "Screens.Main.Chats" });
@@ -17,7 +17,7 @@ const Chats = ({ user, matchPreviews, updateAllMatchPreviews, navigation }: Scre
 	if (shouldDisplayLoadingIndicator) {
 		return (
 			<View style={styles.loadingContainer}>
-				<Loading fontSize={50} />
+				<ChatLoading heigth={350} width={350} />
 			</View>
 		);
 	}

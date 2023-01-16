@@ -1553,7 +1553,7 @@
   resolved "https://registry.yarnpkg.com/@react-native-firebase/app-check/-/app-check-16.4.6.tgz#d66b4c4fd5ea43863ed5557eceb5032b1005a2ef"
   integrity sha512-+JOguwYHL5BFqZrneEn42i7TLzklQ/xpeYLtcxUCGtdzRqfuAyN9crMOr0Sd16rpNUr8gstdVEVfr05jVj0PFA==
 
-"@react-native-firebase/app@^16.5.0":
+"@react-native-firebase/app@^16.4.6":
   version "16.5.0"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-16.5.0.tgz#b8676ed7237b97f676b8d3a9d151dd83c2c01e40"
   integrity sha512-Vi8F4+UVS+ybv7w/7m9UjZWWUjMTr/0nChZBv5aVqo84Afld99hN5YT2wdpF4QbDs39l92WLJYUT9LMCqvBKeg==

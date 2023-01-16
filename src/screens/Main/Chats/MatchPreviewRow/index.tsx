@@ -10,7 +10,15 @@ type TProps = MatchPreview & {
 	navigation: ScreenProps<MainScreenNames.Chats>["navigation"];
 };
 
-const MatchPreviewRow = ({ id, matchedUsers, lastMessage, timestamp, expiresAt, navigation }: TProps) => {
+const MatchPreviewRow = ({
+	id,
+	matchedUsers,
+	lastMessage,
+	timestamp,
+	expiresAt,
+	navigation,
+	notifications,
+}: TProps) => {
 	const matchedUser = matchedUsers[0];
 	const matchTimestamp = getTimestampFromJSON(timestamp);
 
@@ -26,7 +34,7 @@ const MatchPreviewRow = ({ id, matchedUsers, lastMessage, timestamp, expiresAt, 
 	return (
 		<TouchableOpacity style={styles.container} onPress={openChat}>
 			<MatchPreviewRowUserPreview {...{ matchedUser }} />
-			<MatchPreviewRowMessagePreview {...{ matchedUser, lastMessage, matchTimestamp }} />
+			<MatchPreviewRowMessagePreview {...{ matchedUser, lastMessage, matchTimestamp, notifications }} />
 		</TouchableOpacity>
 	);
 };
