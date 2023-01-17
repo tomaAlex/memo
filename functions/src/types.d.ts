@@ -65,8 +65,6 @@ type Match = TimeManagedDocument &
 type MatchPreview = TimeManagedDocument & {
 	id: string;
 	matchedUsers: IdentifiedUser[];
-	lastMessage: MatchMessage | null;
-	notifications: number;
 };
 
 type CardPreview = {

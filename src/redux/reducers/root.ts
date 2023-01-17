@@ -6,7 +6,6 @@ import {
 	UserAction,
 	UserActions,
 	IdentifiedUser,
-	MatchPreviewsPayload,
 	MatchPreviewsActions,
 	MatchPreviewsAction,
 	MatchPreview,
@@ -18,7 +17,7 @@ const reducer = combineReducers({
 	) as Reducer<IdentifiedUser, UserAction>,
 	matchPreviews: filterActions(matchPreviewsReducer as Reducer<MatchPreview[]>, (action) =>
 		Object.values(MatchPreviewsActions).includes(action.type)
-	) as Reducer<MatchPreview[], MatchPreviewsAction<MatchPreviewsPayload>>,
+	) as Reducer<MatchPreview[], MatchPreviewsAction>,
 });
 
 export default reducer;

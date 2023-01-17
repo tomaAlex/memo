@@ -4,14 +4,14 @@ import store from "redux/store";
 import { IdentifiedUser, MatchMessage } from "types/index";
 import styles from "../MatchPreviewRow.module.scss";
 import trimMessage from "./utils/trimMessage";
-import { getTimestampFromJSON, getTimestampPreview } from "Firebase/index";
+import { getTimestampPreview } from "Firebase/index";
 import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
 import isMessageSeen from "utils/getSeenByIndicator";
 import { NotificationBubble, ReadMessage } from "icons";
 
 type TProps = {
 	matchedUser: IdentifiedUser;
-	lastMessage: MatchMessage<false> | null;
+	lastMessage: MatchMessage<true> | null;
 	matchTimestamp: FirebaseFirestoreTypes.Timestamp;
 	notifications: number;
 };
@@ -24,7 +24,7 @@ const MatchPreviewRowMessagePreview = ({ matchedUser, lastMessage, matchTimestam
 	const trimmedMessagePreview = trimMessage(messagePreviewMaximumLength, messagePreview);
 	const { firstName, lastName } = matchedUser;
 	const matchedUserName = `${firstName} ${lastName}`;
-	const messageTimestamp = lastMessage ? getTimestampFromJSON(lastMessage.timestamp) : matchTimestamp;
+	const messageTimestamp = lastMessage ? lastMessage.timestamp : matchTimestamp;
 	const timestampPreview = getTimestampPreview(messageTimestamp);
 
 	return (

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useMatchMessages } from "hooks/index";
-import { FlatList, KeyboardAvoidingView, Platform, SafeAreaView, View } from "react-native";
+import { FlatList, KeyboardAvoidingView, Platform, SafeAreaView } from "react-native";
 import { ScreenNames, ScreenProps } from "types/index";
 import connector from "../../redux/connector";
 import MatchMessages from "./MatchMessages";
@@ -14,9 +14,8 @@ const MatchChat = ({
 	route: {
 		params: { matchId, matchedUsers, matchTimestamp, expiresAt },
 	},
-	updateMatchPreviewLastMessage,
 }: ScreenProps<ScreenNames.MatchChat>) => {
-	const [messages, sendNewMessage] = useMatchMessages(matchId, updateMatchPreviewLastMessage);
+	const [messages, sendNewMessage] = useMatchMessages(matchId);
 
 	useEffect(() => {
 		markSeen(matchId);
