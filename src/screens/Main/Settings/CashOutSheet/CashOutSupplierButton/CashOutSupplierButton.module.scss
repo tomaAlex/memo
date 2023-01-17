@@ -1,0 +1,11 @@
+.container {
+	align-self: center;
+	background-color: #f10065;
+	padding: 10px;
+	border-radius: 20px;
+
+	&__text {
+		color: white;
+		text-align: center;
+	}
+}

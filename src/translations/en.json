@@ -123,6 +123,9 @@
 					"Labels": {
 						"hasInstantMatchingOn": "Allow instant matches"
 					},
+					"CashOutSupplierButton": {
+						"addBankAccount": "Add bank account"
+					},
 					"CashOutButton": {
 						"Caption": {
 							"instantMatchingIsOff": "Turn on Instant Matching to cash out",

@@ -123,6 +123,9 @@
 					"Labels": {
 						"hasInstantMatchingOn": "Permite match-uri instante"
 					},
+					"CashOutSupplierButton": {
+						"addBankAccount": "Adauga cont bancar"
+					},
 					"CashOutButton": {
 						"Caption": {
 							"instantMatchingIsOff": "Activeaza match-urile instante pentru a retrage fonduri",
