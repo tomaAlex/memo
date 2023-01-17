@@ -3,6 +3,8 @@ import { BankPreview } from "types/index";
 import { Text, TouchableOpacity } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
 import handleCashOut from "./utils/handleCashOut";
+import styles from "./CashOutOptionPreview.module.scss";
+import { Country } from "country-state-list";
 
 type TProps = BankPreview & {
 	refRBSheet: React.RefObject<RBSheet>;
@@ -24,9 +26,9 @@ const CashOutOptionPreview = ({
 	};
 
 	return (
-		<TouchableOpacity onPress={fireCashingOutRoutine}>
-			<Text>
-				{id}, {country}, {last4}, {routingNumber}
+		<TouchableOpacity style={styles.container} onPress={fireCashingOutRoutine}>
+			<Text style={styles.container__text}>
+				****** {last4} {routingNumber ? `(${routingNumber})` : ""} {Country.getCountryByCode(country)?.flag}
 			</Text>
 		</TouchableOpacity>
 	);

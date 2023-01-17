@@ -123,6 +123,9 @@
 					"Labels": {
 						"hasInstantMatchingOn": "Permite match-uri instante"
 					},
+					"CashOutSheet": {
+						"title": "Informatii Facturare"
+					},
 					"CashOutSupplierButton": {
 						"addBankAccount": "Adauga cont bancar"
 					},

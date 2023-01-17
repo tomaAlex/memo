@@ -1,7 +1,27 @@
 .container {
+	border-top-left-radius: 50px;
+	border-top-right-radius: 50px;
+
+	&__title {
+		align-self: center;
+		font-weight: 900;
+		font-size: 23px;
+		color: #1E1E1E;
+	}
+	
+	&__draggableIcon {
+		height: 0;
+	}
+
 	&__loading {
 		justify-content: center;
 		align-content: center;
 		align-items: center;
+	}
+
+	&__picker {
+		&__separator {
+			height: 10px;
+		}
 	}
 }

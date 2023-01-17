@@ -123,6 +123,9 @@
 					"Labels": {
 						"hasInstantMatchingOn": "Allow instant matches"
 					},
+					"CashOutSheet": {
+						"title": "Billing Info"
+					},
 					"CashOutSupplierButton": {
 						"addBankAccount": "Add bank account"
 					},

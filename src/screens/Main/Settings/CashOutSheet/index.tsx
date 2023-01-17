@@ -1,6 +1,7 @@
 import Loading from "components/Loading";
 import React, { useCallback, useEffect, useState } from "react";
-import { FlatList, View } from "react-native";
+import { useTranslation } from "react-i18next";
+import { FlatList, Text, View } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
 import { BankPreview } from "types/index";
 import CashOutActivationForm from "./CashOutActivationForm";
@@ -22,6 +23,9 @@ const CashOutSheet = ({ refRBSheet, setShouldFetchBalance }: TProps) => {
 	const [isCashingOut, setIsCashingOut] = useState(false);
 	const [isActivated, setIsActivated] = useState(false);
 	const isLoading = isCheckingActivation || isCashingOut;
+	const [t] = useTranslation("translation", {
+		keyPrefix: "Screens.Main.Settings.CashOutSheet",
+	});
 
 	const handleActivationChecking = async () => {
 		setIsCheckingActivation(true);
@@ -48,12 +52,17 @@ const CashOutSheet = ({ refRBSheet, setShouldFetchBalance }: TProps) => {
 		// @ts-ignore
 		<RBSheet
 			ref={refRBSheet}
+			customStyles={{
+				container: styles.container,
+				draggableIcon: styles.container__draggableIcon,
+			}}
 			height={500}
 			onOpen={handleActivationChecking}
 			closeOnDragDown
 			closeOnPressMask
 			keyboardAvoidingViewEnabled
 		>
+			<Text style={styles.container__title}>{t("title")}</Text>
 			{isLoading && (
 				<View style={styles.container__loading}>
 					<Loading />
@@ -64,6 +73,7 @@ const CashOutSheet = ({ refRBSheet, setShouldFetchBalance }: TProps) => {
 				<FlatList
 					style={styles.container__picker__container}
 					data={bankPreviews}
+					ItemSeparatorComponent={() => <View style={styles.container__picker__separator} />}
 					ListHeaderComponent={() => <CashOutSupplierButton {...{ setShouldFetchBankAccounts }} />}
 					renderItem={({ item }) => (
 						<CashOutOptionPreview
