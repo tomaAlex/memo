@@ -21,7 +21,8 @@ const Observer = ({ navigation, updateUser }: ScreenProps<ScreenNames.Observer>)
 		});
 
 		// open notification from background state
-		messaging().onNotificationOpenedApp(() => {
+		messaging().onNotificationOpenedApp((remoteMessage) => {
+			console.log(remoteMessage);
 			navigation.navigate(MainScreenNames.Chats, {});
 		});
 	}, [navigation, updateUser]);

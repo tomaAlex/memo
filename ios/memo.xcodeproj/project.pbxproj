@@ -42,6 +42,7 @@
 		4CCD398A292D0C8600D8C592 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		605AD1755E7DE53B2E6BBB87 /* Pods-memo-memoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memo-memoTests.release.xcconfig"; path = "Target Support Files/Pods-memo-memoTests/Pods-memo-memoTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = memo/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		909D4C7629761B3800D004D6 /* memo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = memo.entitlements; path = memo/memo.entitlements; sourceTree = "<group>"; };
 		A7BF79A37FCB86B0E440B30E /* Pods-memo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memo.release.xcconfig"; path = "Target Support Files/Pods-memo/Pods-memo.release.xcconfig"; sourceTree = "<group>"; };
 		B6F8599AAE05714A39324085 /* Pods_memo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9E6E51710F964860EB0D2B /* Pods_memo_memoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memo_memoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +89,7 @@
 		13B07FAE1A68108700A75B9A /* memo */ = {
 			isa = PBXGroup;
 			children = (
+				909D4C7629761B3800D004D6 /* memo.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -505,11 +507,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = memo/memo.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XJ69S5ZRBD;
 				ENABLE_BITCODE = NO;
 				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = memo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -519,7 +523,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.memo.memo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memo.memo.ios;
 				PRODUCT_NAME = memo;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -533,10 +537,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = memo/memo.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XJ69S5ZRBD;
 				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = memo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -546,7 +552,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.memo.memo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memo.memo.ios;
 				PRODUCT_NAME = memo;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
