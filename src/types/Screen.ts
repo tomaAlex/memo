@@ -1,6 +1,6 @@
 import { RouteProp } from "@react-navigation/native";
-import { MainNavigationTabTypes, NavigationStackTypes } from "./NavigationStackTypes";
-import { MainScreenNames, ScreenNames } from "./ScreenNames";
+import { MainNavigationTabTypes, NavigationStackTypes, SettingsNavigationStackTypes } from "./NavigationStackTypes";
+import { MainScreenNames, ScreenNames, SettingsScreenNames } from "./ScreenNames";
 import { ReduxProps } from "./redux/props";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
@@ -16,8 +16,16 @@ export interface MainScreenProps<MainScreenName extends MainScreenNames> extends
 	route: RouteProp<MainNavigationTabTypes, MainScreenName>;
 }
 
-export type ScreenProps<ScreenName extends XOR<ScreenNames, MainScreenNames>> = ScreenName extends ScreenNames
-	? BaseScreenProps<ScreenName>
-	: ScreenName extends MainScreenNames
-	? MainScreenProps<ScreenName>
-	: never;
+export interface SettingsScreenProps<SettingsScreenName extends SettingsScreenNames> extends ReduxProps {
+	navigation: NativeStackNavigationProp<SettingsNavigationStackTypes, SettingsScreenName>;
+	route: RouteProp<SettingsNavigationStackTypes, SettingsScreenName>;
+}
+
+export type ScreenProps<ScreenName extends XOR<ScreenNames, XOR<MainScreenNames, SettingsScreenNames>>> =
+	ScreenName extends ScreenNames
+		? BaseScreenProps<ScreenName>
+		: ScreenName extends MainScreenNames
+		? MainScreenProps<ScreenName>
+		: ScreenName extends SettingsScreenNames
+		? SettingsScreenProps<ScreenName>
+		: never;
