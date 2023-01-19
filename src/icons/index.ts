@@ -9,6 +9,7 @@ import LocationPlane from "./location-plane.svg";
 import SendArrow from "./send-arrow.svg";
 import BinIcon from "./bin.svg";
 import StarIcon from "./star.svg";
+import LoginIcon from "./login.svg";
 
 export {
 	HeartIcon,
@@ -22,4 +23,5 @@ export {
 	SendArrow,
 	BinIcon,
 	StarIcon,
+	LoginIcon,
 };

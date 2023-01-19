@@ -16,6 +16,19 @@ const notifyReceivers = async (matchData: Match, senderId: string, message: stri
 			body: message,
 			imageUrl: sender.photos[0],
 		},
+		android: {
+			notification: {
+				sound: "default",
+			},
+		},
+		apns: {
+			payload: {
+				aps: {
+					sound: "default",
+					badge: 0,
+				},
+			},
+		},
 	});
 };
 

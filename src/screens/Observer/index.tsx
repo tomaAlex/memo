@@ -21,10 +21,13 @@ const Observer = ({ navigation, updateUser }: ScreenProps<ScreenNames.Observer>)
 		});
 
 		// open notification from background state
-		messaging().onNotificationOpenedApp((remoteMessage) => {
-			console.log(remoteMessage);
+		messaging().onNotificationOpenedApp(() => {
 			navigation.navigate(MainScreenNames.Chats, {});
 		});
+
+		messaging()
+			.getInitialNotification()
+			.then(() => navigation.navigate(ScreenNames.Observer));
 	}, [navigation, updateUser]);
 
 	useEffect(() => {
