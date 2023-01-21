@@ -15,6 +15,7 @@
         font-weight: bold;
 		color: white;
 		align-self: center;
+		font-family: Poppins-Regular;
 	}
 
 	&__brandAndExpiry {
@@ -25,12 +26,14 @@
             font-weight: bold;
 			color: white;
 			font-size: 10px;
+			font-family: Poppins-Regular;
 		}
 
 		&__expiry {
             font-weight: bold;
 			font-size: 10px;
 			color: white;
+			font-family: Poppins-Regular;
 		}
 	}
 }

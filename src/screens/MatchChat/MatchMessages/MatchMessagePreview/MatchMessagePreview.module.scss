@@ -13,12 +13,13 @@
 
 		&__content {
 			color: white;
-			// font-family: monospace;
+			font-family: Poppins-Regular;
 		}
 	}
 
 	&__timestamp {
 		text-align: right;
+		font-family: Poppins-Light;
 	}
 }
 
@@ -31,12 +32,13 @@
 
 		&__content {
 			color: #363636;
-			// font-family: monospace;
+			font-family: Poppins-Regular;
 		}
 	}
 
 	&__timestamp {
 		text-align: left;
+		font-family: Poppins-Light;
 	}
 }
 

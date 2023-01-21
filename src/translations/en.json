@@ -83,7 +83,8 @@
 						"Errors": {
 							"height": {
 								"tooShort": "The shortest person in the world was 54cm tall",
-								"tooTall": "The tallest person in the world was 272cm tall"
+								"tooTall": "The tallest person in the world was 272cm tall",
+								"required": "Heigth is required"
 							},
 							"orientation": {
 								"required": "Orientation is required"

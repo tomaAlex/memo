@@ -83,7 +83,8 @@
 						"Errors": {
 							"height": {
 								"tooShort": "Cea mai scunda persoana din lume a avut 54 cm",
-								"tooTall": "Cea mai inalta persoana din lume a avut 272 cm"
+								"tooTall": "Cea mai inalta persoana din lume a avut 272 cm",
+								"required": "înălțimea este necesară"
 							},
 							"orientation": {
 								"required": "Orientarea este obligatorie"

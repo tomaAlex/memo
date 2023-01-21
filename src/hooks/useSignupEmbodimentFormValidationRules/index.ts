@@ -8,7 +8,8 @@ export const useSignupEmbodimentFormValidationRules = () => {
 	const validationRules = {
 		height: Yup.number()
 			.min(54, () => translateErrors("height.tooShort"))
-			.max(272, () => translateErrors("height.tooTall")),
+			.max(272, () => translateErrors("height.tooTall"))
+			.required(() => translateErrors("height.required")),
 		orientation: Yup.string()
 			.oneOf(getEnumValues(Orientation))
 			.required(() => translateErrors("orientation.required")),

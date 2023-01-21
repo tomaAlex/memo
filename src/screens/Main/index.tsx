@@ -34,8 +34,20 @@ const Main = ({
 			})}
 		>
 			<MainTab.Screen name={MainScreenNames.Feed} initialParams={{ uid }} component={Feed} />
-			<MainTab.Screen name={MainScreenNames.Chats} component={Chats} />
-			<MainTab.Screen name={MainScreenNames.Settings} component={Settings} />
+			<MainTab.Screen
+				name={MainScreenNames.Chats}
+				component={Chats}
+				options={{ headerShown: true, headerTitleStyle: { fontFamily: "Poppins-Bold" }, headerTitleAlign: "center" }}
+			/>
+			<MainTab.Screen
+				name={MainScreenNames.Settings}
+				component={Settings}
+				options={{
+					headerShown: true,
+					headerTitleStyle: { fontFamily: "Poppins-Bold" },
+					headerTitleAlign: "center",
+				}}
+			/>
 		</MainTab.Navigator>
 	);
 };
