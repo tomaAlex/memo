@@ -253,7 +253,8 @@
 							},
 							"general": "Something went wrong"
 						}
-					}
+					},
+					"logoutCaption": "Logout"
 				}
 			}
 		},

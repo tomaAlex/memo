@@ -12,6 +12,7 @@ import messaging from "@react-native-firebase/messaging";
  * A fake screen that is used to watch around for global updates.
  */
 const Observer = ({ navigation, updateUser }: ScreenProps<ScreenNames.Observer>) => {
+	// @ts-ignore, as NodeJS.Timeout is not recognized by TS in this case
 	const currentLocationCollectionRoutineReference = useRef<NodeJS.Timeout | null>(null);
 
 	const setObserving = React.useCallback(() => {

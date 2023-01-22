@@ -3,9 +3,12 @@ import { ReduxProps } from "types/index";
 import fetchMatchPreviews from "./fetchMatchPreviews";
 
 export const useMatchPreviewLoader = (
-	userToLoadMatchPreviewsFor: ReduxProps["user"],
+	userToLoadMatchPreviewsFor: ReduxProps["user"] | null,
 	updateAllMatchPreviews: ReduxProps["updateAllMatchPreviews"]
 ) => {
+	if (!userToLoadMatchPreviewsFor) {
+		return true;
+	}
 	const [areMatchPreviewsLoading, setAreMatchPreviewsLoading] = useState(true);
 	const matchIds = userToLoadMatchPreviewsFor.matches;
 

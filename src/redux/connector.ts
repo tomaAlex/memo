@@ -11,6 +11,7 @@ const mapState = (state: RootState) => ({
 const mapDispatch = {
 	updateUser: (user: RequireAtLeastOne<IdentifiedUser>) =>
 		generateUserActions.update({ ...(store.getState().user as IdentifiedUser), ...user }),
+	logoutUser: () => generateUserActions.logout(),
 	updateAllMatchPreviews: (matchPreviews: MatchPreview[]) => generateMatchPreviewsActions.updateAll(matchPreviews),
 };
 const connector = connect(mapState, mapDispatch);

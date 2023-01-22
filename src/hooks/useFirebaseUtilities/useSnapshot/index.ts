@@ -14,6 +14,10 @@ export const useSnapshot = <
 		.doc(documentPath) as FirebaseFirestoreTypes.DocumentReference<DataStructure>;
 
 	const stopListeningToSnapshot = documentReference.onSnapshot((snapshot) => {
+		if (!snapshot || !snapshot.exists) {
+			setData(null);
+			return;
+		}
 		const updatedData = snapshot.data() as DataStructure;
 		const didDataUpdate = JSON.stringify(updatedData) !== JSON.stringify(data);
 		if (!didDataUpdate) {

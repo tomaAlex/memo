@@ -254,7 +254,8 @@
 							"general": "Ceva a mers gresit"
 						}
 					}
-				}
+				},
+				"logoutCaption": "Delogheaza-te"
 			}
 		},
 		"Components": {
