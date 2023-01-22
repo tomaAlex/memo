@@ -13,6 +13,8 @@ import BinIcon from "./bin.svg";
 import CameraPlus from "./camera-plus.svg";
 import StarIcon from "./star.svg";
 import LoginIcon from "./login.svg";
+import BackIcon from "./back.svg";
+import CloseIcon from "./close.svg";
 
 export {
 	HeartIcon,
@@ -30,4 +32,6 @@ export {
 	CameraPlus,
 	StarIcon,
 	LoginIcon,
+	BackIcon,
+	CloseIcon,
 };
