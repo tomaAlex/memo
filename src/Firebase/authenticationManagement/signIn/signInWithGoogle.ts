@@ -9,8 +9,9 @@ GoogleSignin.configure({
 	// iosClientId: Config.GOOGLE_SIGN_IN_IOS_CLIENT_ID,
 });
 
-export const signInWithGoogle: SignInMethod = async () => {
+export const signInWithGoogle: SignInMethod = async (setAwaitingLoginStatus) => {
 	try {
+		setAwaitingLoginStatus(true);
 		await GoogleSignin.hasPlayServices();
 		const userInfo: User = await GoogleSignin.signIn();
 
@@ -33,6 +34,7 @@ export const signInWithGoogle: SignInMethod = async () => {
 			default:
 				break;
 		}
+		setAwaitingLoginStatus(false);
 		return Promise.reject(error);
 	}
 };

@@ -6,6 +6,8 @@ import Feed from "./Feed";
 import Chats from "./Chats";
 import Settings from "./Settings";
 import getMainNavbarIcon from "./utils/getMainNavbarIcon";
+import { useSelector } from "react-redux";
+import { selectAwaitingLoginStatus } from "redux/selectors";
 const MainTab = createBottomTabNavigator<MainNavigationTabTypes>();
 
 const Main = ({
@@ -13,14 +15,17 @@ const Main = ({
 		params: { uid },
 	},
 	user,
+	setAwaitingLoginStatus,
 }: ScreenProps<ScreenNames.Main>) => {
-	const [loading, setLoading] = useState<Boolean>(true);
+	const awaitingLoginStatus = useSelector(selectAwaitingLoginStatus);
+
 	useEffect(() => {
 		if (user) {
-			setLoading(false);
+			setAwaitingLoginStatus(false);
 		}
 	}, [user]);
-	return loading ? (
+
+	return awaitingLoginStatus ? (
 		<></>
 	) : (
 		<MainTab.Navigator

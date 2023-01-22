@@ -12,9 +12,21 @@ import { signInWithGoogle } from "Firebase/index";
 import firestore from "@react-native-firebase/firestore";
 import MatchMessagePreview from "screens/MatchChat/MatchMessages/MatchMessagePreview";
 import styles from "./Login.module.scss";
+import { useSelector } from "react-redux";
+import { selectAwaitingLoginStatus } from "redux/selectors";
+import Loading from "components/Loading";
 
-const Login = ({}: ScreenProps<ScreenNames.Login>) => {
+const Login = ({ setAwaitingLoginStatus }: ScreenProps<ScreenNames.Login>) => {
 	const [t] = useTranslation("translation", { keyPrefix: "Screens.Login" });
+	const awaitingLoginStatus = useSelector(selectAwaitingLoginStatus);
+
+	if (awaitingLoginStatus) {
+		return (
+			<View style={styles.loadingContainer}>
+				<Loading />
+			</View>
+		);
+	}
 
 	return (
 		<SafeAreaView style={styles.container}>
@@ -30,7 +42,13 @@ const Login = ({}: ScreenProps<ScreenNames.Login>) => {
 					/>
 				</View>
 			</View>
-			<GoogleSigninButton style={styles.container__signinButton} size={1} onPress={signInWithGoogle} />
+			<GoogleSigninButton
+				style={styles.container__signinButton}
+				size={1}
+				onPress={() => {
+					signInWithGoogle(setAwaitingLoginStatus);
+				}}
+			/>
 			<View style={styles.container__footer}>
 				<Text style={styles.container__footer__note}>{t("note")} 🙏</Text>
 			</View>
