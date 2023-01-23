@@ -49,9 +49,9 @@ const Login = ({ setAwaitingLoginStatus }: ScreenProps<ScreenNames.Login>) => {
 					signInWithGoogle(setAwaitingLoginStatus);
 				}}
 			/>
-			{/* <View style={styles.container__footer}>
-				<Text style={styles.container__footer__note}>{t("note")} 🙏</Text>
-			</View> */}
+			<View style={styles.container__footer}>
+				{/* <Text style={styles.container__footer__note}>{t("note")} 🙏</Text> */}
+			</View>
 			{/* <TouchableOpacity onPress={signInWithFacebook}>
 				<LoginButton style={{ width: 304, height: 36 }} onLogoutFinished={() => console.log("logged out")} />
 			</TouchableOpacity> */}

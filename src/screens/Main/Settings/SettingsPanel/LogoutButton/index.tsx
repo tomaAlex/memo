@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import auth from "@react-native-firebase/auth";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Alert, Text, TouchableOpacity, View } from "react-native";
 import styles from "./LogoutButton.module.scss";
 import Loading from "components/Loading";
 import { NavigationProp, useNavigation } from "@react-navigation/native";
@@ -20,17 +20,30 @@ const LogoutButton = () => {
 		);
 	}
 
+	const alertAction = () => {
+		Alert.alert("Logout", "Do you want to log out ?", [
+			{
+				text: "Yes",
+				style: "destructive",
+				onPress: async () => {
+					setIsLoggingOut(true);
+					await auth().signOut();
+					setIsLoggingOut(false);
+					navigation.reset({
+						index: 0,
+						routes: [{ name: ScreenNames.Login }],
+					});
+				},
+			},
+			{ text: "Cancel" },
+		]);
+	};
+
 	return (
 		<TouchableOpacity
 			style={styles.container}
-			onPress={async () => {
-				setIsLoggingOut(true);
-				await auth().signOut();
-				setIsLoggingOut(false);
-				navigation.reset({
-					index: 0,
-					routes: [{ name: ScreenNames.Login }],
-				});
+			onPress={() => {
+				alertAction();
 			}}
 		>
 			<Text style={styles.container__text}>{t("logoutCaption")}</Text>

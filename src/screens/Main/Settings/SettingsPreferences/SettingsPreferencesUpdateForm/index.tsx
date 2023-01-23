@@ -37,7 +37,12 @@ const SettingsPreferencesUpdateForm = () => {
 				<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 					<View style={styles.container__formContainer}>
 						<View style={styles.container__formContainer__form}>
-							<FormSwitchInput isMandatory field="hasInstantMatchingOn">
+							<FormSwitchInput
+								isMandatory
+								field="hasInstantMatchingOn"
+								trackColor={{ true: "#0000A7" }}
+								style={styles.container__formContainer__form__switcher}
+							>
 								<FormFieldLabel label={translateLabels("hasInstantMatchingOn")} />
 							</FormSwitchInput>
 							<SettingsSubmitButton {...{ isUserUpdating }} />

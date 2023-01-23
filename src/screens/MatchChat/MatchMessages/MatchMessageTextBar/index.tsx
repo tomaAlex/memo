@@ -3,8 +3,8 @@ import FormTextInput from "components/forms/FormTextInput";
 import { Formik } from "formik";
 import { useMatchMessageTextBarFormValidationRules } from "hooks";
 import { SendArrow } from "icons/index";
-import React, { useState } from "react";
-import { Platform, View } from "react-native";
+import React, { useRef, useState } from "react";
+import { Keyboard, Platform, TextInput, TextInputProps, View } from "react-native";
 import styles from "./MatchMessageTextBar.module.scss";
 
 type TProps = {
@@ -16,6 +16,7 @@ const isMessageEmpty = (message: string) => message === "";
 const MatchMessageTextBar = ({ sendMessage }: TProps) => {
 	const matchMessageTextBarSchema = useMatchMessageTextBarFormValidationRules();
 	const [isMessageSending, setIsMessageSending] = useState(false);
+	let refT = useRef<TextInput | null>(null);
 
 	return (
 		<Formik
@@ -37,6 +38,7 @@ const MatchMessageTextBar = ({ sendMessage }: TProps) => {
 							editable={!isMessageSending}
 							field="messageText"
 							placeholder="Type message..."
+							blurOnSubmit={false}
 							style={
 								Platform.OS === "ios"
 									? styles.container__messageBar__textInputIOS

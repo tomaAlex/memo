@@ -11,6 +11,10 @@
 
 		&__form {
 			width: 90%;
+
+			&__switcher {
+				align-self: flex-end;
+			}
 		}
 	}
 }
