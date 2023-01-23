@@ -34,9 +34,12 @@ const Feed = ({
 	}, [userData, updateUser]);
 
 	const [recommendations, setRecommendations] = useState([] as IdentifiedUser[]);
+	const [shouldFetchRecommendations, setShouldFetchRecommendations] = useState(true);
 	const [loadingRecommendations, setLoadingRecommendations] = useState(true);
 	const hasMaximumMatches = matchPreviews.length >= MAXIMUM_MATCHES;
-	const [exhaustedFeed, setExhaustedFeed] = useState(false);
+	const refreshFeed = () => {
+		setShouldFetchRecommendations(true);
+	};
 
 	const loadDependencies = async () => {
 		markDeviceToken();
@@ -46,11 +49,13 @@ const Feed = ({
 		setRecommendations(userRecommendations);
 	};
 
-	const handleLoadingDependencies = () => {
+	useEffect(() => {
+		if (!shouldFetchRecommendations) {
+			return;
+		}
 		loadDependencies();
-	};
-
-	useEffect(handleLoadingDependencies, []);
+		setShouldFetchRecommendations(false);
+	}, [shouldFetchRecommendations]);
 
 	if (loadingRecommendations || recommendations.length === 0) {
 		return (
@@ -63,11 +68,7 @@ const Feed = ({
 	return (
 		<SafeAreaView style={styles.container}>
 			<MatchedNote {...{ matchPreviews, navigation }} />
-			{hasMaximumMatches || exhaustedFeed ? (
-				<EnoughMatchesNote />
-			) : (
-				<UsersSwiper {...{ recommendations, markFeedExhausted: () => setExhaustedFeed(true) }} />
-			)}
+			{hasMaximumMatches ? <EnoughMatchesNote /> : <UsersSwiper {...{ recommendations, refreshFeed }} />}
 		</SafeAreaView>
 	);
 };

@@ -15,6 +15,7 @@ import StarIcon from "./star.svg";
 import LoginIcon from "./login.svg";
 import BackIcon from "./back.svg";
 import CloseIcon from "./close.svg";
+import RefreshIcon from "./refresh.svg";
 
 export {
 	HeartIcon,
@@ -34,4 +35,5 @@ export {
 	LoginIcon,
 	BackIcon,
 	CloseIcon,
+	RefreshIcon,
 };

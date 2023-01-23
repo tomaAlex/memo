@@ -8,14 +8,14 @@ import PaymentOptionPreview from "./PaymentOptionPreview";
 import styles from "./PaymentSheet.module.scss";
 import PaymentSupplierButton from "./PaymentSupplierButton";
 import fetchCardPreviews from "./utils/fetchCardPreviews";
-import getOnCloseEvent from "./utils/getOnCloseEvent";
+import recoverUnmatchedUser from "./utils/recoverUnmatchedUser";
 
 type TProps = {
 	refRBSheet: React.RefObject<RBSheet>;
 };
 
 const PaymentSheet = ({ refRBSheet }: TProps) => {
-	const { setIsSwiperBlocked, swiperReference } = useContext(UsersSwiperContext);
+	const { setIsSwiperBlocked, swiperReference, setSwipedAllUsers } = useContext(UsersSwiperContext);
 
 	const [cardPreviews, setCardPreviews] = useState<CardPreview[]>([]);
 	const [loadingCards, setLoadingCards] = useState(true);
@@ -46,7 +46,9 @@ const PaymentSheet = ({ refRBSheet }: TProps) => {
 			closeOnDragDown
 			closeOnPressMask
 			keyboardAvoidingViewEnabled
-			onClose={getOnCloseEvent(wasBottomSheetPrematurelyClosed, swiperReference, setIsSwiperBlocked)}
+			onClose={() => {
+				recoverUnmatchedUser(wasBottomSheetPrematurelyClosed, swiperReference, setIsSwiperBlocked, setSwipedAllUsers);
+			}}
 			onOpen={() => {
 				setIsSwiperBlocked(true);
 				setWasBottomSheetPrematurelyClosed(true);

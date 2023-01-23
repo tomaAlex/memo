@@ -1225,7 +1225,7 @@ PODS:
     - TOCropViewController
   - RNPermissions (3.6.1):
     - React-Core
-  - RNReanimated (2.11.0):
+  - RNReanimated (2.14.4):
     - DoubleConversion
     - FBLazyVector
     - FBReactNativeSpec
@@ -1618,7 +1618,7 @@ SPEC CHECKSUMS:
   RNGoogleSignin: b2179ba653c759b936404a7746fc5302f9de6a5a
   RNImageCropPicker: ffbba608264885c241cbf3a8f78eb7aeeb978241
   RNPermissions: dcdb7b99796bbeda6975a6e79ad519c41b251b1c
-  RNReanimated: b6832472ed0c5db0ba4affdf2ab183c427858090
+  RNReanimated: 6668b0587bebd4b15dd849b99e5a9c70fc12ed95
   RNSVG: 3a79c0c4992213e4f06c08e62730c5e7b9e4dc17
   Stripe: a11f72e054b581f16064d5b735e33a056f197c34
   stripe-react-native: 345fb31abf42374a8cb48a4e03d183647f89195d

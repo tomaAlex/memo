@@ -7,11 +7,13 @@ const UsersSwiperContext = React.createContext<{
 	isSwiperBlocked: boolean;
 	setIsSwiperBlocked: (isSwiperBlocked: boolean) => void;
 	userToInstantlyMatchId: string;
+	setSwipedAllUsers: (swipedAllUsers: boolean) => void;
 }>({
 	swiperReference: { current: null },
 	isSwiperBlocked: false,
 	setIsSwiperBlocked: () => {},
 	userToInstantlyMatchId: "",
+	setSwipedAllUsers: () => {},
 });
 
 export default UsersSwiperContext;
