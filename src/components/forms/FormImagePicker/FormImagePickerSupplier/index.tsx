@@ -41,7 +41,7 @@ function FormImagePickerSupplier<D>({ field, picturesLimit }: TProps<D>) {
 
 	return (
 		<TouchableOpacity style={styles.container} onPress={bringUpRBSheet}>
-			<Text style={styles.container__caption}>{t("remainingPicturesNotice", { count: remainingPictures })}</Text>
+			<Text style={styles.container__caption}>{t("remainingPicturesNotice", { count: 1 })}</Text>
 			{/* https://github.com/nysamnang/react-native-raw-bottom-sheet/issues/148 */}
 			{/* @ts-ignore */}
 			<RBSheet

@@ -50,7 +50,7 @@ const Embodiment = ({
 						contentContainerStyle={{ marginTop: "9%", paddingBottom: "60%" }}
 						showsVerticalScrollIndicator={false}
 					>
-						<FormTextInput field="height" placeholder="181" keyboardType="numeric">
+						<FormTextInput isMandatory field="height" placeholder="181" keyboardType="numeric">
 							<FormFieldLabel label={translateLabels("height")} />
 						</FormTextInput>
 						<FormChoicePicker
