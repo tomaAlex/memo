@@ -2,9 +2,10 @@
 	"translation": {
 		"Screens": {
 			"Login": {
-				"title": "memo",
+				"title": "Hai sa intalnim\n pe cineva dinprejur",
 				"abstract": "Obosit de aplicatiile de de dating care nu prea functioneaza? Aici totul este proiectat astfel incat sa fie incurajate sanse de intalnire egale pentru toata lumea",
-				"note": "Aceasta aplicatie este intr-un stadiu super incipient de dezvoltare. Multe alte feature-uri vor veni curand si ascult tot feedback-ul pe care il oferiti. Va multumesc pentru suport!"
+				"note": "Aceasta aplicatie este intr-un stadiu super incipient de dezvoltare. Multe alte feature-uri vor veni curand si ascult tot feedback-ul pe care il oferiti. Va multumesc pentru suport!",
+				"googleLoginButton": "Logheaza-te cu Google"
 			},
 			"Signup": {
 				"title": "Inregistreaza-te",

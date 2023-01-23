@@ -1,20 +1,15 @@
 import React from "react";
-import { SafeAreaView, Text, View } from "react-native";
+import { SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 import connector from "../../redux/connector";
 import { useTranslation } from "react-i18next";
 import "../../translations/i18.config";
 import { ScreenNames, ScreenProps } from "types/index";
-import { GoogleSigninButton } from "@react-native-google-signin/google-signin";
-import { signInWithGoogle } from "Firebase/index";
-// import { signInWithGoogle, signInWithFacebook } from "Firebase/index";
-// import { LoginButton } from "react-native-fbsdk-next";
-// import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
-import firestore from "@react-native-firebase/firestore";
-import MatchMessagePreview from "screens/MatchChat/MatchMessages/MatchMessagePreview";
 import styles from "./Login.module.scss";
 import { useSelector } from "react-redux";
 import { selectAwaitingLoginStatus } from "redux/selectors";
 import Loading from "components/Loading";
+import { LoginIcon } from "icons/index";
+import { signInWithGoogle } from "Firebase/index";
 
 const Login = ({ setAwaitingLoginStatus }: ScreenProps<ScreenNames.Login>) => {
 	const [t] = useTranslation("translation", { keyPrefix: "Screens.Login" });
@@ -31,30 +26,27 @@ const Login = ({ setAwaitingLoginStatus }: ScreenProps<ScreenNames.Login>) => {
 	return (
 		<SafeAreaView style={styles.container}>
 			<View style={styles.container__header}>
+				<LoginIcon style={styles.container__header__icon} />
 				<Text style={styles.container__header__title}>{t("title")}</Text>
-				<View style={styles.container__header__abstract}>
-					<MatchMessagePreview
-						seenBy={[]}
-						author="memo"
-						content={`${t("abstract")} 🙂`}
-						timestamp={firestore.Timestamp.now()}
-						matchedUsers={[]}
-					/>
-				</View>
 			</View>
-			<GoogleSigninButton
-				style={styles.container__signinButton}
-				size={1}
-				onPress={() => {
-					signInWithGoogle(setAwaitingLoginStatus);
-				}}
-			/>
+			<View style={styles.container__body}>
+				<TouchableOpacity
+					style={styles.container__body__signinButton}
+					onPress={() => {
+						signInWithGoogle(setAwaitingLoginStatus);
+					}}
+				>
+					<View style={styles.container__body__signinButton__circle} />
+					<View style={styles.container__body__signinButton__captionContainer}>
+						<Text style={styles.container__body__signinButton__captionContainer__caption}>
+							{t("googleLoginButton")}
+						</Text>
+					</View>
+				</TouchableOpacity>
+			</View>
 			<View style={styles.container__footer}>
 				{/* <Text style={styles.container__footer__note}>{t("note")} 🙏</Text> */}
 			</View>
-			{/* <TouchableOpacity onPress={signInWithFacebook}>
-				<LoginButton style={{ width: 304, height: 36 }} onLogoutFinished={() => console.log("logged out")} />
-			</TouchableOpacity> */}
 		</SafeAreaView>
 	);
 };
