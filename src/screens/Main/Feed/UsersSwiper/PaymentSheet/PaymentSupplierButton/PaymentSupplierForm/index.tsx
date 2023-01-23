@@ -45,7 +45,7 @@ const PaymentSupplierForm = ({ visible, onRequestClose }: TProps) => {
 						style={styles.container__cardField}
 						autofocus
 						cardStyle={{
-							textColor: Platform.OS === "android" ? "black" : undefined,
+							textColor: "black",
 							placeholderColor: Platform.OS === "android" ? "grey" : undefined,
 							borderColor: "black",
 							borderWidth: 1.25,
