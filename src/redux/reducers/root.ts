@@ -23,7 +23,7 @@ const reducer = combineReducers({
 	) as Reducer<MatchPreview[], MatchPreviewsAction>,
 	awaitingLogin: filterActions(awaitingLoginReducer as Reducer<boolean>, (action) =>
 		Object.values(AwaitingLoginActions).includes(action.type)
-	) as Reducer<boolean, AwaitingLoginAction>
+	) as Reducer<boolean, AwaitingLoginAction>,
 });
 
 export default reducer;

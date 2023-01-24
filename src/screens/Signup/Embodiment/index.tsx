@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSignupEmbodimentFormValidationRules } from "hooks/index";
 import connector from "redux/connector";
 import { EmbodimentForm, Orientation, ScreenNames, ScreenProps } from "types/index";
@@ -16,6 +16,7 @@ import assembleUser from "./utils/assembleUser";
 import storeUser from "./utils/storeUser";
 import AppHeaderText from "components/Header/AppHeaderText";
 import styles from "./Embodiment.module.scss";
+import Loading from "components/Loading";
 
 const Embodiment = ({
 	navigation,
@@ -25,6 +26,7 @@ const Embodiment = ({
 	updateUser,
 }: ScreenProps<ScreenNames.Embodiment>) => {
 	const [translateLabels] = useTranslation("translation", { keyPrefix: "Screens.Signup.Forms.Embodiment.Labels" });
+	const [isCreatingAccount, setIsCreatingAccount] = useState(false);
 	const embodimentSchema = useSignupEmbodimentFormValidationRules();
 
 	return (
@@ -39,9 +41,11 @@ const Embodiment = ({
 						photos: [] as string[],
 					}}
 					onSubmit={async (embodiment: EmbodimentForm) => {
+						setIsCreatingAccount(true);
 						const userToSignUp = await assembleUser(identification, details, embodiment);
 						const createdUserId = auth().currentUser?.uid as string;
 						await storeUser(userToSignUp, createdUserId, updateUser);
+						setIsCreatingAccount(false);
 						navigation.replace(ScreenNames.Main, { uid: createdUserId });
 					}}
 				>
@@ -66,9 +70,7 @@ const Embodiment = ({
 								<FormFieldLabel label={translateLabels("photos")} />
 							</FormImagePicker>
 						</View>
-						<View style={styles.container__button}>
-							<FormSubmitButton />
-						</View>
+						<View style={styles.container__button}>{isCreatingAccount ? <Loading /> : <FormSubmitButton />}</View>
 					</ScrollView>
 				</Formik>
 			</SafeAreaView>
