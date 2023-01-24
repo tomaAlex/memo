@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { IdentifiedUser } from "types/index";
 import Swiper from "react-native-deck-swiper";
 import FeedUserCard from "./FeedUserCard";
@@ -7,8 +7,6 @@ import getVerticalState from "./utils/getVerticalState";
 import RBSheet from "react-native-raw-bottom-sheet";
 import PaymentSheet from "./PaymentSheet";
 import UsersSwiperContext from "./UsersSwiperContext";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { Text } from "react-native";
 import RefreshFeedButton from "../RefreshFeedButton";
 
 type TProps = {

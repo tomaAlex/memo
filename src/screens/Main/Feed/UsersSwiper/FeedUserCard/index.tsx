@@ -17,14 +17,17 @@ const FeedUserCard = ({ userToDisplay }: TProps) => {
 	return (
 		<View style={styles.userCardContainer}>
 			<View style={styles.userCardContainer__userCard}>
-				<FeedUserCardDistance likedUserLocation={userToDisplay.coordinates} />
+				{/* <FeedUserCardDistance likedUserLocation={userToDisplay.coordinates} /> */}
 				<Carousel style={styles.userCardContainer__userCard__carousel}>
 					{photos.map((photo, photoIndex) => (
-						<Image
-							style={styles.userCardContainer__userCard__carousel__imagePreview}
-							key={photoIndex}
-							source={{ uri: photo }}
-						/>
+						<View style={styles.userCardContainer__userCard__carousel__imagePreviewContainer}>
+							<Image
+								style={styles.userCardContainer__userCard__carousel__imagePreviewContainer__imagePreview}
+								key={photoIndex}
+								source={{ uri: photo }}
+							/>
+							<FeedUserCardDistance likedUserLocation={userToDisplay.coordinates} />
+						</View>
 					))}
 				</Carousel>
 				<FeedUserCardDescription userToDisplay={userToDisplay} />

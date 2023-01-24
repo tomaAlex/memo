@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, ViewProps } from "react-native";
+import { ArrowLeftIcon, ArrowRightIcon } from "icons/index";
 import CarouselNavigationButton from "./CarouselNavigationButton";
 
 type TProps = ViewProps & {
@@ -14,10 +15,21 @@ const Carousel = ({ children, ...viewProps }: TProps) => {
 
 	return (
 		<View {...viewProps}>
-			{/* <View style={{ width: "20%", height: "100%", backgroundColor: "red" }}>
-				{currentSlide > 0 && <CarouselNavigationButton navigate={() => setCurrentSlide(currentSlide - 1)} />}
-			</View> */}
-			<View style={{ flex: 1 }}>{previewedSlide}</View>
+			<View style={{ flex: 1 }}>
+				{currentSlide > 0 && (
+					<CarouselNavigationButton navigate={() => setCurrentSlide(currentSlide - 1)}>
+						<ArrowLeftIcon width={30} height={30} stroke={"#8A8A8A"} />
+					</CarouselNavigationButton>
+				)}
+			</View>
+			<View style={{ flex: 10 }}>{previewedSlide}</View>
+			<View style={{ flex: 1 }}>
+				{currentSlide < totalSlides - 1 && (
+					<CarouselNavigationButton navigate={() => setCurrentSlide(currentSlide + 1)}>
+						<ArrowRightIcon width={30} height={30} stroke={"#8A8A8A"} />
+					</CarouselNavigationButton>
+				)}
+			</View>
 			{/* <View
 				style={{
 					position: "absolute",

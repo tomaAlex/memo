@@ -16,6 +16,8 @@ import LoginIcon from "./login.svg";
 import BackIcon from "./back.svg";
 import CloseIcon from "./close.svg";
 import RefreshIcon from "./refresh.svg";
+import ArrowLeftIcon from "./arrow-left.svg";
+import ArrowRightIcon from "./arrow-right.svg";
 
 export {
 	HeartIcon,
@@ -36,4 +38,6 @@ export {
 	BackIcon,
 	CloseIcon,
 	RefreshIcon,
+	ArrowLeftIcon,
+	ArrowRightIcon,
 };
