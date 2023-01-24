@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { Modal, View, SafeAreaView, TouchableWithoutFeedback, Keyboard, ScrollView } from "react-native";
+import {
+	Modal,
+	View,
+	SafeAreaView,
+	TouchableWithoutFeedback,
+	Keyboard,
+	ScrollView,
+	KeyboardAvoidingView,
+	Platform,
+} from "react-native";
 import { useStripe } from "@stripe/stripe-react-native";
 import { useTranslation } from "react-i18next";
 import saveBankAccountAndCloseForm from "./utils/saveBankAccountAndCloseForm";
@@ -27,45 +36,51 @@ const CashOutSupplierForm = ({ visible, onRequestClose }: TProps) => {
 
 	return (
 		<Modal {...{ visible, onRequestClose }} animationType="slide">
-			<SafeAreaView style={styles.container}>
-				<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-					<View style={styles.container__formContainer}>
-						<Formik
-							validationSchema={cashOutSupplierValidationSchema}
-							initialValues={{
-								bankAccountNumber: "",
-								bankAccountCountry: "",
-								bankRoutingNumber: "",
-								currency: "",
-							}}
-							onSubmit={async ({ bankAccountNumber, bankAccountCountry, bankRoutingNumber, currency }) => {
-								setIsBankAccountUploading(true);
-								await saveBankAccountAndCloseForm(
-									createToken,
-									bankAccountNumber,
-									bankAccountCountry,
-									bankRoutingNumber,
-									currency,
-									onRequestClose
-								);
-								setIsBankAccountUploading(false);
-							}}
-						>
-							<ScrollView style={styles.container__formContainer__form}>
-								<FormTextInput isMandatory field="bankAccountNumber">
-									<FormFieldLabel label={translateLabels("bankAccountNumber")} />
-								</FormTextInput>
-								<CountryChoicePicker />
-								<CurrencyChoicePicker />
-								<FormTextInput field="bankRoutingNumber">
-									<FormFieldLabel label={translateLabels("bankRoutingNumber")} />
-								</FormTextInput>
-								{!isBankAccountUploading && <FormSubmitButton />}
-							</ScrollView>
-						</Formik>
-					</View>
-				</TouchableWithoutFeedback>
-			</SafeAreaView>
+			<KeyboardAvoidingView
+				behavior={Platform.OS === "ios" ? "padding" : "height"}
+				style={{ flex: 1 }}
+				keyboardVerticalOffset={20}
+			>
+				<SafeAreaView style={styles.container}>
+					<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+						<View style={styles.container__formContainer}>
+							<Formik
+								validationSchema={cashOutSupplierValidationSchema}
+								initialValues={{
+									bankAccountNumber: "",
+									bankAccountCountry: "",
+									bankRoutingNumber: "",
+									currency: "",
+								}}
+								onSubmit={async ({ bankAccountNumber, bankAccountCountry, bankRoutingNumber, currency }) => {
+									setIsBankAccountUploading(true);
+									await saveBankAccountAndCloseForm(
+										createToken,
+										bankAccountNumber,
+										bankAccountCountry,
+										bankRoutingNumber,
+										currency,
+										onRequestClose
+									);
+									setIsBankAccountUploading(false);
+								}}
+							>
+								<ScrollView style={styles.container__formContainer__form}>
+									<FormTextInput isMandatory field="bankAccountNumber">
+										<FormFieldLabel label={translateLabels("bankAccountNumber")} />
+									</FormTextInput>
+									<CountryChoicePicker />
+									<CurrencyChoicePicker />
+									<FormTextInput field="bankRoutingNumber">
+										<FormFieldLabel label={translateLabels("bankRoutingNumber")} />
+									</FormTextInput>
+									{!isBankAccountUploading && <FormSubmitButton />}
+								</ScrollView>
+							</Formik>
+						</View>
+					</TouchableWithoutFeedback>
+				</SafeAreaView>
+			</KeyboardAvoidingView>
 		</Modal>
 	);
 };

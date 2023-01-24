@@ -60,6 +60,22 @@ const Embodiment = ({
 						<FormChoicePicker
 							isMandatory
 							data={convertChoicesToFormChoicePickerData(Orientation)}
+							optionContainerStyle={{
+								backgroundColor: "white",
+								paddingVertical: "10%",
+								borderRadius: 30,
+							}}
+							optionTextStyle={{
+								fontFamily: "Poppins-Regular",
+							}}
+							cancelTextStyle={{
+								fontFamily: "Poppins-Regular",
+							}}
+							cancelStyle={{
+								backgroundColor: "white",
+								borderRadius: 30,
+							}}
+							search={false}
 							renderItem={FormChoicePickerItem}
 							field="orientation"
 						>

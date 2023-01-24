@@ -46,6 +46,22 @@ const Identification = ({ navigation }: ScreenProps<ScreenNames.Identification>)
 							data={convertChoicesToFormChoicePickerData(Gender)}
 							renderItem={FormChoicePickerItem}
 							field="gender"
+							optionContainerStyle={{
+								backgroundColor: "white",
+								paddingVertical: "10%",
+								borderRadius: 30,
+							}}
+							optionTextStyle={{
+								fontFamily: "Poppins-Regular",
+							}}
+							cancelTextStyle={{
+								fontFamily: "Poppins-Regular",
+							}}
+							cancelStyle={{
+								backgroundColor: "white",
+								borderRadius: 30,
+							}}
+							search={false}
 						>
 							<FormFieldLabel label={translateLabels("gender")} />
 						</FormChoicePicker>

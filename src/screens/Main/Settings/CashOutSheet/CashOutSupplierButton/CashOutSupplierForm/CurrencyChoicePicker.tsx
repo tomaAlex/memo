@@ -17,6 +17,26 @@ const CurrencyChoicePicker = () => {
 		<FormChoicePicker
 			isMandatory
 			data={getCurrencyChoicePickerData()}
+			optionContainerStyle={{
+				backgroundColor: "white",
+				paddingVertical: "10%",
+				borderRadius: 30,
+				marginTop: "8%",
+			}}
+			optionTextStyle={{
+				fontFamily: "Poppins-Regular",
+			}}
+			cancelTextStyle={{
+				fontFamily: "Poppins-Regular",
+			}}
+			cancelStyle={{
+				backgroundColor: "white",
+				borderRadius: 30,
+			}}
+			searchTextStyle={{
+				fontFamily: "Poppins-Regular",
+			}}
+			searchStyle={{ backgroundColor: "white", borderRadius: 30 }}
 			renderItem={FormChoicePickerItem}
 			onChange={getCurrencyChoicePickerChangeHandler(handleChange)}
 			field="currency"

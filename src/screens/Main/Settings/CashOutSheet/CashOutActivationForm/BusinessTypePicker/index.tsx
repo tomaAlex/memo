@@ -20,6 +20,22 @@ const BusinessTypePicker = ({ setIsBusinessNameRequired }: TProps) => {
 			field="businessType"
 			isMandatory
 			data={getBusinessTypePickerData()}
+			optionContainerStyle={{
+				backgroundColor: "white",
+				paddingVertical: "10%",
+				borderRadius: 30,
+			}}
+			optionTextStyle={{
+				fontFamily: "Poppins-Regular",
+			}}
+			cancelTextStyle={{
+				fontFamily: "Poppins-Regular",
+			}}
+			cancelStyle={{
+				backgroundColor: "white",
+				borderRadius: 30,
+			}}
+			search={false}
 			renderItem={FormChoicePickerItem}
 			onChange={({ value }) => {
 				const isBusinessNameRequired = value !== "individual";
