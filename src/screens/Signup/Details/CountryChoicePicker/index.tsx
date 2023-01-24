@@ -39,6 +39,7 @@ const CountryChoicePicker = ({ selectedCountryCode, setSelectedCountryCode }: TP
 			}}
 			searchTextStyle={{
 				fontFamily: "Poppins-Regular",
+				color: "black",
 			}}
 			searchStyle={{ backgroundColor: "white", borderRadius: 30 }}
 			onChange={getCountryChoicePickerChangeHandler(handleChange, setSelectedCountryCode)}

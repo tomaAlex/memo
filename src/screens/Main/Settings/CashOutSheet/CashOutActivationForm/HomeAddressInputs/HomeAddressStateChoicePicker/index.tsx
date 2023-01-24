@@ -39,6 +39,7 @@ const HomeAddressStateChoicePicker = ({ selectedCountryCode = "" }: TProps) => {
 			}}
 			searchTextStyle={{
 				fontFamily: "Poppins-Regular",
+				color: "black",
 			}}
 			searchStyle={{ backgroundColor: "white", borderRadius: 30 }}
 			renderItem={FormChoicePickerItem}
