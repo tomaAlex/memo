@@ -114,7 +114,8 @@
 						"PaymentSheet": {
 							"PaymentSupplierButton": {
 								"addCard": "Adauga card nou"
-							}
+							},
+							"priceNote": "Obtine un match instant pentru £5"
 						}
 					}
 				},

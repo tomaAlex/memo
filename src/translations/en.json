@@ -114,7 +114,8 @@
 						"PaymentSheet": {
 							"PaymentSupplierButton": {
 								"addCard": "Add new card"
-							}
+							},
+							"priceNote": "Get an instant match for £5"
 						}
 					}
 				},

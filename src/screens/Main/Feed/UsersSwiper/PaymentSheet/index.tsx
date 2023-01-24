@@ -1,6 +1,7 @@
 import Loading from "components/Loading";
 import React, { useCallback, useContext, useEffect, useState } from "react";
-import { FlatList } from "react-native";
+import { useTranslation } from "react-i18next";
+import { FlatList, Text } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
 import { CardPreview } from "types/index";
 import UsersSwiperContext from "../UsersSwiperContext";
@@ -21,6 +22,7 @@ const PaymentSheet = ({ refRBSheet }: TProps) => {
 	const [loadingCards, setLoadingCards] = useState(true);
 	const [shouldFetchCards, setShouldFetchCards] = useState(true);
 	const [wasBottomSheetPrematurelyClosed, setWasBottomSheetPrematurelyClosed] = useState(true);
+	const [t] = useTranslation("translation", { keyPrefix: "Screens.Main.Feed.UsersSwiper.PaymentSheet" });
 
 	const handleCardPreviewsFetching = useCallback(async (): Promise<void> => {
 		if (!shouldFetchCards) {
@@ -64,7 +66,14 @@ const PaymentSheet = ({ refRBSheet }: TProps) => {
 				numColumns={3}
 				keyExtractor={(item) => item.id}
 				ListHeaderComponent={() => {
-					return loadingCards ? <Loading /> : <PaymentSupplierButton {...{ setShouldFetchCards }} />;
+					return loadingCards ? (
+						<Loading />
+					) : (
+						<>
+							<PaymentSupplierButton {...{ setShouldFetchCards }} />
+							<Text style={styles.container__caption}>{t("priceNote")}!</Text>
+						</>
+					);
 				}}
 				renderItem={({ item }) => (
 					<PaymentOptionPreview
