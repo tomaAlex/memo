@@ -1,5 +1,5 @@
-import Carousel from "components/Carousel";
 import React from "react";
+import Carousel from "components/Carousel";
 import { Image, View } from "react-native";
 import { IdentifiedUser } from "types/index";
 import styles from "./FeedUserCard.module.scss";
@@ -17,7 +17,6 @@ const FeedUserCard = ({ userToDisplay }: TProps) => {
 	return (
 		<View style={styles.userCardContainer}>
 			<View style={styles.userCardContainer__userCard}>
-				{/* <FeedUserCardDistance likedUserLocation={userToDisplay.coordinates} /> */}
 				<Carousel style={styles.userCardContainer__userCard__carousel}>
 					{photos.map((photo, photoIndex) => (
 						<View style={styles.userCardContainer__userCard__carousel__imagePreviewContainer}>
@@ -27,10 +26,10 @@ const FeedUserCard = ({ userToDisplay }: TProps) => {
 								source={{ uri: photo }}
 							/>
 							<FeedUserCardDistance likedUserLocation={userToDisplay.coordinates} />
+							<FeedUserCardDescription userToDisplay={userToDisplay} />
 						</View>
 					))}
 				</Carousel>
-				<FeedUserCardDescription userToDisplay={userToDisplay} />
 			</View>
 			<FeedUserCardShadow />
 			<SwipeControls {...{ hasInstantMatchingOn }} />
