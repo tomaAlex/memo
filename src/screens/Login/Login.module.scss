@@ -2,23 +2,23 @@
 	flex: 1;
 	align-items: center;
 	justify-content: center;
+	background-color: white;
 
 	&__header {
-		flex: 1;
-        width: 100%;
+		flex: 2;
+		width: 100%;
 		justify-content: space-around;
 
 		&__title {
 			text-align: center;
-			font-size: 50px;
-			color: #ec4474;
-			font-weight: bold;
+			font-size: 20px;
+			color: #f10065;
+			font-family: Poppins-SemiBold;
 		}
 
-		&__abstract {
-            width: 100%;
-            align-self: flex-end;
-            margin-right: 30px;
+		&__icon {
+			flex: 0.7;
+			align-self: center;
 		}
 	}
 
@@ -34,9 +34,47 @@
 		}
 	}
 
-	&__signinButton {
-		align-content: center;
-		align-items: center;
-		align-self: center;
+	&__body {
+		flex: 1;
+		justify-content: flex-end;
+
+		&__signinButton {
+			align-content: center;
+			align-items: center;
+			align-self: center;
+			background-color: #f10065;
+			padding: 10px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			flex-direction: row;
+			display: flex;
+			width: 75%;
+			justify-content: space-between;
+			border-radius: 500px;
+
+			&__circle {
+				background-color: white;
+				border-radius: 500px;
+				width: 12%;
+				aspect-ratio: 1;
+			}
+
+			&__captionContainer {
+				flex: 1;
+
+				&__caption {
+					color: white;
+					font-family: Poppins-Regular;
+					align-self: center;
+				}
+			}
+		}
 	}
+}
+
+.loadingContainer {
+	flex: 1;
+	background-color: white;
+	align-items: center;
+	justify-content: center;
 }

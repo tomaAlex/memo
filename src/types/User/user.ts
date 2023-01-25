@@ -19,6 +19,9 @@ export interface User {
 	dislikes: string[];
 	matches: string[];
 	coordinates: Coordinates;
+	tokens: string[];
+	hasInstantMatchingOn: boolean;
+	stripeId?: string;
 }
 
 export interface IdentifiedUser extends User {

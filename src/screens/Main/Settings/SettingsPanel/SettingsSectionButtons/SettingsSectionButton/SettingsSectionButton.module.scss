@@ -1,0 +1,14 @@
+.container {
+	background-color: #f10065;
+	aspect-ratio: 1;
+    flex: 1;
+	border-radius: 500px;
+	align-items: center;
+	align-content: center;
+    justify-content: center;
+
+    &__icon {
+        flex: 0.5;
+        aspect-ratio: 1;
+    }
+}

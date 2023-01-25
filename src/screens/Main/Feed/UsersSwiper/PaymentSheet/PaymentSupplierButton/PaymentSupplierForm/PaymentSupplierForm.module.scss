@@ -1,0 +1,60 @@
+.container {
+	height: 50%;
+	width: 90%;
+	margin-top: 50%;
+	align-self: center;
+
+	&__header {
+		position: absolute;
+		top: 7%;
+
+		&__icon {
+			margin-left: 10px;
+		}
+
+		&__cardText {
+			font-weight: 600;
+			align-self: center;
+			font-family: Poppins-Medium;
+			font-size: 25;
+			margin-left: 40%;
+			color: black;
+		}
+	}
+
+	&__image {
+		height: 200; 
+		margin-bottom: 30%
+	}
+
+	&__cardField {
+		align-self: center;
+		margin-top: 32%;
+		border-width: 1.2px;
+		height: 25% ;
+		font-family: Poppins-Medium;
+		width: 95%;
+		background-color: white;
+	}
+
+	&__submitContainer {
+		flex: 1;
+
+        &__loading {
+            align-self: center;
+        }
+
+		&__submit {
+			align-self: center;
+			background-color: #f10065;
+			padding: 10px;
+			border-radius: 10px;
+
+			&__caption {
+				color: #fff;
+				font-weight: bold;
+				font-family: Poppins-Medium;
+			}
+		}
+	}
+}

@@ -2,9 +2,10 @@
 	"translation": {
 		"Screens": {
 			"Login": {
-				"title": "memo",
+				"title": "Let's meet new\n people around you",
 				"abstract": "Tired of dating apps not really working out? Here everything is designed to encourage fair dating chances for everybody",
-				"note": "This app is in a super early stage of development. Many other features will be coming soon and I am listening to all the feedback you are giving. Thank you for your support!"
+				"note": "This app is in a super early stage of development. Many other features will be coming soon and I am listening to all the feedback you are giving. Thank you for your support!",
+				"googleLoginButton": "Login with Google"
 			},
 			"Signup": {
 				"title": "Sign Up",
@@ -83,7 +84,8 @@
 						"Errors": {
 							"height": {
 								"tooShort": "The shortest person in the world was 54cm tall",
-								"tooTall": "The tallest person in the world was 272cm tall"
+								"tooTall": "The tallest person in the world was 272cm tall",
+								"required": "Heigth is required"
 							},
 							"orientation": {
 								"required": "Orientation is required"
@@ -107,10 +109,154 @@
 					},
 					"EnoughMatchesNote": {
 						"caption": "It is time you focus on your current matches"
+					},
+					"UsersSwiper": {
+						"PaymentSheet": {
+							"PaymentSupplierButton": {
+								"addCard": "Add new card"
+							},
+							"priceNote": "Get an instant match for £5"
+						}
 					}
 				},
 				"Chats": {
 					"noMatchesNote": "It's time to send more likes"
+				},
+				"Settings": {
+					"Labels": {
+						"hasInstantMatchingOn": "Allow instant matches"
+					},
+					"CashOutSheet": {
+						"title": "Billing Info"
+					},
+					"CashOutSupplierButton": {
+						"addBankAccount": "Add bank account"
+					},
+					"CashOutButton": {
+						"Caption": {
+							"instantMatchingIsOff": "Turn on Instant Matching to cash out",
+							"insufficientBalance": "Cash out when you get £{{count}} more",
+							"cashOut": "Cash out £{{count}} now"
+						}
+					},
+					"CashOutSupplierForm": {
+						"Labels": {
+							"bankAccountNumber": "Account number",
+							"bankAccountCountry": "Country",
+							"bankRoutingNumber": "Routing number",
+							"currency": "Currency"
+						},
+						"Errors": {
+							"bankAccountNumber": {
+								"tooShort": "Account number is too short",
+								"tooLong": "Account number is too long",
+								"required": "Account number is required"
+							},
+							"bankAccountCountry": {
+								"required": "Country is required"
+							},
+							"bankRoutingNumber": {
+								"tooShort": "Routing number is too short",
+								"tooLong": "Routing number is too long",
+								"required": "Routing number is required"
+							},
+							"currency": {
+								"required": "Currency is required"
+							}
+						}
+					},
+					"CashOutActivationForm": {
+						"Notes": {
+							"FullServiceAgreement": {
+								"beforeConnectedAccountAgreement": "Payment processing services for users on memo are provided by Stripe and are subject to the",
+								"connectedAccountAgreement": "Stripe Connected Account Agreement",
+								"beforeStripeToS": "which includes the",
+								"stripeToS": "Stripe Terms of Service",
+								"afterStripeToS": "(collectively, the “Stripe Services Agreement”). By agreeing to these terms or continuing to operate as a user on memo, you agree to be bound by the Stripe Services Agreement, as the same may be modified by Stripe from time to time. As a condition of memo enabling payment processing services through Stripe, you agree to provide memo accurate and complete information about you and your business, and you authorize memo to share it and transaction information related to your use of the payment processing services provided by Stripe"
+							},
+							"RecipientServiceAgreement": {
+								"beforeStripeRecipientAgreement": "memo uses Stripe to make payouts to users. The",
+								"stripeRecipientAgreement": "Stripe Recipient Agreement",
+								"afterStripeRecipientAgreement": "applies to your receipt of such Payouts. To receive payouts from memo, you must provide memo accurate and complete information about you and your business, and you authorize memo to share it and transaction information related to your payout with Stripe"
+							},
+							"MCC": {
+								"beforeMCCReference": "The Merchant Category Code (MCC) is a four-digit code that describes the type of business you are operating. You can find your MCC on your bank statement or by searching for your business type",
+								"MCCReference": "here"
+							}
+						},
+						"Labels": {
+							"businessType": "Business type",
+							"businessName": "Business name",
+							"homeAddressLine1": "Home Address line 1",
+							"homeAddressLine2": "Home Address line 2",
+							"homeAddressCountry": "Home Country",
+							"homeAddressState": "Home State",
+							"homeAddressCity": "Home City",
+							"homeAddressPostalCode": "Home Postal Code",
+							"businessMcc": "Merchant Category Code (MCC)",
+							"businessWebsite": "Website",
+							"personalPhone": "Personal Phone Number",
+							"businessPhone": "Business Phone Number",
+							"termsAndConditions": "I agree to the terms and conditions"
+						},
+						"Errors": {
+							"businessType": {
+								"required": "Business type is required"
+							},
+							"businessName": {
+								"tooShort": "Business name is too short",
+								"tooLong": "Business name is too long",
+								"required": "Business name is required"
+							},
+							"homeAddressLine1": {
+								"tooShort": "Home Address line 1 is too short",
+								"tooLong": "Home Address line 1 is too long",
+								"required": "Home Address line 1 is required"
+							},
+							"homeAddressLine2": {
+								"tooShort": "Home Address line 2 is too short",
+								"tooLong": "Home Address line 2 is too long"
+							},
+							"homeAddressCountry": {
+								"required": "Home Country is required"
+							},
+							"homeAddressState": {
+								"required": "Home State is required"
+							},
+							"homeAddressCity": {
+								"tooLong": "Home City is too long",
+								"required": "Home City is required"
+							},
+							"homeAddressPostalCode": {
+								"tooShort": "Home Postal Code is too short",
+								"tooLong": "Home Postal Code is too long",
+								"required": "Home Postal Code is required"
+							},
+							"businessMcc": {
+								"tooShort": "MCC is too short",
+								"tooLong": "MCC is too long",
+								"required": "MCC is required"
+							},
+							"businessWebsite": {
+								"tooShort": "Website is too short",
+								"tooLong": "Website is too long",
+								"required": "Website is required"
+							},
+							"personalPhone": {
+								"validFormat": "Personal Phone Number is not valid",
+								"required": "Personal Phone Number is required"
+							},
+							"businessPhone": {
+								"validFormat": "Business Phone Number is not valid",
+								"required": "Business Phone Number is required"
+							},
+							"termsAndConditions": {
+								"required": "You must accept the terms and conditions"
+							},
+							"general": "Something went wrong"
+						}
+					},
+					"logoutCaption": "Logout"
 				}
 			}
 		},

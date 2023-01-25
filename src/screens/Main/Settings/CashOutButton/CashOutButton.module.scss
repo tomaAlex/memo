@@ -1,0 +1,16 @@
+.container {
+	align-self: center;
+	background-color: #f10065;
+	border-radius: 20px;
+	padding: 10px;
+
+	&__caption {
+		text-align: center;
+		color: white;
+		font-family: Poppins-Regular;
+	}
+}
+
+.loadingContainer {
+	align-self: center;
+}

@@ -1,0 +1,17 @@
+.container {
+    align-self: center;
+    background-color: #F10065;
+    padding: 10px;
+    width: 34%;
+    border-radius: 20px;
+
+    &__text {
+        color: white;
+        text-align: center;
+        font-family: Poppins-Regular;
+    }
+}
+
+.loadingContainer {
+    align-self: center;
+}

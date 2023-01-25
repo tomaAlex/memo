@@ -1,20 +1,20 @@
 import React from "react";
 import { View } from "react-native";
-import Swiper from "react-native-deck-swiper";
-import { IdentifiedUser } from "types/index";
 import styles from "./SwipeControls.module.scss";
 import SwipeLeftButton from "./SwipeLeftButton";
 import SwipeRightButton from "./SwipeRightButton";
+import SwipeTopButton from "./SwipeTopButton";
 
 type TProps = {
-	swiperReference: React.RefObject<Swiper<IdentifiedUser>>;
+	hasInstantMatchingOn: boolean;
 };
 
-const SwipeControls = ({ swiperReference }: TProps) => {
+const SwipeControls = ({ hasInstantMatchingOn }: TProps) => {
 	return (
 		<View style={styles.swipingControlsContainer}>
-			<SwipeLeftButton swiperReference={swiperReference} />
-			<SwipeRightButton swiperReference={swiperReference} />
+			<SwipeLeftButton />
+			<SwipeTopButton {...{ hasInstantMatchingOn }} />
+			<SwipeRightButton />
 		</View>
 	);
 };

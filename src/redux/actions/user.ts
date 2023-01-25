@@ -6,8 +6,14 @@ const updateAction: ActionCreator<UserAction> = (updatedUser: User) => ({
 	payload: updatedUser,
 });
 
+const logoutAction: ActionCreator<UserAction<null>> = () => ({
+	type: UserActions.LOGOUT,
+	payload: null,
+})
+
 const generateUserActions = {
 	update: updateAction,
+	logout: logoutAction,
 };
 
 export default generateUserActions;

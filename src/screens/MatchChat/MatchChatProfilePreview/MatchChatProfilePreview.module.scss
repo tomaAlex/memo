@@ -27,12 +27,13 @@
 
 	&__name {
 		color: #1e1e1e;
-		// font-family: monospace;
+		font-family: Poppins-Medium;
 		font-weight: bold;
 		margin-top: 5px;
 	}
 
 	&__remainingTime {
+		font-family: Poppins-Regular;
 		color: #1e1e1e;
 	}
 }

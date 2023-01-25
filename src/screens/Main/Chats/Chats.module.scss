@@ -4,6 +4,7 @@
 
 	&__note {
 		align-self: center;
+		font-family: Poppins-Medium;
 		top: 50%;
 		color: #1E1E1E;
 	}
@@ -15,4 +16,11 @@
 			height: 10px;
 		}
 	}
+}
+
+.loadingContainer {
+    flex: 1;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
 }

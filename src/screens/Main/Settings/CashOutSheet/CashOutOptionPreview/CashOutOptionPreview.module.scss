@@ -1,0 +1,13 @@
+.container {
+	align-self: center;
+    background-color: #F10065;
+	padding: 10px;
+	border-radius: 5px;
+    width: 90%;
+
+	&__text {
+		color: white;
+        font-weight: bold;
+        align-self: center;
+	}
+}

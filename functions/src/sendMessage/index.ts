@@ -1,7 +1,8 @@
 import { firestore } from "firebase-admin";
 import * as functions from "firebase-functions";
-import { assertUserHasMatch, getAuthenticatedUserData } from "../utils";
 import buildMessage from "./buildMessage";
+import notifyReceivers from "./notifyReceivers";
+import { assertUserHasMatch, getAuthenticatedUserData } from "../utils";
 
 export const sendMessage = functions.https.onCall(async (data, context) => {
 	const matchId = data.matchId as string;
@@ -16,5 +17,6 @@ export const sendMessage = functions.https.onCall(async (data, context) => {
 	const newMessages = [...matchData.messages, messageToBeCreated];
 
 	await matchDocumentReference.update({ messages: newMessages });
+	await notifyReceivers(matchData, authenticatedIdentifiedUserData.id, content);
 	return messageToBeCreated;
 });

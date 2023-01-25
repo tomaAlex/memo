@@ -23,6 +23,9 @@ type User = {
 	dislikes: string[];
 	matches: string[];
 	coordinates: Coordinates;
+	tokens: string[];
+	hasInstantMatchingOn: boolean;
+	stripeId?: string;
 };
 
 type IdentifiedUser = User & {
@@ -39,22 +42,42 @@ type TimestampedElement = {
 
 type TimeManagedDocument = TimestampedElement & LivedDocument;
 
-type MatchMessage = TimestampedElement & {
-	author: string;
-	content: string;
+type ObservableDocument = {
+	seenBy: string[];
 };
+
+type MatchMessage = TimestampedElement &
+	ObservableDocument & {
+		author: string;
+		content: string;
+	};
 
 type DocumentClearancePayload = {
 	documentToClearPath: string;
 };
 
-type Match = TimeManagedDocument & {
-	matchedUsers: string[];
-	messages: MatchMessage[];
-};
+type Match = TimeManagedDocument &
+	ObservableDocument & {
+		matchedUsers: string[];
+		messages: MatchMessage[];
+	};
 
 type MatchPreview = TimeManagedDocument & {
 	id: string;
 	matchedUsers: IdentifiedUser[];
-	lastMessage: MatchMessage | null;
+};
+
+type CardPreview = {
+	id: string;
+	brand: string;
+	last4: string;
+	expiryMonth: number;
+	expiryYear: number;
+};
+
+type BankPreview = {
+	id: string;
+	country: string;
+	last4: string;
+	routingNumber?: string;
 };

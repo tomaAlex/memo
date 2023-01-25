@@ -1,20 +1,16 @@
-import { Match, MatchMessage, ReduxProps } from "types/index";
+import { Match, MatchMessage } from "types/index";
 import { useSnapshot } from "../useSnapshot";
 import sendMessage from "./sendMessage";
 
 export const useMatchMessages = (
-	matchId: string,
-	updateMatchPreviewLastMessage?: ReduxProps["updateMatchPreviewLastMessage"]
+	matchId: string
 ): [MatchMessage[] | null, (messageContent: string) => Promise<void>] => {
 	const [matchData] = useSnapshot<Match>("matches", matchId);
-	const messages = matchData ? matchData.messages : null;
+	const matchDataMessages = matchData ? [...matchData.messages] : [];
+	const messages = matchDataMessages.reverse();
 
 	const sendMatchMessage = async (messageContent: string) => {
-		const lastMessage = await sendMessage(matchId, messageContent);
-		if (!updateMatchPreviewLastMessage) {
-			return;
-		}
-		updateMatchPreviewLastMessage({ id: matchId, newLastMessage: lastMessage });
+		await sendMessage(matchId, messageContent);
 	};
 
 	return [messages, sendMatchMessage];

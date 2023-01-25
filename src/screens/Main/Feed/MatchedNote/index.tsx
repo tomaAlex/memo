@@ -15,9 +15,9 @@ const MatchedNote = ({ matchPreviews, navigation }: TProps) => {
 	const [natchToNote, setMatchToNote] = useState<MatchPreview | null>(null);
 	const clearMatchToNote = () => setMatchToNote(null);
 
-    useEffect(
+	useEffect(
 		() => observeMatchToNote(previousMatchPreviewsAmount, matchPreviews, setMatchToNote),
-		[currentMatchPreviewsAmount]
+		[currentMatchPreviewsAmount, matchPreviews]
 	);
 
 	return (

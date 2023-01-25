@@ -13,3 +13,10 @@ export enum MainScreenNames {
 	Chats = "Chats",
 	Settings = "Settings",
 }
+
+export enum SettingsScreenNames {
+	SettingsPanel = "SettingsPanel",
+	Photos = "Photos",
+	Information = "Information",
+	Preferences = "Preferences",
+}

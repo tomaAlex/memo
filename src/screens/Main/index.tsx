@@ -6,6 +6,8 @@ import Feed from "./Feed";
 import Chats from "./Chats";
 import Settings from "./Settings";
 import getMainNavbarIcon from "./utils/getMainNavbarIcon";
+import { useSelector } from "react-redux";
+import { selectAwaitingLoginStatus } from "redux/selectors";
 const MainTab = createBottomTabNavigator<MainNavigationTabTypes>();
 
 const Main = ({
@@ -13,14 +15,17 @@ const Main = ({
 		params: { uid },
 	},
 	user,
+	setAwaitingLoginStatus,
 }: ScreenProps<ScreenNames.Main>) => {
-	const [loading, setLoading] = useState<Boolean>(true);
+	const awaitingLoginStatus = useSelector(selectAwaitingLoginStatus);
+
 	useEffect(() => {
 		if (user) {
-			setLoading(false);
+			setAwaitingLoginStatus(false);
 		}
 	}, [user]);
-	return loading ? (
+
+	return awaitingLoginStatus ? (
 		<></>
 	) : (
 		<MainTab.Navigator
@@ -34,8 +39,20 @@ const Main = ({
 			})}
 		>
 			<MainTab.Screen name={MainScreenNames.Feed} initialParams={{ uid }} component={Feed} />
-			<MainTab.Screen name={MainScreenNames.Chats} component={Chats} />
-			<MainTab.Screen name={MainScreenNames.Settings} component={Settings} />
+			<MainTab.Screen
+				name={MainScreenNames.Chats}
+				component={Chats}
+				options={{ headerShown: true, headerTitleStyle: { fontFamily: "Poppins-Bold" }, headerTitleAlign: "center" }}
+			/>
+			<MainTab.Screen
+				name={MainScreenNames.Settings}
+				component={Settings}
+				options={{
+					headerShown: true,
+					headerTitleStyle: { fontFamily: "Poppins-Bold" },
+					headerTitleAlign: "center",
+				}}
+			/>
 		</MainTab.Navigator>
 	);
 };

@@ -1,0 +1,23 @@
+.container {
+	background-color: #eaeaea;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+
+	&__draggableIcon {
+		background-color: #f10065;
+	}
+
+	&__picker {
+		padding-left: 10px;
+		padding-right: 10px;
+		align-items: center;
+	}
+
+	&__caption {
+		font-size: 8px;
+		font-family: Poppins-Medium;
+		color: #1e1e1e;
+		align-self: center;
+		margin-bottom: 10px;
+	}
+}

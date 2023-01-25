@@ -1,4 +1,4 @@
 export interface GeneralAction {
-  type: any;
-  payload: any;
+	type: any;
+	payload: any;
 }

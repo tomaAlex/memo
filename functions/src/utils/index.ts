@@ -1,3 +1,5 @@
+export * from "./getConnectAccount";
+export * from "./getUserCustomerStripeId";
 export * from "./assertUserHasMatch";
 export * from "./checkWhetherFieldHasChanged";
 export * from "./checkWhetherFieldsHaveChanged";

@@ -1,0 +1,15 @@
+.container {
+	flex: 1;
+	background-color: white;
+
+	&__header {
+		flex: 1;
+		width: 85%;
+		align-self: center;
+	}
+
+	&__body {
+		flex: 1.5;
+		margin-bottom: 8%;
+	}
+}

@@ -1,5 +1,5 @@
 import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
-import { MainScreenNames, ScreenNames } from "./ScreenNames";
+import { MainScreenNames, ScreenNames, SettingsScreenNames } from "./ScreenNames";
 import { IdentifiedUser, User } from "./User";
 
 type NavigationStackTypesStructure = { [key in string]: any };
@@ -51,4 +51,10 @@ export interface MainNavigationTabTypes extends NavigationTabTypesStructure {
 	[MainScreenNames.Feed]: { uid?: string };
 	[MainScreenNames.Chats]: undefined;
 	[MainScreenNames.Settings]: undefined;
+}
+
+export interface SettingsNavigationStackTypes extends NavigationStackTypesStructure {
+	[SettingsScreenNames.Photos]: undefined;
+	[SettingsScreenNames.Information]: undefined;
+	[SettingsScreenNames.Preferences]: undefined;
 }

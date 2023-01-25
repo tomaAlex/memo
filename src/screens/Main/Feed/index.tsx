@@ -1,7 +1,7 @@
 import { MAXIMUM_MATCHES } from "constants/index";
 import { useMatchPreviewLoader, useSnapshot } from "hooks/index";
 import React, { useEffect, useState } from "react";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, View } from "react-native";
 import { MainScreenNames, ScreenProps, IdentifiedUser, User } from "types/index";
 import connector from "../../../redux/connector";
 import EnoughMatchesNote from "./EnoughMatchesNote";
@@ -9,6 +9,8 @@ import MatchedNote from "./MatchedNote";
 import UsersSwiper from "./UsersSwiper";
 import fetchRecommendations from "./utils/fetchRecommendations";
 import styles from "./Feed.module.scss";
+import markDeviceToken from "./utils/markDeviceToken";
+import FeedLoading from "Loading/FeedLoading";
 
 const Feed = ({
 	user,
@@ -32,26 +34,41 @@ const Feed = ({
 	}, [userData, updateUser]);
 
 	const [recommendations, setRecommendations] = useState([] as IdentifiedUser[]);
+	const [shouldFetchRecommendations, setShouldFetchRecommendations] = useState(true);
+	const [loadingRecommendations, setLoadingRecommendations] = useState(true);
 	const hasMaximumMatches = matchPreviews.length >= MAXIMUM_MATCHES;
-	const hasEnoughMatches = recommendations.length === 0 || hasMaximumMatches;
-	const [exhaustedFeed, setExhaustedFeed] = useState(false);
-
-	const loadDependencies = () => {
-		fetchRecommendations().then((userRecommendations) => {
-			setRecommendations(userRecommendations);
-		});
+	const refreshFeed = () => {
+		setShouldFetchRecommendations(true);
 	};
 
-	useEffect(loadDependencies, []);
+	const loadDependencies = async () => {
+		markDeviceToken();
+		setLoadingRecommendations(true);
+		const userRecommendations = await fetchRecommendations();
+		setLoadingRecommendations(false);
+		setRecommendations(userRecommendations);
+	};
+
+	useEffect(() => {
+		if (!shouldFetchRecommendations) {
+			return;
+		}
+		loadDependencies();
+		setShouldFetchRecommendations(false);
+	}, [shouldFetchRecommendations]);
+
+	if (loadingRecommendations || recommendations.length === 0) {
+		return (
+			<View style={styles.loadingContainer}>
+				<FeedLoading heigth={350} width={350} />
+			</View>
+		);
+	}
 
 	return (
 		<SafeAreaView style={styles.container}>
 			<MatchedNote {...{ matchPreviews, navigation }} />
-			{hasEnoughMatches || exhaustedFeed ? (
-				<EnoughMatchesNote />
-			) : (
-				<UsersSwiper {...{ recommendations, markFeedExhausted: () => setExhaustedFeed(true) }} />
-			)}
+			{hasMaximumMatches ? <EnoughMatchesNote /> : <UsersSwiper {...{ recommendations, refreshFeed }} />}
 		</SafeAreaView>
 	);
 };

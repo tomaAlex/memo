@@ -13,12 +13,13 @@
 
 		&__content {
 			color: white;
-			// font-family: monospace;
+			font-family: Poppins-Regular;
 		}
 	}
 
 	&__timestamp {
 		text-align: right;
+		font-family: Poppins-Light;
 	}
 }
 
@@ -31,18 +32,27 @@
 
 		&__content {
 			color: #363636;
-			// font-family: monospace;
+			font-family: Poppins-Regular;
 		}
 	}
 
 	&__timestamp {
 		text-align: left;
+		font-family: Poppins-Light;
 	}
 }
 
-.timestamp {
-	font-size: 10px;
-	color: #878787;
-	margin-top: 5px;
-	// font-family: monospace;
+.metadata {
+	flex-direction: row;
+	justify-content: space-between;
+	&__timestamp {
+		font-size: 10px;
+		color: #878787;
+		margin-top: 5px;
+	}
+
+	&__read {
+		align-self: center;
+		margin-top: 5px;
+	}
 }

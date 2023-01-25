@@ -2,9 +2,10 @@
 	"translation": {
 		"Screens": {
 			"Login": {
-				"title": "memo",
+				"title": "Hai sa intalnim\n pe cineva dinprejur",
 				"abstract": "Obosit de aplicatiile de de dating care nu prea functioneaza? Aici totul este proiectat astfel incat sa fie incurajate sanse de intalnire egale pentru toata lumea",
-				"note": "Aceasta aplicatie este intr-un stadiu super incipient de dezvoltare. Multe alte feature-uri vor veni curand si ascult tot feedback-ul pe care il oferiti. Va multumesc pentru suport!"
+				"note": "Aceasta aplicatie este intr-un stadiu super incipient de dezvoltare. Multe alte feature-uri vor veni curand si ascult tot feedback-ul pe care il oferiti. Va multumesc pentru suport!",
+				"googleLoginButton": "Logheaza-te cu Google"
 			},
 			"Signup": {
 				"title": "Inregistreaza-te",
@@ -83,7 +84,8 @@
 						"Errors": {
 							"height": {
 								"tooShort": "Cea mai scunda persoana din lume a avut 54 cm",
-								"tooTall": "Cea mai inalta persoana din lume a avut 272 cm"
+								"tooTall": "Cea mai inalta persoana din lume a avut 272 cm",
+								"required": "înălțimea este necesară"
 							},
 							"orientation": {
 								"required": "Orientarea este obligatorie"
@@ -107,11 +109,155 @@
 					},
 					"EnoughMatchesNote": {
 						"caption": "Este vremea sa te focusezi pe match-urile tale curente"
+					},
+					"UsersSwiper": {
+						"PaymentSheet": {
+							"PaymentSupplierButton": {
+								"addCard": "Adauga card nou"
+							},
+							"priceNote": "Obtine un match instant pentru £5"
+						}
 					}
 				},
 				"Chats": {
 					"noMatchesNote": "E vremea sa mai trimiti like-uri"
-				}
+				},
+				"Settings": {
+					"Labels": {
+						"hasInstantMatchingOn": "Permite match-uri instante"
+					},
+					"CashOutSheet": {
+						"title": "Informatii Facturare"
+					},
+					"CashOutSupplierButton": {
+						"addBankAccount": "Adauga cont bancar"
+					},
+					"CashOutButton": {
+						"Caption": {
+							"instantMatchingIsOff": "Activeaza match-urile instante pentru a retrage fonduri",
+							"insufficientBalance": "Retrage fonduri cand mai obtii inca £{{count}}",
+							"cashOut": "Retrage £{{count}} acum"
+						}
+					},
+					"CashOutSupplierForm": {
+						"Labels": {
+							"bankAccountNumber": "Numarul contului",
+							"bankAccountCountry": "Tara",
+							"bankRoutingNumber": "Cod bancar",
+							"currency": "Moneda"
+						},
+						"Errors": {
+							"bankAccountNumber": {
+								"tooShort": "Numarul contului este prea scurt",
+								"tooLong": "Numarul contului este prea lung",
+								"required": "Numarul contului este obligatoriu"
+							},
+							"bankAccountCountry": {
+								"required": "Tara este obligatorie"
+							},
+							"bankRoutingNumber": {
+								"tooShort": "Codul bancar este prea scurt",
+								"tooLong": "Codul bancar este prea lung",
+								"required": "Codul bancar este obligatoriu"
+							},
+							"currency": {
+								"required": "Moneda este obligatorie"
+							}
+						}
+					},
+					"CashOutActivationForm": {
+						"Notes": {
+							"FullServiceAgreement": {
+								"beforeConnectedAccountAgreement": "Serviciile de procesare a plăților pentru utilizatorii memo sunt furnizate de Stripe și sunt supuse",
+								"connectedAccountAgreement": "acordului contului conectat Stripe",
+								"beforeStripeToS": "care include",
+								"stripeToS": "termenii serviciului de utilizare Stripe",
+								"afterStripeToS": "(în ansamblu, „Acordul privind serviciile Stripe”). Prin acceptarea acestor termeni sau continuarea activității ca utilizator pe memo, sunteți de acord să fiți legat de Acordul privind serviciile Stripe, așa cum poate fi modificat de Stripe de la o dată la alta. Drept condiție pentru activarea serviciilor de procesare a plăților prin Stripe, sunteți de acord să furnizați informații exacte și complete despre dvs. și despre afacerea dvs. și autorizați memo să le partajeze și informațiile privind tranzacțiile legate de utilizarea serviciilor de procesare a plăților furnizate de Stripe"
+							},
+							"RecipientServiceAgreement": {
+								"beforeStripeRecipientAgreement": "memo utilizează Stripe pentru a face plăți utilizatorilor.",
+								"stripeRecipientAgreement": "Acordul privind beneficiarii Stripe",
+								"afterStripeRecipientAgreement": "se aplică primirii plăților de la memo. Pentru a primi plăți de la memo, trebuie să îi furnizați lui memo informații exacte și complete despre dvs. și despre afacerea dvs., și îi autorizați lui memo să vă partajeze și informațiile privind tranzacțiile legate de plățile dvs. cu Stripe"
+							},
+							"MCC": {
+								"beforeMCCReference": "Codul de categorie de comerciant (MCC) este un cod de patru cifre care descrie tipul de afacere pe care o desfășurați. Puteți găsi MCC-ul dvs. pe declarația bancară sau căutând tipul de afacere",
+								"MCCReference": "aici"
+							}
+						},
+						"Labels": {
+							"businessType": "Tipul afacerii",
+							"businessName": "Numele afacerii",
+							"homeAddressLine1": "Adresa de acasa linia 1",
+							"homeAddressLine2": "Adresa de acasa linia 2",
+							"homeAddressCountry": "Tara de acasa",
+							"homeAddressState": "Statul de acasa",
+							"homeAddressCity": "Orasul de acasa",
+							"homeAddressPostalCode": "Codul Postal de acasa",
+							"businessMcc": "Cod de Categorie de Comercian (MCC)",
+							"businessWebsite": "Website",
+							"personalPhone": "Numar de telefon personal",
+							"businessPhone": "Numar de telefon al afacerii",
+							"termsAndConditions": "Sunt de acord cu termenii si conditiile"
+						},
+						"Errors": {
+							"businessType": {
+								"required": "Tipul afacerii este obligatoriu"
+							},
+							"businessName": {
+								"tooShort": "Numele afacerii este prea scurt",
+								"tooLong": "Numele afacerii este prea lung",
+								"required": "Numele afacerii este obligatoriu"
+							},
+							"homeAddressLine1": {
+								"tooShort": "Linia 1 pentru adresa de acasa este prea scurta",
+								"tooLong": "Linia 1 pentru adresa de acasa este prea lunga",
+								"required": "Linia 1 pentru adresa de acasa este obligatorie"
+							},
+							"homeAddressLine2": {
+								"tooShort": "Linia 2 pentru adresa de acasa este prea scurta",
+								"tooLong": "Linia 2 pentru adresa de acasa este prea lunga"
+							},
+							"homeAddressCountry": {
+								"required": "Tara de acasa este obligatorie"
+							},
+							"homeAddressState": {
+								"required": "Statul de acasa este obligatoriu"
+							},
+							"homeAddressCity": {
+								"tooLong": "Orasul de acasa este prea lung",
+								"required": "Orasul de acasa este obligatoriu"
+							},
+							"homeAddressPostalCode": {
+								"tooShort": "Codul postal de acasa este prea scurt",
+								"tooLong": "Codul postal de acasa este prea lung",
+								"required": "Codul postal de acasa este obligatoriu"
+							},
+							"businessMcc": {
+								"tooShort": "MCC este prea scurt",
+								"tooLong": "MCC este prea lung",
+								"required": "MCC este obligatoriu"
+							},
+							"businessWebsite": {
+								"tooShort": "Website-ul este prea scurt",
+								"tooLong": "Website-ul este prea lung",
+								"required": "Website-ul este obligatoriu"
+							},
+							"personalPhone": {
+								"validFormat": "Numarul de telefon personal nu este valid",
+								"required": "Numarul de telefon personal este obligatoriu"
+							},
+							"businessPhone": {
+								"validFormat": "Numarul de telefon al afacerii nu este valid",
+								"required": "Numarul de telefon al afacerii este obligatoriu"
+							},
+							"termsAndConditions": {
+								"required": "Trebuie sa accepti termenii si conditiile"
+							},
+							"general": "Ceva a mers gresit"
+						}
+					}
+				},
+				"logoutCaption": "Delogheaza-te"
 			}
 		},
 		"Components": {
