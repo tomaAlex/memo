@@ -3,6 +3,19 @@ type Coordinates = {
 	longitude: number;
 };
 
+type Feature = "BRONZE";
+
+type LivedFeatureExpiration = LivedDocument["expiresAt"] | null;
+
+type LivedFeature<Expiration extends LivedFeatureExpiration> = {
+	feature: Feature;
+	/**
+	 * if set to null, the feature is not set to expire
+	 */
+	expiresAt: Expiration;
+	checkedForRenewal: Expiration extends null ? true : boolean;
+};
+
 type User = {
 	firstName: string;
 	lastName: string;
@@ -26,6 +39,7 @@ type User = {
 	tokens: string[];
 	hasInstantMatchingOn: boolean;
 	stripeId?: string;
+	features: LivedFeature<LivedFeatureExpiration>[];
 };
 
 type IdentifiedUser = User & {

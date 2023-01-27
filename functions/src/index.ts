@@ -15,6 +15,7 @@ export * from "./sendMessage";
 export * from "./getRecommendations";
 export * from "./decideWhetherUserCanCashOut";
 export * from "./getBalance";
+export * from "./subscribeToBronze";
 export * from "./verifyConnectAccount";
 
 dotenv.config();

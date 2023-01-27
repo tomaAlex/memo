@@ -1,4 +1,5 @@
 export * from "./getConnectAccount";
+export * from "./getSubscriptionEndpoint";
 export * from "./getUserCustomerStripeId";
 export * from "./assertUserHasMatch";
 export * from "./checkWhetherFieldHasChanged";
