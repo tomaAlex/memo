@@ -17,6 +17,7 @@ export * from "./decideWhetherUserCanCashOut";
 export * from "./getBalance";
 export * from "./subscribeToBronze";
 export * from "./verifyConnectAccount";
+export * from "./sendLikeNotification";
 
 dotenv.config();
 admin.initializeApp();
