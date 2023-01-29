@@ -3,8 +3,8 @@ import FormTextInput from "components/forms/FormTextInput";
 import { Formik } from "formik";
 import { useMatchMessageTextBarFormValidationRules } from "hooks";
 import { SendArrow } from "icons/index";
-import React, { useEffect, useRef, useState } from "react";
-import { Keyboard, Platform, TextInput, View } from "react-native";
+import React, { useState } from "react";
+import { Platform, View } from "react-native";
 import styles from "./MatchMessageTextBar.module.scss";
 
 type TProps = {
@@ -17,6 +17,16 @@ const MatchMessageTextBar = ({ sendMessage }: TProps) => {
 	const matchMessageTextBarSchema = useMatchMessageTextBarFormValidationRules();
 	const [isMessageSending, setIsMessageSending] = useState(false);
 
+	// var Sound = require("react-native-sound");
+
+	// // Enable playback in silence mode
+	// Sound.setCategory("Playback");
+
+	// var sendSound = new Sound("send.mp3", Sound.MAIN_BUNDLE, () => {
+	// 	// Play the sound with an onEnd callback
+	// 	sendSound.play();
+	// });
+
 	return (
 		<Formik
 			validationSchema={matchMessageTextBarSchema}
@@ -26,6 +36,7 @@ const MatchMessageTextBar = ({ sendMessage }: TProps) => {
 			onSubmit={async ({ messageText }, formikProps) => {
 				// setIsMessageSending(true);
 				sendMessage(messageText);
+				// sendSound.play();
 				formikProps.resetForm();
 				// setIsMessageSending(false);
 			}}

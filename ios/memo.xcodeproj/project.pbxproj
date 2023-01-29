@@ -33,6 +33,8 @@
 		901785CA297C46ED00B5EAF9 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 901785B8297C46EC00B5EAF9 /* Poppins-ExtraBold.ttf */; };
 		901785CB297C46ED00B5EAF9 /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 901785B9297C46ED00B5EAF9 /* Poppins-ExtraBoldItalic.ttf */; };
 		901785CC297C46ED00B5EAF9 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 901785BA297C46ED00B5EAF9 /* Poppins-MediumItalic.ttf */; };
+		902F751B2984630D0088744B /* send.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 902F751A2984630B0088744B /* send.mp3 */; };
+		9081709D29870DFE00108F34 /* send_tick_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9081709C29870DFE00108F34 /* send_tick_sound.mp3 */; };
 		F4BAE97AA169A9167225973B /* Pods_memo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F8599AAE05714A39324085 /* Pods_memo.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,8 @@
 		901785B8297C46EC00B5EAF9 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-ExtraBold.ttf"; path = "../assets/fonts/Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
 		901785B9297C46ED00B5EAF9 /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-ExtraBoldItalic.ttf"; path = "../assets/fonts/Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		901785BA297C46ED00B5EAF9 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-MediumItalic.ttf"; path = "../assets/fonts/Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
+		902F751A2984630B0088744B /* send.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = send.mp3; sourceTree = "<group>"; };
+		9081709C29870DFE00108F34 /* send_tick_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = send_tick_sound.mp3; sourceTree = "<group>"; };
 		909D4C7629761B3800D004D6 /* memo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = memo.entitlements; path = memo/memo.entitlements; sourceTree = "<group>"; };
 		A7BF79A37FCB86B0E440B30E /* Pods-memo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memo.release.xcconfig"; path = "Target Support Files/Pods-memo/Pods-memo.release.xcconfig"; sourceTree = "<group>"; };
 		B6F8599AAE05714A39324085 /* Pods_memo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +164,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				9081709C29870DFE00108F34 /* send_tick_sound.mp3 */,
+				902F751A2984630B0088744B /* send.mp3 */,
 				901785B7297C46EC00B5EAF9 /* Poppins-Black.ttf */,
 				901785AF297C46EC00B5EAF9 /* Poppins-BlackItalic.ttf */,
 				901785B0297C46EC00B5EAF9 /* Poppins-Bold.ttf */,
@@ -320,12 +326,14 @@
 				901785C6297C46ED00B5EAF9 /* Poppins-BoldItalic.ttf in Resources */,
 				901785C7297C46ED00B5EAF9 /* Poppins-Regular.ttf in Resources */,
 				901785C8297C46ED00B5EAF9 /* Poppins-ExtraLightItalic.ttf in Resources */,
+				9081709D29870DFE00108F34 /* send_tick_sound.mp3 in Resources */,
 				901785C9297C46ED00B5EAF9 /* Poppins-Black.ttf in Resources */,
 				901785CA297C46ED00B5EAF9 /* Poppins-ExtraBold.ttf in Resources */,
 				901785CB297C46ED00B5EAF9 /* Poppins-ExtraBoldItalic.ttf in Resources */,
 				901785CC297C46ED00B5EAF9 /* Poppins-MediumItalic.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				902F751B2984630D0088744B /* send.mp3 in Resources */,
 				4CCD398B292D0C8700D8C592 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

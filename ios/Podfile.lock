@@ -1252,6 +1252,11 @@ PODS:
     - React-RCTText
     - ReactCommon/turbomodule/core
     - Yoga
+  - RNSound (0.11.2):
+    - React-Core
+    - RNSound/Core (= 0.11.2)
+  - RNSound/Core (0.11.2):
+    - React-Core
   - RNSVG (13.6.0):
     - React-Core
   - Stripe (23.3.2):
@@ -1354,6 +1359,7 @@ DEPENDENCIES:
   - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
+  - RNSound (from `../node_modules/react-native-sound`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - "stripe-react-native (from `../node_modules/@stripe/stripe-react-native`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -1518,6 +1524,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-permissions"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
+  RNSound:
+    :path: "../node_modules/react-native-sound"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   stripe-react-native:
@@ -1619,6 +1627,7 @@ SPEC CHECKSUMS:
   RNImageCropPicker: ffbba608264885c241cbf3a8f78eb7aeeb978241
   RNPermissions: dcdb7b99796bbeda6975a6e79ad519c41b251b1c
   RNReanimated: 6668b0587bebd4b15dd849b99e5a9c70fc12ed95
+  RNSound: 6c156f925295bdc83e8e422e7d8b38d33bc71852
   RNSVG: 3a79c0c4992213e4f06c08e62730c5e7b9e4dc17
   Stripe: a11f72e054b581f16064d5b735e33a056f197c34
   stripe-react-native: 345fb31abf42374a8cb48a4e03d183647f89195d
