@@ -1,4 +1,8 @@
 {
-  "name": "memo",
-  "displayName": "memo"
+	"name": "memo",
+	"displayName": "memo",
+	"react-native-google-mobile-ads": {
+		"android_app_id": "ca-app-pub-4531419024195738~4976271147",
+		"ios_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx"
+	}
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import connector from "../../redux/connector";
 import { MainNavigationTabTypes, MainScreenNames, ScreenNames, ScreenProps } from "types/index";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -7,7 +7,10 @@ import Chats from "./Chats";
 import Settings from "./Settings";
 import getMainNavbarIcon from "./utils/getMainNavbarIcon";
 import { useSelector } from "react-redux";
-import { selectAwaitingLoginStatus } from "redux/selectors";
+import { selectAwaitingLoginStatus, selectIsGenericAdShown } from "redux/selectors";
+import { useInterstitialAd, TestIds } from "react-native-google-mobile-ads";
+import { useInAppInteractionsUpdater } from "hooks";
+
 const MainTab = createBottomTabNavigator<MainNavigationTabTypes>();
 
 const Main = ({
@@ -18,12 +21,29 @@ const Main = ({
 	setAwaitingLoginStatus,
 }: ScreenProps<ScreenNames.Main>) => {
 	const awaitingLoginStatus = useSelector(selectAwaitingLoginStatus);
+	const isGenericAdShown = useSelector(selectIsGenericAdShown);
+	const resetInAppAdInteractions = useInAppInteractionsUpdater("reset");
 
 	useEffect(() => {
 		if (user) {
 			setAwaitingLoginStatus(false);
 		}
-	}, [user]);
+	}, [user, setAwaitingLoginStatus]);
+
+	const { isLoaded, load, show } = useInterstitialAd(TestIds.INTERSTITIAL, {
+		requestNonPersonalizedAdsOnly: true,
+	});
+
+	useEffect(() => load(), [load, isGenericAdShown]); // preload the ad
+
+	useEffect(() => {
+		const canShowTheAd = isLoaded && isGenericAdShown;
+		if (!canShowTheAd) {
+			return;
+		}
+		show();
+		resetInAppAdInteractions();
+	}, [isGenericAdShown, isLoaded, resetInAppAdInteractions, show]);
 
 	return awaitingLoginStatus ? (
 		<></>

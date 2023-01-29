@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { IdentifiedUser } from "types/index";
 import Swiper from "react-native-deck-swiper";
 import FeedUserCard from "./FeedUserCard";
-import { useProfileDisliker, useProfileLiker } from "hooks/index";
+import { useInAppInteractionsUpdater, useProfileDisliker, useProfileLiker } from "hooks/index";
 import getVerticalState from "./utils/getVerticalState";
 import RBSheet from "react-native-raw-bottom-sheet";
 import PaymentSheet from "./PaymentSheet";
@@ -21,6 +21,7 @@ const UsersSwiper = ({ recommendations, refreshFeed }: TProps) => {
 	const [userToInstantlyMatchId, setUserToInstantlyMatchId] = useState<string>(recommendations[0].id);
 	const [currentlyDisplayedUserIndex, setCurrentlyDisplayedUserIndex] = useState(0);
 	const [swipedAllUsers, setSwipedAllUsers] = useState(false);
+	const increaseInAppInteractions = useInAppInteractionsUpdater("increment");
 
 	const likeProfile = useProfileLiker();
 	const dislikeProfile = useProfileDisliker();
@@ -36,6 +37,7 @@ const UsersSwiper = ({ recommendations, refreshFeed }: TProps) => {
 				renderCard={(userToDisplay) => <FeedUserCard {...{ userToDisplay }} />}
 				onSwiped={(userIndex) => {
 					setCurrentlyDisplayedUserIndex(userIndex + 1);
+					increaseInAppInteractions();
 				}}
 				onSwipedRight={(userIndex) => {
 					const likedUser = recommendations[userIndex];

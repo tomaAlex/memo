@@ -24,6 +24,7 @@ export interface User {
 	hasInstantMatchingOn: boolean;
 	stripeId?: string;
 	features: LivedFeature<LivedFeatureExpiration>[];
+	inAppInteractions: number;
 }
 
 export interface IdentifiedUser extends User {

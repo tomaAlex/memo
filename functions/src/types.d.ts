@@ -40,6 +40,7 @@ type User = {
 	hasInstantMatchingOn: boolean;
 	stripeId?: string;
 	features: LivedFeature<LivedFeatureExpiration>[];
+	inAppInteractions: number;
 };
 
 type IdentifiedUser = User & {

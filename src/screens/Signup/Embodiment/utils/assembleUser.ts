@@ -18,6 +18,7 @@ const assembleUser = async (
 		tokens: [] as string[],
 		hasInstantMatchingOn: true,
 		features: [] as User["features"],
+		inAppInteractions: 0,
 	};
 };
 
