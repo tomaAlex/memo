@@ -3,7 +3,7 @@ import getReceivers from "./getReceivers";
 import getReceiverTokens from "./getReceiverTokens";
 import getSender from "./getSender";
 
-const notifyReceivers = async (matchData: Match, senderId: string, message: string): Promise<void> => {
+const notifyReceivers = async (matchData: Match, senderId: string, message: string, matchId: string): Promise<void> => {
 	const receivers = await getReceivers(matchData, senderId);
 	const sender = await getSender(senderId);
 	const { firstName, lastName } = sender;
@@ -11,6 +11,9 @@ const notifyReceivers = async (matchData: Match, senderId: string, message: stri
 
 	await messaging().sendMulticast({
 		tokens: getReceiverTokens(receivers),
+		data: {
+			matchId,
+		},
 		notification: {
 			title: senderName,
 			body: message,
@@ -19,6 +22,7 @@ const notifyReceivers = async (matchData: Match, senderId: string, message: stri
 		android: {
 			notification: {
 				sound: "default",
+				notificationCount: 0,
 			},
 		},
 		apns: {

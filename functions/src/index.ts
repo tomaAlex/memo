@@ -12,6 +12,7 @@ export * from "./handleUserUpdates";
 export * from "./markSeen";
 export * from "./payInstantMatch";
 export * from "./sendMessage";
+export * from "./sendMessageNotification";
 export * from "./getRecommendations";
 export * from "./decideWhetherUserCanCashOut";
 export * from "./getBalance";
