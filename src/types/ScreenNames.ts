@@ -6,6 +6,7 @@ export enum ScreenNames {
 	Embodiment = "Embodiment",
 	Main = "Main",
 	MatchChat = "MatchChat",
+	ProfilePreview = "ProfilePreview",
 }
 
 export enum MainScreenNames {

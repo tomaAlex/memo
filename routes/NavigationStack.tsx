@@ -9,6 +9,7 @@ import Details from "screens/Signup/Details";
 import Embodiment from "screens/Signup/Embodiment";
 import Main from "screens/Main";
 import MatchChat from "screens/MatchChat";
+import ProfilePreview from "screens/ProfilePreview";
 
 const Stack = createStackNavigator<NavigationStackTypes>();
 
@@ -23,6 +24,7 @@ const Navigator = () => {
 				<Stack.Screen name={ScreenNames.Embodiment} component={Embodiment} />
 				<Stack.Screen name={ScreenNames.Main} component={Main} />
 				<Stack.Screen name={ScreenNames.MatchChat} component={MatchChat} />
+				<Stack.Screen name={ScreenNames.ProfilePreview} component={ProfilePreview} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

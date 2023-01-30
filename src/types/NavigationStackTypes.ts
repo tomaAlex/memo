@@ -45,6 +45,9 @@ export interface NavigationStackTypes extends NavigationStackTypesStructure {
 		matchTimestamp: FirebaseFirestoreTypes.Timestamp;
 		expiresAt: FirebaseFirestoreTypes.Timestamp;
 	};
+	[ScreenNames.ProfilePreview]: {
+		userToPreviewId: string;
+	};
 }
 
 export interface MainNavigationTabTypes extends NavigationTabTypesStructure {
