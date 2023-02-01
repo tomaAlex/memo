@@ -19,7 +19,7 @@ const FeedUserCard = ({ userToDisplay }: TProps) => {
 			<View style={styles.userCardContainer__userCard}>
 				<Carousel style={styles.userCardContainer__userCard__carousel}>
 					{photos.map((photo, photoIndex) => (
-						<View style={styles.userCardContainer__userCard__carousel__imagePreviewContainer}>
+						<View style={styles.userCardContainer__userCard__carousel__imagePreviewContainer} key={photoIndex}>
 							<Image
 								style={styles.userCardContainer__userCard__carousel__imagePreviewContainer__imagePreview}
 								key={photoIndex}

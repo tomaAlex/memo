@@ -1,20 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Modal, Text, View } from "react-native";
+import React, { useEffect, useRef } from "react";
+import { View } from "react-native";
 import connector from "../../redux/connector";
 import auth from "@react-native-firebase/auth";
-import { MainScreenNames, ScreenNames, ScreenProps } from "types/index";
-import { getTimestampFromJSON } from "Firebase";
+import { ScreenNames, ScreenProps } from "types/index";
 import handleUserChange from "./utils/handleUserChange";
 import handleLocationCollection from "./utils/handleLocationCollection";
 import firebase from "@react-native-firebase/app";
 import FirebaseAppCheck from "@react-native-firebase/app-check";
-import messaging, { FirebaseMessagingTypes } from "@react-native-firebase/messaging";
+import messaging from "@react-native-firebase/messaging";
 import Loading from "components/Loading";
 import styles from "./Observer.module.scss";
-import store from "redux/store";
-import NotificationManager from "NotificationManager";
-import { NotificationTypes } from "NotificationManager/notificationTypes";
-import MessageNotificationManager from "NotificationManager/MessageNotification";
 
 /**
  * A fake screen that is used to watch around for global updates.
