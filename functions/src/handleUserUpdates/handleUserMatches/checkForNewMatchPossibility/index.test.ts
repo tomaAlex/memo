@@ -18,6 +18,7 @@ describe("checkForNewMatchPossibility", () => {
 		tokens: [],
 		hasInstantMatchingOn: true,
 		features: [],
+		inAppInteractions: 0,
 	};
 
 	it("should return true if the likes field has changed", () => {

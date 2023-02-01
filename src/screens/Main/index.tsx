@@ -10,15 +10,21 @@ import { useSelector } from "react-redux";
 import { selectAwaitingLoginStatus, selectIsGenericAdShown } from "redux/selectors";
 import { useInterstitialAd, TestIds } from "react-native-google-mobile-ads";
 import { useInAppInteractionsUpdater } from "hooks";
+import { NotificationTypes } from "NotificationManager/notificationTypes";
+import MessageNotificationManager from "NotificationManager/MessageNotification";
 
 const MainTab = createBottomTabNavigator<MainNavigationTabTypes>();
 
 const Main = ({
+	navigation,
 	route: {
 		params: { uid },
 	},
 	user,
 	setAwaitingLoginStatus,
+	notification,
+	clearNotification,
+	matchPreviews,
 }: ScreenProps<ScreenNames.Main>) => {
 	const awaitingLoginStatus = useSelector(selectAwaitingLoginStatus);
 	const isGenericAdShown = useSelector(selectIsGenericAdShown);
@@ -44,6 +50,25 @@ const Main = ({
 		show();
 		resetInAppAdInteractions();
 	}, [isGenericAdShown, isLoaded, resetInAppAdInteractions, show]);
+
+	useEffect(() => {
+		if (!notification) {
+			return;
+		}
+		if (matchPreviews.length === 0) {
+			return;
+		}
+		switch (notification.data?.type) {
+			case NotificationTypes.MESSAGE_NOTIFICATION: {
+				clearNotification();
+				new MessageNotificationManager(notification, navigation).handleBackground();
+				break;
+			}
+			default: {
+				clearNotification();
+			}
+		}
+	}, [notification, matchPreviews]);
 
 	return awaitingLoginStatus ? (
 		<></>

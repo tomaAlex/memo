@@ -13,6 +13,7 @@ const notifyReceivers = async (matchData: Match, senderId: string, message: stri
 		tokens: getReceiverTokens(receivers),
 		data: {
 			matchId,
+			type: "Message Notification",
 		},
 		notification: {
 			title: senderName,

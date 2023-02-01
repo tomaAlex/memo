@@ -12,6 +12,9 @@ export const sendLikeNotification = functions.https.onCall(async (data, context)
 
 	await messaging().sendMulticast({
 		tokens: receiverToken,
+		data: {
+			type: "Like Notification",
+		},
 		notification: {
 			title: "New Like",
 			body: "You have been liked by somebody.",
