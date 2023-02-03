@@ -8,11 +8,9 @@ type TProps = {
 	setShouldFetchCards: (shouldFetchCards: boolean) => void;
 };
 
-const PaymentSupplierButton = ({ setShouldFetchCards }: TProps) => {
+const PaymentSupplierButtonComponent = ({ setShouldFetchCards }: TProps) => {
 	const [showForm, setShowForm] = useState(false);
-	const [t] = useTranslation("translation", {
-		keyPrefix: "Screens.Main.Feed.UsersSwiper.PaymentSheet.PaymentSupplierButton",
-	});
+	const [t] = useTranslation("translation", { keyPrefix: "Components.PaymentSupplierButton" });
 
 	return (
 		<>
@@ -30,4 +28,4 @@ const PaymentSupplierButton = ({ setShouldFetchCards }: TProps) => {
 	);
 };
 
-export default React.memo(PaymentSupplierButton);
+export const PaymentSupplierButton = React.memo(PaymentSupplierButtonComponent);

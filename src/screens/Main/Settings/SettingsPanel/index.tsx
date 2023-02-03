@@ -4,8 +4,9 @@ import connector from "redux/connector";
 import { ScreenProps, SettingsScreenNames } from "types/index";
 import SettingsSectionButtons from "./SettingsSectionButtons";
 import SettingsUserPreviewHeader from "../SettingsUserPreviewHeader";
-import styles from "./SettingsPanel.module.scss";
 import LogoutButton from "./LogoutButton";
+import GetPremiumButton from "./GetPremiumButton";
+import styles from "./SettingsPanel.module.scss";
 
 const SettingsPanel = ({}: ScreenProps<SettingsScreenNames.SettingsPanel>) => {
 	return (
@@ -14,6 +15,7 @@ const SettingsPanel = ({}: ScreenProps<SettingsScreenNames.SettingsPanel>) => {
 				<SettingsUserPreviewHeader />
 			</View>
 			<View style={styles.container__body}>
+				<GetPremiumButton />
 				<SettingsSectionButtons />
 				<LogoutButton />
 			</View>

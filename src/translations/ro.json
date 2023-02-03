@@ -112,10 +112,7 @@
 					},
 					"UsersSwiper": {
 						"PaymentSheet": {
-							"PaymentSupplierButton": {
-								"addCard": "Adauga card nou"
-							},
-							"priceNote": "Obtine un match instant pentru £5"
+							"priceNote": "Obtine un match instant pentru £3"
 						}
 					}
 				},
@@ -123,6 +120,38 @@
 					"noMatchesNote": "E vremea sa mai trimiti like-uri"
 				},
 				"Settings": {
+					"GetPremium": {
+						"buttonTitle": "Obtine Premium",
+						"premiumButtonTitle": "Verifica Premium",
+						"sheetTitle": "CONT PREMIUM",
+						"PaymentSheet": {
+							"OfferPreview": {
+								"Panel": {
+									"title": "Oferta Iute",
+									"month": "luna",
+									"Features": {
+										"seen": "seen feature",
+										"likes": "vezi cine te place",
+										"noAds": "fara reclame"
+									},
+									"continue": "CONTINUA",
+									"cancel": "NU MULTUMESC"
+								}
+							}
+						},
+						"ReviewSheet": {
+							"title": "CONT PREMIUM",
+							"OfferPreview": {
+								"Panel": {
+									"title": "ACTIVAT",
+									"expirationNote": "Expira in",
+									"neverNote": "NICIODATA"
+								},
+								"continue": "CONTINUA",
+								"cancel": "OPRESTE ABONAMENT"
+							}
+						}
+					},
 					"Labels": {
 						"hasInstantMatchingOn": "Permite match-uri instante"
 					},
@@ -269,6 +298,9 @@
 						"remainingPicturesNotice_plural": "Mai poti adauga {{count}} poze"
 					}
 				}
+			},
+			"PaymentSupplierButton": {
+				"addCard": "Adauga card nou"
 			}
 		}
 	}

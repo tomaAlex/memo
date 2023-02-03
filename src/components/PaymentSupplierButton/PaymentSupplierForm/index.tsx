@@ -15,12 +15,10 @@ type TProps = {
 const PaymentSupplierForm = ({ visible, onRequestClose }: TProps) => {
 	const { createToken } = useStripe();
 	const [isCardUploading, setIsCardUploading] = useState(false);
-	const [t] = useTranslation("translation", {
-		keyPrefix: "Screens.Main.Feed.UsersSwiper.PaymentSheet.PaymentSupplierButton",
-	});
+	const [t] = useTranslation("translation", { keyPrefix: "Components.PaymentSupplierButton" });
 
 	const wd = Dimensions.get("screen").width;
-	const ht = Dimensions.get("screen").height;
+	// const ht = Dimensions.get("screen").height;
 
 	const handleSavingCardAndClosingForm = async () => {
 		setIsCardUploading(true);

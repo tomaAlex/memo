@@ -13,10 +13,12 @@ export * from "./markSeen";
 export * from "./payInstantMatch";
 export * from "./sendMessage";
 export * from "./sendMessageNotification";
+export * from "./updateFeatureSubscriptions";
 export * from "./getRecommendations";
 export * from "./decideWhetherUserCanCashOut";
 export * from "./getBalance";
 export * from "./subscribeToBronze";
+export * from "./unsubscribeFromBronze";
 export * from "./verifyConnectAccount";
 export * from "./sendLikeNotification";
 

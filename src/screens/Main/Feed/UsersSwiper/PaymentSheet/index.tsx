@@ -5,11 +5,11 @@ import { FlatList, Text } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
 import { CardPreview } from "types/index";
 import UsersSwiperContext from "../UsersSwiperContext";
-import PaymentOptionPreview from "./PaymentOptionPreview";
-import styles from "./PaymentSheet.module.scss";
-import PaymentSupplierButton from "./PaymentSupplierButton";
-import fetchCardPreviews from "./utils/fetchCardPreviews";
+import InstantMatchPaymentOptionPreview from "./InstantMatchPaymentOptionPreview";
+import { PaymentSupplierButton } from "components/index";
+import { fetchCardPreviews } from "utils/index";
 import recoverUnmatchedUser from "./utils/recoverUnmatchedUser";
+import styles from "./PaymentSheet.module.scss";
 
 type TProps = {
 	refRBSheet: React.RefObject<RBSheet>;
@@ -76,7 +76,7 @@ const PaymentSheet = ({ refRBSheet }: TProps) => {
 					);
 				}}
 				renderItem={({ item }) => (
-					<PaymentOptionPreview
+					<InstantMatchPaymentOptionPreview
 						{...{
 							...item,
 							refRBSheet,

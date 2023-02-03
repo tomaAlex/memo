@@ -1,48 +1,28 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { ImageBackground, Text, TouchableOpacity, View } from "react-native";
-import RBSheet from "react-native-raw-bottom-sheet";
 import { CardPreview } from "types/index";
-import UsersSwiperContext from "../../UsersSwiperContext";
-import handleInstantMatchPayment from "./utils/handleInstantMatchPayment";
 import styles from "./PaymentOptionPreview.module.scss";
 import formatExpiryDate from "./utils/formatExpiryDate";
 import Loading from "components/Loading";
 
 type TProps = CardPreview & {
-	refRBSheet: React.RefObject<RBSheet>;
-	setWasBottomSheetPrematurelyClosed: (wasBottomSheetPrematurelyClosed: boolean) => void;
+	handlePayment: () => Promise<void>;
 };
 
-const PaymentOptionPreview = ({
-	id,
-	brand,
-	expiryYear,
-	expiryMonth,
-	last4,
-	refRBSheet,
-	setWasBottomSheetPrematurelyClosed,
-}: TProps) => {
-	const { swiperReference, setIsSwiperBlocked, userToInstantlyMatchId } = useContext(UsersSwiperContext);
+const PaymentOptionPreviewComponent = ({ brand, expiryYear, expiryMonth, last4, handlePayment }: TProps) => {
 	const [isMatchGettingPaid, setIsMatchGettingPaid] = useState(false);
 
-	const fireInstantMatchPaymentRoutine = async () => {
+	const firePaymentRoutine = async () => {
 		if (isMatchGettingPaid) {
 			return;
 		}
 		setIsMatchGettingPaid(true);
-		await handleInstantMatchPayment(
-			userToInstantlyMatchId,
-			id,
-			refRBSheet,
-			setIsSwiperBlocked,
-			swiperReference,
-			setWasBottomSheetPrematurelyClosed
-		);
+		await handlePayment();
 		setIsMatchGettingPaid(false);
 	};
 
 	return (
-		<TouchableOpacity onPress={fireInstantMatchPaymentRoutine}>
+		<TouchableOpacity onPress={firePaymentRoutine}>
 			<ImageBackground source={require("./background.png")} style={styles.container} borderRadius={10}>
 				{isMatchGettingPaid ? (
 					<View style={styles.container__loading}>
@@ -62,4 +42,4 @@ const PaymentOptionPreview = ({
 	);
 };
 
-export default React.memo(PaymentOptionPreview);
+export const PaymentOptionPreview = React.memo(PaymentOptionPreviewComponent);

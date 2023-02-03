@@ -112,10 +112,7 @@
 					},
 					"UsersSwiper": {
 						"PaymentSheet": {
-							"PaymentSupplierButton": {
-								"addCard": "Add new card"
-							},
-							"priceNote": "Get an instant match for £5"
+							"priceNote": "Get an instant match for £3"
 						}
 					}
 				},
@@ -123,6 +120,38 @@
 					"noMatchesNote": "It's time to send more likes"
 				},
 				"Settings": {
+					"GetPremium": {
+						"buttonTitle": "Get Premium",
+						"premiumButtonTitle": "Manage Premium",
+						"PaymentSheet": {
+							"title": "PREMIUM ACCOUNT",
+							"OfferPreview": {
+								"Panel": {
+									"title": "Hot Deal",
+									"month": "month",
+									"Features": {
+										"seen": "seen feature",
+										"likes": "see who likes you",
+										"noAds": "ad free"
+									}
+								},
+								"continue": "CONTINUE",
+								"cancel": "NO THANKS"
+							}
+						},
+						"ReviewSheet": {
+							"title": "PREMIUM ACCOUNT",
+							"OfferPreview": {
+								"Panel": {
+									"title": "ACTIVATED",
+									"expirationNote": "Expires in",
+									"neverNote": "NEVER"
+								},
+								"continue": "CONTINUE",
+								"cancel": "CANCEL SUBSCRIPTION"
+							}
+						}
+					},
 					"Labels": {
 						"hasInstantMatchingOn": "Allow instant matches"
 					},
@@ -269,6 +298,9 @@
 						"remainingPicturesNotice_plural": "You can add {{count}} more pictures"
 					}
 				}
+			},
+			"PaymentSupplierButton": {
+				"addCard": "Add new card"
 			}
 		}
 	}
