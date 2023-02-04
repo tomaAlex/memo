@@ -1,12 +1,18 @@
-import { FEATURE_PENCE_PRICES } from "../../constants";
+import Stripe from "stripe";
 import { stripeClient } from "../../stripeClient";
+import { getFeatureOfSubscription } from "../getFeatureOfSubscription";
 
-const chargePayer = async (payerStripeCustomerId: string, cardId: string, featureToBuy: Feature): Promise<boolean> => {
+const chargePayer = async (
+	payerStripeCustomerId: string,
+	cardId: string,
+	boughtFeatureSubscription: Stripe.Response<Stripe.Subscription>
+): Promise<boolean> => {
+	const boughtFeature = await getFeatureOfSubscription(payerStripeCustomerId, boughtFeatureSubscription);
 	const chargeResponse = await stripeClient.charges.create({
-		amount: FEATURE_PENCE_PRICES[featureToBuy],
+		amount: boughtFeatureSubscription.items.data[0].price.unit_amount as number,
 		currency: "gbp",
 		customer: payerStripeCustomerId,
-		description: `${featureToBuy} subscription 🏆`,
+		description: `${boughtFeature} subscription 🏆`,
 		source: cardId,
 	});
 	return chargeResponse.paid;

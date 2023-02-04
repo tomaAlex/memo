@@ -13,7 +13,12 @@ const App: React.FunctionComponent = () => {
 
 	return (
 		<Provider store={store}>
-			<StripeProvider publishableKey={Config.STRIPE_PUBLISHABLE_KEY as string}>
+			<StripeProvider
+				publishableKey={Config.STRIPE_PUBLISHABLE_KEY as string}
+				threeDSecureParams={{
+					timeout: 10,
+				}}
+			>
 				<Navigator />
 			</StripeProvider>
 		</Provider>

@@ -38,7 +38,7 @@ const OfferPreview = ({ refRBSheet }: TProps) => {
 
 	return (
 		<View style={styles.container}>
-			<OfferPanel />
+			<OfferPanel {...{ refRBSheet }} />
 			<View style={styles.container__decisionArea}>
 				<TouchableOpacity style={styles.container__decisionArea__continue} onPress={closeRBSheet}>
 					<Text style={styles.container__decisionArea__continue__caption}>{t("continue")}</Text>

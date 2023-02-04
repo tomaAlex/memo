@@ -9,4 +9,5 @@ export * from "./checkWhetherFieldsHaveChanged";
 export * from "./enforceAuthentication";
 export * from "./getAuthenticatedUser";
 export * from "./getAuthenticatedUserData";
+export * from "./getFeatureOfSubscription";
 export * from "./getUserData";

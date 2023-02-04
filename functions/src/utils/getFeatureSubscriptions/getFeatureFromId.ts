@@ -5,7 +5,7 @@ const getFeatureFromId = (featureId: string): Feature => {
 		case FEATURE_IDS["BRONZE"]:
 			return "BRONZE";
 		default:
-			throw new Error("Invalid feature id");
+			throw new Error("Invalid feature id!");
 	}
 };
 

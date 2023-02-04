@@ -18,14 +18,17 @@ export const getSubscriptionEndpoint = (featureToSubscribeTo: Feature) => {
 			id: authenticatedUser.id,
 		};
 		const stripeCustomerId = await getUserCustomerStripeId(authenticatedIdentifiedUserData);
-		const wasPaymentSuccessful = await chargePayer(stripeCustomerId, cardId, featureToSubscribeTo);
-		if (!wasPaymentSuccessful) {
-			return;
-		}
 		const featureSubscription = await stripeClient.subscriptions.create({
 			customer: stripeCustomerId,
 			items: [{ price: FEATURE_IDS[featureToSubscribeTo] }],
+			default_source: cardId,
+			trial_period_days: 30,
 		});
+		const wasPaymentSuccessful = await chargePayer(stripeCustomerId, cardId, featureSubscription);
+		if (!wasPaymentSuccessful) {
+			await stripeClient.subscriptions.del(featureSubscription.id);
+			throw new functions.https.HttpsError("failed-precondition", "Payment failed!");
+		}
 		const updatedLivedFeature = getLivedFeature(featureToSubscribeTo, featureSubscription);
 		const currentFeatures = authenticatedUserData.features;
 		const updatedFeatures = getUpdateFeatures(currentFeatures, updatedLivedFeature);

@@ -8,8 +8,5 @@ export const STRIPE_CUSTOMER_METADATA_KEYS = {
 	CONNECT_ACCOUNT_ID: "connectId",
 };
 export const FEATURE_IDS: { [key in Feature]: string } = {
-	BRONZE: "price_1MUfBnJjPt9NJOKibgPLpLpV",
-};
-export const FEATURE_PENCE_PRICES: { [key in Feature]: number } = {
-	BRONZE: 500,
+	BRONZE: "price_1MXWNaJjPt9NJOKivRWYUoBM",
 };
