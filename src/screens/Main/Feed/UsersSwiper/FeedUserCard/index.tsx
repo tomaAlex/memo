@@ -5,7 +5,7 @@ import { IdentifiedUser } from "types/index";
 import styles from "./FeedUserCard.module.scss";
 import FeedUserCardDescription from "./FeedUserCardDescription";
 import FeedUserCardDistance from "./FeedUserCardDistance";
-import FeedUserCardShadow from "./FeedUserCardShadow";
+// import FeedUserCardShadow from "./FeedUserCardShadow";
 import SwipeControls from "./SwipeControls";
 
 type TProps = {
@@ -17,7 +17,7 @@ const FeedUserCard = ({ userToDisplay }: TProps) => {
 	return (
 		<View style={styles.userCardContainer}>
 			<View style={styles.userCardContainer__userCard}>
-				<Carousel style={styles.userCardContainer__userCard__carousel}>
+				<Carousel displayIndex hideNavigationControls style={styles.userCardContainer__userCard__carousel}>
 					{photos.map((photo, photoIndex) => (
 						<View style={styles.userCardContainer__userCard__carousel__imagePreviewContainer} key={photoIndex}>
 							<Image
@@ -31,7 +31,7 @@ const FeedUserCard = ({ userToDisplay }: TProps) => {
 					))}
 				</Carousel>
 			</View>
-			<FeedUserCardShadow />
+			{/* <FeedUserCardShadow /> */}
 			<SwipeControls {...{ hasInstantMatchingOn }} />
 		</View>
 	);

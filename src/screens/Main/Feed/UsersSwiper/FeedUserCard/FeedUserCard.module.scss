@@ -1,11 +1,13 @@
 .userCardContainer {
-	width: 105%;
-	height: 90%;
+	width: 100%;
+	// height: 90%;
+	height: 100%;
 	align-self: center;
 	justify-content: center;
 
 	&__userCard {
-		flex: 0.95;
+		// flex: 0.95;
+		flex: 1;
 		z-index: 4;
 
 		&__carousel {
@@ -17,7 +19,7 @@
 				flex: 1;
 				&__imagePreview {
 					flex: 1;
-					border-radius: 30px;
+					// border-radius: 30px;
 				}
 			}
 		}
@@ -25,14 +27,14 @@
 		&__descriptionContainer {
 			position: absolute;
 			width: 100%;
-			bottom: 5%;
+			bottom: 105;
 			color: white;
 
 			&__text {
 				font-size: 17px;
 				color: white;
 				margin-left: 20px;
-				font-family: poppins-regular;
+				font-family: Poppins-Regular;
 
 				&__bold {
 					font-weight: bold;
@@ -41,32 +43,32 @@
 		}
 	}
 
-	&__shadowBox {
-		flex: 0.15;
-		width: 85%;
-		align-self: center;
-		z-index: 3;
+	// &__shadowBox {
+	// 	flex: 0.15;
+	// 	width: 85%;
+	// 	align-self: center;
+	// 	z-index: 3;
 
-		&__mainShadow {
-			z-index: 2;
-			flex: 1;
-			width: 80%;
-			align-self: center;
-			bottom: 25;
-			border-radius: 90px;
-			background-color: #ec4474;
-			opacity: 0.9;
-		}
+	// 	&__mainShadow {
+	// 		z-index: 2;
+	// 		flex: 1;
+	// 		width: 80%;
+	// 		align-self: center;
+	// 		bottom: 25;
+	// 		border-radius: 90px;
+	// 		background-color: #ec4474;
+	// 		opacity: 0.9;
+	// 	}
 
-		&__secondaryShadow {
-			z-index: 1;
-			flex: 1;
-			width: 70%;
-			bottom: 55;
-			align-self: center;
-			border-radius: 90px;
-			background-color: #ffdae4;
-			opacity: 0.62;
-		}
-	}
+	// 	&__secondaryShadow {
+	// 		z-index: 1;
+	// 		flex: 1;
+	// 		width: 70%;
+	// 		bottom: 55;
+	// 		align-self: center;
+	// 		border-radius: 90px;
+	// 		background-color: #ffdae4;
+	// 		opacity: 0.62;
+	// 	}
+	// }
 }

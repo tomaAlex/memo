@@ -8,6 +8,7 @@ import RBSheet from "react-native-raw-bottom-sheet";
 import PaymentSheet from "./PaymentSheet";
 import UsersSwiperContext from "./UsersSwiperContext";
 import RefreshFeedButton from "../RefreshFeedButton";
+import overlayLabels from "./overlayLabels";
 
 type TProps = {
 	recommendations: IdentifiedUser[];
@@ -34,6 +35,7 @@ const UsersSwiper = ({ recommendations, refreshFeed }: TProps) => {
 				ref={swiperReference}
 				backgroundColor="white"
 				cards={recommendations}
+				cardStyle={{ flex: 1, width: "100%", height: "100%", top: 0, left: 0 }}
 				renderCard={(userToDisplay) => <FeedUserCard {...{ userToDisplay }} />}
 				onSwiped={(userIndex) => {
 					setCurrentlyDisplayedUserIndex(userIndex + 1);
@@ -51,6 +53,9 @@ const UsersSwiper = ({ recommendations, refreshFeed }: TProps) => {
 					const dislikedUser = recommendations[userIndex];
 					dislikeProfile(dislikedUser.id);
 				}}
+				onSwipedBottom={() => {
+					swiperReference.current?.swipeBack();
+				}}
 				onSwipedAll={() => {
 					setSwipedAllUsers(true);
 				}}
@@ -58,6 +63,9 @@ const UsersSwiper = ({ recommendations, refreshFeed }: TProps) => {
 				verticalSwipe={!isSwiperBlocked && getVerticalState(currentlyDisplayedUserIndex, recommendations)}
 				cardIndex={0}
 				stackSize={1}
+				animateCardOpacity
+				animateOverlayLabelsOpacity
+				{...{ overlayLabels }}
 			/>
 			<RefreshFeedButton
 				refreshFeed={() => {
