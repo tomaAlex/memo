@@ -11,6 +11,8 @@ import fetchRecommendations from "./utils/fetchRecommendations";
 import styles from "./Feed.module.scss";
 import markDeviceToken from "./utils/markDeviceToken";
 import FeedLoading from "Loading/FeedLoading";
+import SearchFiltersButton from "./SearchFiltersButton";
+import SearchFiltersModal from "./SearchFiltersModal";
 
 const Feed = ({
 	user,
@@ -33,6 +35,7 @@ const Feed = ({
 		updateUser(userData);
 	}, [userData, updateUser]);
 
+	const [isFiltersModalVisible, setIsFiltersModalVisible] = useState(false);
 	const [recommendations, setRecommendations] = useState([] as IdentifiedUser[]);
 	const [shouldFetchRecommendations, setShouldFetchRecommendations] = useState(true);
 	const [loadingRecommendations, setLoadingRecommendations] = useState(true);
@@ -68,7 +71,15 @@ const Feed = ({
 	return (
 		<SafeAreaView style={styles.container}>
 			<MatchedNote {...{ matchPreviews, navigation }} />
-			{hasMaximumMatches ? <EnoughMatchesNote /> : <UsersSwiper {...{ recommendations, refreshFeed }} />}
+			{hasMaximumMatches ? (
+				<EnoughMatchesNote />
+			) : (
+				<View style={styles.container__swiperContainer}>
+					<SearchFiltersButton showFiltersModal={() => setIsFiltersModalVisible(true)} />
+					<UsersSwiper {...{ recommendations, refreshFeed }} />
+					<SearchFiltersModal visible={isFiltersModalVisible} onRequestClose={() => setIsFiltersModalVisible(false)} />
+				</View>
+			)}
 		</SafeAreaView>
 	);
 };

@@ -18,6 +18,7 @@ import CloseIcon from "./close.svg";
 import RefreshIcon from "./refresh.svg";
 import ArrowLeftIcon from "./arrow-left.svg";
 import ArrowRightIcon from "./arrow-right.svg";
+import BurgerMenu from "./burger-menu.svg";
 
 export {
 	HeartIcon,
@@ -40,4 +41,5 @@ export {
 	RefreshIcon,
 	ArrowLeftIcon,
 	ArrowRightIcon,
+	BurgerMenu,
 };

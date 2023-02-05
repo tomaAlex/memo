@@ -114,6 +114,9 @@
 						"PaymentSheet": {
 							"priceNote": "Get an instant match for £3"
 						}
+					},
+					"SearchFiltersModal": {
+						"header": "Search Filters"
 					}
 				},
 				"Chats": {

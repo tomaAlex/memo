@@ -114,6 +114,9 @@
 						"PaymentSheet": {
 							"priceNote": "Obtine un match instant pentru £3"
 						}
+					},
+					"SearchFiltersModal": {
+						"header": "Filtre de Cautare"
 					}
 				},
 				"Chats": {
