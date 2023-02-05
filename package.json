@@ -54,6 +54,7 @@
     "redux-ignore": "^1.2.5",
     "redux-thunk": "^2.4.1",
     "reselect": "^4.1.7",
+    "rn-range-slider": "^2.2.2",
     "yup": "^0.32.11"
   },
   "devDependencies": {

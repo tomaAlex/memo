@@ -116,7 +116,29 @@
 						}
 					},
 					"SearchFiltersModal": {
-						"header": "Search Filters"
+						"header": "Search Filters",
+						"Form": {
+							"Labels": {
+								"age": "Age preference",
+								"distance": "Maximum distance",
+								"likesOnly": "Who liked you only"
+							},
+							"Errors": {
+								"age": {
+									"required": "Age is required",
+									"tooShort": "The age preference has a minimum",
+									"tooLong": "The age preference has a maximum"
+								},
+								"distance": {
+									"required": "Distance is required",
+									"tooShort": "The distance is too short",
+									"tooLong": "The distance is too long"
+								},
+								"likesOnly": {
+									"required": "Likes only is required"
+								}
+							}
+						}
 					}
 				},
 				"Chats": {

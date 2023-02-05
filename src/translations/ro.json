@@ -116,7 +116,29 @@
 						}
 					},
 					"SearchFiltersModal": {
-						"header": "Filtre de Cautare"
+						"header": "Filtre de Cautare",
+						"Form": {
+							"Labels": {
+								"age": "Preferinta varsta",
+								"distance": "Distanta maxima",
+								"likesOnly": "Doar cei ce te plac"
+							},
+							"Errors": {
+								"age": {
+									"required": "Varsta este obligatorie",
+									"tooShort": "Preferinta varstei are un minim",
+									"tooLong": "Preferinta varstei are un maxim"
+								},
+								"distance": {
+									"required": "Distanta este obligatorie",
+									"tooShort": "Preferinta distantei este prea mica",
+									"tooLong": "Preferinta distantei este prea mare"
+								},
+								"likesOnly": {
+									"required": "Doar cei ce te plac reprezinta o preferinta obligatorie"
+								}
+							}
+						}
 					}
 				},
 				"Chats": {

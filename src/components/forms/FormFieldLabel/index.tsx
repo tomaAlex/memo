@@ -1,13 +1,17 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, TextProps } from "react-native";
 import styles from "./FormFieldLabel.module.scss";
 
-type TProps = {
+type TProps = TextProps & {
 	label: string;
 };
 
-const FormFieldLabel = ({ label }: TProps) => {
-	return <Text style={styles.field}>{label}:</Text>;
+const FormFieldLabel = ({ label, ...textProps }: TProps) => {
+	return (
+		<Text style={styles.field} {...textProps}>
+			{label}:
+		</Text>
+	);
 };
 
 export default React.memo(FormFieldLabel) as unknown as typeof FormFieldLabel;
