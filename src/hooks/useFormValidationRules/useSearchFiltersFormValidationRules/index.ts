@@ -1,11 +1,17 @@
 import * as Yup from "yup";
+import { Gender } from "types/index";
 import { useTranslation } from "react-i18next";
+import { getEnumValues } from "utils/index";
 
 export const useSearchFiltersFormValidationRules = () => {
 	const [translateErrors] = useTranslation("translation", {
 		keyPrefix: "Screens.Main.Feed.SearchFiltersModal.Form.Errors",
 	});
 	const allValidationRules = {
+		gender: Yup.array()
+			.of(Yup.string().oneOf(getEnumValues(Gender)))
+			.min(1, () => translateErrors("gender.required"))
+			.required(() => translateErrors("gender.required")),
 		age: Yup.array()
 			.of(Yup.number())
 			.min(2, () => translateErrors("age.tooShort"))

@@ -3,12 +3,14 @@ import FormFieldLabel from "components/forms/FormFieldLabel";
 import FormRangeSlider from "components/forms/FormRangeSlider";
 import { useTranslation } from "react-i18next";
 import { Formik } from "formik";
+import { Gender } from "types/index";
 import styles from "./SearchFiltersForm.module.scss";
 import { SafeAreaView, View } from "react-native";
 import { useSearchFiltersFormValidationRules } from "hooks/index";
 import FormSwitchInput from "components/forms/FormSwitchInput";
-import FormSubmitButton from "components/forms/FormSubmitButton";
 import FormRangeSliderFieldLabel from "components/forms/FormRangeSliderFieldLabel";
+import SearchFiltersFormGenderPicker from "./SearchFiltersFormGenderPicker";
+import SearchFiltersFormSubmitButton from "./SearchFiltersFormSubmitButton";
 
 const SearchFiltersForm = () => {
 	const searchFiltersSchema = useSearchFiltersFormValidationRules();
@@ -19,7 +21,12 @@ const SearchFiltersForm = () => {
 	return (
 		<Formik
 			validationSchema={searchFiltersSchema}
-			initialValues={{ age: [18, 30] as [number, number], distance: 50, likesOnly: false }}
+			initialValues={{
+				age: [18, 30] as [number, number],
+				distance: 50,
+				likesOnly: false,
+				gender: [Gender.MALE, Gender.FEMALE],
+			}}
 			onSubmit={async (searchFilters) => {
 				// setIsUserUpdating(true);
 				// await firebaseUpdateUser(user, userUpdate as unknown as User, id);
@@ -33,6 +40,7 @@ const SearchFiltersForm = () => {
 				return (
 					<SafeAreaView style={styles.container}>
 						<View style={styles.container__form}>
+							<SearchFiltersFormGenderPicker />
 							<FormRangeSlider field="age" min={18} max={100} step={1}>
 								<FormRangeSliderFieldLabel
 									style={styles.container__form__label}
@@ -50,7 +58,7 @@ const SearchFiltersForm = () => {
 							<FormSwitchInput field="likesOnly">
 								<FormFieldLabel style={styles.container__form__label} label={translateLabels("likesOnly")} />
 							</FormSwitchInput>
-							<FormSubmitButton />
+							<SearchFiltersFormSubmitButton />
 						</View>
 					</SafeAreaView>
 				);

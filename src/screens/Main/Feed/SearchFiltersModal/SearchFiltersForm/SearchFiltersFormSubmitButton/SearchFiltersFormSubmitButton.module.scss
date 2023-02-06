@@ -1,0 +1,16 @@
+.container {
+	background-color: #f10065;
+    align-self: center;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    border-radius: 500px;
+    padding: 5px;
+
+	&__caption {
+		align-self: center;
+        color: #fff;
+        font-family: Poppins-Medium;
+        font-size: 15px;
+	}
+}

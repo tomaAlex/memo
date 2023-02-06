@@ -119,11 +119,20 @@
 						"header": "Search Filters",
 						"Form": {
 							"Labels": {
+								"Gender": {
+									"caption": "Show me",
+									"men": "Men",
+									"women": "Women",
+									"both": "Both"
+								},
 								"age": "Age preference",
 								"distance": "Maximum distance",
 								"likesOnly": "Who liked you only"
 							},
 							"Errors": {
+								"gender": {
+									"required": "Gender is required"
+								},
 								"age": {
 									"required": "Age is required",
 									"tooShort": "The age preference has a minimum",

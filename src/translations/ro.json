@@ -119,11 +119,20 @@
 						"header": "Filtre de Cautare",
 						"Form": {
 							"Labels": {
+								"Gender": {
+									"caption": "Arata-mi",
+									"men": "Barbati",
+									"women": "Femei",
+									"both": "Ambele"
+								},
 								"age": "Preferinta varsta",
 								"distance": "Distanta maxima",
 								"likesOnly": "Doar cei ce te plac"
 							},
 							"Errors": {
+								"gender": {
+									"required": "Genul este obligatoriu"
+								},
 								"age": {
 									"required": "Varsta este obligatorie",
 									"tooShort": "Preferinta varstei are un minim",
