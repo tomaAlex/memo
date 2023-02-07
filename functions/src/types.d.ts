@@ -16,10 +16,12 @@ type LivedFeature<Expiration extends LivedFeatureExpiration> = {
 	checkedForRenewal: Expiration extends null ? true : boolean;
 };
 
+type Gender = "MALE" | "FEMALE" | "OTHER";
+
 type User = {
 	firstName: string;
 	lastName: string;
-	gender: "MALE" | "FEMALE" | "OTHER";
+	gender: Gender;
 	birthDate: string;
 	job?: string;
 	school?: string;
@@ -41,6 +43,12 @@ type User = {
 	stripeId?: string;
 	features: LivedFeature<LivedFeatureExpiration>[];
 	inAppInteractions: number;
+	searchFilters: {
+		ageRange: [number, number];
+		genders: Gender[];
+		maximumDistance: number;
+		likesOnly: boolean;
+	};
 };
 
 type IdentifiedUser = User & {

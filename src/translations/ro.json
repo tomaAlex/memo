@@ -146,7 +146,8 @@
 								"likesOnly": {
 									"required": "Doar cei ce te plac reprezinta o preferinta obligatorie"
 								}
-							}
+							},
+							"submit": "Aplica"
 						}
 					}
 				},

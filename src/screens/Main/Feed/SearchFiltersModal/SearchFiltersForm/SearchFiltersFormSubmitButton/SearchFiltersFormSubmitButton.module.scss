@@ -1,16 +1,27 @@
 .container {
 	background-color: #f10065;
-    align-self: center;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    border-radius: 500px;
-    padding: 5px;
+	align-self: center;
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	border-radius: 500px;
+	padding: 5px;
+    height: 50px;
 
 	&__caption {
 		align-self: center;
-        color: #fff;
-        font-family: Poppins-Medium;
-        font-size: 15px;
+		color: #fff;
+		font-family: Poppins-Medium;
+		font-size: 15px;
 	}
+
+	&__disabled {
+		opacity: 0.5;
+	}
+}
+
+.loadingContainer {
+	flex: 1;
+	align-items: center;
+	justify-content: center;
 }

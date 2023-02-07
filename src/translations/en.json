@@ -146,7 +146,8 @@
 								"likesOnly": {
 									"required": "Likes only is required"
 								}
-							}
+							},
+							"submit": "Apply"
 						}
 					}
 				},

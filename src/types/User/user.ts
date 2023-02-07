@@ -25,9 +25,12 @@ export interface User {
 	stripeId?: string;
 	features: LivedFeature<LivedFeatureExpiration>[];
 	inAppInteractions: number;
-	// searchFilters: {
-	// 	ageRange: [number, number];
-	// };
+	searchFilters: {
+		ageRange: [number, number];
+		genders: Gender[];
+		maximumDistance: number;
+		likesOnly: boolean;
+	};
 }
 
 export interface IdentifiedUser extends User {

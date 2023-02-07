@@ -1,37 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
+import { SafeAreaView, View } from "react-native";
+import { Formik } from "formik";
+import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { selectSearchFilters } from "redux/selectors";
+import styles from "./SearchFiltersForm.module.scss";
+import { useFirebaseUserUpdater, useSearchFiltersFormValidationRules } from "hooks/index";
+import FormSwitchInput from "components/forms/FormSwitchInput";
 import FormFieldLabel from "components/forms/FormFieldLabel";
 import FormRangeSlider from "components/forms/FormRangeSlider";
-import { useTranslation } from "react-i18next";
-import { Formik } from "formik";
-import { Gender } from "types/index";
-import styles from "./SearchFiltersForm.module.scss";
-import { SafeAreaView, View } from "react-native";
-import { useSearchFiltersFormValidationRules } from "hooks/index";
-import FormSwitchInput from "components/forms/FormSwitchInput";
 import FormRangeSliderFieldLabel from "components/forms/FormRangeSliderFieldLabel";
 import SearchFiltersFormGenderPicker from "./SearchFiltersFormGenderPicker";
 import SearchFiltersFormSubmitButton from "./SearchFiltersFormSubmitButton";
 
 const SearchFiltersForm = () => {
+	const { ageRange, maximumDistance, likesOnly, genders } = useSelector(selectSearchFilters);
 	const searchFiltersSchema = useSearchFiltersFormValidationRules();
+	const [isApplyingFilters, setIsApplyingFilters] = useState(false);
 	const [translateLabels] = useTranslation("translation", {
 		keyPrefix: "Screens.Main.Feed.SearchFiltersModal.Form.Labels",
 	});
+	const firebaseUpdateUser = useFirebaseUserUpdater();
 
 	return (
 		<Formik
 			validationSchema={searchFiltersSchema}
 			initialValues={{
-				age: [18, 30] as [number, number],
-				distance: 50,
-				likesOnly: false,
-				gender: [Gender.MALE, Gender.FEMALE],
+				age: ageRange,
+				distance: maximumDistance,
+				likesOnly,
+				gender: genders,
 			}}
-			onSubmit={async (searchFilters) => {
-				// setIsUserUpdating(true);
-				// await firebaseUpdateUser(user, userUpdate as unknown as User, id);
-				// setIsUserUpdating(false);
-				console.log(searchFilters);
+			onSubmit={async ({ age, distance, likesOnly: updatedLikesOnly, gender }) => {
+				setIsApplyingFilters(true);
+				await firebaseUpdateUser({
+					searchFilters: { ageRange: age, maximumDistance: distance, likesOnly: updatedLikesOnly, genders: gender },
+				});
+				setIsApplyingFilters(false);
+				// console.log(searchFilters);
 			}}
 		>
 			{({ values }) => {
@@ -58,7 +64,7 @@ const SearchFiltersForm = () => {
 							<FormSwitchInput field="likesOnly">
 								<FormFieldLabel style={styles.container__form__label} label={translateLabels("likesOnly")} />
 							</FormSwitchInput>
-							<SearchFiltersFormSubmitButton />
+							<SearchFiltersFormSubmitButton {...{ isApplyingFilters }} />
 						</View>
 					</SafeAreaView>
 				);
