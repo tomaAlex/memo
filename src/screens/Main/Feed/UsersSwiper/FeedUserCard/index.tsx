@@ -10,12 +10,13 @@ import SwipeControls from "./SwipeControls";
 
 type TProps = {
 	userToDisplay: IdentifiedUser;
+	fullScreen?: boolean;
 };
 
-const FeedUserCard = ({ userToDisplay }: TProps) => {
+const FeedUserCard = ({ userToDisplay, fullScreen }: TProps) => {
 	const { photos, hasInstantMatchingOn } = userToDisplay;
 	return (
-		<View style={styles.userCardContainer}>
+		<View style={[styles.userCardContainer, fullScreen ? { height: "100%" } : {}]}>
 			<View style={styles.userCardContainer__userCard}>
 				<Carousel displayIndex hideNavigationControls style={styles.userCardContainer__userCard__carousel}>
 					{photos.map((photo, photoIndex) => (

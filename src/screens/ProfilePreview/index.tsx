@@ -8,11 +8,13 @@ import FeedUserCard from "screens/Main/Feed/UsersSwiper/FeedUserCard";
 import { IdentifiedUser, ScreenNames, ScreenProps, User } from "types/index";
 import UsersSwiperContext from "screens/Main/Feed/UsersSwiper/UsersSwiperContext";
 import styles from "./ProfilePreview.module.scss";
+import BackButton from "components/BackButton";
 
 const ProfilePreview = ({
 	route: {
 		params: { userToPreviewId },
 	},
+	navigation,
 }: ScreenProps<ScreenNames.ProfilePreview>) => {
 	const [userToPreview] = useSnapshot<User>("users", userToPreviewId);
 	const isUserLoading = !userToPreview;
@@ -43,13 +45,14 @@ const ProfilePreview = ({
 					backgroundColor="white"
 					cards={[identifiedUserToPreview]}
 					cardStyle={{ flex: 1, width: "100%", height: "100%", top: 0, left: 0 }}
-					renderCard={(userToDisplay) => <FeedUserCard {...{ userToDisplay }} />}
+					renderCard={(userToDisplay) => <FeedUserCard {...{ userToDisplay, fullScreen: true }} />}
 					horizontalSwipe={false}
 					verticalSwipe={false}
 					cardIndex={0}
 					stackSize={1}
 				/>
 			</UsersSwiperContext.Provider>
+			<BackButton navigation={navigation} />
 		</SafeAreaView>
 	);
 };

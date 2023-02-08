@@ -10,6 +10,7 @@ import LocationPlane from "./location-plane.svg";
 import SendArrow from "./send-arrow.svg";
 import SettingsIcon from "./settings.svg";
 import BinIcon from "./bin.svg";
+import BackTriangle from "./back-button.svg";
 import CameraPlus from "./camera-plus.svg";
 import StarIcon from "./star.svg";
 import LoginIcon from "./login.svg";
@@ -33,6 +34,7 @@ export {
 	SendArrow,
 	SettingsIcon,
 	BinIcon,
+	BackTriangle,
 	CameraPlus,
 	StarIcon,
 	LoginIcon,

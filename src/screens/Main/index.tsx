@@ -12,6 +12,7 @@ import { useInterstitialAd, TestIds } from "react-native-google-mobile-ads";
 import { useInAppInteractionsUpdater } from "hooks";
 import { NotificationTypes } from "NotificationManager/notificationTypes";
 import MessageNotificationManager from "NotificationManager/MessageNotification";
+import BackButton from "components/BackButton";
 
 const MainTab = createBottomTabNavigator<MainNavigationTabTypes>();
 
@@ -87,7 +88,11 @@ const Main = ({
 			<MainTab.Screen
 				name={MainScreenNames.Chats}
 				component={Chats}
-				options={{ headerShown: true, headerTitleStyle: { fontFamily: "Poppins-Bold" }, headerTitleAlign: "center" }}
+				options={{
+					headerShown: true,
+					headerTitleStyle: { fontFamily: "Poppins-Bold" },
+					headerTitleAlign: "center",
+				}}
 			/>
 			<MainTab.Screen
 				name={MainScreenNames.Settings}

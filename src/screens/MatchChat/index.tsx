@@ -9,11 +9,13 @@ import MatchMessageTextBar from "./MatchMessages/MatchMessageTextBar";
 import styles from "./MatchChat.module.scss";
 import MatchChatProfilePreview from "./MatchChatProfilePreview";
 import markSeen from "./utils/markSeen";
+import BackButton from "components/BackButton";
 
 const MatchChat = ({
 	route: {
 		params: { matchId, matchedUsers, matchTimestamp, expiresAt },
 	},
+	navigation,
 }: ScreenProps<ScreenNames.MatchChat>) => {
 	const [messages, sendNewMessage] = useMatchMessages(matchId);
 
@@ -34,6 +36,7 @@ const MatchChat = ({
 					userToPreview={matchedUsers[0]}
 					matchTimestamp={matchTimestamp}
 					expiresAt={expiresAt}
+					backButton={<BackButton navigation={navigation} />}
 				/>
 				<MatchMessages messages={messages} matchedUsers={matchedUsers} flatListRef={flatListRef} />
 				<MatchMessageTextBar sendMessage={sendNewMessage} />
