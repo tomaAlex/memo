@@ -1,0 +1,52 @@
+.container {
+    margin-top: 22%;
+    align-self: center;
+    width: 100%;
+
+    &__textInput {
+        margin-top: 10%;
+        border-width: 1px;
+        border-color: #aeaeae4d;
+        color: #F10065;
+        border-radius: 20px;
+        height: 35%;
+        width: 95%;
+        padding-left: 5%;
+        font-family: "Poppins-Medium";
+
+        &__formLabel {
+            font-size: 25px;
+            font-family: "Poppins-Semibold";
+            font-weight: 600;
+            color: #313131;
+            margin-left: 2%;
+            align-self: center;
+        }
+    }
+
+    &__formContainer {
+        height: 65%  
+    }
+
+    &__buttonContainer {
+        align-self: center;
+        width: 100%;
+        margin-top: 10%;
+        justify-content: center;
+
+        &__buttonDimensions {
+            width: 80%;
+            background-color: #F10065;
+            border-radius: 20px;
+            align-self: center;
+            padding-top: 2.5%;
+            padding-bottom: 2.5%;
+        }
+
+        &__buttonText {
+            color: white;
+            text-align: center;
+            font-family: "Poppins-Medium";
+        }
+    }
+}

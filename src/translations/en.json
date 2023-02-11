@@ -15,8 +15,8 @@
 					},
 					"Identification": {
 						"Labels": {
-							"firstName": "First name",
-							"lastName": "Last name",
+							"firstName": "What's your first \n name ?",
+							"lastName": "What's your last \n name ?",
 							"gender": "Gender",
 							"birthDate": "Birthdate"
 						},

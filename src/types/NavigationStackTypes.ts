@@ -4,6 +4,14 @@ import { IdentifiedUser, User } from "./User";
 
 type NavigationStackTypesStructure = { [key in string]: any };
 type NavigationTabTypesStructure = { [key in string]: any };
+type NavigationStepTypesStructure = {
+	[key in string]:
+		| {
+				data: any;
+				stepCount?: number;
+		  }
+		| undefined;
+};
 
 export type IdentificationForm = {
 	firstName: User["firstName"];
@@ -25,6 +33,38 @@ export type EmbodimentForm = {
 	photos: User["photos"];
 };
 
+export type FirstNameForm = {
+	firstName: User["firstName"];
+};
+
+export type LastNameForm = {
+	lastName: User["lastName"];
+} & FirstNameForm;
+
+export type BirthdateForm = {
+	birthDate: User["birthDate"];
+} & LastNameForm;
+
+export type GenderForm = {
+	gender: User["gender"];
+} & BirthdateForm;
+
+export type OrientationForm = {
+	orientation: User["orientation"];
+} & GenderForm;
+
+export type HeightForm = {
+	height: User["height"];
+} & OrientationForm;
+
+export type LocationForm = {
+	location: User["location"];
+} & HeightForm;
+
+export type PhotoForm = {
+	photos: User["photos"];
+} & LocationForm;
+
 export interface NavigationStackTypes extends NavigationStackTypesStructure {
 	[ScreenNames.Observer]: undefined;
 	[ScreenNames.Login]: undefined;
@@ -35,6 +75,35 @@ export interface NavigationStackTypes extends NavigationStackTypesStructure {
 	[ScreenNames.Embodiment]: {
 		identification: IdentificationForm;
 		details: DetailsForm;
+	};
+	[ScreenNames.FirstName]: undefined;
+	[ScreenNames.LastName]: {
+		firstNameForm: FirstNameForm;
+		stepNumber: number;
+	};
+	[ScreenNames.BirthDate]: {
+		lastNameForm: LastNameForm;
+		stepNumber: number;
+	};
+	[ScreenNames.Gender]: {
+		birthdateForm: BirthdateForm;
+		stepNumber: number;
+	};
+	[ScreenNames.Orientation]: {
+		genderForm: GenderForm;
+		stepNumber: number;
+	};
+	[ScreenNames.Height]: {
+		orientationForm: OrientationForm;
+		stepNumber: number;
+	};
+	[ScreenNames.Location]: {
+		heightForm: HeightForm;
+		stepNumber: number;
+	};
+	[ScreenNames.PhotoForm]: {
+		locationForm: LocationForm;
+		stepNumber: number;
 	};
 	[ScreenNames.Main]: {
 		uid?: string;

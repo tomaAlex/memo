@@ -1,0 +1,17 @@
+.container {
+    // position: absolute;
+    top: 9%;
+    align-self: center;
+    width: 100%;
+    flex-direction: row;
+
+    &__stepContainer {    
+        justify-content: center;
+        flex: 1;
+        padding-left: 33%;
+    }
+
+    &__initialStepContainer {
+        align-self: center;
+    }
+}

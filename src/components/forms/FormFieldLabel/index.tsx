@@ -4,12 +4,15 @@ import styles from "./FormFieldLabel.module.scss";
 
 type TProps = TextProps & {
 	label: string;
+	removeColon?: boolean;
 };
 
-const FormFieldLabel = ({ label, ...textProps }: TProps) => {
+const FormFieldLabel = ({ label, removeColon, ...textProps }: TProps) => {
+	const colonString = removeColon ? "" : ":";
+	const textToShow = label + colonString;
 	return (
 		<Text style={styles.field} {...textProps}>
-			{label}:
+			{textToShow}
 		</Text>
 	);
 };

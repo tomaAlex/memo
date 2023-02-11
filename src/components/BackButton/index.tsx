@@ -3,16 +3,20 @@ import { BackTriangle } from "icons";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import styles from "./BackButton.module.scss";
-import { NavigationStackTypes, ScreenNames } from "types";
+import { MainScreenNames, NavigationStackTypes, ScreenNames } from "types";
 
 type TProps = {
-	navigation: NativeStackNavigationProp<NavigationStackTypes, ScreenNames>;
+	navigation: NativeStackNavigationProp<NavigationStackTypes, ScreenNames | MainScreenNames>;
 };
 
 const BackButton = ({ ...backButtonProps }: TProps) => {
+	console.log("Here");
+	const handlePress = () => {
+		backButtonProps.navigation.goBack();
+	};
 	return (
-		<TouchableOpacity onPress={() => backButtonProps.navigation.goBack()}>
-			<BackTriangle style={styles.button} height={22} />
+		<TouchableOpacity onPress={handlePress}>
+			<BackTriangle style={styles.button} height={20} />
 		</TouchableOpacity>
 	);
 };
