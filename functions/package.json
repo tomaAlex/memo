@@ -19,7 +19,7 @@
     "@google-cloud/tasks": "^3.0.5",
     "dotenv": "^16.0.3",
     "firebase-admin": "^11.4.1",
-    "firebase-functions": "^4.1.1",
+    "firebase-functions": "^4.2.1",
     "stripe": "^11.5.0"
   },
   "devDependencies": {

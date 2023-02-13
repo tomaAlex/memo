@@ -17,6 +17,7 @@ export * from "./updateFeatureSubscriptions";
 export * from "./getRecommendations";
 export * from "./decideWhetherUserCanCashOut";
 export * from "./getBalance";
+export * from "./getCollectionIds";
 export * from "./subscribeToBronze";
 export * from "./unsubscribeFromBronze";
 export * from "./verifyConnectAccount";

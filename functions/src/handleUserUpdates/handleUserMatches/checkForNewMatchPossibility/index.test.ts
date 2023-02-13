@@ -19,6 +19,12 @@ describe("checkForNewMatchPossibility", () => {
 		hasInstantMatchingOn: true,
 		features: [],
 		inAppInteractions: 0,
+		searchFilters: {
+			ageRange: [18, 30],
+			genders: ["FEMALE", "MALE"],
+			maximumDistance: 50,
+			likesOnly: false,
+		},
 	};
 
 	it("should return true if the likes field has changed", () => {

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IdentifiedUser } from "types/index";
 import Swiper from "react-native-deck-swiper";
 import FeedUserCard from "./FeedUserCard";
@@ -12,10 +12,10 @@ import overlayLabels from "./overlayLabels";
 
 type TProps = {
 	recommendations: IdentifiedUser[];
-	refreshFeed: () => void;
+	expandRecommendations: () => void;
 };
 
-const UsersSwiper = ({ recommendations, refreshFeed }: TProps) => {
+const UsersSwiper = ({ recommendations, expandRecommendations }: TProps) => {
 	const refRBSheet = useRef<RBSheet>(null);
 	const swiperReference = useRef<Swiper<IdentifiedUser>>(null);
 	const [isSwiperBlocked, setIsSwiperBlocked] = useState(false);
@@ -23,9 +23,19 @@ const UsersSwiper = ({ recommendations, refreshFeed }: TProps) => {
 	const [currentlyDisplayedUserIndex, setCurrentlyDisplayedUserIndex] = useState(0);
 	const [swipedAllUsers, setSwipedAllUsers] = useState(false);
 	const increaseInAppInteractions = useInAppInteractionsUpdater("increment");
+	const hasJustLoaded = useRef<boolean>(true);
 
 	const likeProfile = useProfileLiker();
 	const dislikeProfile = useProfileDisliker();
+
+	useEffect(() => {
+		if (hasJustLoaded.current) {
+			hasJustLoaded.current = false;
+			return;
+		}
+		swiperReference.current?.jumpToCardIndex(recommendations.length - 1);
+		setCurrentlyDisplayedUserIndex(recommendations.length - 1);
+	}, [recommendations]);
 
 	return (
 		<UsersSwiperContext.Provider
@@ -57,7 +67,7 @@ const UsersSwiper = ({ recommendations, refreshFeed }: TProps) => {
 					swiperReference.current?.swipeBack();
 				}}
 				onSwipedAll={() => {
-					setSwipedAllUsers(true);
+					expandRecommendations();
 				}}
 				horizontalSwipe={!isSwiperBlocked}
 				verticalSwipe={!isSwiperBlocked && getVerticalState(currentlyDisplayedUserIndex, recommendations)}
@@ -69,7 +79,8 @@ const UsersSwiper = ({ recommendations, refreshFeed }: TProps) => {
 			/>
 			<RefreshFeedButton
 				refreshFeed={() => {
-					refreshFeed();
+					// refreshFeed();
+					expandRecommendations();
 					setCurrentlyDisplayedUserIndex(0);
 				}}
 				{...{ swipedAllUsers }}
