@@ -1,32 +1,24 @@
 import React from "react";
 import { useSignupLastNameFormValidationRules } from "hooks/useFormValidationRules/useSignupLastNameFormValidationRules";
 import { useTranslation } from "react-i18next";
-import {
-	Keyboard,
-	TouchableWithoutFeedback,
-	View,
-	SafeAreaView,
-	ScrollView,
-	KeyboardAvoidingView,
-	Platform,
-} from "react-native";
+import { Keyboard, TouchableWithoutFeedback, View, SafeAreaView } from "react-native";
 import connector from "redux/connector";
 import { ScreenNames, ScreenProps } from "types";
 import Header from "../Header";
 import TextForm from "../TextForm";
+import styles from "./LastName.module.scss";
 
 const LastName = ({ navigation, route }: ScreenProps<ScreenNames.LastName>) => {
 	const { firstNameForm, stepNumber } = route.params;
 	const [translateLabels] = useTranslation("translation", {
 		keyPrefix: "Screens.Signup.Forms.Identification.Labels",
 	});
-	console.log(firstNameForm);
 	const lastNameSchema = useSignupLastNameFormValidationRules();
 	return (
 		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-			<SafeAreaView style={{ width: "90%", alignSelf: "center", height: "80%", alignContent: "center" }}>
+			<SafeAreaView style={styles.container}>
 				<Header stepNo={stepNumber} navigation={navigation} />
-				<View style={{ marginTop: "10%" }}>
+				<View style={styles.container__form}>
 					<TextForm
 						schema={lastNameSchema}
 						initialValues={{ lastName: "" }}

@@ -12,6 +12,7 @@ import MatchChat from "screens/MatchChat";
 import ProfilePreview from "screens/ProfilePreview";
 import FirstName from "screens/Signup/FirstName";
 import LastName from "screens/Signup/LastName";
+import Birthdate from "screens/Signup/Birthdate";
 
 const Stack = createStackNavigator<NavigationStackTypes>();
 
@@ -24,6 +25,7 @@ const Navigator = () => {
 				<Stack.Screen name={ScreenNames.Identification} component={Identification} />
 				<Stack.Screen name={ScreenNames.FirstName} component={FirstName} />
 				<Stack.Screen name={ScreenNames.LastName} component={LastName} />
+				<Stack.Screen name={ScreenNames.BirthDate} component={Birthdate} />
 				<Stack.Screen name={ScreenNames.Details} component={Details} />
 				<Stack.Screen name={ScreenNames.Embodiment} component={Embodiment} />
 				<Stack.Screen name={ScreenNames.Main} component={Main} />

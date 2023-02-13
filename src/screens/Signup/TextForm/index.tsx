@@ -4,6 +4,8 @@ import FormTextInput from "components/forms/FormTextInput";
 import { Formik, FormikValues } from "formik";
 import React from "react";
 import { KeyboardAvoidingView, Platform, Text, TextInput, TextProps, View } from "react-native";
+import Label from "../Label";
+import Submit from "../Submit";
 import styles from "./TextForm.module.scss";
 
 type FormComponent = {
@@ -29,20 +31,22 @@ const TextForm = ({ schema, initialValues, submissionHandler, data }: TProps) =>
 					return (
 						<View key={index} style={styles.container__formContainer}>
 							<FormTextInput field={element.fieldName} {...element} style={styles.container__textInput}>
-								<FormFieldLabel
+								{/* <FormFieldLabel
 									removeColon={true}
 									{...element}
 									style={styles.container__textInput__formLabel}
-								></FormFieldLabel>
+								></FormFieldLabel> */}
+								<Label {...element} />
 							</FormTextInput>
 						</View>
 					);
 				})}
-				<View style={styles.container__buttonContainer}>
+				{/* <View style={styles.container__buttonContainer}>
 					<FormSubmitButton style={styles.container__buttonContainer__buttonDimensions}>
 						<Text style={styles.container__buttonContainer__buttonText}>Continue</Text>
 					</FormSubmitButton>
-				</View>
+				</View> */}
+				<Submit spacing={"10%"} />
 			</View>
 		</Formik>
 	);

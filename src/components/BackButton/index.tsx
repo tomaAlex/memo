@@ -10,8 +10,8 @@ type TProps = {
 };
 
 const BackButton = ({ ...backButtonProps }: TProps) => {
-	console.log("Here");
 	const handlePress = () => {
+		console.log("Here");
 		backButtonProps.navigation.goBack();
 	};
 	return (

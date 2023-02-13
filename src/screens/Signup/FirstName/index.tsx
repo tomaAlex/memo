@@ -6,6 +6,7 @@ import connector from "redux/connector";
 import { FirstNameForm, ScreenNames, ScreenProps } from "types";
 import Header from "../Header";
 import TextForm from "../TextForm";
+import styles from "./FirstName.module.scss";
 
 const FirstName = ({ navigation }: ScreenProps<ScreenNames.FirstName>) => {
 	const [translateLabels] = useTranslation("translation", { keyPrefix: "Screens.Signup.Forms.Identification.Labels" });
@@ -14,9 +15,8 @@ const FirstName = ({ navigation }: ScreenProps<ScreenNames.FirstName>) => {
 
 	return (
 		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-			<SafeAreaView style={{ width: "90%", alignSelf: "center", height: "80%", alignContent: "center" }}>
-				<Header stepNo={step} navigation={navigation} />
-				<View style={{ marginTop: "10%" }}>
+			<SafeAreaView style={styles.container}>
+				<View style={styles.container__form}>
 					<TextForm
 						schema={firstNameSchema}
 						initialValues={{ firstName: "" }}
