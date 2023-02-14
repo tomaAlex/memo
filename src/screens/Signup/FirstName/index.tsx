@@ -16,6 +16,7 @@ const FirstName = ({ navigation }: ScreenProps<ScreenNames.FirstName>) => {
 	return (
 		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
 			<SafeAreaView style={styles.container}>
+				<Header stepNo={step} navigation={navigation} />
 				<View style={styles.container__form}>
 					<TextForm
 						schema={firstNameSchema}

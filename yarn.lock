@@ -6849,6 +6849,13 @@ react-native-config@^1.4.11:
   resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-1.4.11.tgz#f9ea08a8dffbe3fd4f2187d80d2594756526dee8"
   integrity sha512-PdBFnfR3pljUNrJu4B2wiJ9TbAiz1J1WcG5KP8AFBqZi8ve5MV/CTCDnANaGrqhOxkBDJV73D/SrMENHe7TKBg==
 
+react-native-date-picker@^4.2.8:
+  version "4.2.8"
+  resolved "https://registry.yarnpkg.com/react-native-date-picker/-/react-native-date-picker-4.2.8.tgz#f7ca9a65e7e7261b1116697c5f38ecd6fb09b51a"
+  integrity sha512-3sVIceiB7SjayGh1t0IE06K8ExWqPAFFPDzvk+lmaiL2ahH0UUZ2IpVERVk0/lyClHBmDZgVUn8nZJKwRndmGA==
+  dependencies:
+    prop-types "^15.8.1"
+
 react-native-deck-swiper@^2.0.11:
   version "2.0.11"
   resolved "https://registry.yarnpkg.com/react-native-deck-swiper/-/react-native-deck-swiper-2.0.11.tgz#c7a564d72d5f5a28f268bb3cb0da7b8b4ecfb14f"
