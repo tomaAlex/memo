@@ -57,6 +57,14 @@ export type HeightForm = {
 	height: User["height"];
 } & OrientationForm;
 
+export type WorkForm = {
+	work: User["job"];
+} & HeightForm;
+
+export type DescriptionForm = {
+	description: User["description"];
+} & WorkForm;
+
 export type LocationForm = {
 	location: User["location"];
 } & HeightForm;
@@ -97,12 +105,16 @@ export interface NavigationStackTypes extends NavigationStackTypesStructure {
 		orientationForm: OrientationForm;
 		stepNumber: number;
 	};
-	[ScreenNames.Location]: {
+	[ScreenNames.Work]: {
 		heightForm: HeightForm;
 		stepNumber: number;
 	};
+	[ScreenNames.Description]: {
+		workForm: WorkForm;
+		stepNumber: number;
+	};
 	[ScreenNames.PhotoForm]: {
-		locationForm: LocationForm;
+		descriptionForm: DescriptionForm;
 		stepNumber: number;
 	};
 	[ScreenNames.Main]: {

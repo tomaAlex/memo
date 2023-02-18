@@ -13,7 +13,8 @@ export enum ScreenNames {
 	Gender = "Gender",
 	Orientation = "Orientation",
 	Height = "Height",
-	Location = "Location",
+	Work = "Work",
+	Description = "Description",
 	PhotoForm = "PhotoForm",
 }
 

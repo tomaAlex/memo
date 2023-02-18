@@ -41,7 +41,7 @@
 					},
 					"Details": {
 						"Labels": {
-							"job": "Job title",
+							"job": "What's your Job title ?",
 							"school": "School name",
 							"description": "Description",
 							"location": {

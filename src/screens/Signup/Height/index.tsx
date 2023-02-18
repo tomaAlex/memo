@@ -20,7 +20,12 @@ const Height = ({ navigation, route }: ScreenProps<ScreenNames.Height>) => {
 					<TextForm
 						schema={heightSchema}
 						initialValues={{ height: "" }}
-						submissionHandler={(values) => console.log(values)}
+						submissionHandler={(values) => {
+							navigation.navigate(ScreenNames.Work, {
+								heightForm: { height: values.height, ...orientationForm },
+								stepNumber: stepNumber + 1,
+							});
+						}}
 						data={[
 							{
 								fieldName: "height",

@@ -10,7 +10,7 @@ type TProps = {
 } & TextProps;
 
 const SignUpFormLabel = (props: TProps) => {
-	return <FormFieldLabel removeColon={true} {...props} style={styles.formLabel} />;
+	return <FormFieldLabel removeColon={true} {...props} style={[styles.formLabel, props.style]} />;
 };
 
 export default React.memo(SignUpFormLabel) as unknown as typeof SignUpFormLabel;
