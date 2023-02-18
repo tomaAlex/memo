@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacityProps, View } from "react-native";
+import { StyleProp, TouchableOpacityProps, View, ViewStyle } from "react-native";
 import styles from "./FormOptionSwitch.module.scss";
 import FormOptionSwitchController from "./FormOptionSwitchController";
 import FormOptionSwitchLabel from "./FormOptionSwitchLabel";
@@ -16,6 +16,11 @@ type TProps<
 	presentation: React.ReactNode;
 	isMandatory?: boolean;
 	children?: React.ReactNode;
+	controllerStyle?: {
+		baseController?: StyleProp<ViewStyle>;
+		activeStyle?: StyleProp<ViewStyle>;
+		inactiveStyle?: StyleProp<ViewStyle>;
+	};
 };
 
 function FormOptionSwitch<
@@ -25,6 +30,7 @@ function FormOptionSwitch<
 	hasCustomController,
 	field,
 	customController,
+	controllerStyle,
 	presentation,
 	isMandatory,
 	children,
@@ -34,7 +40,7 @@ function FormOptionSwitch<
 		<View style={styles.container}>
 			<FormOptionSwitchLabel {...{ children, isMandatory }} />
 			<FormOptionSwitchController
-				{...{ hasCustomController, field, customController, presentation, ...touchableOpacityProps }}
+				{...{ hasCustomController, field, customController, controllerStyle, presentation, ...touchableOpacityProps }}
 			/>
 		</View>
 	);

@@ -3,7 +3,7 @@ import FormSubmitButton from "components/forms/FormSubmitButton";
 import FormTextInput from "components/forms/FormTextInput";
 import { Formik, FormikValues } from "formik";
 import React from "react";
-import { KeyboardAvoidingView, Platform, Text, TextInput, TextProps, View } from "react-native";
+import { KeyboardAvoidingView, Platform, Text, TextInput, TextProps, View, ViewStyle } from "react-native";
 import Label from "../Label";
 import Submit from "../Submit";
 import styles from "./TextForm.module.scss";
@@ -21,9 +21,10 @@ type TProps = {
 	initialValues: FormikValues;
 	submissionHandler: (data: FormikValues) => void;
 	data: Array<FormComponent>;
+	buttonSpacing?: ViewStyle["marginTop"];
 };
 
-const TextForm = ({ schema, initialValues, submissionHandler, data }: TProps) => {
+const TextForm = ({ schema, initialValues, submissionHandler, data, buttonSpacing = "10%" }: TProps) => {
 	return (
 		<Formik validationSchema={schema} initialValues={initialValues} onSubmit={submissionHandler}>
 			<View style={styles.container}>
@@ -46,7 +47,7 @@ const TextForm = ({ schema, initialValues, submissionHandler, data }: TProps) =>
 						<Text style={styles.container__buttonContainer__buttonText}>Continue</Text>
 					</FormSubmitButton>
 				</View> */}
-				<Submit spacing={"10%"} />
+				<Submit spacing={buttonSpacing} />
 			</View>
 		</Formik>
 	);

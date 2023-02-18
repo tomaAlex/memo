@@ -17,7 +17,7 @@
 						"Labels": {
 							"firstName": "What's your first \n name ?",
 							"lastName": "What's your last \n name ?",
-							"gender": "Gender",
+							"gender": "What's your gender ?",
 							"birthDate": "When is your birthday ?"
 						},
 						"Errors": {
@@ -77,9 +77,10 @@
 					},
 					"Embodiment": {
 						"Labels": {
-							"height": "Height (cm)",
-							"orientation": "Orientation",
-							"photos": "Photos"
+							"height": "What's your height ? \n (cm)",
+							"orientation": "Who would you date ?",
+							"photos": "Photos",
+							"orientationNote": "You may select both"
 						},
 						"Errors": {
 							"height": {
@@ -88,7 +89,7 @@
 								"required": "Heigth is required"
 							},
 							"orientation": {
-								"required": "Orientation is required"
+								"required": "Your preference is required"
 							},
 							"photos": {
 								"required": "Photos are required",

@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, TouchableOpacityProps, View } from "react-native";
+import { StyleProp, TouchableOpacity, TouchableOpacityProps, View, ViewStyle } from "react-native";
 import { cx } from "utils/index";
 import { useFormikContext } from "formik";
 import FormFieldError from "../../FormFieldError";
@@ -15,6 +15,11 @@ type TProps<
 		? [isActive: boolean, setIsActive: (activityStatus: boolean) => void]
 		: undefined;
 	presentation: React.ReactNode;
+	controllerStyle?: {
+		baseController?: StyleProp<ViewStyle>;
+		activeStyle?: StyleProp<ViewStyle>;
+		inactiveStyle?: StyleProp<ViewStyle>;
+	};
 };
 
 function FormOptionSwitchController<
@@ -24,6 +29,11 @@ function FormOptionSwitchController<
 	hasCustomController,
 	field,
 	customController,
+	controllerStyle = {
+		baseController: styles.container__optionSwitch__control,
+		activeStyle: styles.container__optionSwitch__control__on,
+		inactiveStyle: styles.container__optionSwitch__control__off,
+	},
 	presentation,
 	...touchableOpacityProps
 }: TProps<HasCustomController, D>) {
@@ -40,10 +50,10 @@ function FormOptionSwitchController<
 					if (hasCustomController) return;
 					handleBlur(field as string)(e);
 				}}
-				style={cx(
-					styles.container__optionSwitch__control,
-					[styles.container__optionSwitch__control__on, isActivated],
-					[styles.container__optionSwitch__control__off, !isActivated]
+				style={cx<ViewStyle>(
+					controllerStyle.baseController,
+					[controllerStyle.activeStyle, isActivated],
+					[controllerStyle.inactiveStyle, !isActivated]
 				)}
 				onPress={() => {
 					setIsActive(!isActivated);

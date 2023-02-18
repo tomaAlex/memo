@@ -1,0 +1,33 @@
+.container {
+    width: 90%;
+    align-self: center;
+    height: 80%;
+    align-content: center;
+    flex: 1;
+
+    &__form {
+        height: 69%;
+        margin-top: 30%;
+        justify-content: center;
+    }
+
+    &__error {
+        margin-top: 5px;
+        align-self: center;
+    }
+
+    &__selectionNote {
+        font-family: "Poppins-Light";
+        color: #31313199;
+        padding-left: 30%;
+        padding-top: 3%;
+        font-size: 14;
+    }
+
+    &__switches {
+        flex: 1;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-self: center;
+    }
+}

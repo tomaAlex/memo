@@ -1,0 +1,18 @@
+.container {
+    &__element {
+        margin-top: 30%;
+        border-radius: 30px;
+        border-color: #F10065;
+        border-width: 2px;
+        justify-content: center;
+        align-items: center;
+        padding: 14%;
+        margin-left: 5%;
+        margin-right: 5%;
+        height: 120px;
+
+        &__selectedElement {
+            background-color: #F10065;
+        }
+    }
+}

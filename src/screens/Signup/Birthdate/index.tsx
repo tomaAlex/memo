@@ -33,11 +33,10 @@ const Birthdate = ({ navigation, route }: ScreenProps<ScreenNames.BirthDate>) =>
 						validationSchema={birthDateSchema}
 						initialValues={{ birthDate: getInitialDate() }}
 						onSubmit={(values) => {
-							// navigation.navigate(ScreenNames.Gender, {
-							// 	birthdateForm: { birthDate: values.birthDate, ...lastNameForm },
-							// 	stepNumber: stepNumber + 1,
-							// });
-							console.log(values.birthDate);
+							navigation.navigate(ScreenNames.Gender, {
+								birthdateForm: { birthDate: values.birthDate, ...lastNameForm },
+								stepNumber: stepNumber + 1,
+							});
 						}}
 					>
 						{({ values }) => (

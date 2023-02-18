@@ -21,6 +21,12 @@ import ArrowLeftIcon from "./arrow-left.svg";
 import ArrowRightIcon from "./arrow-right.svg";
 import BurgerMenu from "./burger-menu.svg";
 import FilterIcon from "./filter.svg";
+import MaleIcon from "./male.svg";
+import FemaleIcon from "./female.svg";
+import IntersexIcon from "./intersex.svg";
+import HetersexualIcon from "./heterosexual.svg";
+import HomosexualIcon from "./homosexual.svg";
+import BisexualIcon from "./bisexual.svg";
 
 export {
 	HeartIcon,
@@ -46,4 +52,10 @@ export {
 	ArrowRightIcon,
 	BurgerMenu,
 	FilterIcon,
+	MaleIcon,
+	FemaleIcon,
+	IntersexIcon,
+	HetersexualIcon,
+	HomosexualIcon,
+	BisexualIcon,
 };
