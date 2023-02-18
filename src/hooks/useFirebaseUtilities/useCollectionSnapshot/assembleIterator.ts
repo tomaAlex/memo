@@ -1,7 +1,8 @@
 import { SetStateAction } from "react";
-import { FirebaseCollectionIterator } from "./types";
-import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
 import getCurrentElement from "./getCurrentElement";
+import { FirebaseCollectionIterator } from "./types";
+import { IdentifiedDataStructure } from "../useSnapshot/types";
+import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
 
 const assembleIterator = <
 	DataStructure extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData
@@ -14,7 +15,7 @@ const assembleIterator = <
 		FirebaseFirestoreTypes.DocumentReference<DataStructure>
 	],
 	setCurrentCollectionIdIndex: (previousCurrentCollectionIdIndex: SetStateAction<number>) => void
-): FirebaseCollectionIterator<DataStructure> => {
+): FirebaseCollectionIterator<IdentifiedDataStructure<DataStructure>> => {
 	return {
 		previous: () => {
 			if (!hasPrevious) {
@@ -31,6 +32,9 @@ const assembleIterator = <
 		current: () => getCurrentElement(hasFetchedCollectionIds, currentCollectionDocumentDynamicSnapshot),
 		hasPrevious: () => hasPrevious,
 		hasNext: () => hasNext,
+		reset: () => {
+			setCurrentCollectionIdIndex(0);
+		},
 	};
 };
 

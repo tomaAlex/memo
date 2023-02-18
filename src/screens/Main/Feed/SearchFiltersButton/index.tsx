@@ -5,12 +5,14 @@ import styles from "./SearchFiltersButton.module.scss";
 
 type TProps = {
 	showFiltersModal: () => void;
+	color?: string;
+	fill?: string;
 };
 
-const SearchFiltersButton = ({ showFiltersModal }: TProps) => {
+const SearchFiltersButton = ({ showFiltersModal, color = "#fff", fill = "#fff" }: TProps) => {
 	return (
 		<TouchableOpacity onPress={showFiltersModal} style={styles.container}>
-			<FilterIcon style={styles.container__icon} color={"#fff"} fill={"#fff"} />
+			<FilterIcon style={styles.container__icon} {...{ color, fill }} />
 		</TouchableOpacity>
 	);
 };

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { IdentifiedDataStructure } from "../useSnapshot/types";
 import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
 import { FirebaseCollectionIterator } from "../useCollectionSnapshot/types";
 import determineWhetherCollectionExpanded from "./determineWhetherCollectionExpanded";
@@ -9,11 +10,13 @@ export const useCollectionIteratorAsArray = <
 	current,
 	hasNext,
 	next,
-}: FirebaseCollectionIterator<DataStructure>): [
-	cachedCollection: DataStructure[],
-	expandCachedCollection: () => void
+	reset,
+}: FirebaseCollectionIterator<IdentifiedDataStructure<DataStructure>>): [
+	cachedCollection: IdentifiedDataStructure<DataStructure>[],
+	expandCachedCollection: () => void,
+	resetCachedCollection: () => void
 ] => {
-	const [collection, setCollection] = useState<DataStructure[]>([]);
+	const [collection, setCollection] = useState<IdentifiedDataStructure<DataStructure>[]>([]);
 	const currentSnapshot = current();
 	const canGoNext = hasNext();
 
@@ -23,6 +26,11 @@ export const useCollectionIteratorAsArray = <
 		}
 		next();
 	}, [canGoNext, next]);
+
+	const resetCollection = useCallback(() => {
+		setCollection([]);
+		reset();
+	}, [reset]);
 
 	useEffect(() => {
 		extendCollection();
@@ -41,5 +49,5 @@ export const useCollectionIteratorAsArray = <
 		setCollection((previousCollection) => [...previousCollection, { ...possiblyNewElement }]);
 	}, [currentSnapshot, collection]);
 
-	return [collection, extendCollection];
+	return [collection, extendCollection, resetCollection];
 };

@@ -13,7 +13,11 @@ import FormRangeSliderFieldLabel from "components/forms/FormRangeSliderFieldLabe
 import SearchFiltersFormGenderPicker from "./SearchFiltersFormGenderPicker";
 import SearchFiltersFormSubmitButton from "./SearchFiltersFormSubmitButton";
 
-const SearchFiltersForm = () => {
+type TProps = {
+	resetRecommendations: () => void;
+};
+
+const SearchFiltersForm = ({ resetRecommendations }: TProps) => {
 	const { ageRange, maximumDistance, likesOnly, genders } = useSelector(selectSearchFilters);
 	const searchFiltersSchema = useSearchFiltersFormValidationRules();
 	const [isApplyingFilters, setIsApplyingFilters] = useState(false);
@@ -36,6 +40,7 @@ const SearchFiltersForm = () => {
 				await firebaseUpdateUser({
 					searchFilters: { ageRange: age, maximumDistance: distance, likesOnly: updatedLikesOnly, genders: gender },
 				});
+				resetRecommendations();
 				setIsApplyingFilters(false);
 				// console.log(searchFilters);
 			}}

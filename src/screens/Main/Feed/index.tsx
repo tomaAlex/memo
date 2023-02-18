@@ -10,8 +10,8 @@ import markDeviceToken from "./utils/markDeviceToken";
 import FeedLoading from "Loading/FeedLoading";
 import SearchFiltersButton from "./SearchFiltersButton";
 import SearchFiltersModal from "./SearchFiltersModal";
-import { MainScreenNames, ScreenProps, IdentifiedUser, User } from "types/index";
-import { useCollectionSnapshotArray, useMatchPreviewLoader, useSnapshot } from "hooks/index";
+import { MainScreenNames, ScreenProps, User } from "types/index";
+import { useExpandableRecommendations, useMatchPreviewLoader, useSnapshot } from "hooks/index";
 
 const Feed = ({
 	user,
@@ -24,6 +24,8 @@ const Feed = ({
 	navigation,
 }: ScreenProps<MainScreenNames.Feed>) => {
 	const [userData] = useSnapshot<User>("users", uid ? uid : user.id);
+	const openedLoadingAnimationSize = 350;
+	const [loadingAnimationSize, setLoadingAnimationSize] = useState(openedLoadingAnimationSize);
 	useMatchPreviewLoader(user, updateAllMatchPreviews);
 
 	useEffect(() => {
@@ -35,8 +37,9 @@ const Feed = ({
 	}, [userData, updateUser]);
 
 	const [isFiltersModalVisible, setIsFiltersModalVisible] = useState(false);
-	const [recommendations, expandRecommendations] = useCollectionSnapshotArray<IdentifiedUser>("users");
-	const loadingRecommendations = recommendations.length === 0;
+	const [filteredRecommendations, expandFilteredRecommendations, resetFilteredRecommendations] =
+		useExpandableRecommendations();
+	const loadingRecommendations = filteredRecommendations.length === 0;
 	const hasMaximumMatches = matchPreviews.length >= MAXIMUM_MATCHES;
 
 	const loadDependencies = async () => {
@@ -50,7 +53,23 @@ const Feed = ({
 	if (loadingRecommendations) {
 		return (
 			<View style={styles.loadingContainer}>
-				<FeedLoading heigth={350} width={350} />
+				<SearchFiltersButton
+					color="#F10065"
+					fill="#F10065"
+					showFiltersModal={() => {
+						setLoadingAnimationSize(0);
+						setIsFiltersModalVisible(true);
+					}}
+				/>
+				<FeedLoading heigth={loadingAnimationSize} width={loadingAnimationSize} />
+				<SearchFiltersModal
+					visible={isFiltersModalVisible}
+					onRequestClose={() => {
+						setLoadingAnimationSize(openedLoadingAnimationSize);
+						setIsFiltersModalVisible(false);
+					}}
+					resetRecommendations={resetFilteredRecommendations}
+				/>
 			</View>
 		);
 	}
@@ -63,8 +82,16 @@ const Feed = ({
 			) : (
 				<View style={styles.container__swiperContainer}>
 					<SearchFiltersButton showFiltersModal={() => setIsFiltersModalVisible(true)} />
-					<UsersSwiper {...{ recommendations, expandRecommendations }} />
-					<SearchFiltersModal visible={isFiltersModalVisible} onRequestClose={() => setIsFiltersModalVisible(false)} />
+					<UsersSwiper
+						recommendations={filteredRecommendations}
+						expandRecommendations={expandFilteredRecommendations}
+						resetRecommendations={resetFilteredRecommendations}
+					/>
+					<SearchFiltersModal
+						visible={isFiltersModalVisible}
+						onRequestClose={() => setIsFiltersModalVisible(false)}
+						resetRecommendations={resetFilteredRecommendations}
+					/>
 				</View>
 			)}
 		</SafeAreaView>

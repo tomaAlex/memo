@@ -4,12 +4,13 @@ import assembleIterator from "./assembleIterator";
 import fetchCollectionIds from "./fetchCollectionIds";
 import { FirebaseCollectionIterator } from "./types";
 import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
+import { IdentifiedDataStructure } from "../useSnapshot/types";
 
 export const useCollectionSnapshot = <
 	DataStructure extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData
 >(
 	collectionId: string
-): FirebaseCollectionIterator<DataStructure> => {
+): FirebaseCollectionIterator<IdentifiedDataStructure<DataStructure>> => {
 	const [collectionIds, setCollectionIds] = useState<string[]>([]);
 	const [currentCollectionIdIndex, setCurrentCollectionIdIndex] = useState<number>(-1);
 	const hasFetchedCollectionIds = collectionIds.length > 0;

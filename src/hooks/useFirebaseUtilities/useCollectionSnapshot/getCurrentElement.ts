@@ -1,5 +1,6 @@
 import { DynamicFirebaseSnapshot } from "./types";
 import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
+import { IdentifiedDataStructure } from "../useSnapshot/types";
 
 const getCurrentElement = <
 	DataStructure extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData
@@ -9,10 +10,10 @@ const getCurrentElement = <
 		DataStructure | null,
 		FirebaseFirestoreTypes.DocumentReference<DataStructure>
 	]
-): DynamicFirebaseSnapshot<DataStructure> | null => {
+): DynamicFirebaseSnapshot<IdentifiedDataStructure<DataStructure>> | null => {
 	const hasSnapshot = hasFetchedCollectionIds && currentCollectionDocumentDynamicSnapshot[0] !== null;
 	return hasSnapshot
-		? (currentCollectionDocumentDynamicSnapshot as DynamicFirebaseSnapshot<DataStructure> | null)
+		? (currentCollectionDocumentDynamicSnapshot as DynamicFirebaseSnapshot<IdentifiedDataStructure<DataStructure>>)
 		: null;
 };
 

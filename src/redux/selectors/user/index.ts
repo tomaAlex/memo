@@ -2,6 +2,8 @@ export * from "./selectUpdatedFeatures";
 export * from "./selectAge";
 export * from "./selectAwaitingLoginStatus";
 export * from "./selectFullName";
+export * from "./selectId";
 export * from "./selectIsPremium";
+export * from "./selectLocation";
 export * from "./selectSearchFilters";
 export * from "./selectUser";

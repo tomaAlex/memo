@@ -11,4 +11,5 @@ export type FirebaseCollectionIterator<DataStructure extends FirebaseFirestoreTy
 	current: () => DynamicFirebaseSnapshot<DataStructure> | null;
 	hasPrevious: () => boolean;
 	hasNext: () => boolean;
+	reset: () => void;
 };

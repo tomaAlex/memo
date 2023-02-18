@@ -9,13 +9,15 @@ import PaymentSheet from "./PaymentSheet";
 import UsersSwiperContext from "./UsersSwiperContext";
 import RefreshFeedButton from "../RefreshFeedButton";
 import overlayLabels from "./overlayLabels";
+import { Dimensions } from "react-native";
 
 type TProps = {
 	recommendations: IdentifiedUser[];
 	expandRecommendations: () => void;
+	resetRecommendations: () => void;
 };
 
-const UsersSwiper = ({ recommendations, expandRecommendations }: TProps) => {
+const UsersSwiper = ({ recommendations, expandRecommendations, resetRecommendations }: TProps) => {
 	const refRBSheet = useRef<RBSheet>(null);
 	const swiperReference = useRef<Swiper<IdentifiedUser>>(null);
 	const [isSwiperBlocked, setIsSwiperBlocked] = useState(false);
@@ -24,6 +26,8 @@ const UsersSwiper = ({ recommendations, expandRecommendations }: TProps) => {
 	const [swipedAllUsers, setSwipedAllUsers] = useState(false);
 	const increaseInAppInteractions = useInAppInteractionsUpdater("increment");
 	const hasJustLoaded = useRef<boolean>(true);
+	const feedExhaustionMarkingTimeout = useRef<NodeJS.Timeout | null>(null);
+	const { width, height } = Dimensions.get("screen");
 
 	const likeProfile = useProfileLiker();
 	const dislikeProfile = useProfileDisliker();
@@ -32,6 +36,11 @@ const UsersSwiper = ({ recommendations, expandRecommendations }: TProps) => {
 		if (hasJustLoaded.current) {
 			hasJustLoaded.current = false;
 			return;
+		}
+		if (feedExhaustionMarkingTimeout.current) {
+			// a new recommendation came through, the feed is not exhausted yet
+			// so make sure to clear the planned action of marking it as exhausted
+			clearTimeout(feedExhaustionMarkingTimeout.current);
 		}
 		swiperReference.current?.jumpToCardIndex(recommendations.length - 1);
 		setCurrentlyDisplayedUserIndex(recommendations.length - 1);
@@ -68,6 +77,9 @@ const UsersSwiper = ({ recommendations, expandRecommendations }: TProps) => {
 				}}
 				onSwipedAll={() => {
 					expandRecommendations();
+					feedExhaustionMarkingTimeout.current = setTimeout(() => {
+						setSwipedAllUsers(true);
+					}, 5000);
 				}}
 				horizontalSwipe={!isSwiperBlocked}
 				verticalSwipe={!isSwiperBlocked && getVerticalState(currentlyDisplayedUserIndex, recommendations)}
@@ -75,12 +87,17 @@ const UsersSwiper = ({ recommendations, expandRecommendations }: TProps) => {
 				stackSize={1}
 				animateCardOpacity
 				animateOverlayLabelsOpacity
+				overlayOpacityVerticalThreshold={10}
+				overlayOpacityHorizontalThreshold={10}
+				inputOverlayLabelsOpacityRangeX={[-width / 5, -width / 10, 0, width / 10, width / 5]}
+				inputOverlayLabelsOpacityRangeY={[-height / 10, -height / 20, 0, height / 20, height / 10]}
 				{...{ overlayLabels }}
 			/>
 			<RefreshFeedButton
 				refreshFeed={() => {
 					// refreshFeed();
-					expandRecommendations();
+					// expandRecommendations();
+					resetRecommendations();
 					setCurrentlyDisplayedUserIndex(0);
 				}}
 				{...{ swipedAllUsers }}

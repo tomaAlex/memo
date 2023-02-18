@@ -9,9 +9,10 @@ import styles from "./SearchFiltersModal.module.scss";
 type TProps = {
 	visible: boolean;
 	onRequestClose: () => void;
+	resetRecommendations: () => void;
 };
 
-const SearchFiltersModal = ({ visible, onRequestClose }: TProps) => {
+const SearchFiltersModal = ({ visible, onRequestClose, resetRecommendations }: TProps) => {
 	const [t] = useTranslation("translation", { keyPrefix: "Screens.Main.Feed.SearchFiltersModal" });
 
 	return (
@@ -22,7 +23,7 @@ const SearchFiltersModal = ({ visible, onRequestClose }: TProps) => {
 				</TouchableOpacity>
 				<Text style={styles.container__header__caption}>{t("header")}</Text>
 			</View>
-			<SearchFiltersForm />
+			<SearchFiltersForm {...{ resetRecommendations }} />
 		</View>
 	);
 };
