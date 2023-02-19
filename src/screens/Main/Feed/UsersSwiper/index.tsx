@@ -26,6 +26,7 @@ const UsersSwiper = ({ recommendations, expandRecommendations, resetRecommendati
 	const [swipedAllUsers, setSwipedAllUsers] = useState(false);
 	const increaseInAppInteractions = useInAppInteractionsUpdater("increment");
 	const hasJustLoaded = useRef<boolean>(true);
+	const preventedFeedExhaustionMarkingTimeout = useRef<boolean>(false);
 	const feedExhaustionMarkingTimeout = useRef<NodeJS.Timeout | null>(null);
 	const { width, height } = Dimensions.get("screen");
 
@@ -45,6 +46,37 @@ const UsersSwiper = ({ recommendations, expandRecommendations, resetRecommendati
 		swiperReference.current?.jumpToCardIndex(recommendations.length - 1);
 		setCurrentlyDisplayedUserIndex(recommendations.length - 1);
 	}, [recommendations]);
+
+	const markFeedExhaustionTimeout = () => {
+		feedExhaustionMarkingTimeout.current = setTimeout(() => {
+			setSwipedAllUsers(true);
+		}, 5000);
+	};
+
+	useEffect(() => {
+		if (!isSwiperBlocked || !feedExhaustionMarkingTimeout.current) {
+			return;
+		}
+		clearTimeout(feedExhaustionMarkingTimeout.current);
+		preventedFeedExhaustionMarkingTimeout.current = true;
+	}, [isSwiperBlocked]);
+
+	useEffect(() => {
+		const isFeedExhausted = currentlyDisplayedUserIndex > recommendations.length - 1;
+		if (isSwiperBlocked || !isFeedExhausted || !preventedFeedExhaustionMarkingTimeout.current) {
+			return;
+		}
+		markFeedExhaustionTimeout();
+		preventedFeedExhaustionMarkingTimeout.current = false;
+	}, [currentlyDisplayedUserIndex, isSwiperBlocked, recommendations.length]);
+
+	useEffect(() => {
+		const isFeedExhausted = currentlyDisplayedUserIndex > recommendations.length - 1;
+		if (!isSwiperBlocked || !isFeedExhausted) {
+			return;
+		}
+		setCurrentlyDisplayedUserIndex(recommendations.length - 1);
+	}, [currentlyDisplayedUserIndex, isSwiperBlocked, recommendations.length]);
 
 	return (
 		<UsersSwiperContext.Provider
@@ -77,9 +109,7 @@ const UsersSwiper = ({ recommendations, expandRecommendations, resetRecommendati
 				}}
 				onSwipedAll={() => {
 					expandRecommendations();
-					feedExhaustionMarkingTimeout.current = setTimeout(() => {
-						setSwipedAllUsers(true);
-					}, 5000);
+					markFeedExhaustionTimeout();
 				}}
 				horizontalSwipe={!isSwiperBlocked}
 				verticalSwipe={!isSwiperBlocked && getVerticalState(currentlyDisplayedUserIndex, recommendations)}
