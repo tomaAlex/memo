@@ -30,7 +30,6 @@ const Main = ({
 	const awaitingLoginStatus = useSelector(selectAwaitingLoginStatus);
 	const isGenericAdShown = useSelector(selectIsGenericAdShown);
 	const resetInAppAdInteractions = useInAppInteractionsUpdater("reset");
-
 	useEffect(() => {
 		if (user) {
 			setAwaitingLoginStatus(false);

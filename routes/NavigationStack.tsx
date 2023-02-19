@@ -18,6 +18,8 @@ import Orientation from "screens/Signup/Orientation";
 import Height from "screens/Signup/Height";
 import Work from "screens/Signup/Work";
 import Description from "screens/Signup/Description";
+import Photos from "screens/Signup/Photos";
+import SignupConfirmation from "screens/Signup/SignupConfirmation";
 
 const Stack = createStackNavigator<NavigationStackTypes>();
 
@@ -36,6 +38,8 @@ const Navigator = () => {
 				<Stack.Screen name={ScreenNames.Height} component={Height} />
 				<Stack.Screen name={ScreenNames.Work} component={Work} />
 				<Stack.Screen name={ScreenNames.Description} component={Description} />
+				<Stack.Screen name={ScreenNames.Photos} component={Photos} />
+				<Stack.Screen name={ScreenNames.SignupConfirmation} component={SignupConfirmation} />
 				<Stack.Screen name={ScreenNames.Details} component={Details} />
 				<Stack.Screen name={ScreenNames.Embodiment} component={Embodiment} />
 				<Stack.Screen name={ScreenNames.Main} component={Main} />

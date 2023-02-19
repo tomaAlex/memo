@@ -24,9 +24,7 @@ import FilterIcon from "./filter.svg";
 import MaleIcon from "./male.svg";
 import FemaleIcon from "./female.svg";
 import IntersexIcon from "./intersex.svg";
-import HetersexualIcon from "./heterosexual.svg";
-import HomosexualIcon from "./homosexual.svg";
-import BisexualIcon from "./bisexual.svg";
+import LadyIcon from "./lady.svg";
 
 export {
 	HeartIcon,
@@ -55,7 +53,5 @@ export {
 	MaleIcon,
 	FemaleIcon,
 	IntersexIcon,
-	HetersexualIcon,
-	HomosexualIcon,
-	BisexualIcon,
+	LadyIcon,
 };

@@ -15,7 +15,8 @@ export enum ScreenNames {
 	Height = "Height",
 	Work = "Work",
 	Description = "Description",
-	PhotoForm = "PhotoForm",
+	Photos = "Photos",
+	SignupConfirmation = "SignupConfirmation",
 }
 
 export enum MainScreenNames {

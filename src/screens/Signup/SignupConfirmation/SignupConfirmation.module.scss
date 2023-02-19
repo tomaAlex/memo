@@ -1,0 +1,27 @@
+.container {
+    flex: 1;
+
+    &__user {
+        align-self: center;
+    }
+
+    &__profileNote {
+        font-size: 25px;
+        font-family: "Poppins-Semibold";
+        font-weight: 600;
+        color: #313131;
+        margin-left: 2%;
+        align-self: center;
+    }
+
+    &__matchNote {
+        font-family: "Poppins-Light";
+        color: #31313199;
+        font-size: 14;
+        align-self: center;
+    }
+
+    &__loading {
+        align-self: center;
+    }
+}

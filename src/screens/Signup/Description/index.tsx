@@ -21,13 +21,12 @@ const Description = ({ navigation, route }: ScreenProps<ScreenNames.Description>
 					<TextForm
 						schema={descriptionSchema}
 						initialValues={{ description: "" }}
-						submissionHandler={(data) =>
-							// navigation.navigate(ScreenNames.BirthDate, {
-							// 	lastNameForm: { lastName: data.lastName, ...firstNameForm },
-							// 	stepNumber: stepNumber + 1,
-							// })
-							console.log(data)
-						}
+						submissionHandler={(data) => {
+							navigation.navigate(ScreenNames.Photos, {
+								descriptionForm: { description: data.description, ...workForm },
+								stepNumber: stepNumber + 1,
+							});
+						}}
 						data={[
 							{
 								fieldName: "description",
@@ -36,7 +35,7 @@ const Description = ({ navigation, route }: ScreenProps<ScreenNames.Description>
 								placeholder: "Write a description. Get creative.",
 								style: { paddingLeft: "7%" },
 								multiline: true,
-								textInputHeight: "80%",
+								textInputHeight: "77%",
 							},
 						]}
 						buttonSpacing={"30%"}

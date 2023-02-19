@@ -96,7 +96,9 @@
 							}
 						}
 					}
-				}
+				},
+				"confirmation": "Your profile is set!",
+				"matchReady": "Get ready to swipe your love!"
 			},
 			"Main": {
 				"Feed": {

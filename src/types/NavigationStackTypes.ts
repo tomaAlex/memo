@@ -65,13 +65,9 @@ export type DescriptionForm = {
 	description: User["description"];
 } & WorkForm;
 
-export type LocationForm = {
-	location: User["location"];
-} & HeightForm;
-
 export type PhotoForm = {
 	photos: User["photos"];
-} & LocationForm;
+} & DescriptionForm;
 
 export interface NavigationStackTypes extends NavigationStackTypesStructure {
 	[ScreenNames.Observer]: undefined;
@@ -113,10 +109,11 @@ export interface NavigationStackTypes extends NavigationStackTypesStructure {
 		workForm: WorkForm;
 		stepNumber: number;
 	};
-	[ScreenNames.PhotoForm]: {
+	[ScreenNames.Photos]: {
 		descriptionForm: DescriptionForm;
 		stepNumber: number;
 	};
+	[ScreenNames.SignupConfirmation]: undefined;
 	[ScreenNames.Main]: {
 		uid?: string;
 	};

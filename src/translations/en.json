@@ -79,7 +79,8 @@
 						"Labels": {
 							"height": "What's your height ? \n (cm)",
 							"orientation": "Who would you date ?",
-							"photos": "Photos",
+							"photos": "Add your photos",
+							"photosNote": "Add at least 2 photos \n to get more attention",
 							"orientationNote": "You may select both"
 						},
 						"Errors": {
@@ -97,7 +98,9 @@
 							}
 						}
 					}
-				}
+				},
+				"confirmation": "Your profile is set!",
+				"matchReady": "Get ready to swipe your love!"
 			},
 			"Main": {
 				"Feed": {

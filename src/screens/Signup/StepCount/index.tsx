@@ -7,7 +7,7 @@ type TProps = {
 } & TextProps;
 
 const StepCount = ({ stepNo, ...textProps }: TProps) => {
-	const TOTAL_STEPS = 10;
+	const TOTAL_STEPS = 9;
 	return <Text style={styles.text} {...textProps}>{`Step ${stepNo} of ${TOTAL_STEPS}`}</Text>;
 };
 
