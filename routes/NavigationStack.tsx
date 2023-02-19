@@ -17,6 +17,7 @@ import Gender from "screens/Signup/Gender";
 import Orientation from "screens/Signup/Orientation";
 import Height from "screens/Signup/Height";
 import Work from "screens/Signup/Work";
+import Description from "screens/Signup/Description";
 
 const Stack = createStackNavigator<NavigationStackTypes>();
 
@@ -34,6 +35,7 @@ const Navigator = () => {
 				<Stack.Screen name={ScreenNames.Orientation} component={Orientation} />
 				<Stack.Screen name={ScreenNames.Height} component={Height} />
 				<Stack.Screen name={ScreenNames.Work} component={Work} />
+				<Stack.Screen name={ScreenNames.Description} component={Description} />
 				<Stack.Screen name={ScreenNames.Details} component={Details} />
 				<Stack.Screen name={ScreenNames.Embodiment} component={Embodiment} />
 				<Stack.Screen name={ScreenNames.Main} component={Main} />

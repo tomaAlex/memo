@@ -22,11 +22,10 @@ const Work = ({ navigation, route }: ScreenProps<ScreenNames.Work>) => {
 						schema={workSchema}
 						initialValues={{ job: "" }}
 						submissionHandler={(data) =>
-							// navigation.navigate(ScreenNames.BirthDate, {
-							// 	lastNameForm: { lastName: data.lastName, ...firstNameForm },
-							// 	stepNumber: stepNumber + 1,
-							// })
-							console.log(data)
+							navigation.navigate(ScreenNames.Description, {
+								workForm: { work: data.job, ...heightForm },
+								stepNumber: stepNumber + 1,
+							})
 						}
 						data={[
 							{

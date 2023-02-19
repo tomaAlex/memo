@@ -3,7 +3,7 @@ import FormSubmitButton from "components/forms/FormSubmitButton";
 import FormTextInput from "components/forms/FormTextInput";
 import { Formik, FormikValues } from "formik";
 import React from "react";
-import { KeyboardAvoidingView, Platform, Text, TextInput, TextProps, View, ViewStyle } from "react-native";
+import { KeyboardAvoidingView, Platform, StyleProp, Text, TextInput, TextProps, View, ViewStyle } from "react-native";
 import Label from "../Label";
 import Submit from "../Submit";
 import styles from "./TextForm.module.scss";
@@ -13,6 +13,7 @@ type FormComponent = {
 	label: string;
 	isMandatory: boolean;
 	placeholder: string;
+	textInputHeight?: string | number;
 } & TextInput["props"] &
 	TextProps;
 
@@ -31,7 +32,11 @@ const TextForm = ({ schema, initialValues, submissionHandler, data, buttonSpacin
 				{data.map((element, index) => {
 					return (
 						<View key={index} style={styles.container__formContainer}>
-							<FormTextInput field={element.fieldName} {...element} style={styles.container__textInput}>
+							<FormTextInput
+								field={element.fieldName}
+								{...element}
+								style={[styles.container__textInput, element.textInputHeight && { height: element.textInputHeight }]}
+							>
 								{/* <FormFieldLabel
 									removeColon={true}
 									{...element}

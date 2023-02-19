@@ -34,7 +34,6 @@ const Height = ({ navigation, route }: ScreenProps<ScreenNames.Height>) => {
 								placeholder: "e.g. 181",
 							},
 						]}
-						buttonSpacing={"15%"}
 					/>
 				</View>
 			</TouchableWithoutFeedback>

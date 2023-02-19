@@ -43,7 +43,7 @@
 						"Labels": {
 							"job": "What's your Job title ?",
 							"school": "School name",
-							"description": "Description",
+							"description": "Write something \n about you",
 							"location": {
 								"country": "Country",
 								"state": "State",
