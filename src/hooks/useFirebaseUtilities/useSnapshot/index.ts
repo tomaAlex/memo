@@ -23,12 +23,13 @@ export const useSnapshot = <
 			return;
 		}
 		const updatedData = snapshot.data() as DataStructure;
-		const didDataUpdate = JSON.stringify(updatedData) !== JSON.stringify(data);
+		const identifiedUpdatedData = { ...updatedData, id: snapshot.id };
+		const didDataUpdate = JSON.stringify(identifiedUpdatedData) !== JSON.stringify(data);
 		if (!didDataUpdate) {
 			return;
 		}
 		const unidentifiedData = snapshot.data() as DataStructure;
-		setData({ ...unidentifiedData, id: snapshot.id });
+		setData(identifiedUpdatedData);
 	});
 
 	useEffect(() => stopListeningToSnapshot, [stopListeningToSnapshot]);

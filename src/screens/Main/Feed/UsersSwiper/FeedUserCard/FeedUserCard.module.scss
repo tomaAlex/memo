@@ -32,6 +32,14 @@
 			bottom: 105;
 			color: white;
 
+			&__likedText {
+				font-size: 17px;
+				color: #FBC45A;
+				margin-left: 20px;
+				font-family: Poppins-Regular;
+				font-weight: bold;
+			}
+
 			&__text {
 				font-size: 17px;
 				color: white;

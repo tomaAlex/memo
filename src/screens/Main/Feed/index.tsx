@@ -62,6 +62,7 @@ const Feed = ({
 						setLoadingAnimationSize(0);
 						setIsFiltersModalVisible(true);
 					}}
+					top="10%"
 				/>
 				<FeedLoading heigth={loadingAnimationSize} width={loadingAnimationSize} />
 				<SearchFiltersModal

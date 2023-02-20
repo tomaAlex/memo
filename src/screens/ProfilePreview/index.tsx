@@ -44,7 +44,7 @@ const ProfilePreview = ({
 					ref={swiperReference}
 					backgroundColor="white"
 					cards={[identifiedUserToPreview]}
-					cardStyle={{ flex: 1, width: "100%", height: "100%", top: 0, left: 0 }}
+					cardStyle={{ flex: 1, width: "100%", height: "80%", top: "10%", left: 0 }}
 					renderCard={(userToDisplay) => <FeedUserCard {...{ userToDisplay, fullScreen: true }} />}
 					horizontalSwipe={false}
 					verticalSwipe={false}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, SafeAreaView, FlatList, View } from "react-native";
 import { MainScreenNames, ScreenProps } from "types/index";
 import connector from "../../../redux/connector";

@@ -8,6 +8,8 @@ import { getTimestampPreview } from "Firebase/index";
 import isMessageSeen from "utils/getSeenByIndicator";
 import { IdentifiedUser } from "types/index";
 import { ReadMessage } from "icons";
+import { useSelector } from "react-redux";
+import { selectIsPremium } from "redux/selectors";
 
 type TProps = {
 	matchedUsers: IdentifiedUser[];
@@ -16,7 +18,7 @@ type TProps = {
 const MatchMessagePreview = ({ author, content, timestamp, seenBy, matchedUsers }: TProps) => {
 	const isAuthorCurrentUser = author === "memo" || author === store.getState().user.id;
 	const timestampPreview = getTimestampPreview(timestamp);
-
+	const isPremium = useSelector(selectIsPremium);
 	return (
 		<View style={cx([styles.self, isAuthorCurrentUser], [styles.other, !isAuthorCurrentUser])}>
 			<TouchableOpacity
@@ -45,7 +47,7 @@ const MatchMessagePreview = ({ author, content, timestamp, seenBy, matchedUsers 
 				>
 					{timestampPreview}
 				</Text>
-				{isAuthorCurrentUser && isMessageSeen(matchedUsers, seenBy) && (
+				{isPremium && isAuthorCurrentUser && isMessageSeen(matchedUsers, seenBy) && (
 					<ReadMessage height={8} style={styles.metadata__read} />
 				)}
 			</View>

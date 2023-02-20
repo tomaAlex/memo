@@ -109,7 +109,8 @@
 						"startConversation": "Start a conversation"
 					},
 					"Details": {
-						"years": "years"
+						"years": "years",
+						"liked": "Already liked you"
 					},
 					"EnoughMatchesNote": {
 						"caption": "It is time you focus on your current matches"

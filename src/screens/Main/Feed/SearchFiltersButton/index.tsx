@@ -7,11 +7,12 @@ type TProps = {
 	showFiltersModal: () => void;
 	color?: string;
 	fill?: string;
+	top?: number | string;
 };
 
-const SearchFiltersButton = ({ showFiltersModal, color = "#fff", fill = "#fff" }: TProps) => {
+const SearchFiltersButton = ({ showFiltersModal, color = "#fff", fill = "#fff", top }: TProps) => {
 	return (
-		<TouchableOpacity onPress={showFiltersModal} style={styles.container}>
+		<TouchableOpacity onPress={showFiltersModal} style={[styles.container, top && { top }]}>
 			<FilterIcon style={styles.container__icon} {...{ color, fill }} />
 		</TouchableOpacity>
 	);

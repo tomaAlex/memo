@@ -1,7 +1,7 @@
 import { useSignupHeightFormValidationRules } from "hooks/useFormValidationRules/useSignupHeightFormValidationRules";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { View, SafeAreaView, Keyboard, TouchableWithoutFeedback } from "react-native";
+import { View, SafeAreaView, Keyboard, TouchableWithoutFeedback, Platform } from "react-native";
 import connector from "redux/connector";
 import { ScreenNames, ScreenProps } from "types";
 import Header from "../Header";
@@ -32,8 +32,10 @@ const Height = ({ navigation, route }: ScreenProps<ScreenNames.Height>) => {
 								label: translateLabels("height"),
 								isMandatory: true,
 								placeholder: "e.g. 181",
+								textInputHeight: Platform.OS === "android" ? "45%" : undefined,
 							},
 						]}
+						buttonSpacing={"8%"}
 					/>
 				</View>
 			</TouchableWithoutFeedback>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import connector from "../../redux/connector";
 import { MainNavigationTabTypes, MainScreenNames, ScreenNames, ScreenProps } from "types/index";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -7,12 +7,12 @@ import Chats from "./Chats";
 import Settings from "./Settings";
 import getMainNavbarIcon from "./utils/getMainNavbarIcon";
 import { useSelector } from "react-redux";
-import { selectAwaitingLoginStatus, selectIsGenericAdShown } from "redux/selectors";
+import { selectAwaitingLoginStatus, selectIsGenericAdShown, selectIsPremium } from "redux/selectors";
 import { useInterstitialAd, TestIds } from "react-native-google-mobile-ads";
 import { useInAppInteractionsUpdater } from "hooks";
 import { NotificationTypes } from "NotificationManager/notificationTypes";
 import MessageNotificationManager from "NotificationManager/MessageNotification";
-import BackButton from "components/BackButton";
+import { AdsConsent, AdsConsentStatus } from "react-native-google-mobile-ads";
 
 const MainTab = createBottomTabNavigator<MainNavigationTabTypes>();
 
@@ -27,14 +27,39 @@ const Main = ({
 	clearNotification,
 	matchPreviews,
 }: ScreenProps<ScreenNames.Main>) => {
+	const isPremium = useSelector(selectIsPremium);
 	const awaitingLoginStatus = useSelector(selectAwaitingLoginStatus);
 	const isGenericAdShown = useSelector(selectIsGenericAdShown);
 	const resetInAppAdInteractions = useInAppInteractionsUpdater("reset");
+
 	useEffect(() => {
 		if (user) {
 			setAwaitingLoginStatus(false);
 		}
 	}, [user, setAwaitingLoginStatus]);
+
+	const getAdConsent = async () => {
+		return await AdsConsent.requestInfoUpdate();
+	};
+
+	const showAdConsentForm = async () => {
+		return await AdsConsent.showForm();
+	};
+
+	const getUserChoice = async () => {
+		const { selectPersonalisedAds } = await AdsConsent.getUserChoices();
+		return selectPersonalisedAds;
+	};
+
+	useEffect(() => {
+		getAdConsent().then((consentInfo) => {
+			showAdConsentForm().then((status) => {
+				getUserChoice().then((choice) => {
+					console.log(choice);
+				});
+			});
+		});
+	}, []);
 
 	const { isLoaded, load, show } = useInterstitialAd(TestIds.INTERSTITIAL, {
 		requestNonPersonalizedAdsOnly: true,
@@ -43,7 +68,7 @@ const Main = ({
 	useEffect(() => load(), [load, isGenericAdShown]); // preload the ad
 
 	useEffect(() => {
-		const canShowTheAd = isLoaded && isGenericAdShown;
+		const canShowTheAd = !isPremium && isLoaded && isGenericAdShown;
 		if (!canShowTheAd) {
 			return;
 		}

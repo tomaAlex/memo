@@ -1,7 +1,7 @@
 import { useSignupWorkFormValidationRules } from "hooks/useFormValidationRules/useSignupWorkFormValidationRules";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { View, SafeAreaView, TouchableWithoutFeedback, Keyboard } from "react-native";
+import { View, SafeAreaView, TouchableWithoutFeedback, Keyboard, Platform } from "react-native";
 import connector from "redux/connector";
 import { ScreenNames, ScreenProps } from "types";
 import Header from "../Header";
@@ -33,9 +33,11 @@ const Work = ({ navigation, route }: ScreenProps<ScreenNames.Work>) => {
 								label: translateLabels("job"),
 								isMandatory: false,
 								placeholder: "e.g. Graphic Designer",
+								textInputHeight: Platform.OS === "android" ? "45%" : undefined,
 								style: { paddingLeft: "7%" },
 							},
 						]}
+						buttonSpacing={"8%"}
 					/>
 				</View>
 			</SafeAreaView>

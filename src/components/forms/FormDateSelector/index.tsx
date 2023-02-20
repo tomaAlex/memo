@@ -24,6 +24,7 @@ function FormDateSelector<D>({ field, child }: TProps<D>) {
 				{child}
 			</TouchableOpacity>
 			<DatePicker
+				theme="light"
 				date={values[field] as Date}
 				open={open}
 				modal

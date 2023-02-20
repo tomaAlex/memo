@@ -1,7 +1,7 @@
 import React from "react";
 import { useSignupLastNameFormValidationRules } from "hooks/useFormValidationRules/useSignupLastNameFormValidationRules";
 import { useTranslation } from "react-i18next";
-import { Keyboard, TouchableWithoutFeedback, View, SafeAreaView } from "react-native";
+import { Keyboard, TouchableWithoutFeedback, View, SafeAreaView, Platform } from "react-native";
 import connector from "redux/connector";
 import { ScreenNames, ScreenProps } from "types";
 import Header from "../Header";
@@ -34,8 +34,10 @@ const LastName = ({ navigation, route }: ScreenProps<ScreenNames.LastName>) => {
 								label: translateLabels("lastName"),
 								isMandatory: true,
 								placeholder: "Doe",
+								textInputHeight: Platform.OS === "android" ? "45%" : undefined,
 							},
 						]}
+						buttonSpacing={"8%"}
 					/>
 				</View>
 			</SafeAreaView>

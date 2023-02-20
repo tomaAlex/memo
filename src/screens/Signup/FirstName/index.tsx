@@ -1,7 +1,7 @@
 import { useSignupFirstNameFormValidationRules } from "hooks/useFormValidationRules/useSignupFirstNameFormValidationRules";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Keyboard, TouchableWithoutFeedback, View, SafeAreaView } from "react-native";
+import { Keyboard, TouchableWithoutFeedback, View, SafeAreaView, Platform } from "react-native";
 import connector from "redux/connector";
 import { FirstNameForm, ScreenNames, ScreenProps } from "types";
 import Header from "../Header";
@@ -33,8 +33,10 @@ const FirstName = ({ navigation }: ScreenProps<ScreenNames.FirstName>) => {
 								label: translateLabels("firstName"),
 								isMandatory: true,
 								placeholder: "John",
+								textInputHeight: Platform.OS === "android" ? "45%" : undefined,
 							},
 						]}
+						buttonSpacing={"8%"}
 					/>
 				</View>
 			</SafeAreaView>
