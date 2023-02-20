@@ -1,5 +1,5 @@
 import { MAXIMUM_MATCHES } from "constants/index";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { SafeAreaView, View } from "react-native";
 import connector from "../../../redux/connector";
 import EnoughMatchesNote from "./EnoughMatchesNote";
@@ -12,6 +12,7 @@ import SearchFiltersButton from "./SearchFiltersButton";
 import SearchFiltersModal from "./SearchFiltersModal";
 import { MainScreenNames, ScreenProps, User } from "types/index";
 import { useExpandableRecommendations, useMatchPreviewLoader, useSnapshot } from "hooks/index";
+import handleTutorialDisplaying from "./utils/handleTutorialDisplaying";
 
 const Feed = ({
 	user,
@@ -42,13 +43,14 @@ const Feed = ({
 	const loadingRecommendations = filteredRecommendations.length === 0;
 	const hasMaximumMatches = matchPreviews.length >= MAXIMUM_MATCHES;
 
-	const loadDependencies = async () => {
+	const loadDependencies = useCallback(async () => {
 		markDeviceToken();
-	};
+		handleTutorialDisplaying(navigation);
+	}, [navigation]);
 
 	useEffect(() => {
 		loadDependencies();
-	}, []);
+	}, [loadDependencies]);
 
 	if (loadingRecommendations) {
 		return (

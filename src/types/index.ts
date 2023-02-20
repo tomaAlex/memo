@@ -10,3 +10,4 @@ export * from "./Stripe";
 export * from "./User";
 export * from "./IdLabeledData";
 export * from "./Match";
+export * from "./Memory";

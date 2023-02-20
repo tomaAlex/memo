@@ -126,6 +126,7 @@ export interface NavigationStackTypes extends NavigationStackTypesStructure {
 	[ScreenNames.ProfilePreview]: {
 		userToPreviewId: string;
 	};
+	[ScreenNames.Tutorial]: undefined;
 }
 
 export interface MainNavigationTabTypes extends NavigationTabTypesStructure {

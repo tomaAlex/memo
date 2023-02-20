@@ -326,6 +326,32 @@
 					},
 					"logoutCaption": "Logout"
 				}
+			},
+			"Tutorial": {
+				"nextCaption": "Next",
+				"Overview": {
+					"title": "Here is a quick tutorial for using the app",
+					"skipCaption": "No, thanks"
+				},
+				"Note1": {
+					"title": "You have a limited amount of matches per day",
+					"content": "10 matches/day"
+				},
+				"Note2": {
+					"title": "Your matches expires after 24 hours"
+				},
+				"Note3": {
+					"title": "Swipe right for like\n and \nSwipe left for dislike"
+				},
+				"Note4": {
+					"title": "You can get an instant match with a person by pressing the super like button"
+				},
+				"Note5": {
+					"title": "You also receive money for every super like you get!",
+					"cashOutSubTitle": "You can cash out at every £10",
+					"content": "It can be disabled from the settings menu",
+					"completeCaption": "Complete"
+				}
 			}
 		},
 		"Components": {

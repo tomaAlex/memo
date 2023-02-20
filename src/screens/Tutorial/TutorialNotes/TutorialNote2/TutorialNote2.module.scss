@@ -1,0 +1,11 @@
+.container {
+	height: 85%;
+	top: 15%;
+	display: flex;
+	justify-content: space-around;
+
+	&__titleContainer {
+		width: 90%;
+		align-self: center;
+	}
+}

@@ -77,9 +77,10 @@
 					},
 					"Embodiment": {
 						"Labels": {
-							"height": "Inaltime (cm)",
-							"orientation": "Orientare",
-							"photos": "Poze"
+							"height": "Care-ti este inaltimea ? \n (cm)",
+							"orientation": "Cu cine ai vrei sa te intalnesti ?",
+							"photos": "Poze",
+							"orientationNote": "Poti alege ambele optiuni"
 						},
 						"Errors": {
 							"height": {
@@ -88,7 +89,7 @@
 								"required": "înălțimea este necesară"
 							},
 							"orientation": {
-								"required": "Orientarea este obligatorie"
+								"required": "Preferinta ta este obligatorie"
 							},
 							"photos": {
 								"required": "Pozele sunt obligatorii",
@@ -324,6 +325,32 @@
 					}
 				},
 				"logoutCaption": "Delogheaza-te"
+			},
+			"Tutorial": {
+				"nextCaption": "Inainte",
+				"Overview": {
+					"title": "Aici este o scurta prezentare a aplicatiei",
+					"skipCaption": "Nu, multumesc"
+				},
+				"Note1": {
+					"title": "Ai un numar limitat de match-uri pe zi",
+					"content": "10 match-uri/zi"
+				},
+				"Note2": {
+					"title": "Match-urile tale expira dupa 24 de ore"
+				},
+				"Note3": {
+					"title": "Gliseaza spre dreapta pentru like\n si \nGliseaza spre stanga pentru dislike"
+				},
+				"Note4": {
+					"title": "Poti obtine un match instant cu o persoana apasand butonul de super like"
+				},
+				"Note5": {
+					"title": "Primesti bani pentru fiecare super like pe care il primesti!",
+					"cashOutSubTitle": "Poti retrage bani la fiecare 10£",
+					"content": "Poti dezactiva aceasta optiune din meniul de setari",
+					"completeCaption": "Incheie"
+				}
 			}
 		},
 		"Components": {

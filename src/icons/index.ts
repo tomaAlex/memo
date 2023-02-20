@@ -25,6 +25,11 @@ import MaleIcon from "./male.svg";
 import FemaleIcon from "./female.svg";
 import IntersexIcon from "./intersex.svg";
 import LadyIcon from "./lady.svg";
+import HandHeartIcon from "./hand-heart.svg";
+import HourglassIcon from "./hourglass.svg";
+import HandSwipeIcon from "./hand-swipe.svg";
+import StarsIcon from "./stars.svg";
+import CashIcon from "./cash.svg";
 
 export {
 	HeartIcon,
@@ -54,4 +59,9 @@ export {
 	FemaleIcon,
 	IntersexIcon,
 	LadyIcon,
+	HandHeartIcon,
+	HourglassIcon,
+	HandSwipeIcon,
+	StarsIcon,
+	CashIcon,
 };

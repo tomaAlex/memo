@@ -1,0 +1,49 @@
+.container {
+	flex: 1;
+    display: flex;
+	justify-content: center;
+	background-color: #f10065;
+
+    &__title {
+        color: #fff;
+        font-size: 27px;
+        text-align: center;
+        font-weight: 400;
+        font-family: Poppins-Bold;
+    }
+
+    &__subTitle {
+        color: #fff;   
+        font-size: 20px;
+        font-family: Poppins-Regular;
+        text-align: center;
+    }
+
+    &__content {
+        font-weight: normal;
+        font-family: Poppins-Regular;
+        color: #fff;
+    }
+
+    &__icon {
+        align-self: center;
+    }
+
+    &__navigationButton {
+        background-color: #fff;
+        border-radius: 500px;
+        width: 85%;
+        align-self: center;
+        display: flex;
+        justify-content: center;
+        z-index: 500;
+
+        &__caption {
+            color: #f10065;
+            font-family: Poppins-Light;
+            font-size: 18px;
+            padding: 7px;
+            align-self: center;
+        }
+    }
+}

@@ -10,6 +10,7 @@ import Embodiment from "screens/Signup/Embodiment";
 import Main from "screens/Main";
 import MatchChat from "screens/MatchChat";
 import ProfilePreview from "screens/ProfilePreview";
+import Tutorial from "screens/Tutorial";
 import FirstName from "screens/Signup/FirstName";
 import LastName from "screens/Signup/LastName";
 import Birthdate from "screens/Signup/Birthdate";
@@ -45,6 +46,7 @@ const Navigator = () => {
 				<Stack.Screen name={ScreenNames.Main} component={Main} />
 				<Stack.Screen name={ScreenNames.MatchChat} component={MatchChat} />
 				<Stack.Screen name={ScreenNames.ProfilePreview} component={ProfilePreview} />
+				<Stack.Screen name={ScreenNames.Tutorial} component={Tutorial} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

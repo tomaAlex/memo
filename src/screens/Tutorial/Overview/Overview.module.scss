@@ -1,0 +1,21 @@
+.container {
+	flex: 1;
+	display: flex;
+	justify-content: space-around;
+
+	&__titleContainer {
+		width: 60%;
+		align-self: center;
+	}
+
+	&__decisionsContainer {
+		align-items: center;
+
+		&__skipCaption {
+			color: #fff;
+			font-family: Poppins-Light;
+			font-size: 13px;
+			margin-top: 10px;
+		}
+	}
+}
