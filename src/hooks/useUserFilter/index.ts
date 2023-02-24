@@ -29,6 +29,10 @@ const useUserFilter = (): ((unfilteredUser?: IdentifiedUser) => boolean) => {
 			}
 			const { birthDate, gender, coordinates, likes, id } = unfilteredUser;
 
+			if (selfId === id) {
+				return false;
+			}
+
 			const hasUserAlreadyBeenSwiped = getAlreadySwipedState(id, sentLikes, sentDislikes);
 			if (hasUserAlreadyBeenSwiped) {
 				return false;
