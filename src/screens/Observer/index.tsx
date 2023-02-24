@@ -10,6 +10,7 @@ import FirebaseAppCheck from "@react-native-firebase/app-check";
 import messaging from "@react-native-firebase/messaging";
 import Loading from "components/Loading";
 import styles from "./Observer.module.scss";
+import { useTranslation } from "react-i18next";
 
 /**
  * A fake screen that is used to watch around for global updates.
@@ -22,10 +23,11 @@ const Observer = ({
 }: ScreenProps<ScreenNames.Observer>) => {
 	// @ts-ignore, as NodeJS.Timeout is not recognized by TS in this case
 	const currentLocationCollectionRoutineReference = useRef<NodeJS.Timeout | null>(null);
+	const [t] = useTranslation("translation", { keyPrefix: "Screens.Observer" });
 
 	const setObserving = React.useCallback(() => {
 		auth().onAuthStateChanged((user) => {
-			handleUserChange(user, updateUser, setAwaitingLoginStatus, navigation);
+			handleUserChange(user, updateUser, setAwaitingLoginStatus, navigation, t);
 			handleLocationCollection(currentLocationCollectionRoutineReference, user?.uid);
 		});
 
@@ -42,7 +44,7 @@ const Observer = ({
 				}
 				addNotification(notification);
 			});
-	}, [navigation, updateUser]);
+	}, [addNotification, navigation, setAwaitingLoginStatus, updateUser, t]);
 
 	useEffect(() => {
 		setObserving();

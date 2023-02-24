@@ -1,6 +1,12 @@
 {
 	"translation": {
 		"Screens": {
+			"Observer": {
+				"notWhitelistedError": {
+					"title": "Only KCL students!",
+					"message": "Login in with a service having your KCL email address associated"
+				}
+			},
 			"Login": {
 				"title": "Let's meet new\n people around you",
 				"abstract": "Tired of dating apps not really working out? Here everything is designed to encourage fair dating chances for everybody",

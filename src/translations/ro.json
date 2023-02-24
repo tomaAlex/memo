@@ -1,6 +1,12 @@
 {
 	"translation": {
 		"Screens": {
+			"Observer": {
+				"notWhitelistedError": {
+					"title": "Doar studenti KCL!",
+					"message": "Logheaza-te cu un serviciu care are adresa ta de email KCL asociata"
+				}
+			},
 			"Login": {
 				"title": "Hai sa intalnim\n pe cineva dinprejur",
 				"abstract": "Obosit de aplicatiile de de dating care nu prea functioneaza? Aici totul este proiectat astfel incat sa fie incurajate sanse de intalnire egale pentru toata lumea",
