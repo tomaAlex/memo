@@ -11,7 +11,8 @@ const Tutorial = ({ navigation }: ScreenProps<ScreenNames.Tutorial>) => {
 	// const [t] = useTranslation("translation", { keyPrefix: "Screens.Tutorial" });
 	const [showTutorial, setShowTutorial] = useState(false);
 	const completeTutorial = () => {
-		navigation.goBack();
+		console.log("Here");
+		navigation.navigate(ScreenNames.Main, {});
 	};
 
 	return (

@@ -10,3 +10,24 @@
     align-items: center;
     justify-content: center;
 }
+
+.header {
+    flex-direction: row;
+    
+    &__button {
+        align-self: center;
+    }
+
+    &__textContainer {
+        width: 80%;
+        justify-content: center;
+        margin-left: 1%;
+        &__text {
+            font-family: "Poppins-Bold";
+            color: black;
+            font-size: 25px;
+            align-self: center;
+        }
+    }
+
+}

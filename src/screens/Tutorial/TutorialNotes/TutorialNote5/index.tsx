@@ -25,7 +25,7 @@ const TutorialNote5 = ({ complete }: TProps) => {
 			<View style={styles.container__titleContainer}>
 				<Text style={styles.container__titleContainer__disabledNote}>{translateTutorialNoteLabels("content")}</Text>
 			</View>
-			<TouchableOpacity style={tutorialStyles.container__navigationButton} onPress={complete}>
+			<TouchableOpacity style={tutorialStyles.container__navigationButton} onPress={() => complete()}>
 				<Text style={tutorialStyles.container__navigationButton__caption}>
 					{translateTutorialNoteLabels("completeCaption")}
 				</Text>

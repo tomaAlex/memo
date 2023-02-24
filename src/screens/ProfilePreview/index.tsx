@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { SafeAreaView, View } from "react-native";
+import { Dimensions, Platform, SafeAreaView, Text, View } from "react-native";
 import connector from "../../redux/connector";
 import Swiper from "react-native-deck-swiper";
 import Loading from "components/Loading";
@@ -20,6 +20,7 @@ const ProfilePreview = ({
 	const isUserLoading = !userToPreview;
 	const swiperReference = useRef<Swiper<IdentifiedUser>>(null);
 	const identifiedUserToPreview = { ...userToPreview, id: userToPreviewId } as IdentifiedUser;
+	const width = Dimensions.get("screen").width;
 
 	if (isUserLoading) {
 		return (
@@ -52,7 +53,14 @@ const ProfilePreview = ({
 					stackSize={1}
 				/>
 			</UsersSwiperContext.Provider>
-			<BackButton navigation={navigation} />
+			<View style={[styles.header, { top: Platform.OS === "android" ? "8%" : "0%" }]}>
+				<View style={styles.header__button}>
+					<BackButton navigation={navigation} />
+				</View>
+				<View style={styles.header__textContainer}>
+					<Text style={styles.header__textContainer__text}>Profile</Text>
+				</View>
+			</View>
 		</SafeAreaView>
 	);
 };
