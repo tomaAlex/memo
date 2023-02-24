@@ -18,7 +18,12 @@ const FeedUserCard = ({ userToDisplay, fullScreen }: TProps) => {
 	return (
 		<View style={[styles.userCardContainer, fullScreen ? { height: "100%" } : {}]}>
 			<View style={styles.userCardContainer__userCard}>
-				<Carousel displayIndex hideNavigationControls style={styles.userCardContainer__userCard__carousel}>
+				<Carousel
+					displayIndex
+					hideNavigationControls
+					showOverlaidNavigation={{ value: true, deactivateWhenLast: false }}
+					style={styles.userCardContainer__userCard__carousel}
+				>
 					{photos.map((photo, photoIndex) => (
 						<View style={styles.userCardContainer__userCard__carousel__imagePreviewContainer} key={photoIndex}>
 							<Image

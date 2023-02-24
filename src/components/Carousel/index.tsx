@@ -4,19 +4,37 @@ import { ArrowLeftIcon, ArrowRightIcon } from "icons/index";
 import CarouselNavigationButton from "./CarouselNavigationButton";
 import OverlaidNavigation from "./OverlaidNavigation";
 import CarouselIndex from "./CarouselIndex";
+import determineWhetherNavigationIsOverlaid from "./utils/determineWhetherNavigationIsOverlaid";
 
 type TProps = ViewProps & {
 	children: React.ReactNode;
 	hideNavigationControls?: boolean;
+	showOverlaidNavigation?: {
+		value: boolean;
+		deactivateWhenLast: boolean;
+	};
 	displayIndex?: boolean;
 };
 
-const Carousel = ({ children, hideNavigationControls = false, displayIndex = false, ...viewProps }: TProps) => {
+const Carousel = ({
+	children,
+	hideNavigationControls = false,
+	showOverlaidNavigation = {
+		value: false,
+		deactivateWhenLast: false,
+	},
+	displayIndex = false,
+	...viewProps
+}: TProps) => {
 	const [currentSlide, setCurrentSlide] = useState(0);
 	const slides = React.Children.toArray(children) as React.ReactNode[];
 	const totalSlides = slides.length;
 	const previewedSlide = slides[currentSlide];
 	const showNavigationControls = !hideNavigationControls;
+	const isNavigationOverlaid = determineWhetherNavigationIsOverlaid(
+		showOverlaidNavigation,
+		currentSlide === totalSlides - 1
+	);
 
 	return (
 		<View {...viewProps}>
@@ -40,7 +58,7 @@ const Carousel = ({ children, hideNavigationControls = false, displayIndex = fal
 					)}
 				</View>
 			)}
-			{hideNavigationControls && <OverlaidNavigation {...{ currentSlide, totalSlides, setCurrentSlide }} />}
+			{isNavigationOverlaid && <OverlaidNavigation {...{ currentSlide, totalSlides, setCurrentSlide }} />}
 		</View>
 	);
 };

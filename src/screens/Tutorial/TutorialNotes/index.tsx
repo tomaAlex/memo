@@ -16,7 +16,12 @@ type TProps = {
 const TutorialNotes = ({ visible, complete }: TProps) => {
 	return (
 		<Modal {...{ visible }}>
-			<Carousel displayIndex hideNavigationControls style={styles.container}>
+			<Carousel
+				displayIndex
+				hideNavigationControls
+				showOverlaidNavigation={{ value: true, deactivateWhenLast: true }}
+				style={styles.container}
+			>
 				<TutorialNote1 />
 				<TutorialNote2 />
 				<TutorialNote3 />
