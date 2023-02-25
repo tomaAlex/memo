@@ -5,7 +5,7 @@
 	background-color: white;
 
 	&__header {
-		flex: 3;
+		flex: 12;
 		width: 100%;
 		justify-content: space-evenly;
 
@@ -17,7 +17,7 @@
 		}
 
 		&__icon {
-			flex: 0.7;
+			flex: 0.72;
 			align-self: center;
 		}
 	}
@@ -36,7 +36,7 @@
 
 	&__body {
 		flex: 1;
-		justify-content: flex-end;
+		justify-content: flex-start;
 
 		&__signinButton {
 			align-content: center;
@@ -64,8 +64,10 @@
 
 				&__caption {
 					color: white;
-					font-family: Poppins-Regular;
+					font-family: "Poppins-Medium";
+					font-weight: 600;
 					align-self: center;
+					letter-spacing: 1.15px;
 				}
 			}
 		}

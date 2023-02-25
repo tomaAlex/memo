@@ -10,6 +10,7 @@ import { selectAwaitingLoginStatus } from "redux/selectors";
 import Loading from "components/Loading";
 import { LoginIcon } from "icons/index";
 import { signInWithGoogle } from "Firebase/index";
+import BubbleNote from "./BubbleNote";
 
 const Login = ({ setAwaitingLoginStatus }: ScreenProps<ScreenNames.Login>) => {
 	const [t] = useTranslation("translation", { keyPrefix: "Screens.Login" });
@@ -27,7 +28,7 @@ const Login = ({ setAwaitingLoginStatus }: ScreenProps<ScreenNames.Login>) => {
 		<SafeAreaView style={styles.container}>
 			<View style={styles.container__header}>
 				<LoginIcon style={styles.container__header__icon} />
-				<Text style={styles.container__header__title}>{t("title")}</Text>
+				<BubbleNote />
 			</View>
 			<View style={styles.container__body}>
 				<TouchableOpacity

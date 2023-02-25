@@ -8,9 +8,21 @@ import { SettingsScreenNames } from "types/index";
 const SettingsSectionButtons = () => {
 	return (
 		<View style={styles.container}>
-			<ContainedSettingsSectionButton SectionIcon={CameraPlus} sectionScreen={SettingsScreenNames.Photos} />
-			<ContainedSettingsSectionButton SectionIcon={EditIcon} sectionScreen={SettingsScreenNames.Information} />
-			<ContainedSettingsSectionButton SectionIcon={SettingsIcon} sectionScreen={SettingsScreenNames.Preferences} />
+			<ContainedSettingsSectionButton
+				SectionIcon={CameraPlus}
+				sectionScreen={SettingsScreenNames.Photos}
+				sectionName={"Gallery"}
+			/>
+			<ContainedSettingsSectionButton
+				SectionIcon={EditIcon}
+				sectionScreen={SettingsScreenNames.Information}
+				sectionName={"Profile"}
+			/>
+			<ContainedSettingsSectionButton
+				SectionIcon={SettingsIcon}
+				sectionScreen={SettingsScreenNames.Preferences}
+				sectionName={"Settings"}
+			/>
 		</View>
 	);
 };
