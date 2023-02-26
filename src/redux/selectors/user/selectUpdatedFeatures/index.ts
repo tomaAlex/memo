@@ -1,5 +1,6 @@
 import { createSelector } from "reselect";
 import { RootState, User } from "types/index";
+import determineWhetherFeatureIsOutdated from "./determineWhetherFeatureIsOutdated";
 import determineWhetherFeaturesNeedRefresh from "./determineWhetherFeaturesNeedRefresh";
 import refreshFeatures from "./refreshFeatures";
 
@@ -9,7 +10,9 @@ export const selectUpdatedFeatures = createSelector(
 		if (doFeaturesNeedRefresh) {
 			refreshFeatures(); // no need to await
 		}
-		return possiblyOutdatedFeatures;
+		return possiblyOutdatedFeatures.filter(
+			(possiblyOutdatedFeature) => !determineWhetherFeatureIsOutdated(possiblyOutdatedFeature)
+		);
 	},
 	(e) => e
 );

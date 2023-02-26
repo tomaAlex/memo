@@ -1,12 +1,10 @@
 import { User } from "types/index";
-import { firebase } from "@react-native-firebase/firestore";
+import determineWhetherFeatureIsOutdated from "./determineWhetherFeatureIsOutdated";
 
 const determineWhetherFeaturesNeedRefresh = (features: User["features"]): boolean => {
 	for (const feature of features) {
-		const { expiresAt, checkedForRenewal } = feature;
-		const now = firebase.firestore.Timestamp.now();
-		const doesFeatureExpire = expiresAt !== null;
-		const isFeatureOutdated = doesFeatureExpire && expiresAt < now;
+		const { checkedForRenewal } = feature;
+		const isFeatureOutdated = determineWhetherFeatureIsOutdated(feature);
 		if (isFeatureOutdated && !checkedForRenewal) {
 			return true;
 		}
