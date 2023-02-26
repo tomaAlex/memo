@@ -19,8 +19,8 @@ const SettingsUserPreviewHeader = () => {
 		>
 			<Image style={styles.container__profile} source={{ uri: photos[0] }} />
 			<View style={styles.container__fullNameAndAgeContainer}>
-				<Text style={styles.container__fullNameAndAgeContainer__fullName}>{fullName},</Text>
-				<Text style={styles.container__fullNameAndAgeContainer__age}>{age}</Text>
+				<Text style={styles.container__fullNameAndAgeContainer__fullName}>{fullName}</Text>
+				{/* <Text style={styles.container__fullNameAndAgeContainer__age}>{age}</Text> */}
 			</View>
 		</TouchableOpacity>
 	);

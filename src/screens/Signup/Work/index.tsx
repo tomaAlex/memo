@@ -33,7 +33,7 @@ const Work = ({ navigation, route }: ScreenProps<ScreenNames.Work>) => {
 								label: translateLabels("job"),
 								isMandatory: false,
 								placeholder: "e.g. Graphic Designer",
-								textInputHeight: Platform.OS === "android" ? "45%" : undefined,
+								textInputHeight: Platform.OS === "android" ? "47%" : undefined,
 								style: { paddingLeft: "7%" },
 							},
 						]}

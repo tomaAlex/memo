@@ -34,7 +34,7 @@ const LastName = ({ navigation, route }: ScreenProps<ScreenNames.LastName>) => {
 								label: translateLabels("lastName"),
 								isMandatory: true,
 								placeholder: "Doe",
-								textInputHeight: Platform.OS === "android" ? "45%" : undefined,
+								textInputHeight: Platform.OS === "android" ? "47%" : undefined,
 							},
 						]}
 						buttonSpacing={"8%"}

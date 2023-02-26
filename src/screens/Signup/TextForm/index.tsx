@@ -35,23 +35,17 @@ const TextForm = ({ schema, initialValues, submissionHandler, data, buttonSpacin
 							<FormTextInput
 								field={element.fieldName}
 								{...element}
-								style={[styles.container__textInput, element.textInputHeight && { height: element.textInputHeight }]}
+								style={[
+									styles.container__textInput,
+									element.textInputHeight && { height: element.textInputHeight },
+									Platform.OS === "android" && { paddingTop: "3%" },
+								]}
 							>
-								{/* <FormFieldLabel
-									removeColon={true}
-									{...element}
-									style={styles.container__textInput__formLabel}
-								></FormFieldLabel> */}
 								<Label {...element} />
 							</FormTextInput>
 						</View>
 					);
 				})}
-				{/* <View style={styles.container__buttonContainer}>
-					<FormSubmitButton style={styles.container__buttonContainer__buttonDimensions}>
-						<Text style={styles.container__buttonContainer__buttonText}>Continue</Text>
-					</FormSubmitButton>
-				</View> */}
 				<Submit spacing={buttonSpacing} />
 			</View>
 		</Formik>

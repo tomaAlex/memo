@@ -33,6 +33,7 @@ const Height = ({ navigation, route }: ScreenProps<ScreenNames.Height>) => {
 								isMandatory: true,
 								placeholder: "e.g. 181",
 								textInputHeight: Platform.OS === "android" ? "45%" : undefined,
+								keyboardType: "numeric",
 							},
 						]}
 						buttonSpacing={"8%"}

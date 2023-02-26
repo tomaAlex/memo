@@ -1,14 +1,15 @@
 .container {
-	border-radius: 7px;
+	border-radius: 10px;
 	background-color: #fbc45a;
     align-self: center;
-    padding: 0.1rem;
-    width: 35%;
-    margin-top: 10px;
+    padding: 0.4rem;
+    width: 40%;
+    margin-top: 4px;
 
     &__caption {
-        font-size: 13px;
+        font-size: 14px;
         font-family: Poppins-Medium;
+        font-weight: 700;
         color: #fff;
         align-self: center;
     }
