@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform, Text, View } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import styles from "./Bubble.module.scss";
 
 type TProps = {
@@ -10,9 +10,9 @@ type TProps = {
 const Bubble = ({ note, sender }: TProps) => {
 	const isSelf = sender === "Self";
 	return (
-		<View style={[styles.messageBubbleGeneral, isSelf ? styles.self__message : styles.other__message]}>
+		<TouchableOpacity style={[styles.messageBubbleGeneral, isSelf ? styles.self__message : styles.other__message]}>
 			<Text style={isSelf ? styles.self__message__content : styles.other__message__content}>{note}</Text>
-		</View>
+		</TouchableOpacity>
 	);
 };
 

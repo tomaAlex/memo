@@ -8,7 +8,7 @@ import styles from "./Login.module.scss";
 import { useSelector } from "react-redux";
 import { selectAwaitingLoginStatus } from "redux/selectors";
 import Loading from "components/Loading";
-import { LoginIcon } from "icons/index";
+import LoginIcon from "./LoginIcon";
 import { signInWithGoogle } from "Firebase/index";
 import BubbleNote from "./BubbleNote";
 
