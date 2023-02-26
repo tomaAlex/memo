@@ -4,6 +4,7 @@ import { View } from "react-native";
 import { useSelector } from "react-redux";
 import { selectIsPremium, selectIsLiked, selectId } from "redux/selectors";
 import { IdentifiedUser } from "types/index";
+import { getAgeFromBirthDate } from "utils";
 import styles from "../FeedUserCard.module.scss";
 import FeedUserCardDescriptionText from "./FeedUserCardDescriptionText";
 
@@ -15,7 +16,7 @@ const FeedUserCardDescription = ({
 	userToDisplay: { firstName, lastName, birthDate, job, school, description, location, id, likes },
 }: TProps) => {
 	const isPremium = useSelector(selectIsPremium);
-	const age = new Date().getFullYear() - new Date(birthDate).getFullYear();
+	const age = getAgeFromBirthDate(birthDate);
 	const name = `${firstName} ${lastName}`;
 	const [translateDetails] = useTranslation("translation", { keyPrefix: "Screens.Main.Feed.Details" });
 	const locationCaption = location ? `${location.city}, ${location.country}` : undefined;

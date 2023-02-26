@@ -13,6 +13,8 @@ import { useInAppInteractionsUpdater } from "hooks";
 import { NotificationTypes } from "NotificationManager/notificationTypes";
 import MessageNotificationManager from "NotificationManager/MessageNotification";
 import { AdsConsent, AdsConsentStatus } from "react-native-google-mobile-ads";
+import Config from "react-native-config";
+import { Platform } from "react-native";
 
 const MainTab = createBottomTabNavigator<MainNavigationTabTypes>();
 
@@ -61,7 +63,9 @@ const Main = ({
 		});
 	}, []);
 
-	const { isLoaded, load, show } = useInterstitialAd(TestIds.INTERSTITIAL, {
+	const AD_KEY = (Platform.OS === "ios" ? Config.IOS_AD_KEY : Config.ANDROID_AD_KEY) as string;
+
+	const { isLoaded, load, show } = useInterstitialAd(AD_KEY, {
 		requestNonPersonalizedAdsOnly: true,
 	});
 

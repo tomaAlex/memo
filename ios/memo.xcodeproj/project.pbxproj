@@ -15,6 +15,7 @@
 		4C436156297C7BC000FA6D6E /* hermes.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C436155297C7BC000FA6D6E /* hermes.xcframework */; };
 		4CCD398B292D0C8700D8C592 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CCD398A292D0C8600D8C592 /* GoogleService-Info.plist */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		9016EBAE29AAC611001A568F /* MemoIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9016EBAD29AAC611001A568F /* MemoIcon.png */; };
 		901785BB297C46ED00B5EAF9 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 901785A9297C46EB00B5EAF9 /* Poppins-ThinItalic.ttf */; };
 		901785BC297C46ED00B5EAF9 /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 901785AA297C46EC00B5EAF9 /* Poppins-LightItalic.ttf */; };
 		901785BD297C46ED00B5EAF9 /* Poppins-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 901785AB297C46EC00B5EAF9 /* Poppins-SemiBoldItalic.ttf */; };
@@ -64,6 +65,7 @@
 		4CCD398A292D0C8600D8C592 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		605AD1755E7DE53B2E6BBB87 /* Pods-memo-memoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memo-memoTests.release.xcconfig"; path = "Target Support Files/Pods-memo-memoTests/Pods-memo-memoTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = memo/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9016EBAD29AAC611001A568F /* MemoIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MemoIcon.png; sourceTree = "<group>"; };
 		901785A9297C46EB00B5EAF9 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-ThinItalic.ttf"; path = "../assets/fonts/Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		901785AA297C46EC00B5EAF9 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-LightItalic.ttf"; path = "../assets/fonts/Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
 		901785AB297C46EC00B5EAF9 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-SemiBoldItalic.ttf"; path = "../assets/fonts/Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				9016EBAD29AAC611001A568F /* MemoIcon.png */,
 				9081709C29870DFE00108F34 /* send_tick_sound.mp3 */,
 				902F751A2984630B0088744B /* send.mp3 */,
 				901785B7297C46EC00B5EAF9 /* Poppins-Black.ttf */,
@@ -334,6 +337,7 @@
 				901785CC297C46ED00B5EAF9 /* Poppins-MediumItalic.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				9016EBAE29AAC611001A568F /* MemoIcon.png in Resources */,
 				902F751B2984630D0088744B /* send.mp3 in Resources */,
 				4CCD398B292D0C8700D8C592 /* GoogleService-Info.plist in Resources */,
 			);

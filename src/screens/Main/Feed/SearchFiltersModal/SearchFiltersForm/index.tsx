@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { SafeAreaView, View } from "react-native";
+import { SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 import { Formik } from "formik";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { selectSearchFilters } from "redux/selectors";
+import { selectIsPremium, selectSearchFilters } from "redux/selectors";
 import styles from "./SearchFiltersForm.module.scss";
 import { useFirebaseUserUpdater, useSearchFiltersFormValidationRules } from "hooks/index";
 import FormSwitchInput from "components/forms/FormSwitchInput";
@@ -12,6 +12,8 @@ import FormRangeSlider from "components/forms/FormRangeSlider";
 import FormRangeSliderFieldLabel from "components/forms/FormRangeSliderFieldLabel";
 import SearchFiltersFormGenderPicker from "./SearchFiltersFormGenderPicker";
 import SearchFiltersFormSubmitButton from "./SearchFiltersFormSubmitButton";
+import Tooltip from "react-native-walkthrough-tooltip";
+import { InfoIcon } from "icons";
 
 type TProps = {
 	resetRecommendations: () => void;
@@ -19,8 +21,10 @@ type TProps = {
 
 const SearchFiltersForm = ({ resetRecommendations }: TProps) => {
 	const { ageRange, maximumDistance, likesOnly, genders } = useSelector(selectSearchFilters);
+	const isPremium = useSelector(selectIsPremium);
 	const searchFiltersSchema = useSearchFiltersFormValidationRules();
 	const [isApplyingFilters, setIsApplyingFilters] = useState(false);
+	const [isVisible, setVisible] = useState(false);
 	const [translateLabels] = useTranslation("translation", {
 		keyPrefix: "Screens.Main.Feed.SearchFiltersModal.Form.Labels",
 	});
@@ -66,8 +70,22 @@ const SearchFiltersForm = ({ resetRecommendations }: TProps) => {
 									caption={`${distance}km`}
 								/>
 							</FormRangeSlider>
-							<FormSwitchInput field="likesOnly">
+							<FormSwitchInput field="likesOnly" disabled={!isPremium} style={!isPremium && { opacity: 0.78 }}>
 								<FormFieldLabel style={styles.container__form__label} label={translateLabels("likesOnly")} />
+								{!isPremium && (
+									<Tooltip
+										isVisible={isVisible}
+										content={<Text>This feature is only available for premium users </Text>}
+										onClose={() => setVisible(false)}
+										placement="top"
+										allowChildInteraction={true}
+										showChildInTooltip={false}
+									>
+										<TouchableOpacity onPress={() => setVisible(true)} style={{ marginLeft: "12%", marginTop: "4%" }}>
+											<InfoIcon height={17} width={20} />
+										</TouchableOpacity>
+									</Tooltip>
+								)}
 							</FormSwitchInput>
 							<SearchFiltersFormSubmitButton {...{ isApplyingFilters }} />
 						</View>
