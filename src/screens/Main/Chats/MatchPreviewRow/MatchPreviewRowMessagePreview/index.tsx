@@ -8,6 +8,8 @@ import { getTimestampPreview } from "Firebase/index";
 import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
 import isMessageSeen from "utils/getSeenByIndicator";
 import { NotificationBubble, ReadMessage } from "icons";
+import { selectIsPremium } from "redux/selectors";
+import { useSelector } from "react-redux";
 
 type TProps = {
 	matchedUser: IdentifiedUser;
@@ -17,6 +19,7 @@ type TProps = {
 };
 
 const MatchPreviewRowMessagePreview = ({ matchedUser, lastMessage, matchTimestamp, notifications }: TProps) => {
+	const isPremium = useSelector(selectIsPremium);
 	const messagePreview = lastMessage ? lastMessage.content : "Be first to send a message!";
 	const seenBy = lastMessage ? lastMessage.seenBy : [];
 	const isUserAuthorOfLastMessage = lastMessage ? lastMessage.author === store.getState().user.id : false;
@@ -35,7 +38,7 @@ const MatchPreviewRowMessagePreview = ({ matchedUser, lastMessage, matchTimestam
 			</View>
 			<View>
 				<Text style={styles.container__timePreview}>{timestampPreview}</Text>
-				{isUserAuthorOfLastMessage && isMessageSeen([matchedUser], seenBy) && (
+				{isPremium && isUserAuthorOfLastMessage && isMessageSeen([matchedUser], seenBy) && (
 					<ReadMessage height={8} style={styles.container__read} />
 				)}
 				{notifications > 0 && (

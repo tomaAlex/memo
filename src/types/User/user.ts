@@ -1,5 +1,6 @@
 import { Coordinates } from "./coordinates";
 import { Gender } from "./gender";
+import { LivedFeature, LivedFeatureExpiration } from "./livedFeature";
 import { Location } from "./location";
 import { Orientation } from "./orientation";
 
@@ -22,6 +23,14 @@ export interface User {
 	tokens: string[];
 	hasInstantMatchingOn: boolean;
 	stripeId?: string;
+	features: LivedFeature<LivedFeatureExpiration>[];
+	inAppInteractions: number;
+	searchFilters: {
+		ageRange: [number, number];
+		genders: Gender[];
+		maximumDistance: number;
+		likesOnly: boolean;
+	};
 }
 
 export interface IdentifiedUser extends User {

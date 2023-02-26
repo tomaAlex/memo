@@ -4,6 +4,14 @@ import { IdentifiedUser, User } from "./User";
 
 type NavigationStackTypesStructure = { [key in string]: any };
 type NavigationTabTypesStructure = { [key in string]: any };
+type NavigationStepTypesStructure = {
+	[key in string]:
+		| {
+				data: any;
+				stepCount?: number;
+		  }
+		| undefined;
+};
 
 export type IdentificationForm = {
 	firstName: User["firstName"];
@@ -25,6 +33,42 @@ export type EmbodimentForm = {
 	photos: User["photos"];
 };
 
+export type FirstNameForm = {
+	firstName: User["firstName"];
+};
+
+export type LastNameForm = {
+	lastName: User["lastName"];
+} & FirstNameForm;
+
+export type BirthdateForm = {
+	birthDate: User["birthDate"];
+} & LastNameForm;
+
+export type GenderForm = {
+	gender: User["gender"];
+} & BirthdateForm;
+
+export type OrientationForm = {
+	orientation: User["orientation"];
+} & GenderForm;
+
+export type HeightForm = {
+	height: User["height"];
+} & OrientationForm;
+
+export type WorkForm = {
+	work: User["job"];
+} & HeightForm;
+
+export type DescriptionForm = {
+	description: User["description"];
+} & WorkForm;
+
+export type PhotoForm = {
+	photos: User["photos"];
+} & DescriptionForm;
+
 export interface NavigationStackTypes extends NavigationStackTypesStructure {
 	[ScreenNames.Observer]: undefined;
 	[ScreenNames.Login]: undefined;
@@ -36,6 +80,40 @@ export interface NavigationStackTypes extends NavigationStackTypesStructure {
 		identification: IdentificationForm;
 		details: DetailsForm;
 	};
+	[ScreenNames.FirstName]: undefined;
+	[ScreenNames.LastName]: {
+		firstNameForm: FirstNameForm;
+		stepNumber: number;
+	};
+	[ScreenNames.BirthDate]: {
+		lastNameForm: LastNameForm;
+		stepNumber: number;
+	};
+	[ScreenNames.Gender]: {
+		birthdateForm: BirthdateForm;
+		stepNumber: number;
+	};
+	[ScreenNames.Orientation]: {
+		genderForm: GenderForm;
+		stepNumber: number;
+	};
+	[ScreenNames.Height]: {
+		orientationForm: OrientationForm;
+		stepNumber: number;
+	};
+	[ScreenNames.Work]: {
+		heightForm: HeightForm;
+		stepNumber: number;
+	};
+	[ScreenNames.Description]: {
+		workForm: WorkForm;
+		stepNumber: number;
+	};
+	[ScreenNames.Photos]: {
+		descriptionForm: DescriptionForm;
+		stepNumber: number;
+	};
+	[ScreenNames.SignupConfirmation]: undefined;
 	[ScreenNames.Main]: {
 		uid?: string;
 	};
@@ -45,6 +123,10 @@ export interface NavigationStackTypes extends NavigationStackTypesStructure {
 		matchTimestamp: FirebaseFirestoreTypes.Timestamp;
 		expiresAt: FirebaseFirestoreTypes.Timestamp;
 	};
+	[ScreenNames.ProfilePreview]: {
+		userToPreviewId: string;
+	};
+	[ScreenNames.Tutorial]: undefined;
 }
 
 export interface MainNavigationTabTypes extends NavigationTabTypesStructure {

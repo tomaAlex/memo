@@ -10,7 +10,7 @@ const handleUidUserChange = async (
 	const possibleUserData = await getUserData(changedUserUid);
 	const isUserSignedUp = possibleUserData !== null;
 	if (!isUserSignedUp) {
-		navigation.navigate(ScreenNames.Identification);
+		navigation.replace(ScreenNames.FirstName);
 		return;
 	}
 	updateUser({ ...possibleUserData, id: changedUserUid });

@@ -3,8 +3,8 @@ import FormTextInput from "components/forms/FormTextInput";
 import { Formik } from "formik";
 import { useMatchMessageTextBarFormValidationRules } from "hooks";
 import { SendArrow } from "icons/index";
-import React, { useRef, useState } from "react";
-import { Keyboard, Platform, TextInput, TextInputProps, View } from "react-native";
+import React, { useState } from "react";
+import { Platform, View } from "react-native";
 import styles from "./MatchMessageTextBar.module.scss";
 
 type TProps = {
@@ -16,7 +16,16 @@ const isMessageEmpty = (message: string) => message === "";
 const MatchMessageTextBar = ({ sendMessage }: TProps) => {
 	const matchMessageTextBarSchema = useMatchMessageTextBarFormValidationRules();
 	const [isMessageSending, setIsMessageSending] = useState(false);
-	let refT = useRef<TextInput | null>(null);
+
+	// var Sound = require("react-native-sound");
+
+	// // Enable playback in silence mode
+	// Sound.setCategory("Playback");
+
+	// var sendSound = new Sound("send.mp3", Sound.MAIN_BUNDLE, () => {
+	// 	// Play the sound with an onEnd callback
+	// 	sendSound.play();
+	// });
 
 	return (
 		<Formik
@@ -25,10 +34,11 @@ const MatchMessageTextBar = ({ sendMessage }: TProps) => {
 				messageText: "",
 			}}
 			onSubmit={async ({ messageText }, formikProps) => {
-				setIsMessageSending(true);
+				// setIsMessageSending(true);
 				sendMessage(messageText);
+				// sendSound.play();
 				formikProps.resetForm();
-				setIsMessageSending(false);
+				// setIsMessageSending(false);
 			}}
 		>
 			{({ values }) => (
@@ -45,6 +55,7 @@ const MatchMessageTextBar = ({ sendMessage }: TProps) => {
 									: styles.container__messageBar__textInputAndroid
 							}
 							multiline={true}
+							enablesReturnKeyAutomatically
 							containerStyle={styles.container__messageBar__inputContainer}
 						/>
 					</View>

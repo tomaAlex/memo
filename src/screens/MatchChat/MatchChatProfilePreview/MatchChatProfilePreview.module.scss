@@ -1,39 +1,50 @@
-.container {
-	align-items: center;
-	margin-bottom: 20px;
-	border-bottom-color: #0000000f;
-	border-bottom-width: 1px;
-	padding-bottom: 10px;
-	width: 90%;
-	align-self: center;
+.mainContainer {
+	flex-direction: row;
+	justify-content: flex-start;
 
-	&__userPreviewContainer {
-		width: 75px;
-		height: 75px;
-		border-radius: 100px;
-		border-color: #f10065;
-		border-width: 1.5px;
-		background-color: white;
-		margin-top: 30px;
+	&__backIcon {
+		margin-top: 8%;
+		height: 12%;
+		margin-left: 2%;
+	}
 
-		&__userPreview {
+	&__container {
+		align-items: center;
+			margin-bottom: 20px;
+			border-bottom-color: #0000000f;
+			border-bottom-width: 1px;
+			padding-bottom: 10px;
 			width: 90%;
-			height: 90%;
-			align-self: center;
-			border-radius: 100px;
-			top: 5%;
-		}
-	}
-
-	&__name {
-		color: #1e1e1e;
-		font-family: Poppins-Medium;
-		font-weight: bold;
-		margin-top: 5px;
-	}
-
-	&__remainingTime {
-		font-family: Poppins-Regular;
-		color: #1e1e1e;
+			padding-right: 10%;
+		
+			&__userPreviewContainer {
+				width: 75px;
+				height: 75px;
+				border-radius: 100px;
+				// border-color: #f10065;
+				// border-width: 1.5px;
+				background-color: white;
+				margin-top: 30px;
+		
+				&__userPreview {
+					width: 90%;
+					height: 90%;
+					align-self: center;
+					border-radius: 100px;
+					top: 5%;
+				}
+			}
+		
+			&__name {
+				color: #1e1e1e;
+				font-family: Poppins-Medium;
+				font-weight: bold;
+				margin-top: 5px;
+			}
+		
+			&__remainingTime {
+				font-family: Poppins-Regular;
+				color: #1e1e1e;
+			}
 	}
 }

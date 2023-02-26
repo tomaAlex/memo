@@ -4,11 +4,16 @@
 	align-items: center;
 	padding: 10px;
 	border-radius: 10px;
-    margin: 10px;
+	margin: 10px;
+	width: 50%;
 
 	&__caption {
 		color: white;
 		font-size: 15px;
 		font-family: Poppins-Regular;
+	}
+
+	&__disabled {
+		opacity: 0.5;
 	}
 }

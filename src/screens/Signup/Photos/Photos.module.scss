@@ -1,0 +1,27 @@
+.container {
+    width: 90%;
+    align-self: center;
+    height: 80%;
+    align-content: center;
+
+    &__form {
+        margin-top: 30%;
+    }
+
+    &__photosNote {
+        font-family: "Poppins-Light";
+        color: #31313199;
+        text-align: center;
+        padding-top: 3%;
+        font-size: 14;
+    }
+
+    &__photos {
+        margin-top: 10%;
+        height: 50%;
+    }
+
+    &__loading {
+        align-self: center;
+    }
+}

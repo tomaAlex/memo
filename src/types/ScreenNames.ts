@@ -6,6 +6,19 @@ export enum ScreenNames {
 	Embodiment = "Embodiment",
 	Main = "Main",
 	MatchChat = "MatchChat",
+	ProfilePreview = "ProfilePreview",
+	FirstName = "FirstName",
+	LastName = "LastName",
+	BirthDate = "BirthDate",
+	Gender = "Gender",
+	Orientation = "Orientation",
+	Height = "Height",
+	Work = "Work",
+	Description = "Description",
+	Photos = "Photos",
+	SignupConfirmation = "SignupConfirmation",
+	PhotoForm = "PhotoForm",
+	Tutorial = "Tutorial",
 }
 
 export enum MainScreenNames {

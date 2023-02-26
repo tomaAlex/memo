@@ -9,7 +9,7 @@ const updateAction: ActionCreator<UserAction> = (updatedUser: User) => ({
 const logoutAction: ActionCreator<UserAction<null>> = () => ({
 	type: UserActions.LOGOUT,
 	payload: null,
-})
+});
 
 const generateUserActions = {
 	update: updateAction,

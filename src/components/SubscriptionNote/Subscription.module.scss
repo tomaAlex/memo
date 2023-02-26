@@ -1,0 +1,28 @@
+
+.container {
+    margin-top: 60%;
+    align-self: center;
+    background-color: #FBC45A;
+    border-radius: 30px;
+    width: 70%;
+    height: 30%;
+
+    &__header {
+        top: 4%;
+        right: 4%;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    
+    &__textView {
+        margin-top: 3%;
+        align-self: center;
+
+        &__text {
+            font-family: "Poppins-Medium";
+            color: white;
+            font-size: 18;
+            margin-bottom: 4%;
+        }
+    }
+}

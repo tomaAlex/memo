@@ -1,0 +1,11 @@
+.container {
+	flex: 1;
+	display: flex;
+	margin-bottom: 20px;
+
+    &__switches {
+        flex: 1;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

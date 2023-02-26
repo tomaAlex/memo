@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, SafeAreaView, FlatList, View } from "react-native";
 import { MainScreenNames, ScreenProps } from "types/index";
 import connector from "../../../redux/connector";
@@ -8,7 +8,8 @@ import { useTranslation } from "react-i18next";
 import styles from "./Chats.module.scss";
 import ChatLoading from "Loading/ChatLoading";
 
-const Chats = ({ user, matchPreviews, updateAllMatchPreviews, navigation }: ScreenProps<MainScreenNames.Chats>) => {
+const Chats = (props: ScreenProps<MainScreenNames.Chats>) => {
+	const { user, matchPreviews, updateAllMatchPreviews, navigation } = props;
 	const [t] = useTranslation("translation", { keyPrefix: "Screens.Main.Chats" });
 	const areMatchPreviewsLoading = useMatchPreviewLoader(user, updateAllMatchPreviews);
 	const hasNoMatches = !areMatchPreviewsLoading && matchPreviews.length === 0;
@@ -29,7 +30,7 @@ const Chats = ({ user, matchPreviews, updateAllMatchPreviews, navigation }: Scre
 				data={matchPreviews}
 				style={styles.container__list}
 				ItemSeparatorComponent={() => <View style={styles.container__list__separator} />}
-				renderItem={({ item }) => <MatchPreviewRow {...{ ...item, navigation }} />}
+				renderItem={({ item }) => <MatchPreviewRow {...{ ...item, ...props }} />}
 			/>
 		</SafeAreaView>
 	);

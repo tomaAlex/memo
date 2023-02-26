@@ -5,21 +5,27 @@ import { IdentifiedUser } from "types/index";
 import styles from "./FeedUserCard.module.scss";
 import FeedUserCardDescription from "./FeedUserCardDescription";
 import FeedUserCardDistance from "./FeedUserCardDistance";
-import FeedUserCardShadow from "./FeedUserCardShadow";
+// import FeedUserCardShadow from "./FeedUserCardShadow";
 import SwipeControls from "./SwipeControls";
 
 type TProps = {
 	userToDisplay: IdentifiedUser;
+	fullScreen?: boolean;
 };
 
-const FeedUserCard = ({ userToDisplay }: TProps) => {
+const FeedUserCard = ({ userToDisplay, fullScreen }: TProps) => {
 	const { photos, hasInstantMatchingOn } = userToDisplay;
 	return (
-		<View style={styles.userCardContainer}>
+		<View style={[styles.userCardContainer, fullScreen ? { height: "100%" } : {}]}>
 			<View style={styles.userCardContainer__userCard}>
-				<Carousel style={styles.userCardContainer__userCard__carousel}>
+				<Carousel
+					displayIndex
+					hideNavigationControls
+					showOverlaidNavigation={{ value: true, deactivateWhenLast: false }}
+					style={styles.userCardContainer__userCard__carousel}
+				>
 					{photos.map((photo, photoIndex) => (
-						<View style={styles.userCardContainer__userCard__carousel__imagePreviewContainer}>
+						<View style={styles.userCardContainer__userCard__carousel__imagePreviewContainer} key={photoIndex}>
 							<Image
 								style={styles.userCardContainer__userCard__carousel__imagePreviewContainer__imagePreview}
 								key={photoIndex}
@@ -31,7 +37,7 @@ const FeedUserCard = ({ userToDisplay }: TProps) => {
 					))}
 				</Carousel>
 			</View>
-			<FeedUserCardShadow />
+			{/* <FeedUserCardShadow /> */}
 			<SwipeControls {...{ hasInstantMatchingOn }} />
 		</View>
 	);

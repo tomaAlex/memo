@@ -17,6 +17,6 @@ export const sendMessage = functions.https.onCall(async (data, context) => {
 	const newMessages = [...matchData.messages, messageToBeCreated];
 
 	await matchDocumentReference.update({ messages: newMessages });
-	await notifyReceivers(matchData, authenticatedIdentifiedUserData.id, content);
+	notifyReceivers(matchData, authenticatedIdentifiedUserData.id, content, matchId);
 	return messageToBeCreated;
 });

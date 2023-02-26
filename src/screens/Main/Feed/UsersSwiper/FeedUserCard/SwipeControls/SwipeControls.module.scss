@@ -1,14 +1,20 @@
 .swipingControlsContainer {
+	position: absolute;
 	display: flex;
 	flex-direction: row;
 	height: 75;
-	width: 60%;
+	width: 70%;
 	align-items: center;
 	align-self: center;
-	justify-content: space-evenly;
+	// justify-content: space-evenly;
+	justify-content: space-around;
+	bottom: 5;
+	z-index: 5;
+	background-color: #EFEFEF;
+	border-radius: 500px;
 
 	&__swipeLeftContainer {
-		height: 90%;
+		height: 80%;
 		aspect-ratio: 1;
 		align-items: center;
 		background-color: white;
@@ -33,7 +39,7 @@
 	}
 
 	&__swipeTopContainer {
-		height: 90%;
+		height: 80%;
 		aspect-ratio: 1;
 		align-items: center;
 		background-color: white;
@@ -58,7 +64,7 @@
 	}
 
 	&__swipeRightContainer {
-		height: 90%;
+		height: 80%;
 		aspect-ratio: 1;
 		align-items: center;
 		background-color: #f10065;

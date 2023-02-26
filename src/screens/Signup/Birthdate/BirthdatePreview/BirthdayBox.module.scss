@@ -1,0 +1,19 @@
+.container {
+    justify-content:space-between;
+
+    &__label {
+        color: #313131CC;
+        font-family: "Poppins-Regular";
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    &__value {
+        margin-top: 25%;
+        color: #F10065;
+        font-weight: 600;
+        font-size: 22px;
+        text-align: center;
+        font-family: "Poppins-Medium";
+    }
+}

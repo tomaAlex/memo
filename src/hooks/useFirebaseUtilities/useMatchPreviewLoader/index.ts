@@ -6,11 +6,11 @@ export const useMatchPreviewLoader = (
 	userToLoadMatchPreviewsFor: ReduxProps["user"] | null,
 	updateAllMatchPreviews: ReduxProps["updateAllMatchPreviews"]
 ) => {
-	if (!userToLoadMatchPreviewsFor) {
-		return true;
-	}
+	// if (!userToLoadMatchPreviewsFor) {
+	// 	return true;
+	// }
 	const [areMatchPreviewsLoading, setAreMatchPreviewsLoading] = useState(true);
-	const matchIds = userToLoadMatchPreviewsFor.matches;
+	const matchIds = userToLoadMatchPreviewsFor?.matches;
 
 	const loadMatchPreviews = useCallback(async () => {
 		const userMatchPreviews = await fetchMatchPreviews();
@@ -19,8 +19,12 @@ export const useMatchPreviewLoader = (
 	}, [updateAllMatchPreviews]);
 
 	useEffect(() => {
+		if (!matchIds) {
+			return;
+		}
 		loadMatchPreviews();
 	}, [matchIds, loadMatchPreviews]);
 
-	return areMatchPreviewsLoading;
+	// return areMatchPreviewsLoading;
+	return !userToLoadMatchPreviewsFor || areMatchPreviewsLoading;
 };

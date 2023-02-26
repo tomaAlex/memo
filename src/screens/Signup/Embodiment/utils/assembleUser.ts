@@ -1,5 +1,5 @@
 import { getLocation } from "utils/index";
-import { DetailsForm, EmbodimentForm, IdentificationForm, User } from "types/index";
+import { DetailsForm, EmbodimentForm, Gender, IdentificationForm, User } from "types/index";
 
 const assembleUser = async (
 	identification: IdentificationForm,
@@ -17,6 +17,14 @@ const assembleUser = async (
 		coordinates,
 		tokens: [] as string[],
 		hasInstantMatchingOn: true,
+		features: [] as User["features"],
+		inAppInteractions: 0,
+		searchFilters: {
+			genders: [Gender.FEMALE, Gender.MALE],
+			ageRange: [18, 30],
+			maximumDistance: 50,
+			likesOnly: false,
+		},
 	};
 };
 

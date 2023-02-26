@@ -1,0 +1,19 @@
+.container {
+	z-index: 10;
+	width: 95%;
+	height: 95%;
+	justify-content: center;
+	opacity: 0.6;
+	border-radius: 20px;
+	top: 2.5%;
+	left: 2.5%;
+
+	&__caption {
+		color: #fff;
+		font-size: 40;
+		z-index: 100;
+		align-self: center;
+		font-family: "Poppins-Bold";
+		font-weight: 900;
+	}
+}

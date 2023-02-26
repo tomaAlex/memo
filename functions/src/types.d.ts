@@ -3,10 +3,25 @@ type Coordinates = {
 	longitude: number;
 };
 
+type Feature = "BRONZE";
+
+type LivedFeatureExpiration = LivedDocument["expiresAt"] | null;
+
+type LivedFeature<Expiration extends LivedFeatureExpiration> = {
+	feature: Feature;
+	/**
+	 * if set to null, the feature is not set to expire
+	 */
+	expiresAt: Expiration;
+	checkedForRenewal: Expiration extends null ? true : boolean;
+};
+
+type Gender = "MALE" | "FEMALE" | "OTHER";
+
 type User = {
 	firstName: string;
 	lastName: string;
-	gender: "MALE" | "FEMALE" | "OTHER";
+	gender: Gender;
 	birthDate: string;
 	job?: string;
 	school?: string;
@@ -26,6 +41,14 @@ type User = {
 	tokens: string[];
 	hasInstantMatchingOn: boolean;
 	stripeId?: string;
+	features: LivedFeature<LivedFeatureExpiration>[];
+	inAppInteractions: number;
+	searchFilters: {
+		ageRange: [number, number];
+		genders: Gender[];
+		maximumDistance: number;
+		likesOnly: boolean;
+	};
 };
 
 type IdentifiedUser = User & {

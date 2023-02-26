@@ -1,0 +1,13 @@
+.container {
+	&__caption {
+		color: #5a5a5a;
+		font-family: Poppins-Light;
+		font-weight: 300;
+		align-self: center;
+		vertical-align: middle;
+
+		&__active {
+			color: #fbfbfb;
+		}
+	}
+}

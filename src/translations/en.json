@@ -1,11 +1,19 @@
 {
 	"translation": {
 		"Screens": {
+			"Observer": {
+				"notWhitelistedError": {
+					"title": "Only KCL students!",
+					"message": "Login in with a service having your KCL email address associated"
+				}
+			},
 			"Login": {
 				"title": "Let's meet new\n people around you",
 				"abstract": "Tired of dating apps not really working out? Here everything is designed to encourage fair dating chances for everybody",
 				"note": "This app is in a super early stage of development. Many other features will be coming soon and I am listening to all the feedback you are giving. Thank you for your support!",
-				"googleLoginButton": "Login with Google"
+				"googleLoginButton": "Login with Google",
+				"selfMessage": "This app is specially made for King's students. Login with your kcl email.",
+				"otherMessage": "Let's meet new people \n in your campus"
 			},
 			"Signup": {
 				"title": "Sign Up",
@@ -15,10 +23,10 @@
 					},
 					"Identification": {
 						"Labels": {
-							"firstName": "First name",
-							"lastName": "Last name",
-							"gender": "Gender",
-							"birthDate": "Birthdate"
+							"firstName": "What's your first \n name ?",
+							"lastName": "What's your last \n name ?",
+							"gender": "What's your gender ?",
+							"birthDate": "When is your birthday ?"
 						},
 						"Errors": {
 							"firstName": {
@@ -41,9 +49,9 @@
 					},
 					"Details": {
 						"Labels": {
-							"job": "Job title",
+							"job": "What's your Job title ?",
 							"school": "School name",
-							"description": "Description",
+							"description": "Write something \n about you",
 							"location": {
 								"country": "Country",
 								"state": "State",
@@ -77,9 +85,11 @@
 					},
 					"Embodiment": {
 						"Labels": {
-							"height": "Height (cm)",
-							"orientation": "Orientation",
-							"photos": "Photos"
+							"height": "What's your height ? \n (cm)",
+							"orientation": "Who would you date ?",
+							"photos": "Add your photos",
+							"photosNote": "Add at least 2 photos \n to get more attention",
+							"orientationNote": "You may select both"
 						},
 						"Errors": {
 							"height": {
@@ -88,7 +98,7 @@
 								"required": "Heigth is required"
 							},
 							"orientation": {
-								"required": "Orientation is required"
+								"required": "Your preference is required"
 							},
 							"photos": {
 								"required": "Photos are required",
@@ -96,7 +106,9 @@
 							}
 						}
 					}
-				}
+				},
+				"confirmation": "Your profile is set!",
+				"matchReady": "Get ready to swipe your love!"
 			},
 			"Main": {
 				"Feed": {
@@ -105,17 +117,50 @@
 						"startConversation": "Start a conversation"
 					},
 					"Details": {
-						"years": "years"
+						"years": "years",
+						"liked": "Already liked you"
 					},
 					"EnoughMatchesNote": {
 						"caption": "It is time you focus on your current matches"
 					},
 					"UsersSwiper": {
 						"PaymentSheet": {
-							"PaymentSupplierButton": {
-								"addCard": "Add new card"
+							"priceNote": "Get an instant match for £3"
+						}
+					},
+					"SearchFiltersModal": {
+						"header": "Search Filters",
+						"Form": {
+							"Labels": {
+								"Gender": {
+									"caption": "Show me",
+									"men": "Men",
+									"women": "Women",
+									"both": "Both"
+								},
+								"age": "Age preference",
+								"distance": "Maximum distance",
+								"likesOnly": "Who liked you only"
 							},
-							"priceNote": "Get an instant match for £5"
+							"Errors": {
+								"gender": {
+									"required": "Gender is required"
+								},
+								"age": {
+									"required": "Age is required",
+									"tooShort": "The age preference has a minimum",
+									"tooLong": "The age preference has a maximum"
+								},
+								"distance": {
+									"required": "Distance is required",
+									"tooShort": "The distance is too short",
+									"tooLong": "The distance is too long"
+								},
+								"likesOnly": {
+									"required": "Likes only is required"
+								}
+							},
+							"submit": "Apply"
 						}
 					}
 				},
@@ -123,6 +168,38 @@
 					"noMatchesNote": "It's time to send more likes"
 				},
 				"Settings": {
+					"GetPremium": {
+						"buttonTitle": "Get Premium",
+						"premiumButtonTitle": "Manage Premium",
+						"PaymentSheet": {
+							"title": "PREMIUM ACCOUNT",
+							"OfferPreview": {
+								"Panel": {
+									"title": "Hot Deal",
+									"month": "month",
+									"Features": {
+										"seen": "seen feature",
+										"likes": "see who likes you",
+										"noAds": "ad free"
+									}
+								},
+								"continue": "CONTINUE",
+								"cancel": "NO THANKS"
+							}
+						},
+						"ReviewSheet": {
+							"title": "PREMIUM ACCOUNT",
+							"OfferPreview": {
+								"Panel": {
+									"title": "ACTIVATED",
+									"expirationNote": "Expires in",
+									"neverNote": "NEVER"
+								},
+								"continue": "CONTINUE",
+								"cancel": "CANCEL SUBSCRIPTION"
+							}
+						}
+					},
 					"Labels": {
 						"hasInstantMatchingOn": "Allow instant matches"
 					},
@@ -258,6 +335,32 @@
 					},
 					"logoutCaption": "Logout"
 				}
+			},
+			"Tutorial": {
+				"nextCaption": "Next",
+				"Overview": {
+					"title": "Here is a quick tutorial for using the app",
+					"skipCaption": "No, thanks"
+				},
+				"Note1": {
+					"title": "You have a limited amount of matches per day",
+					"content": "10 matches/day"
+				},
+				"Note2": {
+					"title": "Your matches expires after 24 hours"
+				},
+				"Note3": {
+					"title": "Swipe right for like\n and \nSwipe left for dislike"
+				},
+				"Note4": {
+					"title": "You can get an instant match with a person by pressing the super like button"
+				},
+				"Note5": {
+					"title": "You also receive money for every super like you get!",
+					"cashOutSubTitle": "You can cash out at every £10",
+					"content": "It can be disabled from the settings menu",
+					"completeCaption": "Complete"
+				}
 			}
 		},
 		"Components": {
@@ -269,6 +372,9 @@
 						"remainingPicturesNotice_plural": "You can add {{count}} more pictures"
 					}
 				}
+			},
+			"PaymentSupplierButton": {
+				"addCard": "Add new card"
 			}
 		}
 	}

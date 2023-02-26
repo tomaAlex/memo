@@ -1,0 +1,1 @@
+export const APP_INTERACTIONS_UNTIL_AD = 20;

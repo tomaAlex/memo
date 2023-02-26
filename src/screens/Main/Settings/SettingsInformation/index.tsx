@@ -2,7 +2,15 @@ import React, { useState } from "react";
 import { Formik } from "formik";
 import { useUserUpdateFormValidationRules } from "hooks";
 import { updateUser as firebaseUpdateUser } from "Firebase/index";
-import { Keyboard, SafeAreaView, ScrollView, TouchableWithoutFeedback, View } from "react-native";
+import {
+	Keyboard,
+	KeyboardAvoidingView,
+	Platform,
+	SafeAreaView,
+	ScrollView,
+	TouchableWithoutFeedback,
+	View,
+} from "react-native";
 import { useSelector } from "react-redux";
 import connector from "redux/connector";
 import UpdateDetailsForm from "../UpdateDetailsForm";
@@ -33,13 +41,19 @@ const SettingsInformation = ({}: ScreenProps<SettingsScreenNames.Information>) =
 		>
 			<SafeAreaView style={styles.container}>
 				<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-					<View style={styles.container__formContainer}>
-						<ScrollView style={styles.container__formContainer__form}>
-							<UpdateIdentificationForm />
-							<UpdateDetailsForm />
-							<SettingsSubmitButton {...{ isUserUpdating }} />
-						</ScrollView>
-					</View>
+					<KeyboardAvoidingView
+						behavior={Platform.OS === "ios" ? "padding" : "height"}
+						style={{ flex: 1 }}
+						keyboardVerticalOffset={140}
+					>
+						<View style={styles.container__formContainer}>
+							<ScrollView style={styles.container__formContainer__form} showsVerticalScrollIndicator={false}>
+								<UpdateIdentificationForm />
+								<UpdateDetailsForm />
+								<SettingsSubmitButton {...{ isUserUpdating }} />
+							</ScrollView>
+						</View>
+					</KeyboardAvoidingView>
 				</TouchableWithoutFeedback>
 			</SafeAreaView>
 		</Formik>
