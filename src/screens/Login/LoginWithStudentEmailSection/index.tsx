@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef } from "react";
 import { Formik } from "formik";
 import { View } from "react-native";
 import { ReduxProps } from "types/index";
 import auth from "@react-native-firebase/auth";
 import { useTranslation } from "react-i18next";
-import { useDynamicLinkHandler } from "./utils";
+import { getDynamicLinkHandler } from "./utils";
 import FormTextInput from "components/forms/FormTextInput";
 import FormFieldLabel from "components/forms/FormFieldLabel";
 import dynamicLinks from "@react-native-firebase/dynamic-links";
@@ -17,15 +17,17 @@ type TProps = {
 };
 
 const LoginWithStudentEmailSection = ({ setAwaitingLoginStatus }: TProps) => {
-	const [emailToLogin, setEmailToLogin] = useState("");
-	const handleDynamicLink = useDynamicLinkHandler(emailToLogin);
 	const [translateLabels] = useTranslation("translation", { keyPrefix: "Screens.Login.StudentEmailLoginForm.Labels" });
 	const [translateErrors] = useTranslation("translation", { keyPrefix: "Screens.Login.StudentEmailLoginForm.Errors" });
 	const loginWithStudentEmailFormValidationSchema = useLoginWithStudentEmailFormValidationRules();
+	const dynamicLinkUnsubscribe = useRef<() => void>();
 
-	useEffect(() => {
-		return dynamicLinks().onLink(handleDynamicLink); // cleanup when unmounting
-	}, [handleDynamicLink]);
+	const unsubscribeFromPriorDynamicLink = () => {
+		if (!dynamicLinkUnsubscribe.current) {
+			return;
+		}
+		dynamicLinkUnsubscribe.current();
+	};
 
 	return (
 		<View style={styles.container}>
@@ -35,7 +37,9 @@ const LoginWithStudentEmailSection = ({ setAwaitingLoginStatus }: TProps) => {
 					email: "",
 				}}
 				onSubmit={async ({ email }, { setErrors }) => {
-					setEmailToLogin(email);
+					unsubscribeFromPriorDynamicLink();
+					const handleDynamicLink = getDynamicLinkHandler(email);
+					dynamicLinkUnsubscribe.current = dynamicLinks().onLink(handleDynamicLink);
 					setAwaitingLoginStatus(true);
 					try {
 						await auth().sendSignInLinkToEmail(email, {

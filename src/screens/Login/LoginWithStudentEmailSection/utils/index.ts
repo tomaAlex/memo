@@ -1,1 +1,1 @@
-export * from "./useDynamicLinkHandler";
+export * from "./getDynamicLinkHandler";
