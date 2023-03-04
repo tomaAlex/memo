@@ -1,6 +1,7 @@
 import React from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import styles from "./Bubble.module.scss";
+import BubbleIndentation from "./BubbleIndentation";
 
 type TProps = {
 	note: string;
@@ -10,9 +11,13 @@ type TProps = {
 const Bubble = ({ note, sender }: TProps) => {
 	const isSelf = sender === "Self";
 	return (
-		<TouchableOpacity style={[styles.messageBubbleGeneral, isSelf ? styles.self__message : styles.other__message]}>
-			<Text style={isSelf ? styles.self__message__content : styles.other__message__content}>{note}</Text>
-		</TouchableOpacity>
+		<View style={styles.messageBubbleWrapper}>
+			<BubbleIndentation visible={isSelf} />
+			<TouchableOpacity style={[styles.messageBubbleGeneral, isSelf ? styles.self__message : styles.other__message]}>
+				<Text style={isSelf ? styles.self__message__content : styles.other__message__content}>{note}</Text>
+			</TouchableOpacity>
+			<BubbleIndentation visible={!isSelf} />
+		</View>
 	);
 };
 

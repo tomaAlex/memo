@@ -35,6 +35,7 @@
     "react": "18.1.0",
     "react-i18next": "^11.18.5",
     "react-native": "0.70.5",
+    "react-native-avoid-softinput": "^3.1.5",
     "react-native-config": "^1.4.11",
     "react-native-date-picker": "^4.2.8",
     "react-native-deck-swiper": "^2.0.11",

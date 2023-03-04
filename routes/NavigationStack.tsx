@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { ScreenNames, NavigationStackTypes } from "types/index";
@@ -21,10 +21,16 @@ import Work from "screens/Signup/Work";
 import Description from "screens/Signup/Description";
 import Photos from "screens/Signup/Photos";
 import SignupConfirmation from "screens/Signup/SignupConfirmation";
+import { AvoidSoftInput } from "react-native-avoid-softinput";
 
 const Stack = createStackNavigator<NavigationStackTypes>();
 
 const Navigator = () => {
+	useEffect(() => {
+		AvoidSoftInput.setShouldMimicIOSBehavior(true);
+		AvoidSoftInput.setEnabled(true);
+	}, []);
+
 	return (
 		<NavigationContainer>
 			<Stack.Navigator initialRouteName={ScreenNames.Observer} screenOptions={{ headerShown: false }}>

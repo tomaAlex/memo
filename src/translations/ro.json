@@ -11,7 +11,21 @@
 				"title": "Hai sa intalnim\n pe cineva dinprejur",
 				"abstract": "Obosit de aplicatiile de de dating care nu prea functioneaza? Aici totul este proiectat astfel incat sa fie incurajate sanse de intalnire egale pentru toata lumea",
 				"note": "Aceasta aplicatie este intr-un stadiu super incipient de dezvoltare. Multe alte feature-uri vor veni curand si ascult tot feedback-ul pe care il oferiti. Va multumesc pentru suport!",
-				"googleLoginButton": "Logheaza-te cu Google"
+				"googleLoginButton": "Logheaza-te cu Google",
+				"studentEmailLoginForm": {
+					"Labels": {
+						"email": "Email de student",
+						"submit": "Login cu email-ul de student"
+					},
+					"Errors": {
+						"email": {
+							"invalid": "Email-ul este invalid",
+							"required": "Email=ul este obligatoriu"
+						}
+					}
+				},
+				"selfMessage": "Aceasta aplicatie este special facuta\n pentru studentii King's. \nLogheaza-te cu email-ul tau KCL",
+				"otherMessage": "Hai sa intalnim pe cineva \n din campusul tau"
 			},
 			"Signup": {
 				"title": "Inregistreaza-te",
