@@ -4,7 +4,7 @@ import { Formik } from "formik";
 import { useSignupPhotosFormValidationRules } from "hooks/useFormValidationRules/useSignupPhotosFormValidationRules";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Alert, SafeAreaView, Text, View } from "react-native";
+import { SafeAreaView, Text, View } from "react-native";
 import connector from "redux/connector";
 import { PhotoForm, ScreenNames, ScreenProps } from "types";
 import createUser from "../CreateUser/createUser";
@@ -18,6 +18,7 @@ import storeUser from "../CreateUser/storeUser";
 const Photos = ({ navigation, route, updateUser }: ScreenProps<ScreenNames.Photos>) => {
 	const { stepNumber, descriptionForm } = route.params;
 	const [translateLabels] = useTranslation("translation", { keyPrefix: "Screens.Signup.Forms.Embodiment.Labels" });
+	const [translateErrors] = useTranslation("translation", { keyPrefix: "Screens.Signup.Forms.Embodiment.Errors" });
 	const [isCreatingAccount, setIsCreatingAccount] = useState(false);
 	const photosSchema = useSignupPhotosFormValidationRules();
 
@@ -28,32 +29,22 @@ const Photos = ({ navigation, route, updateUser }: ScreenProps<ScreenNames.Photo
 				<Formik
 					validationSchema={photosSchema}
 					initialValues={{ photos: [] as string[] }}
-					onSubmit={async (values) => {
+					onSubmit={async (values, { setErrors }) => {
 						const userForm: PhotoForm = { ...values, ...descriptionForm };
 						setIsCreatingAccount(true);
-						createUser(userForm)
-							.then(async (userToSignUp) => {
-								const createdUserId = auth().currentUser?.uid as string;
-								try {
-									await storeUser(userToSignUp, createdUserId, updateUser);
-									setIsCreatingAccount(false);
-									navigation.reset({
-										index: 0,
-										routes: [{ name: ScreenNames.SignupConfirmation }],
-									});
-								} catch (err) {
-									setIsCreatingAccount(false);
-									Alert.alert("Error occurred", err as string);
-								}
-							})
-							.catch(() => {
-								console.log("Here");
-								setIsCreatingAccount(false);
+						try {
+							const userToSignUp = await createUser(userForm);
+							const createdUserId = auth().currentUser?.uid as string;
+							await storeUser(userToSignUp, createdUserId, updateUser);
+							navigation.reset({
+								index: 0,
+								routes: [{ name: ScreenNames.SignupConfirmation }],
 							});
-						// const userToSignUp = await createUser(userForm);
-						// const createdUserId = auth().currentUser?.uid as string;
-						// await storeUser(userToSignUp, createdUserId, updateUser);
-						// setIsCreatingAccount(false);
+						} catch (err) {
+							setErrors({ photos: translateErrors("failedSignup") });
+						} finally {
+							setIsCreatingAccount(false);
+						}
 					}}
 				>
 					<>
