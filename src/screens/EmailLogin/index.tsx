@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Formik } from "formik";
 import { Keyboard, SafeAreaView, View, TouchableWithoutFeedback } from "react-native";
 import connector from "../../redux/connector";
@@ -7,7 +7,6 @@ import { ScreenNames, ScreenProps } from "types/index";
 import styles from "./EmailLogin.module.scss";
 import { useSelector } from "react-redux";
 import { selectAwaitingLoginStatus } from "redux/selectors";
-import Loading from "components/Loading";
 import { useTranslation } from "react-i18next";
 import dynamicLinks from "@react-native-firebase/dynamic-links";
 import { useLoginWithStudentEmailFormValidationRules } from "hooks/useFormValidationRules/useLoginWithStudentEmailFormValidationRules";
@@ -16,6 +15,7 @@ import FormFieldLabel from "components/forms/FormFieldLabel";
 import EmailLoginButton from "./EmailLoginButton";
 import { getDynamicLinkHandler } from "./utils";
 import BackButton from "components/BackButton";
+import EmailLoadingModal from "./EmailLoadingModal";
 
 const EmailLogin = ({ setAwaitingLoginStatus, navigation }: ScreenProps<ScreenNames.EmailLogin>) => {
 	const awaitingLoginStatus = useSelector(selectAwaitingLoginStatus);
@@ -31,12 +31,14 @@ const EmailLogin = ({ setAwaitingLoginStatus, navigation }: ScreenProps<ScreenNa
 		dynamicLinkUnsubscribe.current();
 	};
 
+	useEffect(() => {
+		return () => {
+			unsubscribeFromPriorDynamicLink();
+		};
+	}, []);
+
 	if (awaitingLoginStatus) {
-		return (
-			<View style={styles.loadingContainer}>
-				<Loading />
-			</View>
-		);
+		return <EmailLoadingModal />;
 	}
 
 	return (

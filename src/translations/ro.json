@@ -26,6 +26,12 @@
 				"selfMessage": "Aceasta aplicatie este special facuta\n pentru studentii King's. \nLogheaza-te cu email-ul tau KCL",
 				"otherMessage": "Hai sa intalnim pe cineva \n din campusul tau"
 			},
+			"EmailLogin": {
+				"EmailLoadingModal": {
+					"sentLoginEmailLink": "Un link de autentificare a fost trimis pe adresa ta de email. Deschide email-ul si apasa pe link pentru a te loga.",
+					"linkOpeningWarning": "ATENTIE: Trebuie sa deschizi link-ul din email pe acest telefon, nu de pe alt dispozitiv. Nu uita sa verifici folder-ul de spam."
+				}
+			},
 			"Signup": {
 				"title": "Inregistreaza-te",
 				"Forms": {

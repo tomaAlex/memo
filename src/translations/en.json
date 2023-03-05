@@ -26,6 +26,12 @@
 				"selfMessage": "This app is specially made \nfor King's students. \nLogin with your KCL email.",
 				"otherMessage": "Let's meet new people \n in your campus"
 			},
+			"EmailLogin": {
+				"EmailLoadingModal": {
+					"sentLoginEmailLink": "An authentication link has been sent to your email address. Open your email and click on the link to login.",
+					"linkOpeningWarning": "WARNING: You need to open the email link on this phone, not from another device. Do not forget to check your spam folder."
+				}
+			},
 			"Signup": {
 				"title": "Sign Up",
 				"Forms": {
