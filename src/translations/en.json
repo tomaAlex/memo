@@ -120,7 +120,8 @@
 							"photos": {
 								"required": "Photos are required",
 								"tooMany": "You can have at most 9 photos"
-							}
+							},
+							"failedSignup": "Check you have an active internet connection and given location permission"
 						}
 					}
 				},

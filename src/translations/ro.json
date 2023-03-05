@@ -104,7 +104,8 @@
 						"Labels": {
 							"height": "Care-ti este inaltimea ? \n (cm)",
 							"orientation": "Cu cine ai vrei sa te intalnesti ?",
-							"photos": "Poze",
+							"photos": "Adauga-ti pozele",
+							"photosNote": "Adauga cel putin 2 poze \n pentru mai multa atentie",
 							"orientationNote": "Poti alege ambele optiuni"
 						},
 						"Errors": {
@@ -119,7 +120,8 @@
 							"photos": {
 								"required": "Pozele sunt obligatorii",
 								"tooMany": "Poti avea cel mult 9 poze"
-							}
+							},
+							"failedSignup": "Verifica daca ai o conexiune activa la internet si daca ai dat permisiunea de locatie"
 						}
 					}
 				},
