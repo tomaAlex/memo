@@ -1,11 +1,9 @@
-import FormFieldLabel from "components/forms/FormFieldLabel";
-import FormSubmitButton from "components/forms/FormSubmitButton";
-import FormTextInput from "components/forms/FormTextInput";
-import { Formik, FormikValues } from "formik";
 import React from "react";
-import { KeyboardAvoidingView, Platform, StyleProp, Text, TextInput, TextProps, View, ViewStyle } from "react-native";
+import { Platform, TextInput, TextProps, View, ViewStyle } from "react-native";
 import Label from "../Label";
 import Submit from "../Submit";
+import { Formik, FormikValues } from "formik";
+import FormTextInput from "components/forms/FormTextInput";
 import styles from "./TextForm.module.scss";
 
 type FormComponent = {

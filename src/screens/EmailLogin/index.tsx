@@ -66,8 +66,8 @@ const EmailLogin = ({ setAwaitingLoginStatus }: ScreenProps<ScreenNames.EmailLog
 					}}
 				>
 					<View style={styles.container__form}>
-						<FormTextInput isMandatory field="email">
-							<FormFieldLabel label={translateLabels("email")} />
+						<FormTextInput style={styles.container__form__textInput} field="email">
+							<FormFieldLabel style={styles.container__form__textInput__formLabel} label={translateLabels("email")} />
 						</FormTextInput>
 						<EmailLoginButton />
 					</View>

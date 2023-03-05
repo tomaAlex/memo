@@ -1,13 +1,34 @@
 .container {
 	flex: 1;
 	display: flex;
-    align-items: center;
-    background-color: white;
+	align-items: center;
+	background-color: white;
 
 	&__form {
 		justify-content: center;
-        width: 90%;
+		width: 90%;
 		flex: 1;
+
+		&__textInput {
+			margin-top: 10%;
+			border-width: 1px;
+			border-color: #aeaeae4d;
+			color: #f10065;
+			border-radius: 20px;
+			height: 40%;
+			width: 95%;
+			padding-left: 5%;
+			font-family: "Poppins-Medium";
+
+			&__formLabel {
+				font-size: 25px;
+				font-family: "Poppins-Semibold";
+				font-weight: 600;
+				color: #313131;
+				margin-left: 2%;
+				align-self: center;
+			}
+		}
 	}
 }
 
