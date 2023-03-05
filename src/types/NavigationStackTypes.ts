@@ -72,6 +72,7 @@ export type PhotoForm = {
 export interface NavigationStackTypes extends NavigationStackTypesStructure {
 	[ScreenNames.Observer]: undefined;
 	[ScreenNames.Login]: undefined;
+	[ScreenNames.EmailLogin]: undefined;
 	[ScreenNames.Identification]: undefined;
 	[ScreenNames.Details]: {
 		identification: IdentificationForm;

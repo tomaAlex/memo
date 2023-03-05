@@ -26,6 +26,7 @@ const Embodiment = ({
 	updateUser,
 }: ScreenProps<ScreenNames.Embodiment>) => {
 	const [translateLabels] = useTranslation("translation", { keyPrefix: "Screens.Signup.Forms.Embodiment.Labels" });
+	const [translateErrors] = useTranslation("translation", { keyPrefix: "Screens.Signup.Forms.Embodiment.Errors" });
 	const [isCreatingAccount, setIsCreatingAccount] = useState(false);
 	const embodimentSchema = useSignupEmbodimentFormValidationRules();
 
@@ -40,13 +41,18 @@ const Embodiment = ({
 						orientation: "" as Orientation,
 						photos: [] as string[],
 					}}
-					onSubmit={async (embodiment: EmbodimentForm) => {
+					onSubmit={async (embodiment: EmbodimentForm, { setErrors }) => {
 						setIsCreatingAccount(true);
-						const userToSignUp = await assembleUser(identification, details, embodiment);
-						const createdUserId = auth().currentUser?.uid as string;
-						await storeUser(userToSignUp, createdUserId, updateUser);
-						setIsCreatingAccount(false);
-						navigation.replace(ScreenNames.Main, { uid: createdUserId });
+						try {
+							const userToSignUp = await assembleUser(identification, details, embodiment);
+							const createdUserId = auth().currentUser?.uid as string;
+							await storeUser(userToSignUp, createdUserId, updateUser);
+							navigation.replace(ScreenNames.Main, { uid: createdUserId });
+						} catch (error) {
+							setErrors({ photos: translateErrors("failedSignup") });
+						} finally {
+							setIsCreatingAccount(false);
+						}
 					}}
 				>
 					<ScrollView

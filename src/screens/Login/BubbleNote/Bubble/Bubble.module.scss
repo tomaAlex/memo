@@ -1,40 +1,47 @@
+.messageBubbleWrapper {
+	width: 100%;
+	flex-direction: row;
+
+	&__indentation {
+		flex: 1;
+	}
+}
+
 .messageBubbleGeneral {
-    padding-top: 5%;
-    padding-left: 8%;
-    padding-right: 1%;
-    padding-bottom: 5%;
-    border-radius: 45px;
-    margin-bottom: 6%;
+	padding: 1rem;
+	border-radius: 45px;
 }
 
 .self {
-    align-self: flex-end;
+	// align-self: flex-end;
 
-    &__message {
-        background-color: #263238;
-        border-bottom-right-radius: 0;
-        width: 99%;
-        padding-top: 7%;
-        padding-bottom: 7%;
-        align-items: center;
-        &__content {
-            color: white;
-            font-family: Poppins-Regular;
-        }
-    }
+	&__message {
+		background-color: #263238;
+		border-bottom-right-radius: 0;
+
+		&__content {
+			color: white;
+            font-size: 1rem;
+			font-family: Poppins-Regular;
+			text-align: right;
+            padding-left: 1rem;
+		}
+	}
 }
 
 .other {
-    align-self: flex-start;
+	// align-self: flex-start;
 
-    &__message {
-        background-color: #ec4474;
-        border-bottom-left-radius: 0;
-        width: 99%;
-        &__content {
-            color: white;
-            font-size: 18px;
-            font-family: Poppins-SemiBold;
-        }
-    }
+	&__message {
+		background-color: #ec4474;
+		border-bottom-left-radius: 0;
+
+		&__content {
+			color: white;
+            font-size: 1.05rem;
+			font-family: Poppins-SemiBold;
+			text-align: left;
+            padding-right: 1rem;
+		}
+	}
 }

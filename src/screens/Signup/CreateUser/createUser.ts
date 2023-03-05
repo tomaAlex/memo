@@ -1,5 +1,5 @@
 import { getLocation } from "utils/index";
-import { DetailsForm, EmbodimentForm, Gender, IdentificationForm, PhotoForm, User } from "types/index";
+import { Gender, PhotoForm, User } from "types/index";
 
 const createUser = async (photoForm: PhotoForm): Promise<User> => {
 	const coordinates = await getLocation();

@@ -1,6 +1,7 @@
 export enum ScreenNames {
 	Observer = "Observer",
 	Login = "Login",
+	EmailLogin = "EmailLogin",
 	Identification = "Identification",
 	Details = "Details",
 	Embodiment = "Embodiment",

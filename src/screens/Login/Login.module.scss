@@ -5,7 +5,7 @@
 	background-color: white;
 
 	&__header {
-		flex: 12;
+		flex: 1.5;
 		width: 100%;
 		justify-content: space-evenly;
 
@@ -17,26 +17,23 @@
 		}
 
 		&__icon {
-			flex: 0.72;
+			flex: 1;
+			padding: 1rem;
 			align-self: center;
 		}
 	}
 
-	&__footer {
-		flex: 1;
-		flex-direction: column-reverse;
-
-		&__note {
-			text-align: center;
-			font-size: 10px;
-			color: #36363675;
-			padding: 30px;
-		}
+	&__body {
+		flex: 1.25;
+		justify-content: flex-start;
+		width: 75%;
 	}
 
-	&__body {
-		flex: 1;
-		justify-content: flex-start;
+	&__footer {
+		flex: 0.75;
+		width: 90%;
+		justify-content: center;
+		// flex-direction: column-reverse;
 
 		&__signinButton {
 			align-content: center;

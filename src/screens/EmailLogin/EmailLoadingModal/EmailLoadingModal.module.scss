@@ -1,0 +1,18 @@
+.container {
+	flex: 1;
+	background-color: white;
+	align-items: center;
+	justify-content: center;
+
+	&__noteContainer {
+		flex: 1;
+		width: 90%;
+		justify-content: center;
+
+		&__note {
+			text-align: justify;
+			color: #f10065;
+            font-family: Poppins-Bold;
+		}
+	}
+}

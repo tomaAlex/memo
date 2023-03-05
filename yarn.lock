@@ -1582,6 +1582,13 @@
     "@expo/config-plugins" "^5.0.4"
     plist "^3.0.5"
 
+"@react-native-firebase/dynamic-links@^17.3.1":
+  version "17.3.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/dynamic-links/-/dynamic-links-17.3.1.tgz#0fbab673678501c5e76e335f19f8009f197cacc4"
+  integrity sha512-XJEElPnoBRDd0MRwRJX63qfYUMVfghZt7ghWF611JaAr/roKhZGlHneYSqA/83P7kSBdmqodw3/Lx1AjLkzdTw==
+  dependencies:
+    "@expo/config-plugins" "^5.0.4"
+
 "@react-native-firebase/firestore@^16.4.6":
   version "16.4.6"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-16.4.6.tgz#8e5cff6ab27256134d92ad3d86d8fccfb1c16c28"

@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleProp, TouchableOpacity, View, ViewStyle } from "react-native";
+import { Image, StyleProp, View, ViewStyle } from "react-native";
 import styles from "./LoginIcon.module.scss";
 
 type TProps = {
@@ -9,9 +9,7 @@ type TProps = {
 const LoginIcon = ({ style }: TProps) => {
 	return (
 		<View style={style}>
-			<TouchableOpacity>
-				<Image source={require("./loginIcon.png")} style={styles.icon} />
-			</TouchableOpacity>
+			<Image source={require("./loginIcon.png")} style={styles.icon} />
 		</View>
 	);
 };

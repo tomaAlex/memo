@@ -18,6 +18,7 @@ import storeUser from "../CreateUser/storeUser";
 const Photos = ({ navigation, route, updateUser }: ScreenProps<ScreenNames.Photos>) => {
 	const { stepNumber, descriptionForm } = route.params;
 	const [translateLabels] = useTranslation("translation", { keyPrefix: "Screens.Signup.Forms.Embodiment.Labels" });
+	const [translateErrors] = useTranslation("translation", { keyPrefix: "Screens.Signup.Forms.Embodiment.Errors" });
 	const [isCreatingAccount, setIsCreatingAccount] = useState(false);
 	const photosSchema = useSignupPhotosFormValidationRules();
 
@@ -28,17 +29,22 @@ const Photos = ({ navigation, route, updateUser }: ScreenProps<ScreenNames.Photo
 				<Formik
 					validationSchema={photosSchema}
 					initialValues={{ photos: [] as string[] }}
-					onSubmit={async (values) => {
+					onSubmit={async (values, { setErrors }) => {
 						const userForm: PhotoForm = { ...values, ...descriptionForm };
 						setIsCreatingAccount(true);
-						const userToSignUp = await createUser(userForm);
-						const createdUserId = auth().currentUser?.uid as string;
-						await storeUser(userToSignUp, createdUserId, updateUser);
-						setIsCreatingAccount(false);
-						navigation.reset({
-							index: 0,
-							routes: [{ name: ScreenNames.SignupConfirmation }],
-						});
+						try {
+							const userToSignUp = await createUser(userForm);
+							const createdUserId = auth().currentUser?.uid as string;
+							await storeUser(userToSignUp, createdUserId, updateUser);
+							navigation.reset({
+								index: 0,
+								routes: [{ name: ScreenNames.SignupConfirmation }],
+							});
+						} catch (err) {
+							setErrors({ photos: translateErrors("failedSignup") });
+						} finally {
+							setIsCreatingAccount(false);
+						}
 					}}
 				>
 					<>

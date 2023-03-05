@@ -63,6 +63,14 @@
 				<string>com.googleusercontent.apps.946825905593-sgqr83jvrs4vtrjtk9m3c75iqcijbdco</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.memo.memo.ios</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
