@@ -10,8 +10,12 @@ import { ReduxProps, User } from "types";
  * @param updateUser The redux action / reducer.
  */
 const storeUser = async (userToStore: User, userId: string, updateUser: ReduxProps["updateUser"]) => {
-	await createUserObject(userToStore, userId);
-	updateUser({ ...userToStore, id: userId });
+	try {
+		await createUserObject(userToStore, userId);
+		updateUser({ ...userToStore, id: userId });
+	} catch (err) {
+		return Promise.reject(err);
+	}
 };
 
 export default storeUser;

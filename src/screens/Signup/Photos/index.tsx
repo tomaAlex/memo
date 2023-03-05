@@ -4,7 +4,7 @@ import { Formik } from "formik";
 import { useSignupPhotosFormValidationRules } from "hooks/useFormValidationRules/useSignupPhotosFormValidationRules";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { SafeAreaView, Text, View } from "react-native";
+import { Alert, SafeAreaView, Text, View } from "react-native";
 import connector from "redux/connector";
 import { PhotoForm, ScreenNames, ScreenProps } from "types";
 import createUser from "../CreateUser/createUser";
@@ -31,14 +31,29 @@ const Photos = ({ navigation, route, updateUser }: ScreenProps<ScreenNames.Photo
 					onSubmit={async (values) => {
 						const userForm: PhotoForm = { ...values, ...descriptionForm };
 						setIsCreatingAccount(true);
-						const userToSignUp = await createUser(userForm);
-						const createdUserId = auth().currentUser?.uid as string;
-						await storeUser(userToSignUp, createdUserId, updateUser);
-						setIsCreatingAccount(false);
-						navigation.reset({
-							index: 0,
-							routes: [{ name: ScreenNames.SignupConfirmation }],
-						});
+						createUser(userForm)
+							.then(async (userToSignUp) => {
+								const createdUserId = auth().currentUser?.uid as string;
+								try {
+									await storeUser(userToSignUp, createdUserId, updateUser);
+									setIsCreatingAccount(false);
+									navigation.reset({
+										index: 0,
+										routes: [{ name: ScreenNames.SignupConfirmation }],
+									});
+								} catch (err) {
+									setIsCreatingAccount(false);
+									Alert.alert("Error occurred", err as string);
+								}
+							})
+							.catch(() => {
+								console.log("Here");
+								setIsCreatingAccount(false);
+							});
+						// const userToSignUp = await createUser(userForm);
+						// const createdUserId = auth().currentUser?.uid as string;
+						// await storeUser(userToSignUp, createdUserId, updateUser);
+						// setIsCreatingAccount(false);
 					}}
 				>
 					<>

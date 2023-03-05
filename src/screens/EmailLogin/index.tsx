@@ -15,8 +15,9 @@ import FormTextInput from "components/forms/FormTextInput";
 import FormFieldLabel from "components/forms/FormFieldLabel";
 import EmailLoginButton from "./EmailLoginButton";
 import { getDynamicLinkHandler } from "./utils";
+import BackButton from "components/BackButton";
 
-const EmailLogin = ({ setAwaitingLoginStatus }: ScreenProps<ScreenNames.EmailLogin>) => {
+const EmailLogin = ({ setAwaitingLoginStatus, navigation }: ScreenProps<ScreenNames.EmailLogin>) => {
 	const awaitingLoginStatus = useSelector(selectAwaitingLoginStatus);
 	const [translateLabels] = useTranslation("translation", { keyPrefix: "Screens.Login.StudentEmailLoginForm.Labels" });
 	const [translateErrors] = useTranslation("translation", { keyPrefix: "Screens.Login.StudentEmailLoginForm.Errors" });
@@ -41,6 +42,9 @@ const EmailLogin = ({ setAwaitingLoginStatus }: ScreenProps<ScreenNames.EmailLog
 	return (
 		<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 			<SafeAreaView style={styles.container}>
+				<View style={styles.container__buttonView}>
+					<BackButton navigation={navigation} />
+				</View>
 				<Formik
 					validationSchema={loginWithStudentEmailFormValidationSchema}
 					initialValues={{
@@ -66,7 +70,7 @@ const EmailLogin = ({ setAwaitingLoginStatus }: ScreenProps<ScreenNames.EmailLog
 					}}
 				>
 					<View style={styles.container__form}>
-						<FormTextInput style={styles.container__form__textInput} field="email">
+						<FormTextInput style={styles.container__form__textInput} field="email" autoCapitalize="none">
 							<FormFieldLabel style={styles.container__form__textInput__formLabel} label={translateLabels("email")} />
 						</FormTextInput>
 						<EmailLoginButton />

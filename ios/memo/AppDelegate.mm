@@ -130,6 +130,27 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   return RCTAppSetupDefaultModuleFromClass(moduleClass);
 }
 
+FIRActionCodeSettings *actionCodeSettings = [[FIRActionCodeSettings alloc] init];
+ actionCodeSettings.handleCodeInApp = YES;
+ FIRUser *user = [FIRAuth auth].currentUser;
+ NSString *urlString =
+     [NSString stringWithFormat:@"https://obsid.page.link/?link=%", user.email];
+ actionCodeSettings.URL = [NSURL URLWithString:urlString];
+ actionCodeSettings.iOSBundleID = [NSBundle mainBundle].bundleIdentifier;
+ // When multiple custom dynamic link domains are defined, specify which one to use.
+ actionCodeSettings.dynamicLinkDomain = @"https://obsid.page.link/";
+ [actionCodeSettings setAndroidPackageName:@"com.obsid.memo"
+                     installIfNotAvailable:YES
+                            minimumVersion:'12'];
+ [user sendEmailVerificationWithActionCodeSettings:actionCodeSettings
+                                        completion:^(NSError *_Nullable error) {
+   if (error) {
+     // Error occurred. Inspect error.code and handle error.
+     return;
+   }
+   // Email verification sent.
+ }];
+
 #endif
 
 @end

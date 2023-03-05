@@ -4,6 +4,13 @@
 	align-items: center;
 	background-color: white;
 
+	&__buttonView {
+		left: 4%;
+		position: absolute;
+		top: 10%;
+		z-index: 10;
+	}
+
 	&__form {
 		justify-content: center;
 		width: 90%;
