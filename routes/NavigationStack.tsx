@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { ScreenNames, NavigationStackTypes } from "types/index";
 import Observer from "screens/Observer";
 import Login from "screens/Login";
+import EmailLogin from "screens/EmailLogin";
 import Identification from "screens/Signup/Identification";
 import Details from "screens/Signup/Details";
 import Embodiment from "screens/Signup/Embodiment";
@@ -30,6 +31,7 @@ const Navigator = () => {
 			<Stack.Navigator initialRouteName={ScreenNames.Observer} screenOptions={{ headerShown: false }}>
 				<Stack.Screen name={ScreenNames.Observer} component={Observer} />
 				<Stack.Screen name={ScreenNames.Login} component={Login} />
+				<Stack.Screen name={ScreenNames.EmailLogin} component={EmailLogin} />
 				<Stack.Screen name={ScreenNames.Identification} component={Identification} />
 				<Stack.Screen name={ScreenNames.FirstName} component={FirstName} />
 				<Stack.Screen name={ScreenNames.LastName} component={LastName} />
