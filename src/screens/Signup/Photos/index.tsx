@@ -1,6 +1,7 @@
 import FormImagePicker from "components/forms/FormImagePicker";
 import Loading from "components/Loading";
 import { Formik } from "formik";
+import { useNetInfo } from "@react-native-community/netinfo";
 import { useSignupPhotosFormValidationRules } from "hooks/useFormValidationRules/useSignupPhotosFormValidationRules";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -21,6 +22,25 @@ const Photos = ({ navigation, route, updateUser }: ScreenProps<ScreenNames.Photo
 	const [translateErrors] = useTranslation("translation", { keyPrefix: "Screens.Signup.Forms.Embodiment.Errors" });
 	const [isCreatingAccount, setIsCreatingAccount] = useState(false);
 	const photosSchema = useSignupPhotosFormValidationRules();
+	const { isConnected } = useNetInfo();
+
+	if (isConnected === null) {
+		// We don't know if the user is connected to the internet, so we wait for the answer
+		return (
+			<View style={styles.loadingContainer}>
+				<Loading />
+			</View>
+		);
+	}
+
+	if (!isConnected) {
+		// The user is not connected to the internet, so we display a clear error message
+		return (
+			<View style={styles.loadingContainer}>
+				<Text style={styles.error}>{translateErrors("noInternet")}</Text>
+			</View>
+		);
+	}
 
 	return (
 		<SafeAreaView style={styles.container}>

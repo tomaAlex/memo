@@ -25,3 +25,18 @@
         align-self: center;
     }
 }
+
+.error {
+    font-family: "Poppins-Bold";
+    color: #f00;
+    text-align: center;
+    align-self: center;
+    font-size: 14;
+}
+
+.loadingContainer {
+	flex: 1;
+	background-color: white;
+	align-items: center;
+	justify-content: center;
+}
