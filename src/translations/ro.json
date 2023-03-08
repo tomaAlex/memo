@@ -1,6 +1,7 @@
 {
 	"translation": {
 		"Screens": {
+			"noInternet": "Verifica daca ai o conexiune activa la internet",
 			"Observer": {
 				"notWhitelistedError": {
 					"title": "Doar studenti KCL!",
@@ -121,8 +122,7 @@
 								"required": "Pozele sunt obligatorii",
 								"tooMany": "Poti avea cel mult 9 poze"
 							},
-							"failedSignup": "Verifica daca ai o conexiune activa la internet si daca ai dat permisiunea de locatie",
-							"noInternet": "Verifica daca ai o conexiune activa la internet"
+							"failedSignup": "Verifica daca ai o conexiune activa la internet si daca ai dat permisiunea de locatie"
 						}
 					}
 				},

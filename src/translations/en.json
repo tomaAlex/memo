@@ -1,6 +1,7 @@
 {
 	"translation": {
 		"Screens": {
+			"noInternet": "Check you have an active internet connection",
 			"Observer": {
 				"notWhitelistedError": {
 					"title": "Only KCL students!",
@@ -121,8 +122,7 @@
 								"required": "Photos are required",
 								"tooMany": "You can have at most 9 photos"
 							},
-							"failedSignup": "Check you have an active internet connection and given location permission",
-							"noInternet": "Check you have an active internet connection"
+							"failedSignup": "Check you have an active internet connection and given location permission"
 						}
 					}
 				},

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNetInfo } from "@react-native-community/netinfo";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { ScreenNames, NavigationStackTypes } from "types/index";
@@ -22,10 +23,17 @@ import Work from "screens/Signup/Work";
 import Description from "screens/Signup/Description";
 import Photos from "screens/Signup/Photos";
 import SignupConfirmation from "screens/Signup/SignupConfirmation";
+import InternetDisconnectedWarning from "components/InternetDisconnectedWarning";
 
 const Stack = createStackNavigator<NavigationStackTypes>();
 
 const Navigator = () => {
+	const { isConnected } = useNetInfo();
+
+	if (!isConnected) {
+		return <InternetDisconnectedWarning {...{ isConnected }} />;
+	}
+
 	return (
 		<NavigationContainer>
 			<Stack.Navigator initialRouteName={ScreenNames.Observer} screenOptions={{ headerShown: false }}>

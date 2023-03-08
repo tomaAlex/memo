@@ -30,6 +30,7 @@ import HandSwipeIcon from "./hand-swipe.svg";
 import StarsIcon from "./stars.svg";
 import CashIcon from "./cash.svg";
 import InfoIcon from "./info.svg";
+import PlugDisconnected from "./plug-disconnected.svg";
 
 export {
 	HeartIcon,
@@ -64,4 +65,5 @@ export {
 	StarsIcon,
 	CashIcon,
 	InfoIcon,
+	PlugDisconnected,
 };
