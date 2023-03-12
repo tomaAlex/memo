@@ -1,0 +1,10 @@
+.container {
+	flex: 2;
+	align-items: center;
+	padding-bottom: 10px;
+
+	&__remainingTime {
+		font-family: Poppins-Regular;
+		color: #1e1e1e;
+	}
+}

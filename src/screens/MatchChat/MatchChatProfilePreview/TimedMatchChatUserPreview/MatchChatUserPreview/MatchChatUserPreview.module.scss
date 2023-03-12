@@ -1,0 +1,22 @@
+.previewContainer {
+	width: 75px;
+	height: 75px;
+	border-radius: 100px;
+	background-color: white;
+	margin-top: 30px;
+
+	&__user {
+		width: 90%;
+		height: 90%;
+		align-self: center;
+		border-radius: 100px;
+		top: 5%;
+	}
+}
+
+.name {
+    color: #1e1e1e;
+    font-family: Poppins-Medium;
+    font-weight: bold;
+    margin-top: 5px;
+}
