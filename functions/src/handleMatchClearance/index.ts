@@ -1,13 +1,13 @@
-import { firestore } from "firebase-admin";
+import clearMatch from "./clearMatch";
 import * as functions from "firebase-functions";
-import { handleDocumentClearance } from "../handleDocumentClearance";
-import clearUsersMatch from "./clearUsersMatch";
 
 export const handleMatchClearance = functions.https.onRequest(async (req, res) => {
 	const { documentToClearPath } = req.body as DocumentClearancePayload;
-	const matchToClearReference = firestore().doc(documentToClearPath);
-	const matchToClearSnapshot = await matchToClearReference.get();
-	const matchToClearData = matchToClearSnapshot.data() as Match;
-	await clearUsersMatch(matchToClearData.matchedUsers, matchToClearReference.id);
-	await handleDocumentClearance(req, res);
+	try {
+		await clearMatch(documentToClearPath);
+		res.send(200);
+	} catch (error) {
+		console.error(error);
+		res.status(500).send(error);
+	}
 });

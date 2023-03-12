@@ -22,6 +22,7 @@ const SettingsPreferencesUpdateForm = () => {
 	const locationState = location?.state;
 	const locationCity = location?.city;
 	const [isUserUpdating, setIsUserUpdating] = useState(false);
+	const [isBalanceLoading, setIsBalanceLoading] = useState(true);
 	const [translateLabels] = useTranslation("translation", { keyPrefix: "Screens.Main.Settings.Labels" });
 
 	return (
@@ -48,8 +49,8 @@ const SettingsPreferencesUpdateForm = () => {
 							</FormSwitchInput>
 							<SettingsSubmitButton {...{ isUserUpdating }} />
 						</View>
-						<CashOutButton {...{ hasInstantMatchingOn }} />
-						<DeleteAccountButton />
+						<CashOutButton {...{ hasInstantMatchingOn, isBalanceLoading, setIsBalanceLoading }} />
+						{!isBalanceLoading && <DeleteAccountButton />}
 					</View>
 				</TouchableWithoutFeedback>
 			</SafeAreaView>
