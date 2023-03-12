@@ -11,11 +11,12 @@ import { useTranslation } from "react-i18next";
 
 type TProps = {
 	hasInstantMatchingOn: boolean;
+	isBalanceLoading: boolean;
+	setIsBalanceLoading: (isBalanceLoading: boolean) => void;
 };
 
-const CashOutButton = ({ hasInstantMatchingOn }: TProps) => {
+const CashOutButton = ({ hasInstantMatchingOn, isBalanceLoading, setIsBalanceLoading }: TProps) => {
 	const [balance, setBalance] = useState(0);
-	const [isBalanceLoading, setIsBalanceLoading] = useState(false);
 	const [shouldFetchBalance, setShouldFetchBalance] = useState(true);
 	const canCashOut = hasInstantMatchingOn && balance > MINIMUM_PENCE_BALANCE_TO_CASH_OUT;
 	const [t] = useTranslation("translation", { keyPrefix: "Screens.Main.Settings.CashOutButton" });
@@ -30,7 +31,7 @@ const CashOutButton = ({ hasInstantMatchingOn }: TProps) => {
 		const fetchedBalance = await fetchBalance();
 		setIsBalanceLoading(false);
 		setBalance(fetchedBalance);
-	}, [shouldFetchBalance]);
+	}, [setIsBalanceLoading, shouldFetchBalance]);
 
 	useEffect(() => {
 		handleBalanceFetching();

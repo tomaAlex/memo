@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Formik } from "formik";
+import { useTranslation } from "react-i18next";
 import { useUserUpdateFormValidationRules } from "hooks";
 import { updateUser as firebaseUpdateUser } from "Firebase/index";
 import { Keyboard, SafeAreaView, TouchableWithoutFeedback, View } from "react-native";
@@ -11,7 +12,7 @@ import styles from "./SettingsPreferencesUpdateForm.module.scss";
 import FormSwitchInput from "components/forms/FormSwitchInput";
 import FormFieldLabel from "components/forms/FormFieldLabel";
 import CashOutButton from "../../CashOutButton";
-import { useTranslation } from "react-i18next";
+import DeleteAccountButton from "../../DeleteAccountButton";
 
 const SettingsPreferencesUpdateForm = () => {
 	const userUpdateSchema = useUserUpdateFormValidationRules();
@@ -21,6 +22,7 @@ const SettingsPreferencesUpdateForm = () => {
 	const locationState = location?.state;
 	const locationCity = location?.city;
 	const [isUserUpdating, setIsUserUpdating] = useState(false);
+	const [isBalanceLoading, setIsBalanceLoading] = useState(true);
 	const [translateLabels] = useTranslation("translation", { keyPrefix: "Screens.Main.Settings.Labels" });
 
 	return (
@@ -47,7 +49,8 @@ const SettingsPreferencesUpdateForm = () => {
 							</FormSwitchInput>
 							<SettingsSubmitButton {...{ isUserUpdating }} />
 						</View>
-						<CashOutButton {...{ hasInstantMatchingOn }} />
+						<CashOutButton {...{ hasInstantMatchingOn, isBalanceLoading, setIsBalanceLoading }} />
+						{!isBalanceLoading && <DeleteAccountButton />}
 					</View>
 				</TouchableWithoutFeedback>
 			</SafeAreaView>

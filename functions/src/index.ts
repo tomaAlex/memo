@@ -1,6 +1,7 @@
 import * as dotenv from "dotenv";
 import * as admin from "firebase-admin";
 export * from "./cashOut";
+export * from "./deleteAccount";
 export * from "./getBankPreviews";
 export * from "./addCashOutBankAccount";
 export * from "./addPaymentCard";

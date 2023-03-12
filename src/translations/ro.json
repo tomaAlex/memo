@@ -234,6 +234,15 @@
 							"cashOut": "Retrage £{{count}} acum"
 						}
 					},
+					"DeleteAccountButton": {
+						"caption": "Sterge contul",
+						"Confirmation": {
+							"title": "Aceasta actiune va iti sterge permanent contul",
+							"caption": "Esti sigur ca vrei sa iti stergi contul?",
+							"cancel": "Cancel",
+							"delete": "Yes, delete my account"
+						}
+					},
 					"CashOutSupplierForm": {
 						"Labels": {
 							"bankAccountNumber": "Numarul contului",

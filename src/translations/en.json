@@ -235,6 +235,15 @@
 							"cashOut": "Cash out £{{count}} now"
 						}
 					},
+					"DeleteAccountButton": {
+						"caption": "Delete account",
+						"Confirmation": {
+							"title": "This will permanently delete your account",
+							"caption": "Are you sure you want to delete your account?",
+							"cancel": "Cancel",
+							"delete": "Yes, delete my account"
+						}
+					},
 					"CashOutSupplierForm": {
 						"Labels": {
 							"bankAccountNumber": "Account number",

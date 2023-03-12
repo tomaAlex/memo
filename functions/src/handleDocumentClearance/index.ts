@@ -1,11 +1,10 @@
-import { firestore } from "firebase-admin";
 import * as functions from "firebase-functions";
+import clearDocument from "./clearDocument";
 
 export const handleDocumentClearance = functions.https.onRequest(async (req, res) => {
 	const { documentToClearPath } = req.body as DocumentClearancePayload;
-	const documentToClearReference = firestore().doc(documentToClearPath);
 	try {
-		await documentToClearReference.delete();
+		await clearDocument(documentToClearPath);
 		res.send(200);
 	} catch (error) {
 		console.error(error);
