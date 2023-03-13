@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSignupLastNameFormValidationRules } from "hooks/useFormValidationRules/useSignupLastNameFormValidationRules";
 import { useTranslation } from "react-i18next";
 import { Keyboard, TouchableWithoutFeedback, View, SafeAreaView, Platform } from "react-native";
@@ -7,6 +7,7 @@ import { ScreenNames, ScreenProps } from "types";
 import Header from "../Header";
 import TextForm from "../TextForm";
 import styles from "./LastName.module.scss";
+import { setAdjustNothing } from "rn-android-keyboard-adjust";
 
 const LastName = ({ navigation, route }: ScreenProps<ScreenNames.LastName>) => {
 	const { firstNameForm, stepNumber } = route.params;
@@ -14,6 +15,9 @@ const LastName = ({ navigation, route }: ScreenProps<ScreenNames.LastName>) => {
 		keyPrefix: "Screens.Signup.Forms.Identification.Labels",
 	});
 	const lastNameSchema = useSignupLastNameFormValidationRules();
+	useEffect(() => {
+		setAdjustNothing();
+	}, []);
 	return (
 		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
 			<SafeAreaView style={styles.container}>

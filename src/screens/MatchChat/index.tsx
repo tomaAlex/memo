@@ -9,6 +9,7 @@ import MatchMessageTextBar from "./MatchMessages/MatchMessageTextBar";
 import styles from "./MatchChat.module.scss";
 import MatchChatProfilePreview from "./MatchChatProfilePreview";
 import markSeen from "./utils/markSeen";
+import { setAdjustResize, setAdjustNothing } from "rn-android-keyboard-adjust";
 
 const MatchChat = ({
 	route: {
@@ -16,6 +17,13 @@ const MatchChat = ({
 	},
 }: ScreenProps<ScreenNames.MatchChat>) => {
 	const [messages, sendNewMessage] = useMatchMessages(matchId);
+
+	useEffect(() => {
+		setAdjustResize();
+		return () => {
+			setAdjustNothing();
+		};
+	}, []);
 
 	useEffect(() => {
 		markSeen(matchId);
@@ -28,7 +36,7 @@ const MatchChat = ({
 			<KeyboardAvoidingView
 				style={styles.container__chat}
 				behavior={Platform.OS === "ios" ? "padding" : "height"}
-				keyboardVerticalOffset={Platform.OS === "android" ? 20 : 0}
+				contentContainerStyle={{ paddingBottom: -500 }}
 			>
 				<MatchChatProfilePreview userToPreview={matchedUsers[0]} {...{ matchId, matchTimestamp, expiresAt }} />
 				<MatchMessages messages={messages} matchedUsers={matchedUsers} flatListRef={flatListRef} />

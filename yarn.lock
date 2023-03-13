@@ -7373,6 +7373,11 @@ rimraf@~2.6.2:
   dependencies:
     glob "^7.1.3"
 
+rn-android-keyboard-adjust@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/rn-android-keyboard-adjust/-/rn-android-keyboard-adjust-2.1.2.tgz#f2b792628700dcb026215420192317ce43fd954f"
+  integrity sha512-pUYiMT7aucw5YnV4geGdalyl6o6rEwRYhDnw2oPQwDym1BZHtmKsxFLupky1Kj2ZNkNKadpEyoyHOElLo+f3sA==
+
 rn-range-slider@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/rn-range-slider/-/rn-range-slider-2.2.2.tgz#bab4abf12f028df55364e041af6fce29ad46d7ea"

@@ -1,5 +1,5 @@
 import { useSignupDescriptionFormValidationRules } from "hooks/useFormValidationRules/useSignupDescriptionFormValidationRules";
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { View, SafeAreaView, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, Platform } from "react-native";
 import connector from "redux/connector";
@@ -7,11 +7,16 @@ import { ScreenNames, ScreenProps } from "types";
 import Header from "../Header";
 import TextForm from "../TextForm";
 import styles from "./Description.module.scss";
+import { setAdjustNothing } from "rn-android-keyboard-adjust";
 
 const Description = ({ navigation, route }: ScreenProps<ScreenNames.Description>) => {
 	const { stepNumber, workForm } = route.params;
 	const descriptionSchema = useSignupDescriptionFormValidationRules();
 	const [translateLabels] = useTranslation("translation", { keyPrefix: "Screens.Signup.Forms.Details.Labels" });
+
+	useEffect(() => {
+		setAdjustNothing();
+	});
 
 	return (
 		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
