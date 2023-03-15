@@ -1,0 +1,17 @@
+.container {
+	flex: 1;
+	background-color: white;
+	align-items: center;
+	padding: 10px;
+
+	&__form {
+		flex: 0.65;
+		width: 90%;
+
+		// &__label {
+		// 	color: #5a5a5a;
+		// 	font-family: Poppins-Medium;
+		// 	font-weight: 500;
+		// }
+	}
+}

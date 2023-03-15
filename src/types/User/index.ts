@@ -1,3 +1,4 @@
+export * from "./Report";
 export * from "./coordinates";
 export * from "./feature";
 export * from "./gender";

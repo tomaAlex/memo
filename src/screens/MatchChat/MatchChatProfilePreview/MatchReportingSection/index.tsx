@@ -1,23 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Text, TouchableOpacity, View } from "react-native";
 import styles from "./MatchReportingSection.module.scss";
+import MatchReportingSectionFormModal from "./MatchReportingSectionFormModal";
 
-type TProps = {
-	userToReportId: string;
-	historyMatchId: string;
-};
-
-const MatchReportingSection = ({ userToReportId, historyMatchId }: TProps) => {
+const MatchReportingSection = () => {
 	const [t] = useTranslation("translation", {
 		keyPrefix: "Screens.Main.MatchChat.MatchChatProfilePreview.MatchReportingSection",
 	});
+	const [isFormModalVisible, setIsFormModalVisible] = useState(false);
 
 	return (
 		<View style={styles.container}>
-			<TouchableOpacity style={styles.container__button}>
+			<TouchableOpacity
+				style={styles.container__button}
+				onPress={() => {
+					setIsFormModalVisible(true);
+				}}
+			>
 				<Text style={styles.container__button__caption}>{t("caption")}</Text>
 			</TouchableOpacity>
+			<MatchReportingSectionFormModal
+				visible={isFormModalVisible}
+				onRequestClose={() => {
+					setIsFormModalVisible(false);
+				}}
+			/>
 		</View>
 	);
 };

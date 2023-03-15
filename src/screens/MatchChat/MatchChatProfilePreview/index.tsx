@@ -6,6 +6,7 @@ import BackNavigationSection from "./BackNavigationSection";
 import MatchReportingSection from "./MatchReportingSection";
 import TimedMatchChatUserPreview from "./TimedMatchChatUserPreview";
 import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
+import MatchChatProfilePreviewContext from "./MatchChatProfilePreviewContext";
 
 type TProps = {
 	matchId: string;
@@ -19,7 +20,9 @@ const MatchChatProfilePreview = ({ userToPreview, expiresAt, matchId }: TProps) 
 		<View style={styles.container}>
 			<BackNavigationSection />
 			<TimedMatchChatUserPreview {...{ userToPreview, expiresAt }} />
-			<MatchReportingSection userToReportId={userToPreview.id} historyMatchId={matchId} />
+			<MatchChatProfilePreviewContext.Provider value={{ userToReportId: userToPreview.id, historyMatchId: matchId }}>
+				<MatchReportingSection />
+			</MatchChatProfilePreviewContext.Provider>
 		</View>
 	);
 };
