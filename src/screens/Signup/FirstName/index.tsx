@@ -1,5 +1,5 @@
 import { useSignupFirstNameFormValidationRules } from "hooks/useFormValidationRules/useSignupFirstNameFormValidationRules";
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Keyboard, TouchableWithoutFeedback, View, SafeAreaView, Platform } from "react-native";
 import connector from "redux/connector";
@@ -7,11 +7,16 @@ import { FirstNameForm, ScreenNames, ScreenProps } from "types";
 import Header from "../Header";
 import TextForm from "../TextForm";
 import styles from "./FirstName.module.scss";
+import { setAdjustNothing } from "rn-android-keyboard-adjust";
 
 const FirstName = ({ navigation }: ScreenProps<ScreenNames.FirstName>) => {
 	const [translateLabels] = useTranslation("translation", { keyPrefix: "Screens.Signup.Forms.Identification.Labels" });
 	const firstNameSchema = useSignupFirstNameFormValidationRules();
 	const step = 1;
+
+	useEffect(() => {
+		setAdjustNothing();
+	}, []);
 
 	return (
 		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>

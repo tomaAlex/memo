@@ -1,5 +1,5 @@
 import { useSignupHeightFormValidationRules } from "hooks/useFormValidationRules/useSignupHeightFormValidationRules";
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { View, SafeAreaView, Keyboard, TouchableWithoutFeedback, Platform } from "react-native";
 import connector from "redux/connector";
@@ -7,11 +7,16 @@ import { ScreenNames, ScreenProps } from "types";
 import Header from "../Header";
 import TextForm from "../TextForm";
 import styles from "./Height.module.scss";
+import { setAdjustNothing } from "rn-android-keyboard-adjust";
 
 const Height = ({ navigation, route }: ScreenProps<ScreenNames.Height>) => {
 	const { stepNumber, orientationForm } = route.params;
 	const heightSchema = useSignupHeightFormValidationRules();
 	const [translateLabels] = useTranslation("translation", { keyPrefix: "Screens.Signup.Forms.Embodiment.Labels" });
+
+	useEffect(() => {
+		setAdjustNothing();
+	}, []);
 	return (
 		<SafeAreaView style={styles.container}>
 			<Header stepNo={stepNumber} navigation={navigation} />

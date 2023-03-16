@@ -1119,6 +1119,8 @@ PODS:
     - React-Core
   - react-native-geolocation (3.0.4):
     - React-Core
+  - react-native-netinfo (9.3.7):
+    - React-Core
   - react-native-safe-area-context (4.3.3):
     - RCT-Folly
     - RCTRequired
@@ -1359,6 +1361,7 @@ DEPENDENCIES:
   - react-native-date-picker (from `../node_modules/react-native-date-picker`)
   - react-native-fbsdk-next (from `../node_modules/react-native-fbsdk-next`)
   - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
+  - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -1508,6 +1511,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-fbsdk-next"
   react-native-geolocation:
     :path: "../node_modules/@react-native-community/geolocation"
+  react-native-netinfo:
+    :path: "../node_modules/@react-native-community/netinfo"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   React-perflogger:
@@ -1648,6 +1653,7 @@ SPEC CHECKSUMS:
   react-native-date-picker: f9cc1c37e8db8e393d87d7b7227c2cbf164e6f11
   react-native-fbsdk-next: d6e1c6ad1693c891add104ab529d96906784ba9c
   react-native-geolocation: 3ed60c3d7f613c36b777b9fd0bc3453214e1b0d5
+  react-native-netinfo: 2517ad504b3d303e90d7a431b0fcaef76d207983
   react-native-safe-area-context: b456e1c40ec86f5593d58b275bd0e9603169daca
   React-perflogger: e68d3795cf5d247a0379735cbac7309adf2fb931
   React-RCTActionSheet: 05452c3b281edb27850253db13ecd4c5a65bc247
