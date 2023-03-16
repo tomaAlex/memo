@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import connector from "../../redux/connector";
 import { MainNavigationTabTypes, MainScreenNames, ScreenNames, ScreenProps } from "types/index";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -8,11 +8,11 @@ import Settings from "./Settings";
 import getMainNavbarIcon from "./utils/getMainNavbarIcon";
 import { useSelector } from "react-redux";
 import { selectAwaitingLoginStatus, selectIsGenericAdShown, selectIsPremium } from "redux/selectors";
-import { useInterstitialAd, TestIds } from "react-native-google-mobile-ads";
+import { useInterstitialAd } from "react-native-google-mobile-ads";
 import { useInAppInteractionsUpdater } from "hooks";
 import { NotificationTypes } from "NotificationManager/notificationTypes";
 import MessageNotificationManager from "NotificationManager/MessageNotification";
-import { AdsConsent, AdsConsentStatus } from "react-native-google-mobile-ads";
+// import { AdsConsent, AdsConsentStatus } from "react-native-google-mobile-ads";
 import Config from "react-native-config";
 import { Platform } from "react-native";
 
@@ -40,34 +40,39 @@ const Main = ({
 		}
 	}, [user, setAwaitingLoginStatus]);
 
-	const getAdConsent = async () => {
-		return await AdsConsent.requestInfoUpdate();
-	};
+	// we are currently not displaying targeted ads
+	// const getAdConsent = async () => {
+	// 	return await AdsConsent.requestInfoUpdate();
+	// };
 
-	const showAdConsentForm = async () => {
-		return await AdsConsent.showForm();
-	};
+	// const showAdConsentForm = async () => {
+	// 	return await AdsConsent.showForm();
+	// };
 
-	const getUserChoice = async () => {
-		const { selectPersonalisedAds } = await AdsConsent.getUserChoices();
-		return selectPersonalisedAds;
-	};
+	// const getUserChoice = async () => {
+	// 	const { selectPersonalisedAds } = await AdsConsent.getUserChoices();
+	// 	return selectPersonalisedAds;
+	// };
 
-	useEffect(() => {
-		getAdConsent().then((consentInfo) => {
-			showAdConsentForm().then((status) => {
-				getUserChoice().then((choice) => {
-					console.log(choice);
-				});
-			});
-		});
-	}, []);
+	// useEffect(() => {
+	// 	getAdConsent().then((consentInfo) => {
+	// 		showAdConsentForm().then((status) => {
+	// 			getUserChoice().then((choice) => {
+	// 				console.log(choice);
+	// 			});
+	// 		});
+	// 	});
+	// }, []);
 
 	const AD_KEY = (Platform.OS === "ios" ? Config.IOS_AD_KEY : Config.ANDROID_AD_KEY) as string;
 
 	const { isLoaded, load, show } = useInterstitialAd(AD_KEY, {
 		requestNonPersonalizedAdsOnly: true,
 	});
+
+	// const { isLoaded, load, show } = useInterstitialAd(TestIds.INTERSTITIAL, {
+	// 	requestNonPersonalizedAdsOnly: true,
+	// });
 
 	useEffect(() => load(), [load, isGenericAdShown]); // preload the ad
 
