@@ -13,25 +13,28 @@ export const useCollectionSnapshot = <
 	...excludedDocumentIds: string[]
 ): FirebaseCollectionIterator<IdentifiedDataStructure<DataStructure>> => {
 	const [collectionIds, setCollectionIds] = useState<string[]>([]);
+	const allowedCollectionIds = collectionIds.filter(
+		(possiblyAllowedCollectionId) => !excludedDocumentIds.includes(possiblyAllowedCollectionId)
+	);
 	const [currentCollectionIdIndex, setCurrentCollectionIdIndex] = useState<number>(-1);
-	const hasFetchedCollectionIds = collectionIds.length > 0;
+	const hasFetchedCollectionIds = allowedCollectionIds.length > 0;
 	const hasPrevious = hasFetchedCollectionIds && currentCollectionIdIndex > 0;
-	const hasNext = hasFetchedCollectionIds && currentCollectionIdIndex < collectionIds.length - 1;
-	const currentCollectionDocumentId = hasFetchedCollectionIds ? collectionIds[currentCollectionIdIndex] : undefined;
+	const hasNext = hasFetchedCollectionIds && currentCollectionIdIndex < allowedCollectionIds.length - 1;
+	const currentCollectionDocumentId = hasFetchedCollectionIds
+		? allowedCollectionIds[currentCollectionIdIndex]
+		: undefined;
 	const currentCollectionDocumentDynamicSnapshot = useSnapshot<DataStructure>(
 		collectionId,
 		currentCollectionDocumentId
 	);
 
 	useEffect(() => {
+		console.log("useCollectionSnapshot useEffect");
 		fetchCollectionIds(collectionId).then((fetchedCollectionIds) => {
-			const allowedDocumentIds = fetchedCollectionIds.filter(
-				(fetchedCollectionId) => !excludedDocumentIds.includes(fetchedCollectionId)
-			);
-			setCollectionIds(allowedDocumentIds);
+			setCollectionIds(fetchedCollectionIds);
 			setCurrentCollectionIdIndex(0);
 		});
-	}, [collectionId, excludedDocumentIds]);
+	}, [collectionId]);
 
 	return assembleIterator(
 		hasPrevious,
