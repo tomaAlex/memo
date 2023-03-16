@@ -5,7 +5,7 @@ import { ScreenProps, SettingsScreenNames } from "types/index";
 import SettingsSectionButtons from "./SettingsSectionButtons";
 import SettingsUserPreviewHeader from "../SettingsUserPreviewHeader";
 import LogoutButton from "./LogoutButton";
-import GetPremiumButton from "./GetPremiumButton";
+// import GetPremiumButton from "./GetPremiumButton";
 import styles from "./SettingsPanel.module.scss";
 
 const SettingsPanel = ({}: ScreenProps<SettingsScreenNames.SettingsPanel>) => {
@@ -15,7 +15,7 @@ const SettingsPanel = ({}: ScreenProps<SettingsScreenNames.SettingsPanel>) => {
 				<SettingsUserPreviewHeader />
 			</View>
 			<View style={styles.container__body}>
-				<GetPremiumButton />
+				{/* <GetPremiumButton /> */}
 				<SettingsSectionButtons />
 				<LogoutButton />
 			</View>
