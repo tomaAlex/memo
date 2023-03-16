@@ -12,6 +12,7 @@ export * from "./handleMatchClearance";
 export * from "./handleUserUpdates";
 export * from "./markSeen";
 export * from "./payInstantMatch";
+export * from "./reportMatch";
 export * from "./sendMessage";
 export * from "./sendMessageNotification";
 export * from "./updateFeatureSubscriptions";

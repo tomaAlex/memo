@@ -191,6 +191,10 @@
 							"caption": "Raporteaza",
 							"ReportForm": {
 								"note": "Te rugam sa ne spui de ce raportezi acest utilizator",
+								"Repercussions": {
+									"caption": "Ce se va intampla in continuare?",
+									"description": "Utilizatorul nu va mai putea sa te contacteze. Vom analiza raportul tau si vom lua masuri adecvate. Daca utilizatorul este gasit ca fiind in neregula cu termenii si conditiile noastre, contul sau va fi suspendat sau sters. Tine cont de faptul ca aceasta actiune va rezulta intr-o copie a conversatiilor voastre atasata raportului pe care il vom analiza."
+								},
 								"Labels": {
 									"Behavior": {
 										"caption": "Comportament inadecvat",

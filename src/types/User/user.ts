@@ -3,6 +3,7 @@ import { Gender } from "./gender";
 import { LivedFeature, LivedFeatureExpiration } from "./livedFeature";
 import { Location } from "./location";
 import { Orientation } from "./orientation";
+import { Report } from "./Report";
 
 export interface User {
 	firstName: string;
@@ -31,6 +32,8 @@ export interface User {
 		maximumDistance: number;
 		likesOnly: boolean;
 	};
+	reports: Report[];
+	flags: string[];
 }
 
 export interface IdentifiedUser extends User {

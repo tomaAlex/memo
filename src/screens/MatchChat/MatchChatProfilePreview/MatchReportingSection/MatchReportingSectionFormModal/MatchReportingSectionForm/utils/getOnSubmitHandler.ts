@@ -1,12 +1,16 @@
 import React from "react";
 import { Formik } from "formik";
 import { TFunction } from "i18next";
-import { ReportReason } from "types/index";
+import { ReportReason, ScreenNames, ScreenProps } from "types/index";
+import reportMatch from "./reportMatch";
 
 export const getOnSubmitHandler = (
 	translateErrors: TFunction,
 	userToReportId: string,
-	historyMatchId: string
+	historyMatchId: string,
+	setIsReporting: (isReporting: boolean) => void,
+	navigation: ScreenProps<ScreenNames.MatchChat>["navigation"],
+	closeForm: () => void
 ): React.ComponentProps<
 	typeof Formik<{
 		behavior: boolean;
@@ -23,6 +27,7 @@ export const getOnSubmitHandler = (
 		{ behavior, scam, harassment, safety, guidelines, misrepresentation, offTopic, other },
 		{ setErrors }
 	) => {
+		setIsReporting(true);
 		const reportReasons = [] as ReportReason[];
 		if (behavior) reportReasons.push(ReportReason.BEHAVIOR);
 		if (scam) reportReasons.push(ReportReason.SCAM);
@@ -33,13 +38,15 @@ export const getOnSubmitHandler = (
 		if (offTopic) reportReasons.push(ReportReason.OFF_TOPIC);
 		if (other) reportReasons.push(ReportReason.OTHER);
 		if (reportReasons.length === 0) {
+			setIsReporting(false);
 			setErrors({
 				other: translateErrors("General.required"),
 			});
 			return;
 		}
-		console.log("reportReasons", reportReasons);
-		console.log("userToReportId", userToReportId);
-		console.log("historyMatchId", historyMatchId);
+		await reportMatch(userToReportId, historyMatchId, reportReasons);
+		setIsReporting(false);
+		closeForm();
+		navigation.goBack();
 	};
 };

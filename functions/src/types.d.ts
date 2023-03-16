@@ -18,6 +18,22 @@ type LivedFeature<Expiration extends LivedFeatureExpiration> = {
 
 type Gender = "MALE" | "FEMALE" | "OTHER";
 
+type ReportReason =
+	| "BEHAVIOR"
+	| "SCAM"
+	| "HARASSMENT"
+	| "SAFETY"
+	| "GUIDELINES"
+	| "MISREPRESENTATION"
+	| "OFF_TOPIC"
+	| "OTHER";
+
+type Report = TimestampedElement & {
+	user: string;
+	history: Match["messages"];
+	reasons: ReportReason[];
+};
+
 type User = {
 	firstName: string;
 	lastName: string;
@@ -49,6 +65,8 @@ type User = {
 		maximumDistance: number;
 		likesOnly: boolean;
 	};
+	reports: Report[];
+	flags: string[];
 };
 
 type IdentifiedUser = User & {

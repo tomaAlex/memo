@@ -190,8 +190,12 @@
 					"MatchChatProfilePreview": {
 						"MatchReportingSection": {
 							"caption": "Report",
+							"note": "Please tell us why you are reporting this user",
+							"Repercussions": {
+								"caption": "What will happen next?",
+								"description": "The user will not be able to contact you anymore. We will review your report and take appropriate action. If the user is found to have violated our terms of service, their account will be suspended or deleted. Keep in mind this action will result in a copy of your chats attached to the report which we will review."
+							},
 							"ReportForm": {
-								"note": "Please tell us why you are reporting this user",
 								"Labels": {
 									"Behavior": {
 										"caption": "Inappropriate behavior",

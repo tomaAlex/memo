@@ -1,0 +1,22 @@
+.container {
+	flex: 1;
+	margin-bottom: 1rem;
+	border-bottom-width: 1px;
+	padding-bottom: 0.5rem;
+	border-color: #e6e6e6;
+
+	&__switchInput {
+		&__label {
+			color: #5a5a5a;
+			font-family: Poppins-Medium;
+			font-weight: 500;
+		}
+	}
+
+	&__description {
+		font-size: 12;
+		color: #5a5a5a;
+		font-family: Poppins-Light;
+		text-align: justify;
+	}
+}

@@ -3,6 +3,7 @@ export * from "./getFeatureSubscriptions";
 export * from "./getSubscriptionEndpoint";
 export * from "./getUserCustomerStripeId";
 export * from "./assertUserHasMatch";
+export * from "./assertUsersHaveMatch";
 export * from "./cancelSubscriptionEndpoint";
 export * from "./checkWhetherFieldHasChanged";
 export * from "./checkWhetherFieldsHaveChanged";
