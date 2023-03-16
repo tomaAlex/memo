@@ -186,6 +186,60 @@
 				"Chats": {
 					"noMatchesNote": "It's time to send more likes"
 				},
+				"MatchChat": {
+					"MatchChatProfilePreview": {
+						"MatchReportingSection": {
+							"caption": "Report",
+							"note": "Please tell us why you are reporting this user",
+							"Repercussions": {
+								"caption": "What will happen next?",
+								"description": "The user will not be able to contact you anymore. We will review your report and take appropriate action. If the user is found to have violated our terms of service, their account will be suspended or deleted. Keep in mind this action will result in a copy of your chats attached to the report which we will review."
+							},
+							"ReportForm": {
+								"Labels": {
+									"Behavior": {
+										"caption": "Inappropriate behavior",
+										"description": "The user may have engaged in inappropriate behavior such as sending unsolicited explicit messages or photos, making sexually explicit comments, or using offensive language."
+									},
+									"Scam": {
+										"caption": "Fraud or scamming",
+										"description": "The user may be using the app to scam or defraud other users, for example, by posing as someone they are not, asking for money or personal information, or using fake photos."
+									},
+									"Harassment": {
+										"caption": "Harassment",
+										"description": "The user may be repeatedly messaging or contacting the other user despite their expressed lack of interest or even outright rejection."
+									},
+									"Safety": {
+										"caption": "Safety concerns",
+										"description": "The user may feel unsafe or uncomfortable with the other user's behavior, especially if they have made threats or used aggressive language."
+									},
+									"Guidelines": {
+										"caption": "Violation of community guidelines",
+										"description": "The user may be violating the dating app's community guidelines by engaging in inappropriate behavior or language, or by posting offensive or harmful content."
+									},
+									"Misrepresentation": {
+										"caption": "Misrepresentation",
+										"description": "The user may have misrepresented themselves on their profile, for example, by using old or heavily filtered photos or by lying about their age, occupation, or interests."
+									},
+									"OffTopic": {
+										"caption": "Off-topic",
+										"description": "The user may have been engaging in conversations that are completely unrelated to dating or the app's intended purpose."
+									},
+									"Other": {
+										"caption": "Other",
+										"description": "The user may have engaged in behavior that is not covered by the other options."
+									},
+									"submit": "Report"
+								},
+								"Errors": {
+									"General": {
+										"required": "Please select at least one reason"
+									}
+								}
+							}
+						}
+					}
+				},
 				"Settings": {
 					"GetPremium": {
 						"buttonTitle": "Get Premium",

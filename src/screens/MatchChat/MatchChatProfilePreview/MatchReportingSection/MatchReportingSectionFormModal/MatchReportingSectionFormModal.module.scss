@@ -1,0 +1,54 @@
+.container {
+	flex: 1;
+
+	&__header {
+		display: flex;
+		margin: 30px;
+		margin-bottom: 0;
+		justify-content: space-around;
+		flex-direction: row;
+
+		&__caption {
+			align-self: center;
+			text-align: center;
+			font-family: Poppins-Bold;
+			font-size: 12;
+			color: #5a5a5a;
+		}
+
+		&__closeButton {
+			width: 20;
+			aspect-ratio: 1;
+			align-self: flex-start;
+
+			&__icon {
+				flex: 1;
+				align-self: center;
+			}
+		}
+	}
+
+	&__repercussions {
+		width: 85%;
+		align-self: center;
+		margin-top: 1rem;
+		padding-bottom: 1rem;
+
+		border-bottom-width: 1px;
+		// padding-bottom: 0.5rem;
+		border-color: #e6e6e6;
+
+		&__caption {
+			color: #5a5a5a;
+			font-family: Poppins-Medium;
+			font-weight: 500;
+		}
+
+		&__description {
+			font-size: 12;
+			color: #5a5a5a;
+			font-family: Poppins-Light;
+			text-align: justify;
+		}
+	}
+}

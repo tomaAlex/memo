@@ -6,6 +6,7 @@ import getUserPreferredMaximumDistanceState from "./getUserPreferredMaximumDista
 import { useCallback } from "react";
 import store from "redux/store";
 import getAlreadySwipedState from "./getAlreadySwipedState";
+import getBlockedState from "./getBlockedState";
 
 const useUserFilter = (): ((unfilteredUser?: IdentifiedUser) => boolean) => {
 	const {
@@ -27,9 +28,14 @@ const useUserFilter = (): ((unfilteredUser?: IdentifiedUser) => boolean) => {
 			if (!unfilteredUser) {
 				return false;
 			}
-			const { birthDate, gender, coordinates, likes, id } = unfilteredUser;
+			const { birthDate, gender, coordinates, likes, id, reports } = unfilteredUser;
 
 			if (selfId === id) {
+				return false;
+			}
+
+			const hasUserBeenBlocked = getBlockedState(selfId, reports);
+			if (hasUserBeenBlocked) {
 				return false;
 			}
 

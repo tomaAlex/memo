@@ -1,5 +1,4 @@
 export * from "./cx";
-export * from "./filterUser";
 export * from "./getDistanceBetweenCoordinates";
 export * from "./memory";
 export * from "./convertChoicesToFormChoicePickerData";

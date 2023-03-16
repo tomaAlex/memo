@@ -25,6 +25,8 @@ const assembleUser = async (
 			maximumDistance: 50,
 			likesOnly: false,
 		},
+		reports: [],
+		flags: [],
 	};
 };
 

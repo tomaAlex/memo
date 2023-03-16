@@ -185,6 +185,60 @@
 				"Chats": {
 					"noMatchesNote": "E vremea sa mai trimiti like-uri"
 				},
+				"MatchChat": {
+					"MatchChatProfilePreview": {
+						"MatchReportingSection": {
+							"caption": "Raporteaza",
+							"ReportForm": {
+								"note": "Te rugam sa ne spui de ce raportezi acest utilizator",
+								"Repercussions": {
+									"caption": "Ce se va intampla in continuare?",
+									"description": "Utilizatorul nu va mai putea sa te contacteze. Vom analiza raportul tau si vom lua masuri adecvate. Daca utilizatorul este gasit ca fiind in neregula cu termenii si conditiile noastre, contul sau va fi suspendat sau sters. Tine cont de faptul ca aceasta actiune va rezulta intr-o copie a conversatiilor voastre atasata raportului pe care il vom analiza."
+								},
+								"Labels": {
+									"Behavior": {
+										"caption": "Comportament inadecvat",
+										"description": "Utilizatorul s-a implicat intr-un comportament inadecvat, cum ar fi trimiterea nesolicitata de mesaje sau fotografii, comentarii explicit sexuale sau limbaj ofensator."
+									},
+									"Scam": {
+										"caption": "Frauda sau inselatorie",
+										"description": "Utilizatorul pare sa foloseasca aplicatia pentru a frauda sau a insela alti utilizatori, de exemplu, prin a se prezenta drept altcineva, prin a cere bani sau informatii personale, sau prin a folosi fotografii false."
+									},
+									"Harassment": {
+										"caption": "Hartuire",
+										"description": "Utilizatorul ar incerca sa contacteze ceilalti utilizatori in repetate randuri, in ciuda exprimarii lipsei de interes sau chiar refuzului."
+									},
+									"Safety": {
+										"caption": "Ingrijorare legata de siguranta",
+										"description": "Utilizatorul se poate simti in pericol sau incomod din cauza comportamentului altui utilizator, in special daca acesta a adus amenintari sau a folosit limbaj agresiv."
+									},
+									"Guidelines": {
+										"caption": "Neincadrare in regulile comunitatii",
+										"description": "Utilizatorul pare sa incalce regulile comunitatii aplicatiei de intalniri prin comportament sau limbaj inadecvat, sau prin postarea de continut ofensator sau daunator."
+									},
+									"Misrepresentation": {
+										"caption": "Incorectitudine",
+										"description": "Utilizatorul pare a se fi prezentat incorect in profilul sau, de exemplu, prin folosirea fotografiilor vechi sau a filtrelor exagerate, ori prin minciuna despre varsta, ocupatie sau interese."
+									},
+									"OffTopic": {
+										"caption": "In afara subiectului",
+										"description": "Utilizatorul pare a fi implicat in conversatii care nu au nimic de-a face cu dating-ul sau cu scopul aplicatiei."
+									},
+									"Other": {
+										"caption": "Altele",
+										"description": "Utilizatorul pare a se fi implicat intr-un comportament care nu este acoperit de celelalte optiuni."
+									},
+									"submit": "Raporteaza"
+								},
+								"Errors": {
+									"General": {
+										"required": "Te rugam sa selectezi cel putin o optiune"
+									}
+								}
+							}
+						}
+					}
+				},
 				"Settings": {
 					"GetPremium": {
 						"buttonTitle": "Obtine Premium",

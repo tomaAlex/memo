@@ -1,37 +1,28 @@
-import React, { ReactElement } from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import React from "react";
+import { View } from "react-native";
 import { IdentifiedUser } from "types/index";
 import styles from "./MatchChatProfilePreview.module.scss";
+import BackNavigationSection from "./BackNavigationSection";
+import MatchReportingSection from "./MatchReportingSection";
+import TimedMatchChatUserPreview from "./TimedMatchChatUserPreview";
 import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
-import { useRemainingTimePreviewer } from "hooks/index";
-import BackButton from "components/BackButton";
+import MatchChatProfilePreviewContext from "./MatchChatProfilePreviewContext";
 
 type TProps = {
+	matchId: string;
 	userToPreview: IdentifiedUser;
 	matchTimestamp: FirebaseFirestoreTypes.Timestamp;
 	expiresAt: FirebaseFirestoreTypes.Timestamp;
-	backButton: ReactElement;
 };
 
-const MatchChatProfilePreview = ({ userToPreview, expiresAt, backButton }: TProps) => {
-	const { firstName, lastName } = userToPreview;
-	const userToPreviewName = `${firstName} ${lastName}`;
-	const remainingTime = useRemainingTimePreviewer(expiresAt);
-
+const MatchChatProfilePreview = ({ userToPreview, expiresAt, matchId }: TProps) => {
 	return (
-		<View style={styles.mainContainer}>
-			<View style={styles.mainContainer__backIcon}>{backButton}</View>
-			<View style={styles.mainContainer__container}>
-				<View style={styles.mainContainer__container__userPreviewContainer}>
-					<Image
-						style={styles.mainContainer__container__userPreviewContainer__userPreview}
-						key={`${userToPreview.id}-matchChatsProfilePreview`}
-						source={{ uri: userToPreview.photos[0] }}
-					/>
-				</View>
-				<Text style={styles.mainContainer__container__name}>{userToPreviewName}</Text>
-				<Text style={styles.mainContainer__container__remainingTime}>{remainingTime}</Text>
-			</View>
+		<View style={styles.container}>
+			<BackNavigationSection />
+			<TimedMatchChatUserPreview {...{ userToPreview, expiresAt }} />
+			<MatchChatProfilePreviewContext.Provider value={{ userToReportId: userToPreview.id, historyMatchId: matchId }}>
+				<MatchReportingSection />
+			</MatchChatProfilePreviewContext.Provider>
 		</View>
 	);
 };

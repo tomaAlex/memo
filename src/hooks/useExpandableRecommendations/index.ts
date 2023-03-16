@@ -10,7 +10,7 @@ export const useExpandableRecommendations = (): [
 ] => {
 	const filterUser = useUserFilter();
 	const [unfilteredRecommendations, expandUnfilteredRecommendations, resetUnfilteredRecommendations] =
-		useCollectionSnapshotArray<IdentifiedUser>("users");
+		useCollectionSnapshotArray<IdentifiedUser>("users", "whitelist");
 	const [filteredRecommendations, setFilteredRecommendations] = useState<IdentifiedUser[]>([]);
 	const mustExpand = useRef<boolean>(true);
 	const lastUnfilteredRecommendationIndex = unfilteredRecommendations.length - 1;
