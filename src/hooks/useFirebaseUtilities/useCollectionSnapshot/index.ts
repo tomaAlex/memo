@@ -9,7 +9,8 @@ import { IdentifiedDataStructure } from "../useSnapshot/types";
 export const useCollectionSnapshot = <
 	DataStructure extends FirebaseFirestoreTypes.DocumentData = FirebaseFirestoreTypes.DocumentData
 >(
-	collectionId: string
+	collectionId: string,
+	...excludedDocumentIds: string[]
 ): FirebaseCollectionIterator<IdentifiedDataStructure<DataStructure>> => {
 	const [collectionIds, setCollectionIds] = useState<string[]>([]);
 	const [currentCollectionIdIndex, setCurrentCollectionIdIndex] = useState<number>(-1);
@@ -24,10 +25,13 @@ export const useCollectionSnapshot = <
 
 	useEffect(() => {
 		fetchCollectionIds(collectionId).then((fetchedCollectionIds) => {
-			setCollectionIds(fetchedCollectionIds);
+			const allowedDocumentIds = fetchedCollectionIds.filter(
+				(fetchedCollectionId) => !excludedDocumentIds.includes(fetchedCollectionId)
+			);
+			setCollectionIds(allowedDocumentIds);
 			setCurrentCollectionIdIndex(0);
 		});
-	}, [collectionId]);
+	}, [collectionId, excludedDocumentIds]);
 
 	return assembleIterator(
 		hasPrevious,
