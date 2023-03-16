@@ -77,7 +77,10 @@ const Main = ({
 	useEffect(() => load(), [load, isGenericAdShown]); // preload the ad
 
 	useEffect(() => {
-		const canShowTheAd = !isPremium && isLoaded && isGenericAdShown;
+		// const canShowTheAd = !isPremium && isLoaded && isGenericAdShown;
+		console.warn("ignoring", { isPremium });
+		// TODO: remove this line when we have implemented proper premium accounts management
+		const canShowTheAd = isLoaded && isGenericAdShown;
 		if (!canShowTheAd) {
 			return;
 		}
