@@ -1,0 +1,35 @@
+.container {
+	flex: 1;
+	padding: 5%;
+	display: flex;
+	background-color: #fff;
+
+	&__title {
+		color: #f10065;
+		font-size: 20px;
+		text-align: center;
+		font-weight: 400;
+		font-family: Poppins-Bold;
+	}
+
+	&__sections {
+		flex: 1;
+		display: flex;
+
+		&__acceptButton {
+			width: 90%;
+            margin-top: 1rem;
+			background-color: #f10065;
+			align-self: center;
+			border-radius: 500px;
+
+			&__caption {
+				color: #fff;
+				padding: 7px;
+				font-size: 15px;
+				align-self: center;
+				font-family: Poppins-Bold;
+			}
+		}
+	}
+}

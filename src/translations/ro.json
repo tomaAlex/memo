@@ -2,6 +2,53 @@
 	"translation": {
 		"Screens": {
 			"noInternet": "Verifica daca ai o conexiune activa la internet",
+			"EULA": {
+				"title": "Acord de Licență pentru Utilizatorul Final (\"EULA\")",
+				"Notes": {
+					"fullReading": "Vă rugăm să citiți cu atenție acest Acord de Licență pentru Utilizatorul Final (\"Acord\") înainte de a utiliza aplicația de întâlniri memo (\"memo\").",
+					"defaultAgreement": "Prin descărcarea, instalarea sau utilizarea memo, sunteți de acord să fiți obligat de termenii și condițiile acestui Acord.",
+					"finalAcknowledgement": "Prin acceptarea acestui EULA, recunoașteți că ați citit acest Acord, îl înțelegeți și sunteți de acord să fiți obligat de termenii și condițiile sale."
+				},
+				"Sections": {
+					"License": {
+						"caption": "Licență",
+						"description": "memo este licențiat, nu vândut, pentru utilizarea strictă în conformitate cu termenii acestui Acord."
+					},
+					"ObjectionableContent": {
+						"caption": "Conținut inacceptabil",
+						"description": "memo are o politică de toleranță zero pentru conținut inacceptabil sau utilizatori abuzivi. Utilizatorii care se angajează în comportament inacceptabil sau postează conținut inacceptabil vor fi imediat eliminați de pe memo. Conținutul inacceptabil include, dar nu se limitează la conținutul ilegal, dăunător, amenințător, abuziv, hărțuitor, defăimător, obscen, vulgar sau urât."
+					},
+					"UserConduct": {
+						"caption": "Comportamentul utilizatorului",
+						"description": "Utilizatorii sunt responsabili în mod exclusiv pentru comportamentul lor pe memo. Prin utilizarea memo, sunteți de acord să vă comportați într-un mod respectuos și adecvat față de alți utilizatori. De asemenea, sunteți de acord să nu utilizați memo în scopuri ilegale sau neautorizate."
+					},
+					"Termination": {
+						"caption": "Încheiere",
+						"description": "Ne rezervăm dreptul de a vă întrerupe utilizarea memo în orice moment, fără notificare prealabilă, dacă încălcați acest Acord sau aveți un comportament inacceptabil."
+					},
+					"LimitationOfLiability": {
+						"caption": "Limitarea răspunderii",
+						"description": "În măsura permisă de lege, în niciun caz nu vom fi responsabili pentru orice daune directe, indirecte, incidentale, speciale sau consecințiale rezultate din utilizarea sau imposibilitatea utilizării memo."
+					},
+					"Indemnification": {
+						"caption": "Garanție",
+						"description": "Sunteți de acord să ne garantați și să ne protejați de orice revendicare, daune, obligații și cheltuieli (inclusiv onorarii rezonabile pentru avocați) rezultate din utilizarea dumneavoastră a memo."
+					},
+					"GoverningLaw": {
+						"caption": "Legislația aplicabilă",
+						"description": "Acest Acord va fi guvernat și interpretat în conformitate cu legile Angliei și Wales, fără a da efect unor principii de conflicte de legi."
+					},
+					"EntireAgreement": {
+						"caption": "Acordul integral",
+						"description": "Acest Acord constituie întregul acord dintre dumneavoastră și noi cu privire la utilizarea memo."
+					},
+					"ChangesToTheAgreement": {
+						"caption": "Modificări ale Acordului",
+						"description": "Ne rezervăm dreptul de a modifica acest Acord în orice moment. Continuarea utilizării Memo după orice astfel de modificare constituie acceptarea dumneavoastră a Acordului modificat."
+					}
+				},
+				"accept": "Sunt de acord cu termenii acestui EULA"
+			},
 			"Observer": {
 				"notWhitelistedError": {
 					"title": "Doar studenti KCL!",

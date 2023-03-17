@@ -22,6 +22,8 @@ const createUser = async (photoForm: PhotoForm): Promise<User> => {
 			maximumDistance: 50,
 			likesOnly: false,
 		},
+		reports: [],
+		flags: [],
 	};
 };
 

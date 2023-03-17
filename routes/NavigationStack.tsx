@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNetInfo } from "@react-native-community/netinfo";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { ScreenNames, NavigationStackTypes } from "types/index";
+import { ScreenNames, NavigationStackTypes, MemoryIDs } from "types/index";
+import { getMemoryItem } from "utils";
 import Observer from "screens/Observer";
 import Login from "screens/Login";
 import EmailLogin from "screens/EmailLogin";
@@ -23,12 +24,24 @@ import Work from "screens/Signup/Work";
 import Description from "screens/Signup/Description";
 import Photos from "screens/Signup/Photos";
 import SignupConfirmation from "screens/Signup/SignupConfirmation";
+import EULAWarning from "components/EULAWarning";
 import InternetDisconnectedWarning from "components/InternetDisconnectedWarning";
 
 const Stack = createStackNavigator<NavigationStackTypes>();
 
 const Navigator = () => {
 	const { isConnected } = useNetInfo();
+	const [acceptedEULA, setAcceptedEULA] = useState(true);
+
+	useEffect(() => {
+		getMemoryItem(MemoryIDs.ACCEPTED_EULA).then((acceptedEULABefore) => {
+			setAcceptedEULA(!!acceptedEULABefore);
+		});
+	}, []);
+
+	if (!acceptedEULA) {
+		return <EULAWarning {...{ setAcceptedEULA }} />;
+	}
 
 	if (!isConnected) {
 		return <InternetDisconnectedWarning {...{ isConnected }} />;

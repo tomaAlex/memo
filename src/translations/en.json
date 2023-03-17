@@ -2,6 +2,53 @@
 	"translation": {
 		"Screens": {
 			"noInternet": "Check you have an active internet connection",
+			"EULA": {
+				"title": "End-User License Agreement (\"EULA\")",
+				"Notes": {
+					"fullReading": "Please read this End-User License Agreement (\"Agreement\") carefully before using the memo dating application (\"memo\").",
+					"defaultAgreement": "By downloading, installing, or using memo, you are agreeing to be bound by the terms and conditions of this Agreement.",
+					"finalAcknowledgement": "By agreeing to this EULA, you acknowledge that you have read this Agreement, understand it, and agree to be bound by its terms and conditions."
+				},
+				"Sections": {
+					"License": {
+						"caption": "License",
+						"description": "memo is licensed, not sold, to you for use strictly in accordance with the terms of this Agreement."
+					},
+					"ObjectionableContent": {
+						"caption": "Objectionable Content",
+						"description": "memo has a zero-tolerance policy for objectionable content or abusive users. Users who engage in objectionable behavior or post objectionable content will be immediately removed from memo. Objectionable content includes, but is not limited to, content that is illegal, harmful, threatening, abusive, harassing, defamatory, obscene, vulgar, or hateful."
+					},
+					"UserConduct": {
+						"caption": "User Conduct",
+						"description": "Users are solely responsible for their conduct on memo. By using memo, you agree to behave in a respectful and appropriate manner towards other users. You also agree not to use memo for any illegal or unauthorized purpose."
+					},
+					"Termination": {
+						"caption": "Termination",
+						"description": "We reserve the right to terminate your use of memo at any time without notice if you violate this Agreement or engage in objectionable behavior."
+					},
+					"LimitationOfLiability": {
+						"caption": "Limitation of Liability",
+						"description": "To the extent permitted by law, in no event shall we be liable for any direct, indirect, incidental, special, or consequential damages arising out of or in connection with the use or inability to use memo."
+					},
+					"Indemnification": {
+						"caption": "Indemnification",
+						"description": "You agree to indemnify and hold us harmless from any claims, damages, liabilities, and expenses (including reasonable attorneys' fees) arising from your use of memo."
+					},
+					"GoverningLaw": {
+						"caption": "Governing Law",
+						"description": "This Agreement shall be governed by and construed in accordance with the laws of the law of England and Wales without giving effect to any principles of conflicts of law."
+					},
+					"EntireAgreement": {
+						"caption": "Entire Agreement",
+						"description": "This Agreement constitutes the entire agreement between you and us regarding the use of memo."
+					},
+					"ChangesToTheAgreement": {
+						"caption": "Changes to the Agreement",
+						"description": "We reserve the right to modify this Agreement at any time. Your continued use of memo after any such modification constitutes your acceptance of the modified Agreement."
+					}
+				},
+				"accept": "I accept the terms of this EULA"
+			},
 			"Observer": {
 				"notWhitelistedError": {
 					"title": "Only KCL students!",
