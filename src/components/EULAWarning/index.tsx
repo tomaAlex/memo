@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, SafeAreaView } from "react-native";
 import { useTranslation } from "react-i18next";
 import styles from "./EULAWarning.module.scss";
 import EULASection from "./EULASection";
@@ -14,7 +14,7 @@ const EULAWarning = ({ setAcceptedEULA }: TProps) => {
 	const [t] = useTranslation("translation", { keyPrefix: "Screens.EULA" });
 
 	return (
-		<View style={styles.container}>
+		<SafeAreaView style={styles.container}>
 			<Text style={styles.container__title}>{t("title")}</Text>
 			<EulaNote noteTranslationKey="fullReading" />
 			<EulaNote noteTranslationKey="defaultAgreement" />
@@ -33,7 +33,7 @@ const EULAWarning = ({ setAcceptedEULA }: TProps) => {
 					<Text style={styles.container__sections__acceptButton__caption}>{t("accept")}</Text>
 				</TouchableOpacity>
 			</ScrollView>
-		</View>
+		</SafeAreaView>
 	);
 };
 

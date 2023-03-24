@@ -38,7 +38,7 @@ const SettingsPreferencesUpdateForm = () => {
 			<SafeAreaView style={styles.container}>
 				<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 					<View style={styles.container__formContainer}>
-						<View style={styles.container__formContainer__form}>
+						{/* <View style={styles.container__formContainer__form}>
 							<FormSwitchInput
 								isMandatory
 								field="hasInstantMatchingOn"
@@ -48,9 +48,10 @@ const SettingsPreferencesUpdateForm = () => {
 								<FormFieldLabel label={translateLabels("hasInstantMatchingOn")} />
 							</FormSwitchInput>
 							<SettingsSubmitButton {...{ isUserUpdating }} />
-						</View>
-						<CashOutButton {...{ hasInstantMatchingOn, isBalanceLoading, setIsBalanceLoading }} />
-						{!isBalanceLoading && <DeleteAccountButton />}
+						</View> */}
+						{/* <CashOutButton {...{ hasInstantMatchingOn, isBalanceLoading, setIsBalanceLoading }} /> */}
+						{/* {!isBalanceLoading && <DeleteAccountButton />} */}
+						<DeleteAccountButton />
 					</View>
 				</TouchableWithoutFeedback>
 			</SafeAreaView>
