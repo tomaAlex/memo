@@ -91,6 +91,8 @@
 	<string>Allow users take pictures for their profile pictures</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Detect how far away the recommended people in your feed are</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Detect how far away the recommended people in your feed are</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow users to provide pictures for their profile pictures</string>
 	<key>UIAppFonts</key>
