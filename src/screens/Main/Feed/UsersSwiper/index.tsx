@@ -3,7 +3,7 @@ import { IdentifiedUser } from "types/index";
 import Swiper from "react-native-deck-swiper";
 import FeedUserCard from "./FeedUserCard";
 import { useInAppInteractionsUpdater, useProfileDisliker, useProfileLiker } from "hooks/index";
-import getVerticalState from "./utils/getVerticalState";
+// import getVerticalState from "./utils/getVerticalState";
 import RBSheet from "react-native-raw-bottom-sheet";
 import PaymentSheet from "./PaymentSheet";
 import UsersSwiperContext from "./UsersSwiperContext";
@@ -15,13 +15,20 @@ type TProps = {
 	recommendations: IdentifiedUser[];
 	expandRecommendations: () => void;
 	resetRecommendations: () => void;
+	setCurrentlyDisplayedUser?: (currentlyDisplayedUser: IdentifiedUser) => void;
 };
 
-const UsersSwiper = ({ recommendations, expandRecommendations, resetRecommendations }: TProps) => {
+const UsersSwiper = ({
+	recommendations,
+	expandRecommendations,
+	resetRecommendations,
+	setCurrentlyDisplayedUser = () => {},
+}: TProps) => {
 	const refRBSheet = useRef<RBSheet>(null);
 	const swiperReference = useRef<Swiper<IdentifiedUser>>(null);
 	const [isSwiperBlocked, setIsSwiperBlocked] = useState(false);
-	const [userToInstantlyMatchId, setUserToInstantlyMatchId] = useState<string>(recommendations[0].id);
+	// const [userToInstantlyMatchId, setUserToInstantlyMatchId] = useState<string>(recommendations[0].id);
+	const userToInstantlyMatchId = recommendations[0].id;
 	const [currentlyDisplayedUserIndex, setCurrentlyDisplayedUserIndex] = useState(0);
 	const [swipedAllUsers, setSwipedAllUsers] = useState(false);
 	const increaseInAppInteractions = useInAppInteractionsUpdater("increment");
@@ -32,6 +39,14 @@ const UsersSwiper = ({ recommendations, expandRecommendations, resetRecommendati
 
 	const likeProfile = useProfileLiker();
 	const dislikeProfile = useProfileDisliker();
+
+	useEffect(() => {
+		// as no swiping action has been performed yet, mark the firstly displayed user
+		if (recommendations.length === 0) {
+			return;
+		}
+		setCurrentlyDisplayedUser(recommendations[0]);
+	}, [recommendations, setCurrentlyDisplayedUser]);
 
 	useEffect(() => {
 		if (hasJustLoaded.current) {
@@ -89,30 +104,33 @@ const UsersSwiper = ({ recommendations, expandRecommendations, resetRecommendati
 				cardStyle={{ flex: 1, width: "100%", height: "100%", top: 0, left: 0 }}
 				renderCard={(userToDisplay) => <FeedUserCard {...{ userToDisplay }} />}
 				onSwiped={(userIndex) => {
-					setCurrentlyDisplayedUserIndex(userIndex + 1);
+					const updatedDisplayedUserIndex = userIndex + 1;
+					setCurrentlyDisplayedUserIndex(updatedDisplayedUserIndex);
+					setCurrentlyDisplayedUser(recommendations[updatedDisplayedUserIndex]);
 					increaseInAppInteractions();
 				}}
 				onSwipedRight={(userIndex) => {
 					const likedUser = recommendations[userIndex];
 					likeProfile(likedUser.id);
 				}}
-				onSwipedTop={(userIndex) => {
-					setUserToInstantlyMatchId(recommendations[userIndex].id);
-					refRBSheet.current?.open();
-				}}
+				// onSwipedTop={(userIndex) => {
+				// 	setUserToInstantlyMatchId(recommendations[userIndex].id);
+				// 	refRBSheet.current?.open();
+				// }}
 				onSwipedLeft={(userIndex) => {
 					const dislikedUser = recommendations[userIndex];
 					dislikeProfile(dislikedUser.id);
 				}}
-				onSwipedBottom={() => {
-					swiperReference.current?.swipeBack();
-				}}
+				// onSwipedBottom={() => {
+				// 	swiperReference.current?.swipeBack();
+				// }}
 				onSwipedAll={() => {
 					expandRecommendations();
 					markFeedExhaustionTimeout();
 				}}
 				horizontalSwipe={!isSwiperBlocked}
-				verticalSwipe={!isSwiperBlocked && getVerticalState(currentlyDisplayedUserIndex, recommendations)}
+				// verticalSwipe={!isSwiperBlocked && getVerticalState(currentlyDisplayedUserIndex, recommendations)}
+				verticalSwipe={false}
 				cardIndex={0}
 				stackSize={1}
 				animateCardOpacity
@@ -125,7 +143,7 @@ const UsersSwiper = ({ recommendations, expandRecommendations, resetRecommendati
 			/>
 			<RefreshFeedButton
 				refreshFeed={() => {
-					// refreshFeed();
+					// refreshFeed()u
 					// expandRecommendations();
 					resetRecommendations();
 					setCurrentlyDisplayedUserIndex(0);

@@ -3,17 +3,18 @@ import { View } from "react-native";
 import styles from "./SwipeControls.module.scss";
 import SwipeLeftButton from "./SwipeLeftButton";
 import SwipeRightButton from "./SwipeRightButton";
-import SwipeTopButton from "./SwipeTopButton";
+// import SwipeTopButton from "./SwipeTopButton";
 
 type TProps = {
 	hasInstantMatchingOn: boolean;
 };
 
-const SwipeControls = ({ hasInstantMatchingOn }: TProps) => {
+// const SwipeControls = ({ hasInstantMatchingOn }: TProps) => {
+const SwipeControls = ({}: TProps) => {
 	return (
 		<View style={styles.swipingControlsContainer}>
 			<SwipeLeftButton />
-			<SwipeTopButton {...{ hasInstantMatchingOn }} />
+			{/* <SwipeTopButton {...{ hasInstantMatchingOn }} /> */}
 			<SwipeRightButton />
 		</View>
 	);

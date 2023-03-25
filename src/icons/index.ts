@@ -31,6 +31,8 @@ import StarsIcon from "./stars.svg";
 import CashIcon from "./cash.svg";
 import InfoIcon from "./info.svg";
 import PlugDisconnected from "./plug-disconnected.svg";
+import FlagIcon from "./flag.svg";
+import BlockIcon from "./block.svg";
 
 export {
 	HeartIcon,
@@ -66,4 +68,6 @@ export {
 	CashIcon,
 	InfoIcon,
 	PlugDisconnected,
+	FlagIcon,
+	BlockIcon,
 };

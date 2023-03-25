@@ -6,13 +6,14 @@ import EnoughMatchesNote from "./EnoughMatchesNote";
 import MatchedNote from "./MatchedNote";
 import UsersSwiper from "./UsersSwiper";
 import styles from "./Feed.module.scss";
-import markDeviceToken from "./utils/markDeviceToken";
 import FeedLoading from "Loading/FeedLoading";
-import SearchFiltersButton from "./SearchFiltersButton";
+// import SearchFiltersButton from "./SearchFiltersButton";
+import { handleTutorialDisplaying, markDeviceToken, getFlaggingConfirmation } from "./utils";
+import OverlaidRecommendationButtons from "./OverlaidRecommendationButtons";
 import SearchFiltersModal from "./SearchFiltersModal";
-import { MainScreenNames, ScreenProps, User } from "types/index";
+import { IdentifiedUser, MainScreenNames, ScreenProps, User } from "types/index";
 import { useExpandableRecommendations, useMatchPreviewLoader, useSnapshot } from "hooks/index";
-import handleTutorialDisplaying from "./utils/handleTutorialDisplaying";
+import { useTranslation } from "react-i18next";
 
 const Feed = ({
 	user,
@@ -27,6 +28,8 @@ const Feed = ({
 	const [userData] = useSnapshot<User>("users", uid ? uid : user.id);
 	const openedLoadingAnimationSize = 350;
 	const [loadingAnimationSize, setLoadingAnimationSize] = useState(openedLoadingAnimationSize);
+	const [translateFlaggingNotes] = useTranslation("translation", { keyPrefix: "Screens.Main.Feed.FlaggingModal" });
+	const [currentlyDisplayedUser, setCurrentlyDisplayedUser] = useState<IdentifiedUser | null>(null);
 	useMatchPreviewLoader(user, updateAllMatchPreviews);
 
 	useEffect(() => {
@@ -55,7 +58,7 @@ const Feed = ({
 	if (loadingRecommendations) {
 		return (
 			<View style={styles.loadingContainer}>
-				<SearchFiltersButton
+				{/* <SearchFiltersButton
 					color="#F10065"
 					fill="#F10065"
 					showFiltersModal={() => {
@@ -63,6 +66,17 @@ const Feed = ({
 						setIsFiltersModalVisible(true);
 					}}
 					top="10%"
+				/> */}
+				<OverlaidRecommendationButtons
+					top="10%"
+					searchFiltersButtonProps={{
+						color: "#F10065",
+						fill: "#F10065",
+						showFiltersModal: () => {
+							setLoadingAnimationSize(0);
+							setIsFiltersModalVisible(true);
+						},
+					}}
 				/>
 				<FeedLoading heigth={loadingAnimationSize} width={loadingAnimationSize} />
 				<SearchFiltersModal
@@ -84,11 +98,21 @@ const Feed = ({
 				<EnoughMatchesNote />
 			) : (
 				<View style={styles.container__swiperContainer}>
-					<SearchFiltersButton showFiltersModal={() => setIsFiltersModalVisible(true)} />
+					{/* <SearchFiltersButton showFiltersModal={() => setIsFiltersModalVisible(true)} /> */}
+					<OverlaidRecommendationButtons
+						searchFiltersButtonProps={{
+							showFiltersModal: () => setIsFiltersModalVisible(true),
+						}}
+						flagButtonProps={{
+							showFlaggingModal: () =>
+								getFlaggingConfirmation(translateFlaggingNotes, currentlyDisplayedUser, resetFilteredRecommendations),
+						}}
+					/>
 					<UsersSwiper
 						recommendations={filteredRecommendations}
 						expandRecommendations={expandFilteredRecommendations}
 						resetRecommendations={resetFilteredRecommendations}
+						{...{ setCurrentlyDisplayedUser }}
 					/>
 					<SearchFiltersModal
 						visible={isFiltersModalVisible}

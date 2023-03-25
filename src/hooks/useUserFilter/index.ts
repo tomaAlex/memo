@@ -6,7 +6,8 @@ import getUserPreferredMaximumDistanceState from "./getUserPreferredMaximumDista
 import { useCallback } from "react";
 import store from "redux/store";
 import getAlreadySwipedState from "./getAlreadySwipedState";
-import getBlockedState from "./getBlockedState";
+import getSentBlockedState from "./getSentBlockedState";
+import getReceivedBlockedState from "./getReceivedBlockedState";
 
 const useUserFilter = (): ((unfilteredUser?: IdentifiedUser) => boolean) => {
 	const {
@@ -15,6 +16,8 @@ const useUserFilter = (): ((unfilteredUser?: IdentifiedUser) => boolean) => {
 		searchFilters,
 		likes: sentLikes,
 		dislikes: sentDislikes,
+		reports: selfReports,
+		flags: selfFlags,
 	} = store.getState().user;
 	const {
 		ageRange: [minimumAge, maximumAge],
@@ -28,14 +31,19 @@ const useUserFilter = (): ((unfilteredUser?: IdentifiedUser) => boolean) => {
 			if (!unfilteredUser) {
 				return false;
 			}
-			const { birthDate, gender, coordinates, likes, id, reports } = unfilteredUser;
+			const { birthDate, gender, coordinates, likes, id, reports, flags } = unfilteredUser;
 
 			if (selfId === id) {
 				return false;
 			}
 
-			const hasUserBeenBlocked = getBlockedState(selfId, reports);
+			const hasUserBeenBlocked = getSentBlockedState(selfId, reports, flags);
 			if (hasUserBeenBlocked) {
+				return false;
+			}
+
+			const hasSelfBeenBlocked = getReceivedBlockedState(id, selfReports, selfFlags);
+			if (hasSelfBeenBlocked) {
 				return false;
 			}
 
@@ -67,8 +75,10 @@ const useUserFilter = (): ((unfilteredUser?: IdentifiedUser) => boolean) => {
 			maximumDistance,
 			minimumAge,
 			preferredGenders,
+			selfFlags,
 			selfId,
 			selfLocation,
+			selfReports,
 			sentDislikes,
 			sentLikes,
 		]

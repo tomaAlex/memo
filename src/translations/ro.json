@@ -227,6 +227,15 @@
 							},
 							"submit": "Aplica"
 						}
+					},
+					"FlaggingModal": {
+						"caption": "Blocheaza utilizator",
+						"Confirmation": {
+							"title": "Aceasta actiune va BLOCA PERMANENT utilizatorul marcat",
+							"caption": "Esti sigur ca vrei sa BLOCHEZI PERMANENT acest utilizator?",
+							"cancel": "Anuleaza",
+							"flag": "Da, blocheaza acest utilizator"
+						}
 					}
 				},
 				"Chats": {

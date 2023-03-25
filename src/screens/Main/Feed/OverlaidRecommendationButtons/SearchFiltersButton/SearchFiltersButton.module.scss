@@ -1,0 +1,11 @@
+.container {
+	width: 100%;
+	aspect-ratio: 1;
+	justify-content: center;
+	margin-bottom: 10;
+
+	&__icon {
+		flex: 1;
+		align-self: center;
+	}
+}

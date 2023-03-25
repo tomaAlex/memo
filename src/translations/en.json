@@ -228,6 +228,15 @@
 							},
 							"submit": "Apply"
 						}
+					},
+					"FlaggingModal": {
+						"caption": "Block user",
+						"Confirmation": {
+							"title": "This will PERMANENTLY BLOCK the flagged user",
+							"caption": "Are you sure you want to PERMANENTLY BLOCK this user?",
+							"cancel": "Cancel",
+							"flag": "Yes, block this user"
+						}
 					}
 				},
 				"Chats": {

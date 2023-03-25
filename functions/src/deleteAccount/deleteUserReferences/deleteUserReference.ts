@@ -13,10 +13,17 @@ const deleteUserReference = async (
 	if (!userToHaveReferencesRemovedFromData) {
 		return;
 	}
-	const { likes: likesToClear, dislikes: dislikesToClear } = userToHaveReferencesRemovedFromData;
+	const {
+		likes: likesToClear,
+		dislikes: dislikesToClear,
+		reports: reportsToClear,
+		flags: flagsToClear,
+	} = userToHaveReferencesRemovedFromData;
 	userToHaveReferencesRemovedFromDocumentReference.update({
 		likes: likesToClear.filter((likedUserId) => likedUserId !== userReferencesToRemoveId),
 		dislikes: dislikesToClear.filter((dislikedUserId) => dislikedUserId !== userReferencesToRemoveId),
+		reports: reportsToClear.filter(({ user: reporter }) => reporter !== userReferencesToRemoveId),
+		flags: flagsToClear.filter((flaggedUserId) => flaggedUserId !== userReferencesToRemoveId),
 	});
 };
 
