@@ -1,7 +1,7 @@
 .container {
 	flex: 1;
 	// padding: 5%;
-	width: 90%;
+	width: 100%;
 	align-self: center;
 	display: flex;
 	background-color: #fff;
@@ -17,6 +17,8 @@
 	&__sections {
 		flex: 1;
 		display: flex;
+		padding-left: 5%;
+		padding-right: 5%;
 
 		&__acceptButton {
 			width: 90%;
