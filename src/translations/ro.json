@@ -302,6 +302,10 @@
 				},
 				"Settings": {
 					"SettingsPreferences": {
+						"QRCode": {
+							"title": "Impartaseste dragostea si cu altii",
+							"caption": "Scaneaza pentru a descarca memo"
+						},
 						"Buttons": {
 							"accountManagement": "Gestioneaza contul",
 							"privacyPolicy": "Politica de confidentialitate",

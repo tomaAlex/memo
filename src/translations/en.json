@@ -303,6 +303,10 @@
 				},
 				"Settings": {
 					"SettingsPreferences": {
+						"QRCode": {
+							"title": "Share the love with the others too",
+							"caption": "Scan to download memo"
+						},
 						"Buttons": {
 							"accountManagement": "Account Management",
 							"privacyPolicy": "Privacy Policy",
