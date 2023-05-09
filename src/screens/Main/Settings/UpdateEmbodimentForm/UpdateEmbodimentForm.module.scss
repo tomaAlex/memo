@@ -1,3 +1,22 @@
 .imagePickerContainer {
-    height: 350px;
+    flex: 1;
+	// height: 350px;
+	// height: 48%;
+    // background-color: red;
+
+	&__labelsContainer {
+		margin-bottom: 20px;
+
+		&__mainLabel {
+			color: #f10065;
+			font-size: 25px;
+			font-family: Poppins-Medium;
+		}
+
+		&__tutorialLabel {
+			color: #0000004d;
+			font-size: 10px;
+			font-family: Poppins-Regular;
+		}
+	}
 }

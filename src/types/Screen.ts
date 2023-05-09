@@ -1,6 +1,11 @@
 import { RouteProp } from "@react-navigation/native";
-import { MainNavigationTabTypes, NavigationStackTypes, SettingsNavigationStackTypes } from "./NavigationStackTypes";
-import { MainScreenNames, ScreenNames, SettingsScreenNames } from "./ScreenNames";
+import {
+	MainNavigationTabTypes,
+	NavigationStackTypes,
+	SettingsNavigationStackTypes,
+	SettingsPreferencesNavigationStackTypes,
+} from "./NavigationStackTypes";
+import { MainScreenNames, ScreenNames, SettingsPreferencesScreenNames, SettingsScreenNames } from "./ScreenNames";
 import { ReduxProps } from "./redux/props";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
@@ -21,11 +26,20 @@ export interface SettingsScreenProps<SettingsScreenName extends SettingsScreenNa
 	route: RouteProp<SettingsNavigationStackTypes, SettingsScreenName>;
 }
 
-export type ScreenProps<ScreenName extends XOR<ScreenNames, XOR<MainScreenNames, SettingsScreenNames>>> =
-	ScreenName extends ScreenNames
-		? BaseScreenProps<ScreenName>
-		: ScreenName extends MainScreenNames
-		? MainScreenProps<ScreenName>
-		: ScreenName extends SettingsScreenNames
-		? SettingsScreenProps<ScreenName>
-		: never;
+export interface SettingsPreferencesScreenProps<SettingsPreferencesScreenName extends SettingsPreferencesScreenNames>
+	extends ReduxProps {
+	navigation: NativeStackNavigationProp<SettingsNavigationStackTypes, SettingsPreferencesScreenName>;
+	route: RouteProp<SettingsPreferencesNavigationStackTypes, SettingsPreferencesScreenName>;
+}
+
+export type ScreenProps<
+	ScreenName extends XOR<ScreenNames, XOR<MainScreenNames, XOR<SettingsScreenNames, SettingsPreferencesScreenNames>>>
+> = ScreenName extends ScreenNames
+	? BaseScreenProps<ScreenName>
+	: ScreenName extends MainScreenNames
+	? MainScreenProps<ScreenName>
+	: ScreenName extends SettingsScreenNames
+	? SettingsScreenProps<ScreenName>
+	: ScreenName extends SettingsPreferencesScreenNames
+	? SettingsPreferencesScreenProps<ScreenName>
+	: never;

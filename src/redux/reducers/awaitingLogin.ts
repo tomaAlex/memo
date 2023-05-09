@@ -3,7 +3,7 @@ import { AwaitingLoginAction, AwaitingLoginActions } from "types/index";
 
 export type ReducerType = Reducer<boolean, AwaitingLoginAction>;
 
-const reducer: ReducerType = (state = false, { type, payload }): boolean => {
+const reducer: ReducerType = (state = true, { type, payload }): boolean => {
 	switch (type) {
 		case AwaitingLoginActions.SET_AWAIT:
 			return payload;

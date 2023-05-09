@@ -134,7 +134,7 @@ const Main = ({
 				name={MainScreenNames.Settings}
 				component={Settings}
 				options={{
-					headerShown: true,
+					headerShown: false,
 					headerTitleStyle: { fontFamily: "Poppins-Bold" },
 					headerTitleAlign: "center",
 				}}

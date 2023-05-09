@@ -16,7 +16,7 @@ const LoginWithStudentEmailButton = () => {
 			}}
 			style={styles.container__footer__signinButton}
 		>
-			<View style={styles.container__footer__signinButton__circle} />
+			{/* <View style={styles.container__footer__signinButton__circle} /> */}
 			<View style={styles.container__footer__signinButton__captionContainer}>
 				<Text style={styles.container__footer__signinButton__captionContainer__caption}>
 					{translateLabels("submit")}

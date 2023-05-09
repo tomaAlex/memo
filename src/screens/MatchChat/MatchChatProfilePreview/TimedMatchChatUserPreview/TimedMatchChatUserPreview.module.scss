@@ -3,8 +3,19 @@
 	align-items: center;
 	padding-bottom: 10px;
 
-	&__remainingTime {
-		font-family: Poppins-Regular;
-		color: #1e1e1e;
+	&__remainingTimeContainer {
+		flex-direction: row;
+		justify-content: space-between;
+
+		&__remainingTime {
+			// font-family: Poppins-Regular;
+			// color: #1e1e1e;
+			color: red;
+		}
+
+		&__remainingTimeLabel {
+			justify-self: flex-end;
+			margin-left: 5px;
+		}
 	}
 }

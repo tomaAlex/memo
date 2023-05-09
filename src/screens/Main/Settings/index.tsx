@@ -16,9 +16,36 @@ const Settings = ({}: ScreenProps<MainScreenNames.Settings>) => {
 			screenOptions={{ headerShown: false }}
 		>
 			<SettingsStack.Screen name={SettingsScreenNames.SettingsPanel} component={SettingsPanel} />
-			<SettingsStack.Screen name={SettingsScreenNames.Photos} component={SettingsPhotos} />
-			<SettingsStack.Screen name={SettingsScreenNames.Information} component={SettingsInformation} />
-			<SettingsStack.Screen name={SettingsScreenNames.Preferences} component={SettingsPreferences} />
+			<SettingsStack.Screen
+				options={{
+					headerShown: true,
+					headerTitleStyle: { fontFamily: "Poppins-Medium", fontSize: 22 },
+					headerTitleAlign: "center",
+					title: "Gallery",
+				}}
+				name={SettingsScreenNames.Photos}
+				component={SettingsPhotos}
+			/>
+			<SettingsStack.Screen
+				options={{
+					headerShown: true,
+					headerTitleStyle: { fontFamily: "Poppins-Medium", fontSize: 22 },
+					headerTitleAlign: "center",
+					title: "Profile",
+				}}
+				name={SettingsScreenNames.Information}
+				component={SettingsInformation}
+			/>
+			<SettingsStack.Screen
+				options={{
+					headerShown: true,
+					headerTitleStyle: { fontFamily: "Poppins-Medium", fontSize: 22 },
+					headerTitleAlign: "center",
+					title: "Settings",
+				}}
+				name={SettingsScreenNames.Preferences}
+				component={SettingsPreferences}
+			/>
 		</SettingsStack.Navigator>
 	);
 };

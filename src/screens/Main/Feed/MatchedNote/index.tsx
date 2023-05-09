@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Modal } from "react-native";
 import { ReduxProps, MatchPreview, ScreenProps, MainScreenNames } from "types/index";
 import MatchedNoteContent from "./MatchedNoteContent";
-import observeMatchToNote from "./utils/observeMatchToNote";
+import { useMatchToNoteObserver } from "./utils";
 
 type TProps = {
 	matchPreviews: ReduxProps["matchPreviews"];
@@ -11,19 +11,14 @@ type TProps = {
 
 const MatchedNote = ({ matchPreviews, navigation }: TProps) => {
 	const previousMatchPreviewsAmount = useRef(matchPreviews.length);
-	const currentMatchPreviewsAmount = matchPreviews.length;
-	const [natchToNote, setMatchToNote] = useState<MatchPreview | null>(null);
+	const [matchToNote, setMatchToNote] = useState<MatchPreview | null>(null);
+	useMatchToNoteObserver(previousMatchPreviewsAmount, matchPreviews, setMatchToNote);
 	const clearMatchToNote = () => setMatchToNote(null);
 
-	useEffect(
-		() => observeMatchToNote(previousMatchPreviewsAmount, matchPreviews, setMatchToNote),
-		[currentMatchPreviewsAmount, matchPreviews]
-	);
-
 	return (
-		<Modal visible={natchToNote !== null} animationType="slide" onRequestClose={clearMatchToNote}>
+		<Modal visible={matchToNote !== null} animationType="slide" onRequestClose={clearMatchToNote}>
 			<MatchedNoteContent
-				matchPreviewToNote={natchToNote as MatchPreview}
+				matchPreviewToNote={matchToNote as MatchPreview}
 				closeMatchedNote={clearMatchToNote}
 				navigation={navigation}
 			/>

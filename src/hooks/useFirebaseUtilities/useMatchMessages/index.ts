@@ -1,7 +1,7 @@
 import { Match, MatchMessage } from "types/index";
 import { useSnapshot } from "../useSnapshot";
 import buildMessage from "./buildMessage";
-import sendMessage from "./sendMessage";
+// import sendMessage from "./sendMessage";
 import { useSelector } from "react-redux";
 import { selectUser } from "redux/selectors";
 import sendMessageNotification from "./sendMessageNotification";

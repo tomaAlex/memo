@@ -14,5 +14,6 @@ export const getRemainingTimePreview = (deadlineTimestamp: FirebaseFirestoreType
 	const remainingMinutes = Math.floor(remainingSecondsWithoutHours / 60);
 	const remainingHoursPreview = getPreviewedTimeNumber(remainingHours);
 	const remainingMinutesPreview = getPreviewedTimeNumber(remainingMinutes);
-	return `${remainingHoursPreview}:${remainingMinutesPreview}`;
+	const remainingSecondsPreview = getPreviewedTimeNumber(remainingSecondsWithoutHours - remainingMinutes * 60);
+	return `${remainingHoursPreview}h : ${remainingMinutesPreview}m : ${remainingSecondsPreview}s`;
 };

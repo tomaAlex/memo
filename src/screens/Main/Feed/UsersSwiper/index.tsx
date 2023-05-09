@@ -137,7 +137,7 @@ const UsersSwiper = ({
 				animateOverlayLabelsOpacity
 				overlayOpacityVerticalThreshold={10}
 				overlayOpacityHorizontalThreshold={10}
-				inputOverlayLabelsOpacityRangeX={[-width / 5, -width / 10, 0, width / 10, width / 5]}
+				inputOverlayLabelsOpacityRangeX={[-width / 5, -width / 20, 0, width / 20, width / 5]}
 				inputOverlayLabelsOpacityRangeY={[-height / 10, -height / 20, 0, height / 20, height / 10]}
 				{...{ overlayLabels }}
 			/>

@@ -1,13 +1,14 @@
 import React from "react";
-import FormChoicePicker, { FormChoicePickerItem } from "components/forms/FormChoicePicker";
+// import FormChoicePicker, { FormChoicePickerItem } from "components/forms/FormChoicePicker";
 import FormFieldLabel from "components/forms/FormFieldLabel";
-import FormTextInput from "components/forms/FormTextInput";
-import { convertChoicesToFormChoicePickerData } from "utils/index";
-import { Orientation } from "types/index";
+// import FormTextInput from "components/forms/FormTextInput";
+// import { convertChoicesToFormChoicePickerData } from "utils/index";
+// import { Orientation } from "types/index";
 import { View } from "react-native";
-import FormImagePicker from "components/forms/FormImagePicker";
+// import FormImagePicker from "components/forms/FormImagePicker";
 import { useTranslation } from "react-i18next";
 import styles from "./UpdateEmbodimentForm.module.scss";
+import FormAnimatedImagePicker from "components/forms/FormAnimatedImagePicker";
 
 const UpdateEmbodimentForm = () => {
 	const [translateLabels] = useTranslation("translation", {
@@ -17,14 +18,29 @@ const UpdateEmbodimentForm = () => {
 	return (
 		<>
 			<View style={styles.imagePickerContainer}>
-				<FormImagePicker field={"photos"}>
+				{/* <FormImagePicker field={"photos"}>
 					<FormFieldLabel label={translateLabels("photos")} />
-				</FormImagePicker>
+				</FormImagePicker> */}
+				<FormAnimatedImagePicker field={"photos"}>
+					<View style={styles.imagePickerContainer__labelsContainer}>
+						<FormFieldLabel
+							style={styles.imagePickerContainer__labelsContainer__mainLabel}
+							label={translateLabels("photos")}
+						/>
+						<FormFieldLabel removeColon label={translateLabels("photosNote").replace("\n", "")} />
+						<FormFieldLabel
+							removeColon
+							style={styles.imagePickerContainer__labelsContainer__tutorialLabel}
+							label={translateLabels("photosUsageTutorial")}
+						/>
+					</View>
+				</FormAnimatedImagePicker>
 			</View>
-			<FormTextInput field="height" placeholder="181" keyboardType="numeric">
+			{/* <FormTextInput field="height" placeholder="181" keyboardType="numeric">
 				<FormFieldLabel label={translateLabels("height")} />
-			</FormTextInput>
-			<FormChoicePicker
+			</FormTextInput> */}
+			{/* No need to specifically mention the sexual orientation, the filters can accommodate this need */}
+			{/* <FormChoicePicker
 				isMandatory
 				data={convertChoicesToFormChoicePickerData(Orientation)}
 				optionContainerStyle={{
@@ -47,7 +63,7 @@ const UpdateEmbodimentForm = () => {
 				field="orientation"
 			>
 				<FormFieldLabel label={translateLabels("orientation")} />
-			</FormChoicePicker>
+			</FormChoicePicker> */}
 		</>
 	);
 };

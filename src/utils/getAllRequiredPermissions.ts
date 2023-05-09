@@ -2,7 +2,7 @@ import { Permission } from "react-native";
 import { Permissions } from "types/permissions";
 import { getMobileOS } from "./getMobileOS";
 import { handlePermissions } from "./handlePermissions";
-import messaging from "@react-native-firebase/messaging";
+import { getNotificationsPermission } from "./getNotificationsPermission";
 
 export const getAllRequiredPermissions = (): Promise<void> => {
 	const mobileOS = getMobileOS();
@@ -10,7 +10,7 @@ export const getAllRequiredPermissions = (): Promise<void> => {
 	const requiredUnifiedPermissions = [CAMERA, PHOTOS, COARSE_LOCATION];
 	const requiredPermissions = requiredUnifiedPermissions.map((unifiedPermission) => unifiedPermission[mobileOS]).flat();
 	return new Promise<void>(async (resolve, reject) => {
-		await messaging().requestPermission();
+		await getNotificationsPermission();
 		handlePermissions(requiredPermissions as Permission[])
 			.then(resolve)
 			.catch((deniedPermissions: Permission[]) => {

@@ -33,6 +33,10 @@ import InfoIcon from "./info.svg";
 import PlugDisconnected from "./plug-disconnected.svg";
 import FlagIcon from "./flag.svg";
 import BlockIcon from "./block.svg";
+import PlusIcon from "./plus.svg";
+import PrivacyPolicyIcon from "./privacy-policy.svg";
+import BellIcon from "./bell.svg";
+import QrIcon from "./qr.svg";
 
 export {
 	HeartIcon,
@@ -70,4 +74,8 @@ export {
 	PlugDisconnected,
 	FlagIcon,
 	BlockIcon,
+	PlusIcon,
+	PrivacyPolicyIcon,
+	BellIcon,
+	QrIcon,
 };
