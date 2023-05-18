@@ -27,7 +27,7 @@ const Chats = (props: ScreenProps<MainScreenNames.Chats>) => {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<Text style={styles.container__header}>({t("leftMatchesNote", { count: leftMatchesNumber })})</Text>
+			<Text style={styles.container__header}>{t("leftMatchesNote", { count: leftMatchesNumber })} 🔥</Text>
 			{hasNoMatches && <Text style={styles.container__note}>{t("noMatchesNote")} 💘</Text>}
 			<FlatList
 				data={matchPreviews}

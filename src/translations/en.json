@@ -244,7 +244,7 @@
 					}
 				},
 				"Chats": {
-					"leftMatchesNote": "you can get {{count}} more matches",
+					"leftMatchesNote": "{{count}} more matches left",
 					"noMatchesNote": "It's time to send more likes"
 				},
 				"MatchChat": {

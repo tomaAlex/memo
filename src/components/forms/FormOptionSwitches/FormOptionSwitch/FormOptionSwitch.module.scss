@@ -18,14 +18,16 @@
 		&__control {
 			flex: 1;
 			justify-content: center;
-			border-width: 1px;
+			border-width: 2px;
 			border-color: #9e9e9e;
 			border-radius: 500px;
 			margin-left: 2.5px;
 			margin-right: 2.5px;
 
 			&__on {
-				background-color: #f10065;
+				// background-color: #f10065;
+				background-color: #606060;
+				border-width: 0px;
 			}
 
 			&__off {
