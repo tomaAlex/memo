@@ -9,11 +9,13 @@ import styles from "./MatchMessageTextBar.module.scss";
 
 type TProps = {
 	sendMessage: (message: string) => Promise<void>;
+	createAwaitingMessage: (message: string) => void;
+	clearAwaitingMessage: () => void;
 };
 
 const isMessageEmpty = (message: string) => message === "";
 
-const MatchMessageTextBar = ({ sendMessage }: TProps) => {
+const MatchMessageTextBar = ({ sendMessage, createAwaitingMessage, clearAwaitingMessage }: TProps) => {
 	const matchMessageTextBarSchema = useMatchMessageTextBarFormValidationRules();
 	const [isMessageSending, setIsMessageSending] = useState(false);
 
@@ -34,10 +36,12 @@ const MatchMessageTextBar = ({ sendMessage }: TProps) => {
 				messageText: "",
 			}}
 			onSubmit={async ({ messageText }, formikProps) => {
-				// setIsMessageSending(true);
-				sendMessage(messageText);
-				// sendSound.play();
 				formikProps.resetForm();
+				// setIsMessageSending(true);
+				createAwaitingMessage(messageText);
+				await sendMessage(messageText);
+				clearAwaitingMessage();
+				// sendSound.play();
 				// setIsMessageSending(false);
 			}}
 		>

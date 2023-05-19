@@ -298,6 +298,10 @@
 								}
 							}
 						}
+					},
+					"AwaitingMatchMessagePreview": {
+						"sendingMessage": "Trimitere mesaj",
+						"failed": "Eroare - Apasa pentru a retrimite"
 					}
 				},
 				"Settings": {

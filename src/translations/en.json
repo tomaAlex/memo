@@ -299,6 +299,10 @@
 								}
 							}
 						}
+					},
+					"AwaitingMatchMessagePreview": {
+						"sendingMessage": "Sending message",
+						"failed": "Failed - Tap to resend"
 					}
 				},
 				"Settings": {
