@@ -110,7 +110,7 @@ const Feed = ({
 					// 	},
 					// }}
 				/>
-				{!hasTimedOut ? <FeedLoading heigth={screenHeight} width={screenWidth} /> : <TimedOutNote />}
+				{!hasTimedOut ? <FeedLoading heigth={screenWidth / 2} width={screenWidth / 2} /> : <TimedOutNote />}
 				{/* <SearchFiltersModal
 					visible={isFiltersModalVisible}
 					onRequestClose={() => {

@@ -154,7 +154,7 @@
 							"orientation": "Who would you date ?",
 							"photos": "Add your photos",
 							"photosNote": "Add at least 2 photos \nto get more attention",
-							"photosUsageTutorial": "Shortly tap on the photo to delete it (you will get a confirmation modal first). You can reorder your photos by dragging them.",
+							"photosUsageTutorial": "Tap to delete. Hold & Drag to reorder.",
 							"orientationNote": "You may select both"
 						},
 						"Errors": {
