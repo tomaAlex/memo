@@ -4,6 +4,7 @@ import { FemaleIcon, MaleIcon } from "icons";
 import React from "react";
 import { Orientation, Gender } from "types";
 import styles from "./OrientationElement.module.scss";
+import { Text } from "react-native";
 
 type TProps = {
 	onlyFilteredGender: Gender;
@@ -16,6 +17,17 @@ const getIcon = (gender: Gender, isMatch: boolean) => {
 			return <MaleIcon height={80} width={80} fill={isMatch ? "#FFFFFF" : "#111111"} />;
 		case "FEMALE":
 			return <FemaleIcon height={80} width={80} fill={isMatch ? "#FFFFFF" : "#111111"} />;
+	}
+};
+
+const getGenderName = (gender: Gender) => {
+	switch (gender) {
+		case "MALE":
+			return "Male";
+		case "FEMALE":
+			return "Female";
+		case "OTHER":
+			return "Other";
 	}
 };
 
@@ -91,7 +103,12 @@ function OrientationElement<D>({ gender, onlyFilteredGender }: TProps) {
 				activeStyle: styles.container__element__selectedElement,
 				inactiveStyle: styles.container__element,
 			}}
-		/>
+			labelPosition="BOTTOM"
+			labelStyle={styles.container__label}
+			optionSwitchStyle={styles.container__optionSwitchContainer}
+		>
+			<Text style={styles.container__labelText}>{getGenderName(onlyFilteredGender)}</Text>
+		</FormOptionSwitch>
 	);
 }
 

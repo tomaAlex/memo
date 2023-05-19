@@ -15,4 +15,16 @@
             background-color: #F10065;
         }
     }
+    &__optionSwitchContainer {
+        margin-top: 5px;
+    }
+
+    &__labelText {
+        font-family: Poppins-Regular;
+    }
+
+    &__label {
+        align-self: center;
+        margin-top: 5%;
+    }
 }

@@ -23,7 +23,7 @@ const Header = ({ stepNo, navigation }: TProps) => {
 	const isInitialStep = stepNo == 1;
 	return (
 		<View style={[styles.container, isInitialStep && { justifyContent: "center" }]}>
-			{!isInitialStep && <BackButton navigation={navigation} />}
+			{!isInitialStep && <BackButton buttonStyle={styles.container__backButton} navigation={navigation} />}
 			{stepContainer(stepNo, <StepCount stepNo={stepNo} />)}
 		</View>
 	);

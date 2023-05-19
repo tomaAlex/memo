@@ -1,11 +1,14 @@
 .container {
-	width: 90%;
+	// width: 90%;
 	align-self: center;
-	height: 80%;
+	// background-color: red;
+	// height: 80%;
 	align-content: center;
+	flex: 1;
 
 	&__form {
-		margin-top: 30%;
+		margin-top: 20%;
+		height: 80%;
 	}
 
 	&__photosNote {
@@ -23,5 +26,42 @@
 
 	&__loading {
 		align-self: center;
+	}
+
+	&__formContainer {
+		flex: 1;
+		justify-content: center;
+		align-items: center;
+		padding: 10px;
+		width: 90%;
+		align-self: center;
+
+		&__form {
+			width: 90%;
+		}
+	}
+}
+
+.imagePickerContainer {
+	flex: 1;
+	// height: 350px;
+	// height: 48%;
+	// background-color: red;
+
+	&__labelsContainer {
+		margin-bottom: 20px;
+
+		&__mainLabel {
+			color: #313131;
+			font-size: 25px;
+			font-family: Poppins-Semibold;
+			font-weight: 600;
+		}
+
+		&__tutorialLabel {
+			color: #0000004d;
+			font-size: 10px;
+			font-family: Poppins-Regular;
+		}
 	}
 }

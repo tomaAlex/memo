@@ -8,10 +8,15 @@
     &__stepContainer {    
         justify-content: center;
         flex: 1;
-        padding-left: 33%;
+        padding-left: 30%;
     }
 
     &__initialStepContainer {
         align-self: center;
+    }
+
+    &__backButton {
+        justify-content: center;
+        left: 82%;
     }
 }

@@ -9,6 +9,6 @@ import { selectUpdatedFeatures } from "./selectUpdatedFeatures";
 export const selectIsPremium = createSelector(selectUpdatedFeatures, (updatedFeatures): boolean => {
 	// const currentFeatures = updatedFeatures.map(({ feature }) => feature);
 	// return currentFeatures.includes(Feature.BRONZE);
-	console.warn("ignoring", { updatedFeatures });
+	// console.warn("ignoring", { updatedFeatures });
 	return true;
 });

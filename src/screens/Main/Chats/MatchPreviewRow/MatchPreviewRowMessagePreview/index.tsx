@@ -26,7 +26,7 @@ const MatchPreviewRowMessagePreview = ({ matchedUser, lastMessage, matchTimestam
 	const messagePreviewMaximumLength = 30;
 	const trimmedMessagePreview = trimMessage(messagePreviewMaximumLength, messagePreview);
 	const { firstName, lastName } = matchedUser;
-	const matchedUserName = `${firstName} ${lastName}`;
+	const matchedUserName = trimMessage(15, `${firstName} ${lastName}`);
 	const messageTimestamp = lastMessage ? lastMessage.timestamp : matchTimestamp;
 	const timestampPreview = getTimestampPreview(messageTimestamp);
 
