@@ -4,7 +4,9 @@ import generateAwaitingLoginActions from "./actions/awaitingLogin";
 import generateMatchPreviewsActions from "./actions/matchPreviews";
 import generateUserActions from "./actions/user";
 import generateNotificationActions from "./actions/notification";
+import generateExpandableRecommendationsActions from "./actions/expandableRecommendations";
 import store from "./store";
+import { useExpandableRecommendations } from "hooks";
 import { FirebaseMessagingTypes } from "@react-native-firebase/messaging";
 
 const mapState = (state: RootState) => ({
@@ -12,6 +14,7 @@ const mapState = (state: RootState) => ({
 	matchPreviews: state.matchPreviews,
 	awaitingLogin: state.awaitingLogin,
 	notification: state.notification,
+	expandableRecommendations: state.expandableRecommendations,
 });
 const mapDispatch = {
 	updateUser: (user: RequireAtLeastOne<IdentifiedUser>) =>
@@ -22,6 +25,8 @@ const mapDispatch = {
 	addNotification: (notification: FirebaseMessagingTypes.RemoteMessage) =>
 		generateNotificationActions.add(notification),
 	clearNotification: () => generateNotificationActions.clear(),
+	setExpandableRecommendations: (expandableRecommendations: ReturnType<typeof useExpandableRecommendations>) =>
+		generateExpandableRecommendationsActions.set(expandableRecommendations),
 };
 const connector = connect(mapState, mapDispatch);
 

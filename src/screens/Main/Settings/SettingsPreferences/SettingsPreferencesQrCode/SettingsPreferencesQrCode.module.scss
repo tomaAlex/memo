@@ -1,0 +1,23 @@
+.container {
+	flex: 1;
+	background-color: #fff;
+
+	&__qrCodeContainer {
+		top: 25%;
+		height: 50%;
+		aspect-ratio: 1;
+		align-self: center;
+
+		&__qrCode {
+			width: 100%;
+			height: 100%;
+		}
+
+		&__caption {
+			align-self: center;
+			font-family: Poppins-Bold;
+			font-size: 15;
+			color: #6f6868;
+		}
+	}
+}

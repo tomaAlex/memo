@@ -1,0 +1,21 @@
+.container {
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+
+	&__picker {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		flex: 1;
+
+		&__option {
+			align-self: center;
+
+			&__caption {
+				font-size: 20px;
+				font-weight: bold;
+				color: gray;
+			}
+		}
+	}
+}

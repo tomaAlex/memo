@@ -12,19 +12,27 @@
 
 	&__fullNameAndAgeContainer {
 		align-items: center;
+		width: 100%;
 
 		&__fullName {
-			font-size: 20px;
-			font-family: "Poppins-Medium";
+			font-size: 22px;
+			font-family: "Poppins-Bold";
 			font-weight: 600;
-			color: #1E1E1E;
+			color: #222222;
 		}
 
 		&__age {
 			font-size: 20px;
 			font-weight: 900;
 			font-family: Poppins-Medium;
-			color: #1E1E1E;
+			color: #1e1e1e;
+		}
+
+		&__underline {
+			background-color: #f10065;
+			height: 8;
+			width: 50%;
+			border-radius: 500px;
 		}
 	}
 }

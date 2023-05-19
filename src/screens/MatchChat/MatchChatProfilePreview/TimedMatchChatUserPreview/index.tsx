@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { IdentifiedUser } from "types/index";
 import { useRemainingTimePreviewer } from "hooks/index";
 import MatchChatUserPreview from "./MatchChatUserPreview";
@@ -17,7 +17,10 @@ const TimedMatchChatUserPreview = ({ userToPreview, expiresAt }: TProps) => {
 	return (
 		<View style={styles.container}>
 			<MatchChatUserPreview {...{ userToPreview }} />
-			<Text style={styles.container__remainingTime}>{remainingTime}</Text>
+			<TouchableOpacity style={styles.container__remainingTimeContainer}>
+				<Text style={styles.container__remainingTimeContainer__remainingTime}>{remainingTime}</Text>
+				<Text style={styles.container__remainingTimeContainer__remainingTimeLabel}>⌛</Text>
+			</TouchableOpacity>
 		</View>
 	);
 };

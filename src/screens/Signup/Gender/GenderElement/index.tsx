@@ -4,6 +4,7 @@ import { FemaleIcon, IntersexIcon, MaleIcon } from "icons";
 import React from "react";
 import { Gender } from "types";
 import styles from "./GenderElement.module.scss";
+import { Text } from "react-native";
 
 type TProps = {
 	onlyFilteredGender: Gender;
@@ -17,6 +18,17 @@ const getIcon = (gender: Gender, isMatch: boolean) => {
 			return <FemaleIcon height={80} width={80} fill={isMatch ? "#FFFFFF" : "#111111"} />;
 		case "OTHER":
 			return <IntersexIcon height={95} width={100} fill={isMatch ? "#FFFFFF" : "#111111"} />;
+	}
+};
+
+const getGenderName = (gender: Gender) => {
+	switch (gender) {
+		case "MALE":
+			return "Male";
+		case "FEMALE":
+			return "Female";
+		case "OTHER":
+			return "Other";
 	}
 };
 
@@ -47,7 +59,12 @@ function GenderElement<D>({ onlyFilteredGender }: TProps) {
 				activeStyle: styles.container__element__selectedElement,
 				inactiveStyle: styles.container__element,
 			}}
-		/>
+			labelPosition="BOTTOM"
+			labelStyle={styles.container__label}
+			optionSwitchStyle={styles.container__optionSwitchContainer}
+		>
+			<Text style={styles.container__labelText}>{getGenderName(onlyFilteredGender)}</Text>
+		</FormOptionSwitch>
 	);
 }
 

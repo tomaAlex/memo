@@ -13,9 +13,9 @@ export const useRemainingTimePreviewer = (
 		getRemainingMillisecondsTime(deadlineTimestamp)
 	);
 
-	const cancelExpiredCallbackScheduledExecution = () => {
+	const cancelExpiredCallbackScheduledExecution = useCallback(() => {
 		clearTimeout(expiredCallbackScheduledExecution);
-	};
+	}, [expiredCallbackScheduledExecution]);
 
 	useEffect(() => {
 		return cancelExpiredCallbackScheduledExecution;

@@ -1,0 +1,43 @@
+.messageBubbleGeneral {
+	padding: 15px;
+	border-radius: 40px;
+	max-width: 70%;
+}
+
+.messageBubble {
+	align-self: flex-end;
+
+	&__message {
+		background-color: #ec4474;
+		opacity: 0.7;
+		border-bottom-right-radius: 0;
+
+		&__content {
+			color: white;
+			font-family: Poppins-Regular;
+		}
+	}
+
+	&__messageFailed {
+		background-color: #dd1e54;
+		opacity: 1;
+	}
+}
+
+.metadata {
+	flex-direction: row;
+	justify-content: space-between;
+
+	&__caption {
+		font-size: 10px;
+		color: #878787;
+		margin-top: 5px;
+		text-align: right;
+		font-family: Poppins-Light;
+	}
+
+	&__failed {
+		align-self: center;
+		margin-top: 5px;
+	}
+}

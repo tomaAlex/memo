@@ -153,7 +153,8 @@
 							"height": "What's your height ? \n (cm)",
 							"orientation": "Who would you date ?",
 							"photos": "Add your photos",
-							"photosNote": "Add at least 2 photos \n to get more attention",
+							"photosNote": "Add at least 2 photos \nto get more attention",
+							"photosUsageTutorial": "Shortly tap on the photo to delete it (you will get a confirmation modal first). You can reorder your photos by dragging them.",
 							"orientationNote": "You may select both"
 						},
 						"Errors": {
@@ -188,6 +189,9 @@
 					},
 					"EnoughMatchesNote": {
 						"caption": "It is time you focus on your current matches"
+					},
+					"TimedOutNote": {
+						"caption": "Consider changing your search filters to get more recommendations"
 					},
 					"UsersSwiper": {
 						"PaymentSheet": {
@@ -240,6 +244,7 @@
 					}
 				},
 				"Chats": {
+					"leftMatchesNote": "{{count}} more matches left",
 					"noMatchesNote": "It's time to send more likes"
 				},
 				"MatchChat": {
@@ -294,9 +299,35 @@
 								}
 							}
 						}
+					},
+					"AwaitingMatchMessagePreview": {
+						"sendingMessage": "Sending message",
+						"failed": "Failed - Tap to resend"
 					}
 				},
 				"Settings": {
+					"SettingsPreferences": {
+						"QRCode": {
+							"title": "Share the love with the others too",
+							"caption": "Scan to download memo"
+						},
+						"Buttons": {
+							"accountManagement": "Account Management",
+							"privacyPolicy": "Privacy Policy",
+							"Notifications": {
+								"caption": "Notifications",
+								"Confirmation": {
+									"title": "Notifications are turned on 🔔",
+									"details": "You will receive notifications when you get new matches or messages 🎉"
+								},
+								"Failure": {
+									"title": "Something went wrong 😓",
+									"details": "Please activate notifications in your phone settings 🙏"
+								}
+							},
+							"qrCode": "QR Code"
+						}
+					},
 					"GetPremium": {
 						"buttonTitle": "Get Premium",
 						"premiumButtonTitle": "Manage Premium",
@@ -508,6 +539,19 @@
 						"remainingPicturesNotice_0": "You cannot add any more pictures",
 						"remainingPicturesNotice": "You can add one more picture",
 						"remainingPicturesNotice_plural": "You can add {{count}} more pictures"
+					}
+				},
+				"FormAnimatedImagePicker": {
+					"FormAnimatedImagePickerSupplier": {
+						"remainingPicturesNotice_0": "You cannot add any more pictures",
+						"remainingPicturesNotice": "You can add one more picture",
+						"remainingPicturesNotice_plural": "You can add {{count}} more pictures"
+					},
+					"FormAnimatedImagePickerDeletion": {
+						"title": "Delete Picture",
+						"caption": "Are you sure you want to delete this picture?",
+						"delete": "Delete",
+						"cancel": "Cancel"
 					}
 				}
 			},

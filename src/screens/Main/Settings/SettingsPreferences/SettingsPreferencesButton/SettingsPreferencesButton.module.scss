@@ -1,0 +1,18 @@
+.container {
+	flex-direction: row;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+	&__iconContainer {
+		align-items: center;
+		justify-content: center;
+		margin-right: 10px;
+	}
+
+	&__text {
+		flex: 1;
+		align-items: center;
+		justify-content: center;
+		align-self: center;
+	}
+}

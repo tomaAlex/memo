@@ -8,6 +8,10 @@ import { convertChoicesToFormChoicePickerData } from "utils/index";
 import FormChoicePicker, { FormChoicePickerItem } from "components/forms/FormChoicePicker";
 
 const UpdateIdentificationForm = () => {
+	const [translateEmbodimentLabels] = useTranslation("translation", {
+		keyPrefix: "Screens.Signup.Forms.Embodiment.Labels",
+	});
+
 	const [translateLabels] = useTranslation("translation", {
 		keyPrefix: "Screens.Signup.Forms.Identification.Labels",
 	});
@@ -19,6 +23,9 @@ const UpdateIdentificationForm = () => {
 			</FormTextInput>
 			<FormTextInput isMandatory field="lastName" placeholder="Smith">
 				<FormFieldLabel label={translateLabels("lastName")} />
+			</FormTextInput>
+			<FormTextInput field="height" placeholder="181" keyboardType="numeric">
+				<FormFieldLabel label={translateEmbodimentLabels("height")} />
 			</FormTextInput>
 			<FormChoicePicker
 				isMandatory

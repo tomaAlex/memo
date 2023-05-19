@@ -33,10 +33,10 @@ const SettingsPhotos = ({}: ScreenProps<SettingsScreenNames.Photos>) => {
 			<SafeAreaView style={styles.container}>
 				<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 					<View style={styles.container__formContainer}>
-						<ScrollView style={styles.container__formContainer__form}>
-							<UpdateEmbodimentForm />
-							<SettingsSubmitButton {...{ isUserUpdating }} />
-						</ScrollView>
+						{/* <ScrollView style={styles.container__formContainer__form}> */}
+						<UpdateEmbodimentForm />
+						<SettingsSubmitButton {...{ isUserUpdating }} />
+						{/* </ScrollView> */}
 					</View>
 				</TouchableWithoutFeedback>
 			</SafeAreaView>

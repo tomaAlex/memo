@@ -6,6 +6,7 @@ import SettingsPanel from "./SettingsPanel";
 import SettingsPhotos from "./SettingsPhotos";
 import SettingsInformation from "./SettingsInformation";
 import SettingsPreferences from "./SettingsPreferences";
+import { settingsScreenHeaderOptions } from "./SettingsScreenHeaderOptions";
 
 const SettingsStack = createStackNavigator<SettingsNavigationStackTypes>();
 
@@ -16,9 +17,21 @@ const Settings = ({}: ScreenProps<MainScreenNames.Settings>) => {
 			screenOptions={{ headerShown: false }}
 		>
 			<SettingsStack.Screen name={SettingsScreenNames.SettingsPanel} component={SettingsPanel} />
-			<SettingsStack.Screen name={SettingsScreenNames.Photos} component={SettingsPhotos} />
-			<SettingsStack.Screen name={SettingsScreenNames.Information} component={SettingsInformation} />
-			<SettingsStack.Screen name={SettingsScreenNames.Preferences} component={SettingsPreferences} />
+			<SettingsStack.Screen
+				options={settingsScreenHeaderOptions("Gallery")}
+				name={SettingsScreenNames.Photos}
+				component={SettingsPhotos}
+			/>
+			<SettingsStack.Screen
+				options={settingsScreenHeaderOptions("Profile")}
+				name={SettingsScreenNames.Information}
+				component={SettingsInformation}
+			/>
+			<SettingsStack.Screen
+				options={settingsScreenHeaderOptions("Settings")}
+				name={SettingsScreenNames.Preferences}
+				component={SettingsPreferences}
+			/>
 		</SettingsStack.Navigator>
 	);
 };

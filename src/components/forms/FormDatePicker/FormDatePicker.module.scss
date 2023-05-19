@@ -11,28 +11,29 @@
 		}
 	}
 
-    &__picker {
-        display: flex;
+	&__picker {
+		display: flex;
 
 		&__modal {
-            width: 85%;
-            align-self: center;
+			width: 85%;
+			align-self: center;
 
-            &__text {
-                color: #1E1E1E;
-                padding: 10px;
-                padding-left: 20px;
+			&__text {
+				color: #1e1e1e;
+				padding: 10px;
+				padding-left: 20px;
 				font-family: Poppins-Light;
-            }
+				font-size: 18;
+			}
 
-            &__date {
-                width: 100%;
-                align-self: center;
-            }
+			&__date {
+				width: 100%;
+				align-self: center;
+			}
 		}
 
 		&__error {
-            margin-top: 5px;
+			margin-top: 5px;
 			align-self: center;
 		}
 	}

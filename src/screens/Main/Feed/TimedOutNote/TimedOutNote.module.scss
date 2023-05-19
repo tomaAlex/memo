@@ -1,0 +1,21 @@
+.container {
+	flex: 1;
+
+	&__captionContainer {
+		top: 50%;
+
+		&__caption {
+			color: #1e1e1ea0;
+			font-family: Poppins-Light;
+			font-size: 13;
+			text-align: center;
+		}
+
+		&__subCaption {
+			color: #1e1e1ea0;
+			font-family: Poppins-Light;
+			font-size: 10;
+			text-align: center;
+		}
+	}
+}

@@ -9,7 +9,7 @@ import getMainNavbarIcon from "./utils/getMainNavbarIcon";
 import { useSelector } from "react-redux";
 import { selectAwaitingLoginStatus, selectIsGenericAdShown, selectIsPremium } from "redux/selectors";
 import { useInterstitialAd } from "react-native-google-mobile-ads";
-import { useInAppInteractionsUpdater } from "hooks";
+import { useInAppInteractionsUpdater, useMatchesTotalNotifications } from "hooks";
 import { NotificationTypes } from "NotificationManager/notificationTypes";
 import MessageNotificationManager from "NotificationManager/MessageNotification";
 // import { AdsConsent, AdsConsentStatus } from "react-native-google-mobile-ads";
@@ -33,6 +33,8 @@ const Main = ({
 	const awaitingLoginStatus = useSelector(selectAwaitingLoginStatus);
 	const isGenericAdShown = useSelector(selectIsGenericAdShown);
 	const resetInAppAdInteractions = useInAppInteractionsUpdater("reset");
+	const matchPreviewIds = matchPreviews.map(({ id: matchPreviewId }) => matchPreviewId);
+	const unreadMessages = useMatchesTotalNotifications(matchPreviewIds, user.id);
 
 	useEffect(() => {
 		if (user) {
@@ -78,7 +80,7 @@ const Main = ({
 
 	useEffect(() => {
 		// const canShowTheAd = !isPremium && isLoaded && isGenericAdShown;
-		console.warn("ignoring", { isPremium });
+		// console.warn("ignoring", { isPremium });
 		// TODO: remove this line when we have implemented proper premium accounts management
 		const canShowTheAd = isLoaded && isGenericAdShown;
 		if (!canShowTheAd) {
@@ -126,16 +128,23 @@ const Main = ({
 				component={Chats}
 				options={{
 					headerShown: true,
-					headerTitleStyle: { fontFamily: "Poppins-Bold" },
+					headerStyle: {
+						height: 45,
+					},
+					headerTitleStyle: {
+						fontFamily: "Poppins-Bold",
+						fontSize: 30,
+					},
 					headerTitleAlign: "center",
+					tabBarBadge: unreadMessages > 0 ? unreadMessages : undefined,
 				}}
 			/>
 			<MainTab.Screen
 				name={MainScreenNames.Settings}
 				component={Settings}
 				options={{
-					headerShown: true,
-					headerTitleStyle: { fontFamily: "Poppins-Bold" },
+					headerShown: false,
+					headerTitleStyle: { fontFamily: "Poppins-Bold", fontSize: 30 },
 					headerTitleAlign: "center",
 				}}
 			/>

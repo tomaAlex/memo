@@ -34,3 +34,11 @@ export enum SettingsScreenNames {
 	Information = "Information",
 	Preferences = "Preferences",
 }
+
+export enum SettingsPreferencesScreenNames {
+	SettingsPreferencesPanel = "SettingsPreferencesPanel",
+	AccountManagement = "AccountManagement",
+	Language = "Language",
+	// PrivacyPolicy = "PrivacyPolicy",
+	QRCode = "QRCode",
+}

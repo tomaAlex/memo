@@ -1,17 +1,17 @@
 import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
-import { MainScreenNames, ScreenNames, SettingsScreenNames } from "./ScreenNames";
+import { MainScreenNames, ScreenNames, SettingsPreferencesScreenNames, SettingsScreenNames } from "./ScreenNames";
 import { IdentifiedUser, User } from "./User";
 
 type NavigationStackTypesStructure = { [key in string]: any };
 type NavigationTabTypesStructure = { [key in string]: any };
-type NavigationStepTypesStructure = {
-	[key in string]:
-		| {
-				data: any;
-				stepCount?: number;
-		  }
-		| undefined;
-};
+// type NavigationStepTypesStructure = {
+// 	[key in string]:
+// 		| {
+// 				data: any;
+// 				stepCount?: number;
+// 		  }
+// 		| undefined;
+// };
 
 export type IdentificationForm = {
 	firstName: User["firstName"];
@@ -133,11 +133,21 @@ export interface NavigationStackTypes extends NavigationStackTypesStructure {
 export interface MainNavigationTabTypes extends NavigationTabTypesStructure {
 	[MainScreenNames.Feed]: { uid?: string };
 	[MainScreenNames.Chats]: undefined;
-	[MainScreenNames.Settings]: undefined;
+	[MainScreenNames.Settings]:
+		| undefined
+		| { screen?: SettingsScreenNames; params?: SettingsNavigationStackTypes[SettingsScreenNames] };
 }
 
 export interface SettingsNavigationStackTypes extends NavigationStackTypesStructure {
 	[SettingsScreenNames.Photos]: undefined;
 	[SettingsScreenNames.Information]: undefined;
-	[SettingsScreenNames.Preferences]: undefined;
+	[SettingsScreenNames.Preferences]: undefined | { screen?: SettingsPreferencesScreenNames };
+}
+
+export interface SettingsPreferencesNavigationStackTypes extends NavigationStackTypesStructure {
+	[SettingsPreferencesScreenNames.SettingsPreferencesPanel]: undefined;
+	[SettingsPreferencesScreenNames.AccountManagement]: undefined;
+	[SettingsPreferencesScreenNames.Language]: undefined;
+	// [SettingsPreferencesScreenNames.PrivacyPolicy]: undefined;
+	[SettingsPreferencesScreenNames.QRCode]: undefined;
 }

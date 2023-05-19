@@ -2,6 +2,14 @@
 	background-color: white;
 	flex: 1;
 
+	&__header {
+		color: #1E1E1E;
+		font-family: Poppins-Light;
+		font-size: 15px;
+		align-self: center;
+		// margin-top: 20px;
+	}
+
 	&__note {
 		align-self: center;
 		font-family: Poppins-Medium;

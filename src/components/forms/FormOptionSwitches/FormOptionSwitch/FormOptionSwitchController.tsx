@@ -15,6 +15,7 @@ type TProps<
 		? [isActive: boolean, setIsActive: (activityStatus: boolean) => void]
 		: undefined;
 	presentation: React.ReactNode;
+	optionSwitchStyle?: StyleProp<ViewStyle>;
 	controllerStyle?: {
 		baseController?: StyleProp<ViewStyle>;
 		activeStyle?: StyleProp<ViewStyle>;
@@ -29,6 +30,7 @@ function FormOptionSwitchController<
 	hasCustomController,
 	field,
 	customController,
+	optionSwitchStyle,
 	controllerStyle = {
 		baseController: styles.container__optionSwitch__control,
 		activeStyle: styles.container__optionSwitch__control__on,
@@ -42,9 +44,9 @@ function FormOptionSwitchController<
 	const setIsActive = hasCustomController
 		? customController![1]
 		: (activityStatus: boolean) => setFieldValue(field as string, activityStatus);
-
+	const style = optionSwitchStyle ? optionSwitchStyle : styles.container__optionSwitch;
 	return (
-		<View style={styles.container__optionSwitch}>
+		<View style={style}>
 			<TouchableOpacity
 				onBlur={(e) => {
 					if (hasCustomController) return;

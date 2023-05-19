@@ -153,7 +153,8 @@
 							"height": "Care-ti este inaltimea ? \n (cm)",
 							"orientation": "Cu cine ai vrei sa te intalnesti ?",
 							"photos": "Adauga-ti pozele",
-							"photosNote": "Adauga cel putin 2 poze \n pentru mai multa atentie",
+							"photosNote": "Adauga cel putin 2 poze \npentru mai multa atentie",
+							"photosUsageTutorial": "Apasa scurt pe poza pentru a o sterge (mai intai vei primi o confirmare). Poti reordona pozele prin tragere.",
 							"orientationNote": "Poti alege ambele optiuni"
 						},
 						"Errors": {
@@ -187,6 +188,9 @@
 					},
 					"EnoughMatchesNote": {
 						"caption": "Este vremea sa te focusezi pe match-urile tale curente"
+					},
+					"TimedOutNote": {
+						"caption": "Considera sa-ti schimbi filtrele de cautare pentru a primi mai multe recomandari"
 					},
 					"UsersSwiper": {
 						"PaymentSheet": {
@@ -239,6 +243,7 @@
 					}
 				},
 				"Chats": {
+					"leftMatchesNote": "inca {{count}} alte match-uri ramase",
 					"noMatchesNote": "E vremea sa mai trimiti like-uri"
 				},
 				"MatchChat": {
@@ -293,9 +298,35 @@
 								}
 							}
 						}
+					},
+					"AwaitingMatchMessagePreview": {
+						"sendingMessage": "Trimitere mesaj",
+						"failed": "Eroare - Apasa pentru a retrimite"
 					}
 				},
 				"Settings": {
+					"SettingsPreferences": {
+						"QRCode": {
+							"title": "Impartaseste dragostea si cu altii",
+							"caption": "Scaneaza pentru a descarca memo"
+						},
+						"Buttons": {
+							"accountManagement": "Gestioneaza contul",
+							"privacyPolicy": "Politica de confidentialitate",
+							"Notifications": {
+								"caption": "Notificari",
+								"Confirmation": {
+									"title": "Notificarile sunt activate 🔔",
+									"details": "Vei primi notificari cand vei primi noi match-uri sau mesaje 🎉"
+								},
+								"Failure": {
+									"title": "Ceva nu a mers bine 😓",
+									"details": "Te rugam sa activezi notificarile in setarile telefonului tau 🙏"
+								}
+							},
+							"qrCode": "Cod QR"
+						}
+					},
 					"GetPremium": {
 						"buttonTitle": "Obtine Premium",
 						"premiumButtonTitle": "Verifica Premium",
@@ -504,6 +535,13 @@
 			"Forms": {
 				"FormImagePicker": {
 					"FormImagePickerSupplier": {
+						"remainingPicturesNotice_0": "Nu mai poti adauga poze",
+						"remainingPicturesNotice": "Mai poti adauga o poza",
+						"remainingPicturesNotice_plural": "Mai poti adauga {{count}} poze"
+					}
+				},
+				"FormAnimatedImagePicker": {
+					"FormAnimatedImagePickerSupplier": {
 						"remainingPicturesNotice_0": "Nu mai poti adauga poze",
 						"remainingPicturesNotice": "Mai poti adauga o poza",
 						"remainingPicturesNotice_plural": "Mai poti adauga {{count}} poze"
