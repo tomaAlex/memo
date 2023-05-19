@@ -14,6 +14,9 @@ export const useMatchesTotalNotifications = (matchIds: string[], requestingUserI
 	for (const matchId of matchIds) {
 		const matchDocumentReference = allMatchesCollectionReference.doc(matchId);
 		const matchSnapshotCleaner = matchDocumentReference.onSnapshot((matchSnapshot) => {
+			if (!matchSnapshot) {
+				return;
+			}
 			const matchData = matchSnapshot.data() as Match;
 			const matchUnreadMessages = countMatchNotifications(matchData, requestingUserId);
 			const matchUnreadMessagesChanged = notifiedMatches[matchId] !== matchUnreadMessages;
