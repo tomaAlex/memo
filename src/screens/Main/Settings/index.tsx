@@ -6,6 +6,7 @@ import SettingsPanel from "./SettingsPanel";
 import SettingsPhotos from "./SettingsPhotos";
 import SettingsInformation from "./SettingsInformation";
 import SettingsPreferences from "./SettingsPreferences";
+import { settingsScreenHeaderOptions } from "./SettingsScreenHeaderOptions";
 
 const SettingsStack = createStackNavigator<SettingsNavigationStackTypes>();
 
@@ -17,32 +18,17 @@ const Settings = ({}: ScreenProps<MainScreenNames.Settings>) => {
 		>
 			<SettingsStack.Screen name={SettingsScreenNames.SettingsPanel} component={SettingsPanel} />
 			<SettingsStack.Screen
-				options={{
-					headerShown: true,
-					headerTitleStyle: { fontFamily: "Poppins-Medium", fontSize: 22 },
-					headerTitleAlign: "center",
-					title: "Gallery",
-				}}
+				options={settingsScreenHeaderOptions("Gallery")}
 				name={SettingsScreenNames.Photos}
 				component={SettingsPhotos}
 			/>
 			<SettingsStack.Screen
-				options={{
-					headerShown: true,
-					headerTitleStyle: { fontFamily: "Poppins-Medium", fontSize: 22 },
-					headerTitleAlign: "center",
-					title: "Profile",
-				}}
+				options={settingsScreenHeaderOptions("Profile")}
 				name={SettingsScreenNames.Information}
 				component={SettingsInformation}
 			/>
 			<SettingsStack.Screen
-				options={{
-					headerShown: true,
-					headerTitleStyle: { fontFamily: "Poppins-Medium", fontSize: 22 },
-					headerTitleAlign: "center",
-					title: "Settings",
-				}}
+				options={settingsScreenHeaderOptions("Settings")}
 				name={SettingsScreenNames.Preferences}
 				component={SettingsPreferences}
 			/>
