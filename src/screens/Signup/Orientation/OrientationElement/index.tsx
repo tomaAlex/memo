@@ -1,6 +1,6 @@
 import FormOptionSwitch from "components/forms/FormOptionSwitches/FormOptionSwitch";
 import { useFormikContext } from "formik";
-import { BisexualIcon, FemaleIcon, HetersexualIcon, HomosexualIcon, MaleIcon } from "icons";
+import { FemaleIcon, MaleIcon } from "icons";
 import React from "react";
 import { Orientation, Gender } from "types";
 import styles from "./OrientationElement.module.scss";

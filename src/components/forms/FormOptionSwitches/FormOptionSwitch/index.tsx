@@ -14,12 +14,16 @@ type TProps<
 		? [isActive: boolean, setIsActive: (activityStatus: boolean) => void]
 		: undefined;
 	presentation: React.ReactNode;
+	labelPosition?: "BOTTOM" | "UP";
+	labelStyle?: StyleProp<ViewStyle>;
+	optionSwitchStyle?: StyleProp<ViewStyle>;
 	isMandatory?: boolean;
 	children?: React.ReactNode;
 	controllerStyle?: {
 		baseController?: StyleProp<ViewStyle>;
 		activeStyle?: StyleProp<ViewStyle>;
 		inactiveStyle?: StyleProp<ViewStyle>;
+		controllerHeight?: ViewStyle["height"];
 	};
 };
 
@@ -31,17 +35,31 @@ function FormOptionSwitch<
 	field,
 	customController,
 	controllerStyle,
+	optionSwitchStyle,
 	presentation,
 	isMandatory,
 	children,
+	labelPosition,
+	labelStyle,
 	...touchableOpacityProps
 }: TProps<HasCustomController, D>) {
 	return (
 		<View style={styles.container}>
-			<FormOptionSwitchLabel {...{ children, isMandatory }} />
+			{(labelPosition == undefined || labelPosition == "UP") && (
+				<FormOptionSwitchLabel {...{ children, isMandatory, labelStyle }} />
+			)}
 			<FormOptionSwitchController
-				{...{ hasCustomController, field, customController, controllerStyle, presentation, ...touchableOpacityProps }}
+				{...{
+					hasCustomController,
+					field,
+					customController,
+					controllerStyle,
+					optionSwitchStyle,
+					presentation,
+					...touchableOpacityProps,
+				}}
 			/>
+			{labelPosition == "BOTTOM" && <FormOptionSwitchLabel {...{ children, isMandatory, labelStyle }} />}
 		</View>
 	);
 }

@@ -70,7 +70,15 @@ const SearchFiltersForm = ({ resetRecommendations }: TProps) => {
 									caption={`${distance}km`}
 								/>
 							</FormRangeSlider>
-							<FormSwitchInput field="likesOnly" disabled={!isPremium} style={!isPremium && { opacity: 0.78 }}>
+							<FormSwitchInput
+								field="likesOnly"
+								switchContainerStyle={{
+									flexDirection: "row",
+									justifyContent: "space-between",
+								}}
+								disabled={!isPremium}
+								style={!isPremium && { opacity: 0.78 }}
+							>
 								<FormFieldLabel style={styles.container__form__label} label={translateLabels("likesOnly")} />
 								{!isPremium && (
 									<Tooltip

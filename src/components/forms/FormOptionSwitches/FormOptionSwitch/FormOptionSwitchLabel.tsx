@@ -1,16 +1,17 @@
 import React from "react";
-import { View } from "react-native";
+import { StyleProp, View, ViewStyle } from "react-native";
 import FormFieldMandatoryNote from "../../FormFieldMandatoryNote";
 import styles from "./FormOptionSwitch.module.scss";
 
 type TProps = {
 	children?: React.ReactNode;
 	isMandatory?: boolean;
+	labelStyle?: StyleProp<ViewStyle>;
 };
 
-const FormOptionSwitchLabel = ({ children, isMandatory }: TProps) => {
+const FormOptionSwitchLabel = ({ children, isMandatory, labelStyle }: TProps) => {
 	return children ? (
-		<View style={styles.container__label}>
+		<View style={[styles.container__label, labelStyle]}>
 			{isMandatory && (
 				<View style={styles.container__label__mandatoryNote}>
 					<FormFieldMandatoryNote />
