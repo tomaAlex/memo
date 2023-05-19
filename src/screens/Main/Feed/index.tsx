@@ -57,8 +57,7 @@ const Feed = ({
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [setExpandableRecommendations]);
 
-	// const loadingTimeout = 15000;
-	const loadingTimeout = 5000;
+	const loadingTimeout = 15000;
 	const [hasTimedOut, setHasTimedOut] = useState(false);
 	const scheduledTimeoutMarker = useRef<NodeJS.Timeout | null>(null);
 	const [filteredRecommendations, expandFilteredRecommendations, resetFilteredRecommendations] =
