@@ -20,6 +20,17 @@
 			border-radius: 100px;
 			top: 5%;
 		}
+
+		&__onlineBubble {
+			background-color: green;
+			border-radius: 500px;
+			position: absolute;
+			z-index: 1;
+			width: 20%;
+			aspect-ratio: 1;
+			bottom: 8%;
+			right: 8%;
+		}
 	}
 
 	&__lastMessagePreviewContainer {
