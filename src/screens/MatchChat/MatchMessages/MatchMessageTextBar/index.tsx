@@ -11,11 +11,12 @@ type TProps = {
 	sendMessage: (message: string) => Promise<void>;
 	createAwaitingMessage: (message: string) => void;
 	clearAwaitingMessage: () => void;
+	markTyping: () => void;
 };
 
 const isMessageEmpty = (message: string) => message === "";
 
-const MatchMessageTextBar = ({ sendMessage, createAwaitingMessage, clearAwaitingMessage }: TProps) => {
+const MatchMessageTextBar = ({ sendMessage, createAwaitingMessage, clearAwaitingMessage, markTyping }: TProps) => {
 	const matchMessageTextBarSchema = useMatchMessageTextBarFormValidationRules();
 	const [isMessageSending, setIsMessageSending] = useState(false);
 
@@ -61,6 +62,7 @@ const MatchMessageTextBar = ({ sendMessage, createAwaitingMessage, clearAwaiting
 							multiline={true}
 							enablesReturnKeyAutomatically
 							containerStyle={styles.container__messageBar__inputContainer}
+							onChange={markTyping}
 						/>
 					</View>
 					<FormSubmitButton
