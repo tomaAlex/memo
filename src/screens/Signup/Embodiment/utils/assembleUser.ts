@@ -27,6 +27,7 @@ const assembleUser = async (
 		},
 		reports: [],
 		flags: [],
+		updates: {},
 	};
 };
 

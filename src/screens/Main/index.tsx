@@ -9,7 +9,7 @@ import getMainNavbarIcon from "./utils/getMainNavbarIcon";
 import { useSelector } from "react-redux";
 import { selectAwaitingLoginStatus, selectIsGenericAdShown, selectIsPremium } from "redux/selectors";
 import { useInterstitialAd } from "react-native-google-mobile-ads";
-import { useInAppInteractionsUpdater, useMatchesTotalNotifications } from "hooks";
+import { useInAppInteractionsUpdater, useLastActUpdater, useMatchesTotalNotifications } from "hooks";
 import { NotificationTypes } from "NotificationManager/notificationTypes";
 import MessageNotificationManager from "NotificationManager/MessageNotification";
 // import { AdsConsent, AdsConsentStatus } from "react-native-google-mobile-ads";
@@ -29,6 +29,7 @@ const Main = ({
 	clearNotification,
 	matchPreviews,
 }: ScreenProps<ScreenNames.Main>) => {
+	useLastActUpdater(60 * 1000); // update last act every minute
 	const isPremium = useSelector(selectIsPremium);
 	const awaitingLoginStatus = useSelector(selectAwaitingLoginStatus);
 	const isGenericAdShown = useSelector(selectIsGenericAdShown);

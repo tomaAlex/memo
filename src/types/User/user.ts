@@ -1,3 +1,4 @@
+import { UpdateManagedDocument } from "types/Firebase";
 import { Coordinates } from "./coordinates";
 import { Gender } from "./gender";
 import { LivedFeature, LivedFeatureExpiration } from "./livedFeature";
@@ -5,7 +6,7 @@ import { Location } from "./location";
 import { Orientation } from "./orientation";
 import { Report } from "./Report";
 
-export interface User {
+export interface User extends UpdateManagedDocument {
 	firstName: string;
 	lastName: string;
 	gender: Gender;

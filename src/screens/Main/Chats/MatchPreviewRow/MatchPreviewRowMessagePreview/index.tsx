@@ -13,18 +13,26 @@ import { useSelector } from "react-redux";
 
 type TProps = {
 	matchedUser: IdentifiedUser;
+	isMatchedUserTyping: boolean;
 	lastMessage: MatchMessage<true> | null;
 	matchTimestamp: FirebaseFirestoreTypes.Timestamp;
 	notifications: number;
 };
 
-const MatchPreviewRowMessagePreview = ({ matchedUser, lastMessage, matchTimestamp, notifications }: TProps) => {
+const MatchPreviewRowMessagePreview = ({
+	matchedUser,
+	isMatchedUserTyping,
+	lastMessage,
+	matchTimestamp,
+	notifications,
+}: TProps) => {
 	const isPremium = useSelector(selectIsPremium);
 	const messagePreview = lastMessage ? lastMessage.content : "Be first to send a message!";
 	const seenBy = lastMessage ? lastMessage.seenBy : [];
 	const isUserAuthorOfLastMessage = lastMessage ? lastMessage.author === store.getState().user.id : false;
 	const messagePreviewMaximumLength = 30;
 	const trimmedMessagePreview = trimMessage(messagePreviewMaximumLength, messagePreview);
+	const matchChatStatePreview = isMatchedUserTyping ? "Typing..." : trimmedMessagePreview;
 	const { firstName, lastName } = matchedUser;
 	const matchedUserName = trimMessage(15, `${firstName} ${lastName}`);
 	const messageTimestamp = lastMessage ? lastMessage.timestamp : matchTimestamp;
@@ -34,7 +42,7 @@ const MatchPreviewRowMessagePreview = ({ matchedUser, lastMessage, matchTimestam
 		<>
 			<View style={styles.container__lastMessagePreviewContainer}>
 				<Text style={styles.container__lastMessagePreviewContainer__name}>{matchedUserName}</Text>
-				<Text style={styles.container__lastMessagePreviewContainer__message}>{trimmedMessagePreview}</Text>
+				<Text style={styles.container__lastMessagePreviewContainer__message}>{matchChatStatePreview}</Text>
 			</View>
 			<View>
 				<Text style={styles.container__timePreview}>{timestampPreview}</Text>

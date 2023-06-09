@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { getTimestampFromJSON } from "Firebase";
-import { useMatchMessages } from "hooks/index";
+import { useIsTypingStatus, useMatchMessages } from "hooks/index";
 import { TouchableOpacity } from "react-native";
 import { MainScreenNames, MatchPreview, ScreenNames, ScreenProps } from "types/index";
 import styles from "./MatchPreviewRow.module.scss";
@@ -14,6 +14,7 @@ const MatchPreviewRow = (props: TProps) => {
 	const { navigation, updateAllMatchPreviews, matchPreviews, ...matchPreview } = props;
 	const { id, timestamp, matchedUsers, expiresAt } = matchPreview;
 	const matchedUser = matchedUsers[0];
+	const isMatchedUserTyping = useIsTypingStatus(id, matchedUser.id);
 	const matchTimestamp = getTimestampFromJSON(timestamp);
 	const [messages] = useMatchMessages(id);
 	const notifications = useMatchNotifications(id);
@@ -43,7 +44,9 @@ const MatchPreviewRow = (props: TProps) => {
 	return (
 		<TouchableOpacity style={styles.container} onPress={openChat}>
 			<MatchPreviewRowUserPreview {...{ matchedUser }} />
-			<MatchPreviewRowMessagePreview {...{ matchedUser, lastMessage, matchTimestamp, notifications }} />
+			<MatchPreviewRowMessagePreview
+				{...{ matchedUser, isMatchedUserTyping, lastMessage, matchTimestamp, notifications }}
+			/>
 		</TouchableOpacity>
 	);
 };

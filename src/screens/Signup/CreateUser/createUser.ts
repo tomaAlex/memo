@@ -24,6 +24,7 @@ const createUser = async (photoForm: PhotoForm): Promise<User> => {
 		},
 		reports: [],
 		flags: [],
+		updates: {},
 	};
 };
 

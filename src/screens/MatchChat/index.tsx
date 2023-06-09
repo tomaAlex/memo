@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useMatchMessages } from "hooks/index";
+import { useMatchMessages, useTypingMarker } from "hooks/index";
 import { FlatList, KeyboardAvoidingView, Platform, SafeAreaView } from "react-native";
 import { AwaitingMatchMessage, ScreenNames, ScreenProps } from "types/index";
 import connector from "../../redux/connector";
@@ -18,6 +18,7 @@ const MatchChat = ({
 }: ScreenProps<ScreenNames.MatchChat>) => {
 	const [messages, sendNewMessage] = useMatchMessages(matchId);
 	const [awaitingMessages, setAwaitingMessages] = useState<AwaitingMatchMessage[]>([]);
+	const markTyping = useTypingMarker(matchId);
 
 	useEffect(() => {
 		setAdjustResize();
@@ -52,6 +53,7 @@ const MatchChat = ({
 						setAwaitingMessages(awaitingMessages.slice(0, awaitingMessages.length));
 					}}
 					sendMessage={sendNewMessage}
+					{...{ markTyping }}
 				/>
 			</KeyboardAvoidingView>
 		</SafeAreaView>

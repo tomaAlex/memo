@@ -12,13 +12,24 @@
 		border-radius: 100px;
 		top: 5%;
 	}
+
+	&__onlineBubble {
+		background-color: green;
+		border-radius: 500px;
+		position: absolute;
+		z-index: 1;
+		width: 20%;
+		aspect-ratio: 1;
+		bottom: 8%;
+		right: 8%;
+	}
 }
 
 .name {
-    color: #1e1e1e;
-    font-family: Poppins-Medium;
-    font-weight: bold;
-    margin-top: 5px;
+	color: #1e1e1e;
+	font-family: Poppins-Medium;
+	font-weight: bold;
+	margin-top: 5px;
 	text-align: center;
 	font-size: 20px;
 }
