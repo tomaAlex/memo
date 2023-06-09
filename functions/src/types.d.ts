@@ -34,7 +34,7 @@ type Report = TimestampedElement & {
 	reasons: ReportReason[];
 };
 
-type User = {
+type User = UpdateManagedDocument & {
 	firstName: string;
 	lastName: string;
 	gender: Gender;
