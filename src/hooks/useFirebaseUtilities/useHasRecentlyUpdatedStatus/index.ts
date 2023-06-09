@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { UpdateManagedDocument } from "types";
 
 /**
@@ -11,12 +12,40 @@ export const useHasRecentlyUpdatedStatus = (
 	updateId: string,
 	updateTimeWindow: number = 3000
 ): boolean => {
-	const update = updateManagedDocument.updates[updateId];
-	if (!update) {
-		return false;
-	}
-	const updateTimestamp = update.toMillis();
-	const now = Date.now();
-	const elapsedSinceUpdate = now - updateTimestamp;
-	return elapsedSinceUpdate <= updateTimeWindow;
+	const [hasRecentlyUpdated, setHasRecentlyUpdated] = useState(false);
+	const updateChecker = useRef<NodeJS.Timer | null>(null);
+
+	const clearUpdateChecker = () => {
+		if (!updateChecker.current) {
+			return;
+		}
+		clearInterval(updateChecker.current);
+	};
+
+	useEffect(() => {
+		clearUpdateChecker();
+		updateChecker.current = setInterval(() => {
+			const update = updateManagedDocument.updates[updateId];
+			if (!update) {
+				setHasRecentlyUpdated(false);
+				return;
+			}
+			const updateTimestamp = update.toMillis();
+			const now = Date.now();
+			const elapsedSinceUpdate = now - updateTimestamp;
+			const recalculatedRecentlyUpdatedState = elapsedSinceUpdate <= updateTimeWindow;
+			if (recalculatedRecentlyUpdatedState === hasRecentlyUpdated) {
+				return;
+			}
+			setHasRecentlyUpdated(elapsedSinceUpdate <= updateTimeWindow);
+		}, 500);
+	}, [hasRecentlyUpdated, updateId, updateManagedDocument.updates, updateTimeWindow]);
+
+	useEffect(() => {
+		return () => {
+			clearUpdateChecker();
+		};
+	}, []);
+
+	return hasRecentlyUpdated;
 };
