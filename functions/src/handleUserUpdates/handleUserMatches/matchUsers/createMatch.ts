@@ -13,6 +13,7 @@ const createMatch = async (
 		timestamp: currentTimestamp,
 		expiresAt: firestore.Timestamp.fromDate(new Date(currentTimestamp.toMillis() + MATCH_TTL_MILLISECONDS)),
 		seenBy: [],
+		updates: {},
 	};
 	const matchToCreateId = computeMatchId(firstMatchedUser.id, secondMatchedUser.id);
 	const matchToCreateDocumentReference = firestore()

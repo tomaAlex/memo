@@ -13,6 +13,12 @@
 			color: red;
 		}
 
+		&__typingNote {
+			font-family: Poppins-Regular;
+			color: #1e1e1e;
+			// color: red;
+		}
+
 		&__remainingTimeLabel {
 			justify-self: flex-end;
 			margin-left: 5px;

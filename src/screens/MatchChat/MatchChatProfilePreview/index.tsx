@@ -7,6 +7,7 @@ import MatchReportingSection from "./MatchReportingSection";
 import TimedMatchChatUserPreview from "./TimedMatchChatUserPreview";
 import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
 import MatchChatProfilePreviewContext from "./MatchChatProfilePreviewContext";
+import { useIsTypingStatus } from "hooks";
 
 type TProps = {
 	matchId: string;
@@ -16,11 +17,14 @@ type TProps = {
 };
 
 const MatchChatProfilePreview = ({ userToPreview, expiresAt, matchId }: TProps) => {
+	const { id: userToPreviewId } = userToPreview;
+	const isUserToPreviewTyping = useIsTypingStatus(matchId, userToPreviewId);
+
 	return (
 		<View style={styles.container}>
 			<BackNavigationSection />
-			<TimedMatchChatUserPreview {...{ userToPreview, expiresAt }} />
-			<MatchChatProfilePreviewContext.Provider value={{ userToReportId: userToPreview.id, historyMatchId: matchId }}>
+			<TimedMatchChatUserPreview {...{ userToPreview, isUserToPreviewTyping, expiresAt }} />
+			<MatchChatProfilePreviewContext.Provider value={{ userToReportId: userToPreviewId, historyMatchId: matchId }}>
 				<MatchReportingSection />
 			</MatchChatProfilePreviewContext.Provider>
 		</View>

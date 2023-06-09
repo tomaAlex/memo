@@ -83,6 +83,12 @@ type TimestampedElement = {
 
 type TimeManagedDocument = TimestampedElement & LivedDocument;
 
+type UpdateManagedDocument = {
+	updates: {
+		[key: string]: firestore.Timestamp | undefined;
+	};
+};
+
 type ObservableDocument = {
 	seenBy: string[];
 };
@@ -98,6 +104,7 @@ type DocumentClearancePayload = {
 };
 
 type Match = TimeManagedDocument &
+	UpdateManagedDocument &
 	ObservableDocument & {
 		matchedUsers: string[];
 		messages: MatchMessage[];
