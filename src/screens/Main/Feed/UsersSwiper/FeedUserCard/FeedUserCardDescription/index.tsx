@@ -34,7 +34,7 @@ const FeedUserCardDescription = ({
 			<FeedUserCardDescriptionText text={`${age} ${translateDetails("years")}`} />
 			<FeedUserCardDescriptionText text={description} />
 			<FeedUserCardDescriptionText text={job} />
-			<FeedUserCardDescriptionText text={school} />
+			{/* <FeedUserCardDescriptionText text={school} /> */}
 			<FeedUserCardDescriptionText text={locationCaption} />
 			{likedText && (
 				<FeedUserCardDescriptionText
