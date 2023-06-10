@@ -51,8 +51,8 @@
 			},
 			"Observer": {
 				"notWhitelistedError": {
-					"title": "Doar studenti KCL!",
-					"message": "Logheaza-te cu un serviciu care are adresa ta de email KCL asociata"
+					"title": "Doar studenti din Londra!",
+					"message": "Logheaza-te cu un serviciu care are adresa ta de email de facultate din Londra asociata"
 				}
 			},
 			"Login": {
@@ -71,7 +71,7 @@
 						}
 					}
 				},
-				"selfMessage": "Aceasta aplicatie este special facuta\n pentru studentii King's. \nLogheaza-te cu email-ul tau KCL",
+				"selfMessage": "Aceasta aplicatie este special facuta\n pentru studentii din Londra. \nLogheaza-te cu email-ul tau de student",
 				"otherMessage": "Hai sa intalnim pe cineva \n din campusul tau"
 			},
 			"EmailLogin": {

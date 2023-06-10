@@ -51,8 +51,8 @@
 			},
 			"Observer": {
 				"notWhitelistedError": {
-					"title": "Only KCL students!",
-					"message": "Login in with a service having your KCL email address associated"
+					"title": "Only London students!",
+					"message": "Login in with a service having your London university email address associated"
 				}
 			},
 			"Login": {
@@ -71,7 +71,7 @@
 						}
 					}
 				},
-				"selfMessage": "This app is specially made \nfor King's students. \nLogin with your KCL email.",
+				"selfMessage": "This app is specially made \nfor London students. \nLogin with your university email.",
 				"otherMessage": "Let's meet new people \n in your campus"
 			},
 			"EmailLogin": {
